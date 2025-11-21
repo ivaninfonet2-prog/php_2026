@@ -8,28 +8,42 @@ class Login extends CI_Controller
         parent::__construct();
         $this->load->model('Usuario_modelo');
         $this->load->library('session');
-        $this->load->helper('url_helper');
+        $this->load->helper('url');
     }
     
-    public function index() 
+   private function datos_base()
     {
-        // Imagen de fondo dinámica para el login
-        $data['fondo_login'] = base_url('activos/imagenes/mi_fondo.jpg');
-        $data['titulo'] = 'UNLa Tienda';
-
-        // Cargar vistas
-        $this->load->view('templates/header_2', $data); 
-        $this->load->view('formularios/formulario_login', $data); // 🔹 aquí se pasa la imagen
-        $this->load->view('templates/footer');
+        return 
+        [
+            'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
+            'titulo' => 'Inicio - UNLa Tienda'
+        ];
     }
-    
+
+    private function datos_con_formulario()
+    {
+        $data = $this->datos_base();
+        $data['contenido'] = $this->load->view('login/formulario_login', $data, TRUE);
+        return $data;
+    }
+
+    // Página completa con header + body + footer
+    public function index()
+    {
+        $data = $this->datos_con_formulario();
+
+        $this->load->view('login/header_login', $data);
+        $this->load->view('login/body_login', $data);
+        $this->load->view('login/footer_login');
+    }
+
     public function autenticar()
     {
         $nombre_usuario = $this->input->post('nombre_usuario');
-        $palabra_clave = $this->input->post('palabra_clave');
+        $palabra_clave  = $this->input->post('palabra_clave');
 
-        // Validar credenciales
-        $usuario = $this->Usuario_modelo->obtener_usuario($nombre_usuario, $palabra_clave);
+        // Consultar usuario en el modelo
+        $usuario    = $this->Usuario_modelo->obtener_usuario($nombre_usuario, $palabra_clave);
         $id_usuario = $this->Usuario_modelo->obtener_id_usuario($nombre_usuario);
 
         // Guardar id en sesión
@@ -37,35 +51,31 @@ class Login extends CI_Controller
 
         if ($usuario) 
         {
+            // Guardar datos de sesión
             $this->session->set_userdata('logged_in', true);
             $this->session->set_userdata('rol_id', $usuario->rol_id);
 
-            // Header común
-            $this->load->view('templates/header');
-
             if ($usuario->rol_id === '2') 
             {
-                $this->load->view('vista_administrador'); // Vista administrador
+                // Vista para administrador
+                $this->load->view('templates/header_2');
+                $this->load->view('vista_administrador');
+                $this->load->view('templates/footer_2');
             } 
-            else 
+            else
             {
-                $this->load->view('vista_usuario'); // Vista usuario normal
+                // Redirigir a index_3 de Principio
+                 redirect('login/index_2');
             }
-
-            // Footer común
-            $this->load->view('templates/footer');
-        }    
+        } 
         else 
         {
+            // Usuario inválido: mensaje de error y volver al login
             $this->session->set_flashdata('error', 'Usuario o contraseña incorrectos');
-            
-            // Header común
-            $this->load->view('templates/header');
-            $this->load->view('formularios/formulario_login'); 
-            $this->load->view('templates/footer');
+            redirect('login'); // vuelve al formulario de login
         }
     }
-    
+
     public function logout() 
     {
         // Destruye la sesión activa

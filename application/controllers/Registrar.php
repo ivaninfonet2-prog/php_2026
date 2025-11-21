@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -7,40 +6,39 @@ class Registrar extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
         $this->load->model('Usuario_modelo');
-        $this->load->helper('url_helper');
+        $this->load->helper('url');
         $this->load->library('form_validation');
     }
 
     public function index()
     {
-        // Header y footer comunes
-        $this->load->view('templates/header');
-        $this->load->view('formularios/formulario_registro');
-        $this->load->view('templates/footer');
+        $data['fondo_registro'] = base_url('activos/imagenes/mi_fondo.jpg');
+        $data['titulo'] = 'Registro de Usuario';
+
+        $this->load->view('registrar/header_registrar', $data);
+        $this->load->view('registrar/body_registrar', $data);
+        $this->load->view('registrar/footer_registrar');
     }
 
     public function registrar_usuario()
     {
         if ($this->validar_usuario()) 
         {
-            // Si las validaciones son correctas se toma el email y dni
             $email = $this->input->post('nombre_usuario');
             $dni = $this->input->post('dni');
 
-            // Se pregunta si son iguales a alguno existente
             if ($this->Usuario_modelo->verificar_usuario_existente($email, $dni))
             {
                 $data['error'] = 'El usuario con este email o DNI ya está registrado.';
+                $data['fondo_registro'] = base_url('activos/imagenes/mi_fondo.jpg');
+                $data['titulo'] = 'Registro de Usuario';
 
-                $this->load->view('templates/header');
-                $this->load->view('formularios/formulario_registro', $data);
-                $this->load->view('templates/footer');
+                $this->load->view('templates/header_2', $data);
+                $this->load->view('templates/body_registro', $data);
             }
             else
             {
-                // Si no son iguales, se guarda el resto de la info
                 $data = array(
                     'nombre' => $this->input->post('nombre'),
                     'apellido' => $this->input->post('apellido'),
@@ -51,31 +49,29 @@ class Registrar extends CI_Controller
                     'rol_id' => 1,
                 );
 
-                // Registro exitoso
                 $this->Usuario_modelo->registrar_usuario($data);
 
-                $this->load->view('templates/header');
+                $this->load->view('templates/header_2');
                 $this->load->view('post_registro');
-                $this->load->view('templates/footer');
             } 
         }
         else
         {
-            $this->load->view('templates/header');
-            $this->load->view('formularios/formulario_registro');
-            $this->load->view('templates/footer');
+            $data['fondo_registro'] = base_url('activos/imagenes/mi_fondo.jpg');
+            $data['titulo'] = 'Registro de Usuario';
+
+            $this->load->view('templates/header_2', $data);
+            $this->load->view('templates/body_registro', $data);
         }
     }
     
     public function validar_usuario()
     {
-        $this->load->helper('url');
-        $this->load->library('form_validation');
         $this->form_validation->set_rules('nombre', 'Nombre', 'required');
         $this->form_validation->set_rules('apellido', 'Apellido', 'required');
         $this->form_validation->set_rules('dni', 'DNI', 'required');
         $this->form_validation->set_rules('telefono', 'Teléfono', 'required');
-        $this->form_validation->set_rules('nombre_usuario','Email','required');
+        $this->form_validation->set_rules('nombre_usuario','Email','required|valid_email');
         $this->form_validation->set_rules('palabra_clave', 'Password', 'required');
 
         return $this->form_validation->run();

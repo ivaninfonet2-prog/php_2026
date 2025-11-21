@@ -1,53 +1,53 @@
+<link rel="stylesheet" href="<?php echo base_url('activos/css/formularios/formulario_registro.css'); ?>">
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Registro</title>
-    <link rel="stylesheet" href="<?php echo base_url('activos/css/formularios/formulario_registro.css'); ?>">
-</head>
-<body>
-    <div class="registration-container">
-        <h1>Registro de Usuario</h1>
-        <form method="post" action="<?php echo site_url('registrar/registrar_usuario'); ?>">
-            <?php if (isset($error)): ?>
-                <div class="alert"><?php echo $error; ?></div>
-            <?php endif; ?>
+<div class="registro-form">
+    <h2 class="registro-title text-center mb-3"><?= $titulo; ?></h2>
 
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" required>
-            </div>
+    <form method="post" action="<?php echo site_url('registrar/registrar_usuario'); ?>" autocomplete="off">
+        <?php if (isset($error)): ?>
+            <div class="alert alert-danger text-center mb-3"><?php echo $error; ?></div>
+        <?php endif; ?>
 
-            <div class="form-group">
-                <label for="apellido">Apellido:</label>
-                <input type="text" name="apellido" required>
-            </div>
+        <div class="mb-2">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" required>
+        </div>
 
-            <div class="form-group">
-                <label for="dni">DNI:</label>
-                <input type="text" name="dni" required>
-            </div>
+        <div class="mb-2">
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" name="apellido" required>
+        </div>
 
-            <div class="form-group">
-                <label for="telefono">Teléfono:</label>
-                <input type="text" name="telefono" required>
-            </div>
+        <div class="mb-2">
+            <label for="dni" class="form-label">DNI</label>
+            <input type="text" class="form-control" name="dni" required>
+        </div>
 
-            <div class="form-group">
-                <label for="nombre_usuario">Email:</label>
-                <input type="email" name="nombre_usuario" required>
-            </div>
+        <div class="mb-2">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" name="telefono" required>
+        </div>
 
-            <div class="form-group">
-                <label for="palabra_clave">Contraseña:</label>
-                <input type="password" name="palabra_clave" required>
-            </div>
+        <div class="mb-2">
+            <label for="nombre_usuario" class="form-label">Email</label>
+            <input type="email" class="form-control" name="nombre_usuario" required>
+        </div>
 
-            <input type="submit" class="button" value="Registrar">
-        </form>
+        <div class="mb-2">
+            <label for="palabra_clave" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="palabra_clave" required autocomplete="new-password">
+        </div>
 
-        <a href="<?php echo site_url('principio/index'); ?>" class="button back">Volver al inicio</a>
+        <button type="submit" class="btn btn-success w-100 mt-3">Registrar</button>
+    </form>
+
+    <!-- Bloque para usuarios ya registrados -->
+    <div class="registro-registered mt-3">
+        <p>¿Ya tienes una cuenta?</p>
+        <a href="<?php echo site_url('login'); ?>" class="btn btn-dark">Inicia sesión aquí</a>
     </div>
-</body>
-</html>
+
+    <div class="volver-inicio text-center mt-4">
+        <a href="<?php echo site_url('principio/index'); ?>" class="btn btn-secondary">Volver al inicio</a>
+    </div>
+</div>

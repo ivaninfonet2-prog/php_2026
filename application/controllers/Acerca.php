@@ -1,17 +1,36 @@
-
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Acerca extends CI_Controller {
-    public function index() {
-        // Cargar header común
-        $this->load->view('templates/header');
-        
-        // Vista principal de la sección "Acerca"
-        $this->load->view('footer/acerca'); 
-        
-        // Cargar footer común
-        $this->load->view('templates/footer');
+class Acerca extends CI_Controller 
+{
+    public function index() 
+    {
+        $data['fondo']  = base_url('activos/imagenes/mi_fondo.jpg');
+        $data['titulo'] = 'Acerca de UNLa Tienda';
+
+        // Header común
+        $this->load->view('footer/header_footer', $data);
+
+        // Vista principal
+        $this->load->view('footer/footer_acerca', $data);
+
+        // Footer común
+        $this->load->view('footer/footer_footer');
+    }
+
+    public function index_2() 
+    {
+        $data['fondo']  = base_url('activos/imagenes/mi_fondo.jpg');
+        $data['titulo'] = 'Acerca de UNLa Tienda';
+
+        // Header común
+        $this->load->view('templates/header_2', $data);
+
+        // Vista principal
+        $this->load->view('body_footer_2/acerca', $data);
+
+        // Footer común
+        $this->load->view('templates/footer_2');
     }
 }
+?>

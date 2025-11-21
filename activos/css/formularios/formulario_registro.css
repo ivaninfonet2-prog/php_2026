@@ -1,97 +1,72 @@
+/* Contenedor principal dentro del body2 */
+.registro-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;   /* más alejado del header */
+    margin-bottom: 80px; /* más alejado del footer */
+}
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
-    animation: fadeIn 0.8s ease;
+/* Formulario más compacto y ancho */
+.registro-form {
+    background: #fff;
+    padding: 15px;               /* 🔹 menos altura */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    animation: fadeIn 0.8s ease-in-out;
+
+    width: 100%;
+    max-width: 500px;            /* 🔹 más ancho */
+    margin: 0 auto;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover dinámico */
+.registro-form:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+}
+
+/* Título más pequeño y oscuro */
+.registro-title {
+    color: #222;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Labels en negro */
+.registro-form .form-label {
+    color: #000;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* Bloque para usuarios ya registrados */
+.registro-registered {
+    margin-top: 20px;
+    text-align: center;
+    background: #f1f1f1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.registro-registered p {
+    color: #222; /* oscuro */
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Botón volver al inicio */
+.volver-inicio {
+    margin-top: 25px;
+    text-align: center;
 }
 
 /* Animación */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.registration-container {
-    max-width: 400px;
-    margin: 40px auto;
-    background-color: #fff;
-    padding: 20px 24px;
-    border-radius: 10px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-    animation: slideUp 0.5s ease-out;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-h1 {
-    text-align: center;
-    color: #2c3e50;
-    font-size: 24px;
-    margin-bottom: 16px;
-}
-
-.form-group {
-    margin-bottom: 14px;
-}
-
-label {
-    display: block;
-    font-weight: 600;
-    color: #444;
-    margin-bottom: 4px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 15px;
-    transition: all 0.3s ease;
-}
-
-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 6px rgba(0, 123, 255, 0.15);
-    outline: none;
-}
-
-.button {
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    padding: 10px;
-    width: 100%;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.button:hover {
-    background-color: #0056b3;
-    transform: scale(1.01);
-}
-
-.back {
-    background-color: #6c757d;
-    display: block;
-    margin-top: 12px;
-    text-align: center;
-    padding: 8px;
-    text-decoration: none;
-    color: white;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-.back:hover {
-    background-color: #5a6268;
+    from { opacity: 0; transform: translateY(-15px); }
+    to   { opacity: 1; transform: translateY(0); }
 }

@@ -56,4 +56,12 @@ class Usuario_modelo extends CI_Model
         $query = $this->db->get();
         return ($query->num_rows() > 0) ? $query->row_array() : null;
     }
+
+     //  Nuevo método: obtener usuario completo por ID
+    public function obtener_por_id($id_usuario)
+    {
+        $this->db->where('id_usuario', $id_usuario);
+        $query = $this->db->get('usuarios');
+        return $query->row(); // devuelve objeto con nombre, apellido, etc.
+    }
 }

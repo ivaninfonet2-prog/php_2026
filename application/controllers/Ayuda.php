@@ -1,11 +1,35 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Ayuda extends CI_Controller {
-    public function index() {
-        $this->load->view('templates/header');
-        $this->load->view('footer/ayuda');
+class Ayuda extends CI_Controller
+{
+    public function index() 
+    {
+        // Ruta de la imagen de fondo
+        $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
+
+        // Cargar header común
+        $this->load->view('templates/header', $data);
+
+        // Vista principal de la sección "Ayuda"
+        $this->load->view('body_footer/ayuda', $data);
+
+        // Cargar footer común
         $this->load->view('templates/footer');
+    }
+
+    public function index_2() 
+    {
+        // Ruta de la imagen de fondo
+        $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
+
+        // Cargar header común
+        $this->load->view('templates/header', $data);
+
+        // Vista principal de la sección "Ayuda"
+        $this->load->view('body_footer_2/ayuda', $data);
+
+        // Cargar footer común
+        $this->load->view('templates/footer_2');
     }
 }
