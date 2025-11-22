@@ -86,7 +86,7 @@ body {
 
 .cuadro-politicas a.btn-warning:hover {
     background-color: #e68900;
-    color: #fff;
+    color: #ffffff;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.6);
 }

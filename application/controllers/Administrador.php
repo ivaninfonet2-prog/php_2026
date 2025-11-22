@@ -19,7 +19,5 @@ class Administrador extends CI_Controller
         $this->load->view('vista_administrador');
         $this->load->view('templates/footer_2');
     }
-
-
 }
 ?>
