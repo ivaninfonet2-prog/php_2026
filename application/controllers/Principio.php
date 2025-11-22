@@ -19,7 +19,7 @@ class Principio extends CI_Controller
         [
             'titulo'    => 'Inicio - UNLa Tienda',
             'fondo'     => base_url('activos/imagenes/mi_fondo.jpg'),
-            'contenido' => $this->load->view('espectaculos/index_sin_loguear',
+            'contenido' => $this->load->view('espectaculos_sin_loguear/index_sin_loguear',
                 ['espectaculos' => $this->Espectaculo_modelo->obtener_espectaculos()],TRUE // devuelve el HTML como string
             )
         ];
