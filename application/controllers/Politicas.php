@@ -6,19 +6,19 @@ class Politicas extends CI_Controller
 {
     public function index() 
     {
-        // Ruta de la imagen de fondo
-        $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
+        $data['fondo']  = base_url('activos/imagenes/mi_fondo.jpg');
+        $data['titulo'] = 'Acerca de UNLa Tienda';
 
-        // Cargar header común
-        $this->load->view('templates/header', $data);
+        // Header común
+        $this->load->view('politicas_principal/header_politicas', $data);
 
-        // Vista principal de la sección "Políticas"
-        $this->load->view('body_footer/politicas', $data);
+        // Vista principal
+        $this->load->view('politicas_principal/body_politicas', $data);
 
-        // Cargar footer común
-        $this->load->view('templates/footer');
+        // Footer común
+        $this->load->view('politicas_principal/footer_politicas');
     }
-
+    
     public function index_2() 
     {
         // Ruta de la imagen de fondo

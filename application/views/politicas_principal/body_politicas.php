@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Enlace al CSS -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/politicas_principal/body_politica.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('activos/css/politicas_principal/body_politicas.css'); ?>">
 </head>
 <body style="background-image: url('<?= $fondo; ?>');">
 
