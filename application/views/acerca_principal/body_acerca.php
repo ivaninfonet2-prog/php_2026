@@ -1,21 +1,28 @@
-<div class="container-fluid inicio-container full-width"
-     style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-            url('<?= $fondo ?>') no-repeat center center fixed;
-            background-size: cover;">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title><?= $titulo; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Sección dinámica -->
-    <div class="row mt-4 justify-content-center">
-        <div class="col-md-10 animate__animated animate__fadeInUp">
-            <?= $contenido ?>
+    <!-- Enlace al CSS -->
+    <link rel="stylesheet" href="<?= base_url('activos/css/acerca_principal/body_acerca.css'); ?>">
+</head>
+<body style="background-image: url('<?= $fondo; ?>');">
+
+    <!-- Main envuelve el contenido debajo del header -->
+    <main class="main-content">
+        <div class="cuadro-acerca text-center text-white">
+            <h2 class="animated-title"><?= $titulo; ?></h2>
+            <p class="animated-text">
+                Somos una tienda universitaria que ofrece productos y espectáculos para toda la comunidad.
+            </p>
+            
+            <a href="<?= base_url('principio'); ?>" class="btn btn-warning mt-3 animated-btn">
+                Volver al principio
+            </a>
         </div>
-    </div>
+    </main>
 
-    <!-- Sección extra decorativa -->
-    <div class="row mt-5">
-        <div class="col-12 text-center animate__animated animate__zoomIn">
-            <h3 class="mensaje-bienvenida">¡Disfrutá de nuestros espectáculos!</h3>
-            <p class="mensaje-sub">Explorá la cartelera y viví experiencias únicas.</p>
-        </div>
-    </div>
-</div>
-
+</body>
+</html>

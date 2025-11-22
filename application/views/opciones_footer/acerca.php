@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Enlace al CSS -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/body_footer_2/acerca.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('activos/css/acerca_principal/body_acerca.css'); ?>">
 </head>
 <body style="background-image: url('<?= $fondo; ?>');">
 
@@ -18,8 +18,8 @@
                 Somos una tienda universitaria que ofrece productos y espectáculos para toda la comunidad.
             </p>
             
-            <a href="<?= base_url('login/index_2'); ?>" class="btn btn-warning mt-3 animated-btn">
-                Volver al login agustina
+            <a href="<?= base_url('principio'); ?>" class="btn btn-warning mt-3 animated-btn">
+                Volver al principio
             </a>
         </div>
     </main>

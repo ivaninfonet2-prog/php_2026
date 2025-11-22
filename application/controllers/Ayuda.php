@@ -9,13 +9,13 @@ class Ayuda extends CI_Controller
         $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
 
         // Cargar header común
-        $this->load->view('templates/header', $data);
+        $this->load->view('ayuda_principal/header_ayuda', $data);
 
         // Vista principal de la sección "Ayuda"
-        $this->load->view('body_footer/ayuda', $data);
+        $this->load->view('ayuda_principal/body_ayuda', $data);
 
         // Cargar footer común
-        $this->load->view('templates/footer');
+        $this->load->view('ayuda_principal/footer_ayuda');
     }
 
     public function index_2() 

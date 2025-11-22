@@ -12,4 +12,4 @@
     </div>
 </footer>
 
-<link rel="stylesheet" href="<?= base_url('activos/css/principal/footer_principal.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('activos/css/acerca_principal/footer_acerca.css'); ?>">

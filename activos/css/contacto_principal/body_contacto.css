@@ -11,19 +11,19 @@ body {
 
 /* Main: espacio debajo del header y centrado */
 .main-content {
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 120px); /* resta header+footer */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
 }
 
-/* Contenedor principal más chico */
-.cuadro-acerca {
+/* Contenedor principal más compacto */
+.cuadro-contacto {
     background-color: rgba(0, 0, 0, 0.65);
     border-radius: 12px;
-    padding: 25px;              /* 🔽 menos padding */
-    max-width: 500px;           /* 🔽 más angosto */
+    padding: 25px;
+    max-width: 500px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.5);
     animation: fadeInUp 1s ease-out;
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -36,14 +36,14 @@ body {
 }
 
 /* Hover dinámico */
-.cuadro-acerca:hover {
+.cuadro-contacto:hover {
     transform: scale(1.02);
     background-color: rgba(0, 0, 0, 0.75);
 }
 
 /* Título */
-.cuadro-acerca h2 {
-    font-size: 2rem;            /* 🔽 más chico */
+.cuadro-contacto h2 {
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 20px;
     color: #ffd700;
@@ -58,8 +58,8 @@ body {
 }
 
 /* Texto */
-.cuadro-acerca p {
-    font-size: 1.1rem;          /* 🔽 más chico */
+.cuadro-contacto p {
+    font-size: 1.1rem;
     margin-bottom: 25px;
     line-height: 1.5;
     color: #f1f1f1;
@@ -73,15 +73,15 @@ body {
 }
 
 /* Botón */
-.cuadro-acerca a.btn-warning {
+.cuadro-contacto a.btn-warning {
     font-weight: bold;
-    padding: 10px 22px;         /* 🔽 más chico */
+    padding: 10px 22px;
     border-radius: 6px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-.cuadro-acerca a.btn-warning:hover {
+.cuadro-contacto a.btn-warning:hover {
     background-color: #e68900;
     color: #fff;
     transform: translateY(-3px);
@@ -90,16 +90,16 @@ body {
 
 /* Responsivo */
 @media (max-width: 768px) {
-    .cuadro-acerca {
+    .cuadro-contacto {
         max-width: 90%;
         padding: 20px;
     }
 
-    .cuadro-acerca h2 {
+    .cuadro-contacto h2 {
         font-size: 1.6rem;
     }
 
-    .cuadro-acerca p {
+    .cuadro-contacto p {
         font-size: 1rem;
     }
 }

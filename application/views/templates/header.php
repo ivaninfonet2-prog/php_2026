@@ -9,23 +9,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS personalizado -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/ayuda_principal/header_ayuda.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('activos/css/vista_header.css'); ?>">
 </head>
 <body class="d-flex flex-column min-vh-100">
+
 <header class="main-header">
     <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container-fluid">
+            <!-- Logo a la izquierda -->
             <a class="navbar-brand d-flex align-items-center" href="<?= base_url(); ?>">
                 <img src="<?= base_url('activos/imagenes/logo.jpg'); ?>" alt="Logo UNLa" class="logo-img me-2">
                 <span class="site-title">UNLa Tienda</span>
             </a>
+
+            <!-- Botón hamburguesa -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Menú a la derecha -->
             <div class="collapse navbar-collapse" id="menuPrincipal">
                 <ul class="navbar-nav ms-auto nav-menu">
                     <li class="nav-item">
-                        <a class="btn btn-home" href="<?= base_url(); ?>">Volver al inicio</a>
+                        <a class="btn btn-outline-dark me-2" href="<?= base_url('login'); ?>">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-dark" href="<?= base_url('registrar'); ?>">Registrar</a>
                     </li>
                 </ul>
             </div>
