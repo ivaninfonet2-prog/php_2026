@@ -61,3 +61,14 @@
 .volver-inicio .btn {
   padding: 6px 12px;
 }
+
+
+.volver-login {
+  text-align: center;
+  margin-top: 40px;   /* 👈 aumenta la separación hacia arriba */
+}
+
+.volver-login .btn {
+  padding: 6px 12px;
+}
+

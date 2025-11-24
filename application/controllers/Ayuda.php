@@ -18,18 +18,18 @@ class Ayuda extends CI_Controller
         $this->load->view('ayuda_principal/footer_ayuda');
     }
 
-    public function index_2() 
+    public function ayuda_2() 
     {
         // Ruta de la imagen de fondo
         $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
 
         // Cargar header común
-        $this->load->view('templates/header', $data);
+        $this->load->view('ayuda_2/header_ayuda', $data);
 
         // Vista principal de la sección "Ayuda"
-        $this->load->view('body_footer_2/ayuda', $data);
+        $this->load->view('ayuda_2/body_ayuda', $data);
 
         // Cargar footer común
-        $this->load->view('templates/footer_2');
+        $this->load->view('ayuda_2/footer_ayuda');
     }
 }

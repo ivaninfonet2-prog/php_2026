@@ -50,8 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['default_controller'] = 'Principio';
-
+$route['default_controller'] = 'Principal';
 
 $route['registrar'] = 'registrar';
 

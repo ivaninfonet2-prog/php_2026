@@ -37,6 +37,15 @@ class Login extends CI_Controller
         $this->load->view('login/footer_login');
     }
 
+    public function login_2()
+    {
+        $data = $this->datos_con_formulario();
+
+        $this->load->view('login_2/header_login', $data);
+        $this->load->view('login_2/body_login', $data);
+        $this->load->view('login_2/footer_login');
+    }
+
     public function autenticar()
     {
         $nombre_usuario = $this->input->post('nombre_usuario');

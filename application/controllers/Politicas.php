@@ -25,13 +25,13 @@ class Politicas extends CI_Controller
         $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
 
         // Cargar header común
-        $this->load->view('templates/header', $data);
+        $this->load->view('politicas_2/header_politicas', $data);
 
         // Vista principal de la sección "Políticas"
-        $this->load->view('body_footer_2/politicas', $data);
+        $this->load->view('politicas_2/body_politicas', $data);
 
         // Cargar footer común
-        $this->load->view('templates/footer_2');
+        $this->load->view('politica_2/footer_politicas');
     }
 
 }

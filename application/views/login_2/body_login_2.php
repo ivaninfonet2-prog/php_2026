@@ -26,7 +26,12 @@
         <a href="<?php echo site_url('principio'); ?>" class="btn btn-secondary">Volver al inicio</a>
     </div>
  
+         <!-- Botón volver colocado más arriba -->
+    <div class="volver-inicio text-center mt-4">
+        <a href="<?php echo site_url('login/login_2'); ?>" class="btn btn-secondary">Volver al Login</a>
+    </div>
  
+
     <!-- Sección extra decorativa -->
     <div class="row mt-5">
         <div class="col-12 text-center animate__animated animate__zoomIn">
