@@ -9,146 +9,154 @@ class Espectaculo_modelo extends CI_Model
         $this->load->database();
     }
 
-    // Obtener todos los espectáculos
+    // -------------------------------------------------------
+    // OBTENER LISTA COMPLETA (ARRAY)
+    // -------------------------------------------------------
     public function obtener_espectaculos() 
     {
         return $this->db->get('espectaculos')->result_array();
     }
 
-    // Obtener espectáculo por ID
+    // -------------------------------------------------------
+    // OBTENER ESPECTÁCULO POR ID (ARRAY)
+    // -------------------------------------------------------
     public function obtener_espectaculo_por_id($id) 
     {
-        return $this->db->get_where('espectaculos', ['id_espectaculo' => $id])->row_array();
+        return $this->db
+                    ->where('id_espectaculo', $id)
+                    ->get('espectaculos')
+                    ->row_array();
     }
 
-    // Obtener precio de un espectáculo
+    // -------------------------------------------------------
+    // OBTENER PRECIO (DEVUELVE VALOR SIMPLE)
+    // -------------------------------------------------------
     public function obtener_precio($id_espectaculo)
     {
-        $this->db->select('precio');
-        $this->db->from('espectaculos');
-        $this->db->where('id_espectaculo', $id_espectaculo);
-        $query = $this->db->get();
+        $query = $this->db
+                      ->select('precio')
+                      ->where('id_espectaculo', $id_espectaculo)
+                      ->get('espectaculos');
 
-        return $query->num_rows() > 0 ? $query->row()->precio : false;
+        return ($query->num_rows() > 0)
+            ? $query->row()->precio
+            : false;
     }
 
-    // Verificar si el espectáculo está habilitado
+    // -------------------------------------------------------
+    // VERIFICAR SI ESPECTÁCULO ESTÁ HABILITADO (OBJETO)
+    // -------------------------------------------------------
     public function esta_habilitado($id_espectaculo) 
     {
-        $this->db->where('id_espectaculo', $id_espectaculo);
-        $espectaculo = $this->db->get('espectaculos')->row();
+        $es = $this->db
+                   ->where('id_espectaculo', $id_espectaculo)
+                   ->get('espectaculos')
+                   ->row();
 
-        return $espectaculo && $espectaculo->disponibles > 0 && $espectaculo->fecha >= date('Y-m-d');
+        if (!$es) return false;
+
+        return ($es->disponibles > 0 && $es->fecha >= date('Y-m-d'));
     }
 
-    // Obtener espectáculo habilitado (fecha futura y entradas disponibles)
+    // -------------------------------------------------------
+    // OBTENER ESPECTÁCULO HABILITADO (OBJETO)
+    // -------------------------------------------------------
     public function obtener_espectaculo_habilitado($id_espectaculo)
     {
-        $this->db->where('id_espectaculo', $id_espectaculo);
-        $this->db->where('fecha >=', date('Y-m-d'));
-        $this->db->where('disponibles >', 0);
-        return $this->db->get('espectaculos')->row();
+        return $this->db
+                    ->where('id_espectaculo', $id_espectaculo)
+                    ->where('fecha >=', date('Y-m-d'))
+                    ->where('disponibles >', 0)
+                    ->get('espectaculos')
+                    ->row();
     }
 
-    // Restar entradas disponibles
+    // -------------------------------------------------------
+    // RESTAR ENTRADAS DISPONIBLES
+    // -------------------------------------------------------
     public function restar_entradas($id_espectaculo, $cantidad) 
     {
-        $this->db->where('id_espectaculo', $id_espectaculo);
-        $espectaculo = $this->db->get('espectaculos')->row();
+        $es = $this->db
+                   ->where('id_espectaculo', $id_espectaculo)
+                   ->get('espectaculos')
+                   ->row();
 
-        if ($espectaculo && $espectaculo->disponibles >= $cantidad) 
+        if ($es && $es->disponibles >= $cantidad) 
         {
-            $nueva_cantidad = $espectaculo->disponibles - $cantidad;
-            $this->db->where('id_espectaculo', $id_espectaculo);
-            $this->db->update('espectaculos', ['disponibles' => $nueva_cantidad]);
-            return true;
+            $nuevo_valor = $es->disponibles - $cantidad;
+            return $this->db
+                        ->where('id_espectaculo', $id_espectaculo)
+                        ->update('espectaculos', ['disponibles' => $nuevo_valor]);
         }
 
         return false;
     }
 
-    // Obtener detalles del espectáculo
+    // -------------------------------------------------------
+    // OBTENER DETALLES (SI EL CAMPO EXISTE)
+    // -------------------------------------------------------
     public function obtener_detalles($id_espectaculo) 
     {
-        $this->db->select('detalles');
-        $this->db->where('id_espectaculo', $id_espectaculo);
-        $query = $this->db->get('espectaculos');
+        $q = $this->db
+                 ->select('detalles')
+                 ->where('id_espectaculo', $id_espectaculo)
+                 ->get('espectaculos');
 
-        return $query->num_rows() > 0 ? $query->row()->detalles : '';
+        return ($q->num_rows() > 0)
+            ? $q->row()->detalles
+            : '';
     }
 
-    // Agregar nuevo espectáculo
+    // -------------------------------------------------------
+    // AGREGAR ESPECTÁCULO
+    // -------------------------------------------------------
     public function agregar_espectaculo($data)
     {
         return $this->db->insert('espectaculos', $data);
     }
 
-    // Actualizar espectáculo existente
+    // -------------------------------------------------------
+    // ACTUALIZAR ESPECTÁCULO
+    // -------------------------------------------------------
     public function actualizar_espectaculo($id, $datos)
     {
-        $this->db->where('id_espectaculo', $id);
-        
-        if ($this->db->update('espectaculos', $datos)) 
-        {
-            return true;
-        } 
-        else 
-        {
-            log_message('error', 'Error al actualizar espectáculo con ID: ' . $id);
-            return false;
-        }
+        return $this->db
+                    ->where('id_espectaculo', $id)
+                    ->update('espectaculos', $datos);
     }
 
-    // Eliminar espectáculo y datos relacionados
+    // -------------------------------------------------------
+    // ELIMINAR TOTALMENTE UN ESPECTÁCULO + DATOS RELACIONADOS
+    // -------------------------------------------------------
     public function eliminar_espectaculo_completo($id_espectaculo)
     {
         // Eliminar ventas
-        $this->db->where('espectaculo_id', $id_espectaculo);
-        $this->db->delete('ventas');
+        $this->db->where('espectaculo_id', $id_espectaculo)->delete('ventas');
 
         // Eliminar reservas
-        $this->db->where('espectaculo_id', $id_espectaculo);
-        $this->db->delete('reservas');
+        $this->db->where('espectaculo_id', $id_espectaculo)->delete('reservas');
 
-        // Eliminar clientes sin otras reservas
-        $clientes = $this->db->select('usuario_id')
-                         ->from('reservas')
-                         ->where('espectaculo_id', $id_espectaculo)
-                         ->get()->result_array();
-
-        foreach ($clientes as $cliente) 
-        {
-            $id = $cliente['usuario_id'];
-            $otras = $this->db->where('usuario_id', $id)
-                          ->where('espectaculo_id !=', $id_espectaculo)
-                          ->count_all_results('reservas');
-
-            if ($otras == 0) 
-            {
-                $this->db->where('id_usuario', $id);
-                $this->db->delete('clientes');
-            }
-        }
-
-        // Eliminar espectáculo
-        $this->db->where('id_espectaculo', $id_espectaculo);
-        return $this->db->delete('espectaculos');
+        // Finalmente eliminar espectáculo
+        return $this->db
+                    ->where('id_espectaculo', $id_espectaculo)
+                    ->delete('espectaculos');
     }
 
-    // --- Funcionalidad para compatibilidad con Reservar.php ---
-    // Esta función reemplaza la versión anterior que daba error por cantidad de argumentos
+    // -------------------------------------------------------
+    // OBTENER USUARIO (ARRAY)
+    // -------------------------------------------------------
     public function obtener_usuario($id_usuario, $campo = null)
     {
-        $this->db->where('id_usuario', $id_usuario);
-        $usuario = $this->db->get('usuarios')->row_array();
+        $usuario = $this->db
+                        ->where('id_usuario', $id_usuario)
+                        ->get('usuarios')
+                        ->row_array();
 
         if (!$usuario) return false;
 
-        if ($campo !== null && isset($usuario[$campo])) {
-            return $usuario[$campo];
-        }
-
-        return $usuario;
+        return ($campo !== null && isset($usuario[$campo]))
+            ? $usuario[$campo]
+            : $usuario;
     }
 }
 ?>

@@ -1,5 +1,6 @@
-
-/* General */
+/* ==========================
+   Estilos generales
+========================== */
 body {
     margin: 0;
     padding: 0;
@@ -9,20 +10,27 @@ body {
     padding-top: 80px; /* espacio igual a la altura del header */
 }
 
-/* Header principal */
+/* ==========================
+   Header principal
+========================== */
 .main-header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* mejor que 100vw */
+    width: 100%;
     background: linear-gradient(90deg, #000000, #1a1a1a);
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     z-index: 1000;
 }
 
-/* Ajuste del contenedor del logo y título */
+/* ==========================
+   Contenedor del logo y título
+========================== */
 .navbar .navbar-brand {
     padding-left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .container-fluid {
@@ -30,7 +38,9 @@ body {
     padding-right: 40px;
 }
 
-/* Logo */
+/* ==========================
+   Logo
+========================== */
 .logo-img {
     width: 55px;
     height: 55px;
@@ -44,7 +54,9 @@ body {
     box-shadow: 0 0 12px rgba(255,255,255,0.7);
 }
 
-/* Título */
+/* ==========================
+   Título del sitio
+========================== */
 .site-title {
     font-size: 1.6rem;
     font-weight: 700;
@@ -52,39 +64,74 @@ body {
     margin: 0;
 }
 
-/* Menú */
+/* ==========================
+   Menú de navegación
+========================== */
 .nav-menu {
     margin-right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px; /* separación entre botones */
 }
 
-/* Botones del menú */
+/* ==========================
+   Botones del menú (cuadrados)
+========================== */
 .nav-menu .btn {
-    background-color: #0099e6; /* celeste accesible */
+    background-color: #0099e6; /* azul principal */
     border: 1px solid #0099e6;
     color: #ffffff;
     font-weight: 600;
-    border-radius: 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 6px; /* menos redondeado, estilo cuadrado */
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
 }
 
 .nav-menu .btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0,153,230,0.6); /* glow celeste */
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 12px rgba(0,153,230,0.5);
+    background-color: #007acc;
 }
 
-/* Hamburguesa */
+/* Botón secundario verde */
+.nav-menu .btn-green {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+    border-radius: 6px; /* más cuadrado */
+}
+
+.nav-menu .btn-green:hover {
+    background-color: #218838;
+    border-color: #218838;
+    box-shadow: 0 4px 12px rgba(40,167,69,0.5);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* ==========================
+   Icono de hamburguesa responsive
+========================== */
 .navbar-toggler-icon {
-    filter: invert(1); /* icono blanco */
+    filter: invert(1);
 }
 
-/* Responsive */
+/* ==========================
+   Responsive
+========================== */
 @media (max-width: 768px) {
     .site-title {
         font-size: 1.3rem;
     }
 
+    .nav-menu {
+        flex-direction: column;
+        align-items: stretch;
+        margin-right: 0;
+        gap: 8px;
+    }
+
     .nav-menu .btn {
         width: 100%;
-        text-align: left;
+        text-align: center;
     }
 }

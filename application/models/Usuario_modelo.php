@@ -66,5 +66,23 @@ class Usuario_modelo extends CI_Model
         $query = $this->db->get('usuarios');
         return $query->row(); // devuelve objeto con nombre, apellido, email, etc.
     }
+
+    public function actualizar_usuario($id_usuario, $data)
+    {
+        $this->db->where('id_usuario', $id_usuario);
+        return $this->db->update('usuarios', $data);
+    }
+
+    public function eliminar_usuario($id_usuario)
+    {
+        $this->db->where('id_usuario', $id_usuario);
+        return $this->db->delete('usuarios');
+    }
+
+    public function obtener_usuarios()
+    {
+        $query = $this->db->get('usuarios');
+        return $query->result(); // devuelve array de objetos
+    }
 }
 ?>

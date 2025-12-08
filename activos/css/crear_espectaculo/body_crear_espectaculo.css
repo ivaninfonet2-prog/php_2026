@@ -1,0 +1,187 @@
+/* =======================
+   CONTENEDOR GENERAL
+   ======================= */
+.main-content {
+    min-height: 100vh;                 /* altura completa de la ventana */
+    display: flex;
+    flex-direction: column;            /* para que top-buttons y card se alineen verticalmente */
+    align-items: center;
+    justify-content: flex-start;       /* inicia desde arriba */
+    padding: 80px 15px 40px 15px;     /* más espacio superior e inferior */
+    font-family: Arial, sans-serif;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: brightness(0.9) contrast(1.05);
+}
+
+/* =======================
+   BOTONES FUERA DE LA TARJETA
+   ======================= */
+.top-buttons-outside {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    width: 100%;
+    max-width: 600px;   /* igual que la tarjeta */
+    margin-bottom: 30px; /* separación mayor de la tarjeta */
+}
+
+.top-buttons-outside .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.top-buttons-outside .btn-secondary:hover {
+    background-color: #565e64;
+}
+
+.top-buttons-outside .btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.top-buttons-outside .btn-danger:hover {
+    background-color: #a71d2a;
+}
+
+/* =======================
+   TARJETA / FORMULARIO
+   ======================= */
+.card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(6px);
+    padding: 20px 24px;
+    border-radius: 14px;
+
+    width: 100%;
+    max-width: 600px;      
+    max-height: 85vh;      /* ocupa menos altura para no pegar al footer */
+    overflow-y: auto;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* =======================
+   ANIMACIÓN
+   ======================= */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =======================
+   TÍTULO
+   ======================= */
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007BFF;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+/* =======================
+   FORMULARIO - LABEL E INPUT
+   ======================= */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    width: 30%;
+}
+
+.form-control {
+    width: 65%;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+    background: rgba(255,255,255,0.9);
+}
+
+/* =======================
+   FORM-ROW (dos campos lado a lado)
+   ======================= */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 4%;
+}
+
+.form-row .form-group {
+    width: 48%;
+}
+
+/* =======================
+   BOTONES DENTRO DE TARJETA
+   ======================= */
+.btn {
+    width: 100%;
+    padding: 10px 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 14px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* =======================
+   MENSAJES
+   ======================= */
+.alert {
+    padding: 8px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.alert-danger {
+    background: rgba(220, 53, 69, 0.2);
+    color: #8b0000;
+}
+
+/* =======================
+   RESPONSIVE
+   ======================= */
+@media (max-width: 600px) {
+    .main-content {
+        padding: 60px 15px 30px 15px;
+    }
+
+    .top-buttons-outside {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .card { 
+        max-width: 95%; 
+        padding: 18px; 
+    }
+
+    .form-row { flex-direction: column; }
+    .form-row .form-group { width: 100%; }
+
+    .form-group { flex-direction: column; align-items: flex-start; }
+    .form-group label { width: 100%; margin-bottom: 4px; }
+    .form-control { width: 100%; }
+}

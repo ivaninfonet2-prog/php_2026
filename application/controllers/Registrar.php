@@ -14,8 +14,9 @@ class Registrar extends CI_Controller
     public function index()
     {
         // Datos que necesitan las vistas
-        $data = [
-            'titulo' => "Cartelera de Espectáculos",
+        $data = 
+        [
+            'titulo' => "Registrarme como Usuario",
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
         ];
 
@@ -101,3 +102,4 @@ class Registrar extends CI_Controller
         return $this->form_validation->run();
     }
 }
+?>

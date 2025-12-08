@@ -1,6 +1,4 @@
-/* ===============================
-   FONDO DEL BODY
-=============================== */
+/* =============================== FONDO DEL BODY =============================== */
 .fondo-body {
     position: fixed;
     top: 0;
@@ -11,16 +9,12 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    filter: brightness(0.85); /* oscurece un poco para resaltar la tarjeta */
+    filter: brightness(0.85);
     z-index: -1;
-
     image-rendering: high-quality;
-    -webkit-optimize-contrast: high;
 }
 
-/* ===============================
-   CONTENEDOR DE LA TARJETA
-=============================== */
+/* =============================== CONTENEDOR DE LA TARJETA =============================== */
 .registro-container {
     min-height: 100vh;
     display: flex;
@@ -31,38 +25,41 @@
     z-index: 1;
 }
 
-/* ===============================
-   TARJETA DEL FORMULARIO
-=============================== */
+/* =============================== TARJETA DEL FORMULARIO =============================== */
 .registro-form {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    border-radius: 12px;
-    padding: 25px 20px;
-    max-width: 420px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 30px 25px;
+    max-width: 520px;
     width: 100%;
-    color: #222;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    color: #111;
     text-align: center;
 }
 
-/* ===============================
-   TÍTULO
-=============================== */
+/* =============================== TÍTULO =============================== */
 .registro-title {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #222;
+    color: #111;
 }
 
-/* ===============================
-   INPUTS
-=============================== */
+/* =============================== INPUTS EN FILAS =============================== */
+.form-group-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group-row .w-50 {
+    width: 50%;
+}
+
 .form-control {
     border-radius: 8px;
-    border: 1px solid rgba(0,0,0,0.2);
-    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(0,0,0,0.25);
+    background: rgba(255,255,255,0.92);
     color: #222;
     transition: 0.3s;
 }
@@ -72,38 +69,49 @@
     box-shadow: 0 0 8px rgba(0,123,255,0.4);
 }
 
-/* ===============================
-   BOTONES
-=============================== */
+/* =============================== BOTONES =============================== */
 .btn {
     border-radius: 8px;
     font-weight: bold;
+    padding: 8px 20px !important;
+    width: auto !important;   /* hace más chico el ancho */
     transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
 }
 
-/* ===============================
-   BLOQUES EXTRA
-=============================== */
+.btn-success:hover {
+    background-color: #23963c;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(40,167,69,0.35);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,123,255,0.35);
+}
+
+/* =============================== TEXTO DEBAJO =============================== */
 .registro-registered {
     margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #333;
+    font-size: 0.95rem;
+    color: #f2f2f7;
 }
 
-.volver-inicio {
-    margin-top: 1.5rem;
-}
-
-/* ===============================
-   MENSAJE DE ERROR
-=============================== */
+/* =============================== MENSAJE DE ERROR =============================== */
 .alert-danger {
-    background: rgba(220,53,69,0.9);
+    background: rgba(220,53,69,0.95);
     color: #fff;
     border-radius: 8px;
     padding: 12px;
@@ -111,4 +119,19 @@
     text-align: center;
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(220,53,69,0.4);
+}
+
+/* =============================== RESPONSIVE =============================== */
+@media (max-width: 600px) {
+    .form-group-row {
+        flex-direction: column;
+    }
+
+    .form-group-row .w-50 {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100% !important; /* en móvil que sean anchos */
+    }
 }

@@ -1,82 +1,142 @@
-
-/* General */
+/* ================================
+   General
+   ================================ */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212; /* fondo oscuro general */
-    color: #f8f9fa;            /* texto claro por defecto */
+    background-color: #121212;
+    color: #f8f9fa;
 }
 
-/* Header principal */
+/* ================================
+   Header principal
+   ================================ */
 .main-header {
+    width: 100%;
+    height: 85px;
+    background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;          /* ocupa todo el ancho */
-    height: 80px;
-    background-color: #1a1a1a; /* fondo oscuro */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     z-index: 1000;
 }
 
-/* Contenedor */
-.container-fluid {
-    padding-left: 20px;   /* margen interno para logo */
-    padding-right: 0;
+/* Contenedor interno */
+.header-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* separa izquierda y derecha */
 }
 
-/* Logo */
+/* ================================
+   Logo + título
+   ================================ */
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .logo-img {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    border: 2px solid #ffffff; /* contorno blanco */
+    border: 2px solid #ffffff;
+    margin-right: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .logo-img:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 12px rgba(255,255,255,0.6);
+    transform: scale(1.12) rotate(4deg);
+    box-shadow: 0 0 16px rgba(255,255,255,0.7);
 }
 
-/* Título */
 .site-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: #ffffff; /* texto blanco */
-    margin: 0;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 6px rgba(255,255,255,0.3);
 }
 
-/* Menú */
+/* ================================
+   Menú a la derecha
+   ================================ */
 .nav-menu {
-    margin-right: 40px;
-    gap: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* separación entre botones */
 }
 
-/* Botones Login y Registrar */
-.nav-menu .btn {
-    background-color: #007bbf; /* fondo azul */
-    color: #ffffff;            /* texto blanco */
-    border: none;
-    font-weight: 500;
-    border-radius: 5px;
-    padding: 8px 16px;
+/* ================================
+   Botones personalizados
+   ================================ */
+.btn {
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
     transition: all 0.3s ease;
-    cursor: pointer;
-}
-.nav-menu .btn:hover {
-    background-color: #005f8f; /* azul más oscuro al pasar el mouse */
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0,123,191,0.6);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
 }
 
-/* Hamburguesa */
-.navbar-toggler-icon {
-    filter: invert(1); /* icono claro para que se vea sobre fondo oscuro */
+/* Botón Login (más azul) */
+.btn-login {
+    background-color: #0066ff; /* azul intenso */
+    color: #ffffff;
 }
 
-/* Responsive */
+.btn-login:hover {
+    background-color: #004bb3; /* azul más oscuro */
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0,102,255,0.6);
+}
+
+/* Botón Registrar (verde oscuro) */
+.btn-register {
+    background-color: #009944; /* verde oscuro atractivo */
+    color: #ffffff;
+}
+
+.btn-register:hover {
+    background-color: #006633; /* verde más oscuro */
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0,153,68,0.6);
+}
+
+/* ================================
+   Responsive
+   ================================ */
 @media (max-width: 768px) {
-    .site-title { font-size: 1.3rem; }
-    .nav-menu { margin-right: 20px; }
-    .nav-menu .btn { width: 100%; text-align: left; }
+
+    .main-header {
+        height: 75px;
+    }
+
+    .site-title {
+        font-size: 1.4rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .nav-menu {
+        gap: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
 }

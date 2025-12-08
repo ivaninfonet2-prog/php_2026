@@ -13,7 +13,8 @@ class Login extends CI_Controller
     
     private function datos_base()
     {
-        return [
+        return
+        [
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
             'titulo' => 'Inicio - UNLa Tienda'
         ];
@@ -22,10 +23,9 @@ class Login extends CI_Controller
     public function index()
     {
         $data = $this->datos_base();
-        $data['contenido'] = $this->load->view('login/formulario_login', $data, TRUE);
 
         $this->load->view('login/header_login', $data);
-        $this->load->view('login/body_login', $data);
+        $this->load->view('login/body_login', $data); // aquí ya va el formulario dentro
         $this->load->view('login/footer_login');
     }
 
@@ -86,3 +86,4 @@ class Login extends CI_Controller
         $this->load->view('cerrar_sesion/footer_cerrar_sesion', $data);
     }
 }
+?>

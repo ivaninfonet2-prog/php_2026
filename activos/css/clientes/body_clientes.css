@@ -1,0 +1,132 @@
+/* Contenedor general con separación del header y footer */
+.inicio-container {
+    padding: 80px 20px; /* Más separación arriba y abajo */
+    min-height: calc(100vh - 160px); /* Ajustado al padding extra */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Fondo estático de imagen nítida */
+    background-image: url('tu-imagen-de-fondo.jpg'); /* Cambia por tu imagen */
+    background-size: cover;        /* Mantiene la proporción y cubre todo */
+    background-position: center;   /* Centra la imagen */
+    background-repeat: no-repeat;  /* Evita repetición */
+    background-attachment: fixed;  /* Evita que se mueva al hacer scroll */
+}
+
+/* Contenedor de la tabla con scroll horizontal */
+.table-container {
+    width: 80%;          /* Tabla más pequeña */
+    max-width: 700px;    /* Máximo ancho reducido */
+    overflow-x: auto;
+    background-color: rgba(255, 255, 255, 0.15); /* Transparencia ligera */
+    backdrop-filter: blur(6px); /* Efecto vidrio */
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px 0; /* Separación extra */
+}
+
+/* Hover en contenedor */
+.table-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+}
+
+/* Tabla estilizada */
+.clientes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    color: #f5f5f5; /* Letras claras */
+    font-size: 0.85rem; /* Más pequeña */
+}
+
+/* Cabecera de la tabla */
+.clientes-table thead {
+    background-color: rgba(0, 123, 255, 0.85); /* Azul semi-transparente */
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+/* Celdas de la tabla */
+.clientes-table th, 
+.clientes-table td {
+    padding: 8px 10px; /* Menos padding */
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover en filas */
+.clientes-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Sticky header */
+.clientes-table th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+/* Mensaje cuando no hay datos */
+.no-datos {
+    font-size: 1rem;
+    color: #eee;
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Contenedor de botones */
+.botones-acciones {
+    width: 100%;
+    max-width: 700px; /* igual que la tabla */
+    display: flex;
+    justify-content: flex-end; /* botones alineados a la derecha */
+    gap: 15px; /* separación entre botones */
+    margin-top: 20px; /* espacio respecto a la tabla */
+}
+
+/* Estilo general de botones */
+.btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Botón Volver */
+.btn.volver {
+    background-color: rgba(0, 123, 255, 0.85);
+    color: #fff;
+}
+
+/* Botón Cerrar Sesión */
+.btn.cerrar {
+    background-color: rgba(220, 53, 69, 0.85);
+    color: #fff;
+}
+
+/* Hover para botones */
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Responsive: en pantallas pequeñas los botones apilan */
+@media (max-width: 600px) {
+    .botones-acciones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

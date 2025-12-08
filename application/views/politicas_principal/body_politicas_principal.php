@@ -10,16 +10,25 @@
 </head>
 <body style="background-image: url('<?= $fondo; ?>');">
 
+    <!-- Texto fuera de la tarjeta -->
+    <section class="intro-text">
+        <h1>Nuestras Políticas</h1>
+        <p>Conoce las normas y condiciones para el uso seguro y responsable de nuestra plataforma.</p>
+    </section>
+
     <main class="main-content">
         <div class="cuadro-politicas text-center text-white">
-            <h2 class="animated-title">Políticas</h2>
-            <p class="animated-text">
-                En esta sección encontrarás nuestras políticas de uso, privacidad y condiciones de servicio.
-            </p>
             
-            <a href="<?= base_url(); ?>" class="btn btn-warning mt-3 animated-btn">
-                Volver al Principio
-            </a>
+            <h2 class="animated-title">Políticas</h2>
+
+            <p class="animated-text">
+                Aquí encontrarás nuestras políticas de privacidad, uso y condiciones de servicio.
+            </p>
+
+            <p class="extra-info">
+                Nuestro objetivo es garantizar transparencia y seguridad para todos los usuarios.
+            </p>
+
         </div>
     </main>
 

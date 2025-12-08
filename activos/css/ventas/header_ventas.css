@@ -1,0 +1,82 @@
+
+/* General */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; /* fondo oscuro general */
+    color: #f8f9fa;            /* texto claro por defecto */
+}
+
+/* Header principal */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;          /* ocupa todo el ancho */
+    height: 80px;
+    background-color: #1a1a1a; /* fondo oscuro */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+/* Contenedor */
+.container-fluid {
+    padding-left: 20px;   /* margen interno para logo */
+    padding-right: 0;
+}
+
+/* Logo */
+.logo-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #ffffff; /* contorno blanco */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logo-img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 12px rgba(255,255,255,0.6);
+}
+
+/* Título */
+.site-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff; /* texto blanco */
+    margin: 0;
+}
+
+/* Menú */
+.nav-menu {
+    margin-right: 40px;
+    gap: 15px;
+}
+
+/* Botones Login y Registrar */
+.nav-menu .btn {
+    background-color: #007bbf; /* fondo azul */
+    color: #ffffff;            /* texto blanco */
+    border: none;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.nav-menu .btn:hover {
+    background-color: #005f8f; /* azul más oscuro al pasar el mouse */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,123,191,0.6);
+}
+
+/* Hamburguesa */
+.navbar-toggler-icon {
+    filter: invert(1); /* icono claro para que se vea sobre fondo oscuro */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .site-title { font-size: 1.3rem; }
+    .nav-menu { margin-right: 20px; }
+    .nav-menu .btn { width: 100%; text-align: left; }
+}

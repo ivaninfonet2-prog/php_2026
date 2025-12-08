@@ -1,86 +1,118 @@
-/* Fondo general */
+/* =============================== FONDO GENERAL =============================== */
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* 🔹 degradado azul elegante */
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     font-family: 'Segoe UI', Arial, sans-serif;
+    color: #fff;
 }
 
-/* Main */
+/* =============================== TEXTO FUERA DE LA TARJETA =============================== */
+.intro-text {
+    text-align: center;
+    margin-top: 110px; /* espacio desde el header */
+    padding: 0 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro-text h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #e9f3ff;
+    margin-bottom: 12px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+}
+
+.intro-text p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* =============================== MAIN =============================== */
 .main-content {
-    min-height: calc(100vh - 120px);
+    min-height: calc(100vh - 250px);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
+    margin-top: 20px;
 }
 
-/* Contenedor principal */
-.cuadro-acerca {
-    background-color: rgba(255, 255, 255, 0.08); /* 🔹 semi-transparente */
-    border-radius: 15px;
-    padding: 30px;
-    max-width: 600px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+/* =============================== TARJETAS TRANSPARENTES =============================== */
+.cuadro-acerca
+ {
+    background: rgba(255, 255, 255, 0.06); /* más transparente */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15); /* ligeramente visible */
+    padding: 30px 25px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover dinámico */
-.cuadro-acerca:hover {
-    transform: scale(1.02);
-    background-color: rgba(255, 255, 255, 0.12);
+/* Hover suave */
+.cuadro-acerca:hover,
+.cuadro-contacto:hover,
+.cuadro-ayuda:hover,
+.cuadro-politicas:hover {
+    background-color: rgba(255, 255, 255, 0.10); /* leve aumento al pasar el mouse */
+    box-shadow: 0 10px 32px rgba(0,0,0,0.45);
+    transform: none;
 }
 
-/* Título */
+
+/* =============================== TÍTULO =============================== */
 .cuadro-acerca h2 {
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #00cfff; /* 🔹 celeste brillante */
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #7ee8fa;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
-/* Texto */
+/* =============================== TEXTO INTERNO =============================== */
 .cuadro-acerca p {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    line-height: 1.6;
-    color: #f0f0f0; /* 🔹 blanco suave */
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #eef9ff;
+    opacity: 0.95;
+    margin-bottom: 12px;
 }
 
-/* Botón */
-.cuadro-acerca a.btn-celeste {
-    font-weight: bold;
-    padding: 12px 24px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #00cfff, #0099ff); /* 🔹 degradado celeste */
-    color: #fff;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.5);
-    text-decoration: none;
-    display: inline-block;
+.extra-info {
+    font-size: 0.95rem;
+    color: #d6f1ff;
+    opacity: 0.9;
 }
 
-.cuadro-acerca a.btn-celeste:hover {
-    background: linear-gradient(135deg, #66d9ff, #33adff); /* 🔹 tono más suave */
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.7);
-}
-
-/* Responsivo */
+/* =============================== RESPONSIVE =============================== */
 @media (max-width: 768px) {
+    .intro-text h1 {
+        font-size: 1.85rem;
+    }
+
+    .intro-text p {
+        font-size: 1.05rem;
+    }
+
     .cuadro-acerca {
-        max-width: 95%;
-        padding: 20px;
+        padding: 25px;
+        max-width: 92%;
     }
 
     .cuadro-acerca h2 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
 
     .cuadro-acerca p {

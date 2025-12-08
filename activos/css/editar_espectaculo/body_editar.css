@@ -1,0 +1,172 @@
+/* =======================
+   CONTENEDOR GENERAL
+   ======================= */
+.main-content {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+    font-family: Arial, sans-serif;
+    color: #222;
+
+    /* FONDO MEJORADO */
+    background-size: cover;           /* Cubrir toda la pantalla */
+    background-position: center;      /* Centrado */
+    background-repeat: no-repeat;     /* No repetir */
+    background-attachment: fixed;     /* Fijo al hacer scroll */
+    filter: brightness(0.9) contrast(1.05); /* Ajuste de claridad y contraste */
+}
+
+/* =======================
+   TARJETA / FORMULARIO
+   ======================= */
+.card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 25px 30px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =======================
+   TITULO
+   ======================= */
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007BFF;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* =======================
+   BOTONES ARRIBA
+   ======================= */
+.botones-arriba {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* =======================
+   INPUTS Y TEXTAREA
+   ======================= */
+.form-label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 5px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+input:focus,
+textarea:focus,
+input[type="file"]:focus {
+    border-color: #4CAF50;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(76,175,80,0.4);
+}
+
+/* =======================
+   BOTONES UNIFORMES
+   ======================= */
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+    min-width: 120px;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Botones finales en el formulario */
+.botones-finales {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* =======================
+   IMAGEN ACTUAL
+   ======================= */
+.img-thumbnail {
+    display: block;
+    margin: 15px auto;
+    max-width: 180px;
+    border-radius: 10px;
+    border: 2px solid rgba(0,0,0,0.2);
+    padding: 4px;
+    background: rgba(255,255,255,0.6);
+}
+
+/* =======================
+   MENSAJES
+   ======================= */
+.alert {
+    background: rgba(0, 123, 255, 0.15);
+    color: #004085;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.error-msg {
+    color: #a00;
+    font-size: 0.85rem;
+    margin-top: 3px;
+}
+
+.error-input {
+    border-color: #dc3545;
+    box-shadow: 0 0 5px rgba(220,53,69,0.4);
+}
+
+/* =======================
+   RESPONSIVE
+   ======================= */
+@media (max-width: 500px) {
+    .card {
+        padding: 20px 15px;
+    }
+    .btn {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+}

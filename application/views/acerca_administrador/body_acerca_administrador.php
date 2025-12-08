@@ -5,27 +5,30 @@
     <title><?= $titulo; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Enlace al CSS -->-
     <link rel="stylesheet" href="<?= base_url('activos/css/acerca_administrador/body_acerca_administrador.css'); ?>">
 </head>
+
 <body style="background-image: url('<?= $fondo; ?>');">
 
+    <!-- Texto fuera de la tarjeta -->
+    <section class="intro-text">
+        <h1>Bienvenido a nuestra plataforma universitaria</h1>
+        <p>Un espacio pensado para estudiantes, docentes y toda la comunidad académica.</p>
+    </section>
+
     <main class="main-content">
-        <div class="cuadro-ayuda text-center text-white">
-            <h2>Acerca de</h2>
-            <p>
-                Somos una tienda universitaria que ofrece productos y espectáculos para toda la comunidad.
-            </p>
+        <div class="cuadro-acerca text-center text-white">
             
-            <!-- 🔹 Ambos botones dentro del mismo contenedor -->
-            <div class="volver-inicio">
-                <a href="<?= base_url('login/logout'); ?>" class="btn btn-celeste">
-                    Cerrar Sesion
-                </a>
-                <a href="<?= site_url('administrador'); ?>" class="btn btn-celeste">
-                    Volver al Administrador
-                </a>
-            </div>
+            <h2 class="animated-title"><?= $titulo; ?></h2>
+
+            <p class="animated-text">
+                Te ofrecemos productos y actividades diseñadas para acompañarte en tu vida universitaria.
+            </p>
+
+            <p class="extra-info">
+                Explora nuestras secciones y descubre beneficios, eventos y contenido exclusivo para nuestra comunidad.
+            </p>
+
         </div>
     </main>
 

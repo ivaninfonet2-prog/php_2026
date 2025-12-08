@@ -1,28 +1,60 @@
 /* Contenedor principal de la cartelera */
 .inicio-container {
-    padding-top: 3.5rem; /* menos separación respecto al header */
-    padding-bottom: 3.5rem; /* agrega aire antes del footer */
+    padding-top: 8rem; /* antes 3.5rem — ahora queda bien separado del header */
+    padding-bottom: 3.5rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(2px);
 }
 
 /* Cartelera */
 .cartelera {
-    color: #fff; /* blanco para buena lectura sobre fondo oscuro */
-    margin-top: 1.5rem; /* espacio moderado respecto a la bienvenida */
+    color: #ffffff; /* blanco puro */
+    margin-top: 1.5rem;
+    text-shadow: none; /* sin sombras oscuras */
 }
 
-/* Mensaje de bienvenida */
+.bienvenida {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 1rem;   /* sube un poco hacia arriba */
+    margin-bottom: 2rem;
+}
+
+
 .mensaje-bienvenida {
-    color: #ffffff; /* blanco puro para contraste */
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.8); /* sombra oscura para legibilidad */
-    margin-top: 1.5rem; /* menos separación del header */
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;     
+    text-shadow: 0 0 8px rgba(0,0,0,0.5); /* opcional, para contraste */
 }
 
-/* Mensaje secundario */
 .mensaje-sub {
-    color: #f0f0f0; /* gris muy claro */
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    margin-bottom: 1rem; /* agrega aire antes de la cartelera */
+    font-size: 1.15rem;
+    color: #f5f5f5;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
+
+
+
+/* ✅ Fondo más definido y visible */
+.inicio-container {
+    padding-top: 5rem;  /* ✅ acompaña la distancia del bloque */
+    padding-bottom: 3.5rem;
+
+    background-size: cover;       /* ✅ ocupa toda la pantalla */
+    background-position: center;  /* ✅ centrada */
+    background-repeat: no-repeat; /* ✅ sin repetición */
+    background-attachment: fixed; /* ✅ efecto parallax suave */
+    filter: brightness(1.05);     /* ✅ mejora la definición */
+}
+
 
 /* Contenedor de tarjetas */
 .tarjetas-container {
@@ -35,8 +67,8 @@
 }
 
 .tarjeta {
-    background: rgba(255, 255, 255, 0.25); /* más transparente */
-    border: 2px solid rgba(3, 155, 229, 0.25); /* también suavizo el borde */
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(3, 155, 229, 0.25);
     border-radius: 12px;
     overflow: hidden;
     display: flex;
@@ -49,10 +81,8 @@
 
 .tarjeta:hover {
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(3,155,229,0.25); /* sombra más suave */
+    box-shadow: 0 8px 20px rgba(3,155,229,0.25);
 }
-
-
 
 /* Imagen estilo carnet centrada */
 .imagen {

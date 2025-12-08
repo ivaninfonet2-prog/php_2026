@@ -6,26 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Enlace al CSS -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/politicas_usuario/body_politicas_usuario.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('activos/css/politicas_principal/body_politicas_principal.css'); ?>">
 </head>
 <body style="background-image: url('<?= $fondo; ?>');">
 
+    <!-- Texto fuera de la tarjeta -->
+    <section class="intro-text">
+        <h1>Nuestras Políticas</h1>
+        <p>Conoce las normas y condiciones para el uso seguro y responsable de nuestra plataforma.</p>
+    </section>
+
     <main class="main-content">
-        <div class="cuadro-contacto text-center text-white">
-            <h2>Políticas</h2>
-            <p>
-                En esta sección encontrarás nuestras políticas de uso, privacidad y condiciones de servicio.
-            </p>
+        <div class="cuadro-politicas text-center text-white">
             
-            <!-- 🔹 Contenedor flex para botones -->
-            <div class="botones">
-                <a href="<?= base_url('usuario'); ?>" class="btn btn-celeste">
-                    Volver al Usuario
-                </a>
-                <a href="<?= base_url('login/logout'); ?>" class="btn btn-celeste">
-                    cerrar sesion
-                </a>
-            </div>
+            <h2 class="animated-title">Políticas</h2>
+
+            <p class="animated-text">
+                Aquí encontrarás nuestras políticas de privacidad, uso y condiciones de servicio.
+            </p>
+
+            <p class="extra-info">
+                Nuestro objetivo es garantizar transparencia y seguridad para todos los usuarios.
+            </p>
+
         </div>
     </main>
 

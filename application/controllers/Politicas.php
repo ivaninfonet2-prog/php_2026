@@ -84,3 +84,4 @@ class Politicas extends CI_Controller
     }
 
 }
+?>

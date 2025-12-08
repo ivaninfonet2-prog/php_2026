@@ -8,46 +8,54 @@ class Usuario extends CI_Controller
         parent::__construct();
         $this->load->model('Usuario_modelo');
         $this->load->model('Espectaculo_modelo');
-        $this->load->library('session');
-        $this->load->helper('url');
         $this->load->model('Reserva_modelo');
+        $this->load->library(['session', 'form_validation']);
+        $this->load->helper('url');
     }
 
-    private function datos_base()
+    private function datos_base($titulo = 'Inicio - UNLa Tienda')
     {
-        return [
+        return 
+        [
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
-            'titulo' => 'Inicio - UNLa Tienda'
+            'titulo' => $titulo
         ];
     }
 
+    private function validar_usuario($es_nuevo = true)
+    {
+        $this->form_validation->set_rules('nombre', 'Nombre', 'required');
+        $this->form_validation->set_rules('apellido', 'Apellido', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email' . ($es_nuevo ? '|is_unique[usuarios.nombre_usuario]' : ''));
+
+        if ($es_nuevo) 
+        {
+            $this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[6]');
+        }
+    }
+
+    /* ------------------ MÉTODOS DE USUARIO ------------------ */
+
     public function index()
     {
-        // Verificar que el usuario esté logueado
-        if (!$this->session->userdata('logged_in')) 
+        if (!$this->session->userdata('logged_in'))
         {
             redirect('login');
             return;
         }
 
-        // Evitar que el navegador muestre páginas cacheadas
         $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
         $this->output->set_header("Cache-Control: post-check=0, pre-check=0", false);
         $this->output->set_header("Pragma: no-cache");
 
-        // Obtener el ID del usuario desde la sesión
         $id_usuario = $this->session->userdata('id_usuario');
-
-        // Consultar datos del usuario en el modelo
         $usuario = $this->Usuario_modelo->obtener_por_id($id_usuario);
 
-        // Combinar datos base con datos del usuario
         $data = $this->datos_base();
-        $data['titulo']   = 'UNLa Tienda'; // sobrescribo si quiero otro título
+        $data['titulo']   = 'UNLa Tienda';
         $data['nombre']   = $usuario ? $usuario->nombre : '';
         $data['apellido'] = $usuario ? $usuario->apellido : '';
 
-        // Cargar la vista principal del usuario
         $this->load->view('usuario/header_usuario', $data);
         $this->load->view('usuario/body_usuario', $data);
         $this->load->view('usuario/footer_usuario', $data);
@@ -55,7 +63,6 @@ class Usuario extends CI_Controller
 
     public function usuario_espectaculos()
     {
-        // Datos que necesitan las vistas
         $data = 
         [
             'titulo'       => "Cartelera de Espectáculos",
@@ -63,7 +70,6 @@ class Usuario extends CI_Controller
             'espectaculos' => $this->Espectaculo_modelo->obtener_espectaculos()
         ];
 
-        // Renderizo el layout maestro
         $this->load->view('usuario_espectaculos/usuario_espectaculos_header', $data);
         $this->load->view('usuario_espectaculos/usuario_espectaculos_body', $data);
         $this->load->view('usuario_espectaculos/usuario_espectaculos_footer');
@@ -72,7 +78,6 @@ class Usuario extends CI_Controller
     public function usuario_reservas()
     {
         $id_usuario = $this->session->userdata('id_usuario');
-
         if ($id_usuario === null) 
         {
             echo "No hay un usuario en la sesión. Por favor, inicia sesión.";
@@ -81,9 +86,9 @@ class Usuario extends CI_Controller
 
         $data = 
         [
-            'titulo'    => "Mis Reservas",
-            'fondo'     => base_url('activos/imagenes/mi_fondo.jpg'),
-            'reservas'  => $this->Reserva_modelo->obtener_reservas($id_usuario)
+            'titulo'   => "Mis Reservas",
+            'fondo'    => base_url('activos/imagenes/mi_fondo.jpg'),
+            'reservas' => $this->Reserva_modelo->obtener_reservas($id_usuario)
         ];
 
         $this->load->view('usuario_reservas/usuario_reservas_header', $data);
@@ -94,17 +99,15 @@ class Usuario extends CI_Controller
     public function usuario_reservas_detalle($id_reserva)
     {
         $id_usuario = $this->session->userdata('id_usuario');
-
         if ($id_usuario === null) 
         {
             echo "No hay un usuario en la sesión. Por favor, inicia sesión.";
             return;
         }
 
-        // Traemos la reserva con datos del espectáculo
         $this->db->select('reservas.id_reserva, reservas.cantidad, reservas.fecha_reserva, reservas.monto_total,
-                       espectaculos.nombre as nombre_espectaculo, espectaculos.fecha as fecha_espectaculo,
-                       espectaculos.precio, espectaculos.disponibles');
+                           espectaculos.nombre as nombre_espectaculo, espectaculos.fecha as fecha_espectaculo,
+                           espectaculos.precio, espectaculos.disponibles');
         $this->db->from('reservas');
         $this->db->join('espectaculos', 'reservas.espectaculo_id = espectaculos.id_espectaculo');
         $this->db->where('reservas.id_reserva', $id_reserva);
@@ -128,42 +131,79 @@ class Usuario extends CI_Controller
         $this->load->view('usuario_reservas_detalle/footer_usuario_reservas_detalle', $data);
     }
 
-    public function ver_espectaculo_logueado($id)
-    {
-        // Obtenemos el espectáculo por ID
-        $espectaculo = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
+    /* ------------------ MÉTODOS CRUD ADMIN ------------------ */
 
-        if (!$espectaculo) 
+    public function agregar_usuario()
+    {
+        $this->validar_usuario(true);
+
+        if ($this->form_validation->run() === FALSE) 
         {
-            show_404(); // Si no existe el espectáculo
+            $data = $this->datos_base('Agregar Usuario');
+            $this->load->view('usuario/form_header', $data);
+            $this->load->view('usuario/form_body', $data);
+            $this->load->view('usuario/form_footer', $data);
+        } 
+        else 
+        {
+            $this->Usuario_modelo->registrar_usuario([
+                'nombre'    => $this->input->post('nombre'),
+                'apellido'  => $this->input->post('apellido'),
+                'nombre_usuario' => $this->input->post('email'),
+                'password'  => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
+            ]);
+            redirect('usuario');
         }
-
-        // Datos para la vista
-        $data = 
-        [
-            'titulo'      => "Detalle del Espectáculo",
-            'espectaculo' => $espectaculo,
-            'fondo'       => base_url('activos/imagenes/mi_fondo.jpg') // fondo del body
-        ];
-
-        // Renderizamos header, body y footer
-        $this->load->view('ver_espectaculo_logueado/header_ver_espectaculo_logueado', $data);
-        $this->load->view('ver_espectaculo_logueado/body_ver_espectaculo_logueado', $data);
-        $this->load->view('ver_espectaculo_logueado/footer_ver_espectaculo_logueado');
     }
-    
-    public function reserva_exitosa()
+
+    public function editar($id_usuario)
     {
-        $data = 
-        [
-            'titulo'    => "Mis Reservas",
-            'fondo'     => base_url('activos/imagenes/mi_fondo.jpg'),
-        ];
-     
-        // Renderizo el layout maestro
-        $this->load->view('reserva_exitosa/header_reserva_exitosa', $data);
-        $this->load->view('reserva_exitosa/body_reserva_exitosa', $data);
-        $this->load->view('reserva_exitosa/footer_reserva_exitosa');
+        $usuario = $this->Usuario_modelo->obtener_por_id($id_usuario);
+       
+        if (!$usuario) show_error('Usuario no encontrado.', 404);
+
+        $this->validar_usuario(false);
+
+        if ($this->form_validation->run() === FALSE) 
+        {
+            $data = $this->datos_base('Editar Usuario');
+            $data['usuario'] = $usuario;
+           
+            $this->load->view('usuario/form_header', $data);
+            $this->load->view('usuario/form_body', $data);
+            $this->load->view('usuario/form_footer', $data);
+        } 
+        else 
+        {
+            $usuario_data = 
+            [
+                'nombre'    => $this->input->post('nombre'),
+                'apellido'  => $this->input->post('apellido'),
+                'nombre_usuario' => $this->input->post('email')
+            ];
+
+            if ($this->input->post('password')) 
+            {
+                $usuario_data['password'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+            }
+
+            $this->Usuario_modelo->actualizar_usuario($id_usuario, $usuario_data);
+           
+            redirect('usuario');
+        }
+    }
+
+    public function eliminar($id_usuario)
+    {
+        $usuario = $this->Usuario_modelo->obtener_por_id($id_usuario);
+        
+        if ( ! $usuario) 
+        {   
+            show_error('Usuario no encontrado.', 404);
+        }
+        $this->Usuario_modelo->eliminar_usuario($id_usuario);
+        
+        redirect('usuario');
     }
 
 }

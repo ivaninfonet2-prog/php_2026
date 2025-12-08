@@ -2,26 +2,31 @@
    Footer principal
    ================================ */
 .main-footer {
-    background: #0d0d0d;
+    background: #000000; /* fondo negro */
     color: #ffffff;
     font-size: 0.95rem;
-    box-shadow: 0 -4px 12px rgba(0,0,0,0.4);
-    width: 100%;          /* ✅ ocupa todo el ancho de la página */
-    margin: 0;            /* ✅ elimina márgenes */
-    padding: 20px 0;      /* espacio interno arriba/abajo */
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.5);
+    width: 100%;
+    margin: 0;
+    padding: 25px 20px;  /* espacio interno arriba/abajo y lateral */
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;           /* separación entre elementos */
+    text-align: center;
 }
 
 /* Links del footer */
 .footer-links {
     display: flex;
-    justify-content: center; /* ✅ centrados en el ancho completo */
+    justify-content: center; /* centrados horizontalmente */
     flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;             /* ✅ ocupa todo el ancho */
-    margin: 0;
-    padding: 0 20px;         /* opcional: espacio lateral */
+    gap: 25px;               /* separación entre links */
+    width: 100%;
+    max-width: 800px;        /* limita la distribución en pantallas grandes */
+    margin: 0 auto;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -42,15 +47,16 @@
     font-weight: 600;
     border-radius: 25px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 15px;
-    background-color: #00bfff; /* azul celeste claro */
-    border: 1px solid #00bfff;
+    margin-top: 10px;
+    background-color: #007bbf; /* azul oscuro para resaltar en negro */
+    border: 1px solid #007bbf;
     color: #ffffff;
+    padding: 10px 22px;
 }
 
 .btn-warning:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(0,191,255,0.7); /* brillo celeste claro */
+    box-shadow: 0 0 12px rgba(0,123,191,0.7);
 }
 
 /* ================================
@@ -60,6 +66,11 @@
     .footer-links {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
+    }
+
+    .btn-warning {
+        width: 80%;
+        text-align: center;
     }
 }

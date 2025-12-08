@@ -1,158 +1,192 @@
-/* ===============================
-   FONDO DEL BODY
-=============================== */
+/* ================================
+   Fondo general
+   ================================ */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    position: relative;
+    background-color: #f0f0f0; /* fondo claro de respaldo */
+}
+
+/* Fondo visible detrás de todo */
 .fondo-body {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;       /* Mantiene resolución */
-    background-position: center;  /* Centrado */
+    background-position: center center;
     background-repeat: no-repeat;
-    filter: brightness(0.85);     /* Sutil oscuridad para resaltar la tarjeta */
-    z-index: -1;                  /* Detrás de todo */
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: -1;
+    filter: brightness(1.05); /* aclara un poco la imagen */
 }
 
-/* ===============================
-   CONTENEDOR DE LA TARJETA
-=============================== */
+/* Texto fuera de la tarjeta */
+.intro-text {
+    text-align: center;
+    margin-top: 140px; /* más separación del header */
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.intro-text h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #e9f3ff;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.25); /* sombra suave */
+}
+
+.intro-text p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 0;
+}
+
+/* Contenedor principal */
 .registro-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 100vh;
-    padding: 120px 15px 40px 15px; /* espacio superior para header */
-    position: relative;
-    z-index: 1;
+    padding: 10px;
+    margin-bottom: 50px;
 }
 
-/* ===============================
-   TARJETA DEL ESPECTÁCULO
-=============================== */
+/* Tarjeta glassmorphism */
 .tarjeta-espectaculo {
-    background: rgba(255,255,255,0.03); /* casi transparente, apenas un velo */
-    backdrop-filter: blur(4px);         /* menos blur para que se vea más definido */
-    border: 1px solid rgba(255,255,255,0.15); /* borde sutil para marcar la tarjeta */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.08); /* ligeramente más clara */
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border-radius: 14px;
-    padding: 25px 20px;
-    max-width: 500px;
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.25); /* sombra más ligera */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center; /* centra todo el texto dentro de la tarjeta */
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 15px 20px;
+    max-width: 700px;
+    width: 85%;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.32);
+    gap: 12px;
 }
 
-.tarjeta-espectaculo:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.35); /* sombra un poco más marcada al hover */
+/* Secciones dentro de la tarjeta */
+.tarjeta-espectaculo section {
+    flex: 1 1 45%;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* evita espacios vacíos */
 }
 
-/* ===============================
-   TITULOS Y TEXTO
-=============================== */
-.descripcion h2 {
-    font-size: 1.8rem;
+/* Imagen */
+.tarjeta-espectaculo .imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 10px;
 }
 
-.descripcion p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    color: #f0f0f0;
-}
-
-/* ===============================
-   IMAGEN DEL ARTISTA
-=============================== */
 .imagen-espectaculo {
-    width: 150px;    /* tamaño tipo carnet 5x5cm */
-    height: 150px;
+    max-width: 40%; /* más proporcional */
+    height: auto;
     border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.35);
     object-fit: cover;
-    margin: 0 auto 20px auto;
-    display: block;
-    border: 2px solid #fff;
 }
 
-/* ===============================
-   DETALLES DEL EVENTO
-=============================== */
-.detalles h3,
-.informacion h3 {
-    margin-bottom: 8px;
-    font-size: 1.2rem;
-    color: #f0f0f0;
+/* Títulos y texto */
+.tarjeta-espectaculo h2,
+.tarjeta-espectaculo h3 {
+    color: #7ee8fa;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+    margin-bottom: 6px;
+    font-size: 1.15rem;
 }
 
-.detalles ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.tarjeta-espectaculo p,
+.tarjeta-espectaculo li {
+    color: #eef9ff;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
 }
 
-.detalles ul li {
-    padding: 4px 0;
-}
-
-/* ===============================
-   ESTADO DE ENTRADAS
-=============================== */
-.estado {
+/* Estados de entradas */
+.estado.disponible {
+    color: #8cff7a;
     font-weight: bold;
-    margin-top: 5px;
 }
 
-.disponible {
-    color: #4caf50;
+.estado.agotado {
+    color: #ff6b6b;
+    font-weight: bold;
 }
 
-.agotado {
-    color: #e53935;
-}
-
-/* ===============================
-   LOGIN NECESARIO
-=============================== */
+/* Contenedor centrado del botón */
 .reserva-login {
-    margin-top: 15px;
-    padding: 12px;
-    background: rgba(33, 150, 243, 0.2);
-    border-left: 4px solid #2196f3;
-    border-radius: 8px;
+    text-align: center;   /* centra todo el contenido del contenedor */
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* centra horizontalmente */
 }
 
+/* Botón iniciar sesión más compacto y centrado */
 .boton-login {
     display: inline-block;
-    background: #2196f3;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 8px;
+    padding: 8px 20px;       /* tamaño contenido */
+    min-width: auto;          /* no forzar ancho completo */
+    max-width: 200px;         /* ancho máximo razonable */
+    border-radius: 6px;
+    background: linear-gradient(135deg, #00cfff, #0099ff);
+    color: #fff;
     text-decoration: none;
-    transition: 0.25s;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-align: center;       /* asegura que el texto dentro esté centrado */
 }
 
 .boton-login:hover {
-    background: #0d6efd;
+    background: linear-gradient(135deg, #66d9ff, #33adff);
+    box-shadow: 0 5px 14px rgba(0,0,0,0.4);
+    transform: scale(1.05);
 }
 
-/* ===============================
-   BOTÓN VOLVER
-=============================== */
-.boton-inicio-container {
-    text-align: center;
-    margin-top: 20px;
-}
 
-.boton-inicio {
-    background: #4caf50;
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.25s;
-}
+/* Responsive */
+@media (max-width: 768px) {
+    .tarjeta-espectaculo {
+        flex-direction: column;
+        padding: 12px 15px;
+    }
 
-.boton-inicio:hover {
-    background: #3d8c41;
+    .tarjeta-espectaculo section {
+        flex: 1 1 100%;
+    }
+
+    .intro-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .intro-text p {
+        font-size: 0.85rem;
+    }
+
+    .boton-login {
+        padding: 8px 18px;
+        font-size: 0.85rem;
+    }
+
+    .imagen-espectaculo {
+        max-width: 60%;
+        margin: auto;
+    }
 }

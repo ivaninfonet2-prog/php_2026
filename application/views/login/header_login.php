@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?= base_url('activos/css/login/header_login.css'); ?>">
 </head>
 <body class="d-flex flex-column min-vh-100">
+
 <header class="main-header">
     <nav class="navbar navbar-expand-lg shadow-sm">
         <div class="container-fluid">
@@ -23,7 +24,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="menuPrincipal">
-                <ul class="navbar-nav ms-auto nav-menu">
+                <ul class="navbar-nav ms-auto nav-menu d-flex align-items-center gap-2">
                     <li class="nav-item">
                         <a class="btn btn-home" href="<?= base_url(); ?>">Volver al inicio</a>
                     </li>

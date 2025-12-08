@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $titulo ?></title>
+
     <!-- CSS general -->
     <link rel="stylesheet" href="<?= base_url('activos/css/principal/body_principal.css'); ?>">
 </head>

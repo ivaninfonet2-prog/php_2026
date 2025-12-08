@@ -1,74 +1,134 @@
+/* ==========================
+   CONTENEDOR PRINCIPAL LOGIN
+========================== */
 .body-login {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  filter: none !important;
 }
 
+.body-login::before {
+  display: none !important;
+}
+
+/* ==========================
+   CONTENEDOR DEL FORMULARIO
+========================== */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Texto fuera de la tarjeta */
+.titulo-login {
+  color: #ffffff;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-top: -40px; /* Subido un poco */
+  margin-bottom: 6px;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.subtitulo-login {
+  color: #eaeaea;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  text-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+/* ==========================
+   TARJETA / FORMULARIO (GLASS EFFECT)
+========================== */
 .login-form {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 18px;
-  max-width: 280px;
-  margin: auto;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 360px;
+  min-width: 280px;
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.35);
+
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
 }
 
+/* Descripción dentro de la tarjeta */
 .login-description {
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 18px;
+  font-size: 14px;
+  color: #f7f7f7;
+  margin-bottom: 20px;
 }
 
+/* ==========================
+   CAMPOS DEL FORMULARIO
+========================== */
 .form-control {
   width: 100%;
-  padding: 7px;
-  border: 1px solid #ccc;
+  padding: 10px;
   border-radius: 6px;
-  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
+/* ==========================
+   BOTONES
+========================== */
 .login-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
+  gap: 12px;
+  margin-top: 15px;
 }
 
 .login-buttons .btn {
   flex: 1;
-  margin-right: 8px;
 }
 
-.login-buttons .btn:last-child {
-  margin-right: 0;
-}
-
+/* ==========================
+   TEXTO EXTRA
+========================== */
 .login-extra {
-  text-align: center;
-  margin-top: 15px;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #ffffff;
 }
 
 .highlight {
-  color: #007bff;
+  color: #00bfff;
   font-weight: bold;
 }
-.volver-inicio {
-  text-align: center;
-  margin-top: 40px;   /* 👈 aumenta la separación hacia arriba */
+
+/* ==========================
+   ALERTA DE ERROR
+========================== */
+.alert {
+  margin-bottom: 12px;
+  font-size: 14px;
 }
 
-.volver-inicio .btn {
-  padding: 6px 12px;
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 22px;
+  }
+
+  .titulo-login {
+    font-size: 2rem;
+  }
+
+  .subtitulo-login {
+    font-size: 1rem;
+  }
 }
-
-
-.volver-login {
-  text-align: center;
-  margin-top: 40px;   /* 👈 aumenta la separación hacia arriba */
-}
-
-.volver-login .btn {
-  padding: 6px 12px;
-}
-

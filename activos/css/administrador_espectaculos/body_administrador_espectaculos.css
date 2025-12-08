@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #333;
+}
+
+.main-content {
+    padding: 60px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-top: 40px;   /* espacio desde el header */
+    margin-bottom: 30px;
+    color: #111;
+}
+
+.contenedor-tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.tarjeta {
+    background: rgba(255, 255, 255, 0.6); /* 🔹 mucho más transparente */
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    width: 280px; /* 🔹 más chica que antes */
+    overflow: hidden;
+    transition: transform 0.2s;
+    padding-bottom: 10px;
+}
+
+.tarjeta:hover {
+    transform: scale(1.04);
+}
+
+.imagen {
+    width: 160px;   /* más chica, tipo carnet */
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    margin: 15px auto;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+}
+
+.contenido {
+    padding: 15px;
+    text-align: center;
+    color: #222;
+}
+
+.contenido h3 {
+    margin-top: 0;
+    color: #007BFF; /* 🔹 título en azul */
+    font-size: 1.3rem;
+}
+
+.contenido p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+    color: #444; /* 🔹 texto en gris oscuro */
+}
+
+.contenido p strong {
+    color: #d35400; /* 🔹 etiquetas en naranja */
+}
+
+.acciones-tarjeta {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.boton {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007BFF;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+.boton:hover {
+    background-color: #0056b3;
+}
+
+.boton-editar {
+    background-color: #28a745;
+}
+
+.boton-editar:hover {
+    background-color: #1e7e34;
+}
+
+.boton-eliminar {
+    background-color: #dc3545;
+}
+
+.boton-eliminar:hover {
+    background-color: #c82333;
+}
+
+.mensaje-vacio {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 40px;
+}
+
+.acciones {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.acciones .boton {
+    margin: 0 10px;
+}

@@ -1,0 +1,127 @@
+/* Contenedor general */
+.inicio-container {
+    padding: 80px 20px; /* Separación del header y footer */
+    min-height: calc(100vh - 160px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Fondo nítido */
+    background-image: url('<?= $fondo ?>');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #f5f5f5; /* Letras claras */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Título */
+.titulo {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* Contenedor de tabla */
+.table-container {
+    width: 80%;
+    max-width: 700px;
+    overflow-x: auto;
+    background-color: rgba(255, 255, 255, 0.15); /* Transparencia ligera */
+    backdrop-filter: blur(6px);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    margin-bottom: 25px;
+}
+
+/* Tabla de ventas */
+.ventas-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #f5f5f5;
+    font-size: 0.9rem;
+}
+
+/* Cabecera */
+.ventas-table thead {
+    background-color: rgba(0, 123, 255, 0.85);
+    color: #fff;
+}
+
+.ventas-table th, 
+.ventas-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Hover en filas */
+.ventas-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Sticky header */
+.ventas-table th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+/* Mensaje cuando no hay datos */
+.no-datos {
+    font-size: 1.1rem;
+    color: #eee;
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Botones debajo de la tabla */
+.acciones {
+    width: 80%;
+    max-width: 700px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+/* Estilo de botones */
+.btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.volver {
+    background-color: rgba(0, 123, 255, 0.85);
+    color: #fff;
+}
+
+.btn.cerrar {
+    background-color: rgba(220, 53, 69, 0.85);
+    color: #fff;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .acciones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

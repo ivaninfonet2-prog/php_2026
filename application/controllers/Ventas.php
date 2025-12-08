@@ -52,14 +52,20 @@ class Ventas extends CI_Controller
         }
     }
 
-    public function listar_ventas() 
+    public function mostrar_ventas() 
     {
-        $this->load->view('vista_comienzo_2');
+        // Preparar datos para la vista
+        $data = 
+        [
+            'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
+            'titulo' => 'Administrador de UNLa Tienda',
+            'ventas' => $this->Venta_modelo->obtener_ventas()
+        ];
 
-        $data['ventas'] = $this->Venta_modelo->obtener_ventas();
-        
-        $this->load->view('vista_ventas', $data);
-        $this->load->view('footer');
+        // Cargar vistas
+        $this->load->view('ventas/header_ventas', $data);
+        $this->load->view('ventas/body_ventas', $data);
+        $this->load->view('ventas/footer_ventas', $data); // si tienes un footer, recomendable
     }
 }
 

@@ -8,8 +8,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- CSS personalizado -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/principal/header_principal.css'); ?>">
+    <!-- CSS personalizado del header -->
+    <link rel="stylesheet" href="<?= base_url('activos/css/ver_espectaculo_sin_loguear/header_ver_espectaculo_sin_loguear.css'); ?>">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -27,14 +27,19 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Menú a la derecha -->
-            <div class="collapse navbar-collapse" id="menuPrincipal">
-                <ul class="navbar-nav ms-auto nav-menu">
+            <!-- Menú colapsable a la derecha -->
+            <div class="collapse navbar-collapse justify-content-end" id="menuPrincipal">
+                <ul class="navbar-nav align-items-center">
                     <li class="nav-item">
-                        <a class="btn btn-outline-dark me-2" href="<?= base_url(''); ?>">Volver al Inicio</a>
+                        <a class="btn btn-outline-light me-3" href="<?= base_url(''); ?>">Volver al Inicio</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
