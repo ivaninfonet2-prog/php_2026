@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -74,4 +75,180 @@ body {
 .boton-ver:hover {
     background-color: #01579b;
     transform: translateY(-2px);
+=======
+:root {
+    --color-fondo: #121212;          /* 🔹 fondo oscuro */
+    --color-texto: #f0f0f0;          /* 🔹 texto claro */
+    --color-titulo: #ffffff;         /* 🔹 títulos blancos */
+    --color-acento: #00bfff;         /* 🔹 celeste azulado para acentos */
+    --color-precio: #28a745;         /* 🔹 verde para precios (mantiene contraste) */
+    --color-tarjeta: rgba(0,191,255,0.15); /* 🔹 tarjeta con fondo celeste translúcido */
+    --color-boton: #00bfff;          /* 🔹 botón celeste claro */
+    --color-boton-hover: #009acd;    /* 🔹 celeste más oscuro al hover */
+    --color-boton-texto: #ffffff;    /* 🔹 texto blanco en botones */
+    --sombra-suave: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --sombra-hover: 0 8px 20px rgba(0, 0, 0, 0.6);
+    --transicion: 0.35s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-fondo);
+    margin: 0;
+    padding: 20px;
+    color: var(--color-texto);
+}
+
+.titulo {
+    margin: 40px 0;
+    text-align: center;
+    font-size: 2em;
+    color: var(--color-titulo);
+}
+
+.tarjetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 0 10px;
+    margin-bottom: 60px;
+}
+
+/* Tarjeta */
+.tarjeta {
+    background-color: var(--color-tarjeta);
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+    transition: transform var(--transicion), box-shadow var(--transicion);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    animation: fadeInUp 0.5s ease-in-out;
+    color: var(--color-texto);
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: var(--sombra-hover);
+}
+
+/* Imagen contenedora */
+.imagen {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #0d0d0d; /* 🔹 fondo oscuro detrás de imagen */
+}
+
+/* Imagen dentro de la tarjeta */
+.imagen-espectaculo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transicion), filter var(--transicion);
+    border-radius: 0;
+}
+
+/* Hover imagen */
+.tarjeta:hover .imagen-espectaculo {
+    transform: scale(1.05);
+    filter: brightness(1.1) contrast(1.1);
+}
+
+/* Contenido */
+.contenido {
+    padding: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.contenido h3 {
+    margin: 10px 0 6px;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--color-acento); /* 🔹 celeste azulado */
+    transition: color var(--transicion);
+    text-align: center;
+}
+
+.precio {
+    font-size: 1.05rem;
+    color: var(--color-precio);
+    font-weight: bold;
+    margin-top: 6px;
+    text-align: center;
+}
+
+/* Botón */
+.boton-ver {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    min-width: 120px;
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color var(--transicion), transform var(--transicion);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.boton-ver:hover {
+    background-color: var(--color-boton-hover);
+    transform: scale(1.05);
+}
+
+/* Animación */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .tarjeta {
+        min-height: 320px;
+    }
+
+    .imagen {
+        height: 180px;
+    }
+
+    .contenido h3 {
+        font-size: 1rem;
+    }
+
+    .precio {
+        font-size: 0.95rem;
+    }
+
+    .boton-ver {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        min-width: 100px;
+    }
+
+    .tarjetas-container {
+        margin-bottom: 80px;
+    }
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 }

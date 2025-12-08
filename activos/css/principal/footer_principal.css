@@ -1,4 +1,5 @@
 /* ================================
+<<<<<<< HEAD
    Footer principal mejorado
    ================================ */
 .main-footer {
@@ -42,10 +43,49 @@
 .footer-link:hover {
     color: #fff;
     transform: translateY(-3px);
+=======
+   Footer principal
+   ================================ */
+.main-footer {
+    background: #0d0d0d;
+    color: #ffffff;
+    font-size: 0.95rem;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.4);
+    width: 100%;          /* ✅ ocupa todo el ancho de la página */
+    margin: 0;            /* ✅ elimina márgenes */
+    padding: 20px 0;      /* espacio interno arriba/abajo */
+    box-sizing: border-box;
+    display: block;
+}
+
+/* Links del footer */
+.footer-links {
+    display: flex;
+    justify-content: center; /* ✅ centrados en el ancho completo */
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;             /* ✅ ocupa todo el ancho */
+    margin: 0;
+    padding: 0 20px;         /* opcional: espacio lateral */
+    box-sizing: border-box;
+}
+
+.footer-links .footer-link {
+    color: #00bfff; /* azul celeste claro */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
+}
+
+.footer-links .footer-link:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 }
 
 /* Botón volver */
 .btn-warning {
+<<<<<<< HEAD
     font-weight: 700;
     border-radius: 30px;
     padding: 10px 28px;
@@ -59,6 +99,20 @@
 .btn-warning:hover {
     transform: scale(1.08);
     box-shadow: 0 0 15px rgba(0,191,255,0.8);
+=======
+    font-weight: 600;
+    border-radius: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 15px;
+    background-color: #00bfff; /* azul celeste claro */
+    border: 1px solid #00bfff;
+    color: #ffffff;
+}
+
+.btn-warning:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0,191,255,0.7); /* brillo celeste claro */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 }
 
 /* ================================
@@ -68,10 +122,14 @@
     .footer-links {
         flex-direction: column;
         align-items: center;
+<<<<<<< HEAD
         gap: 16px;
     }
 
     .main-footer {
         padding: 22px 12px;
+=======
+        gap: 10px;
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
     }
 }

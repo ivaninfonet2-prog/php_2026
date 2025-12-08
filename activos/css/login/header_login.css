@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 /* ==========================
    Estilos generales
 ========================== */
+=======
+
+/* General */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 body {
     margin: 0;
     padding: 0;
@@ -10,19 +15,28 @@ body {
     padding-top: 80px; /* espacio igual a la altura del header */
 }
 
+<<<<<<< HEAD
 /* ==========================
    Header principal
 ========================== */
+=======
+/* Header principal */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 .main-header {
     position: fixed;
     top: 0;
     left: 0;
+<<<<<<< HEAD
     width: 100%;
+=======
+    width: 100%; /* mejor que 100vw */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
     background: linear-gradient(90deg, #000000, #1a1a1a);
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     z-index: 1000;
 }
 
+<<<<<<< HEAD
 /* ==========================
    Contenedor del logo y título
 ========================== */
@@ -31,6 +45,11 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+=======
+/* Ajuste del contenedor del logo y título */
+.navbar .navbar-brand {
+    padding-left: 40px;
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 }
 
 .container-fluid {
@@ -38,9 +57,13 @@ body {
     padding-right: 40px;
 }
 
+<<<<<<< HEAD
 /* ==========================
    Logo
 ========================== */
+=======
+/* Logo */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 .logo-img {
     width: 55px;
     height: 55px;
@@ -54,9 +77,13 @@ body {
     box-shadow: 0 0 12px rgba(255,255,255,0.7);
 }
 
+<<<<<<< HEAD
 /* ==========================
    Título del sitio
 ========================== */
+=======
+/* Título */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 .site-title {
     font-size: 1.6rem;
     font-weight: 700;
@@ -64,6 +91,7 @@ body {
     margin: 0;
 }
 
+<<<<<<< HEAD
 /* ==========================
    Menú de navegación
 ========================== */
@@ -79,16 +107,31 @@ body {
 ========================== */
 .nav-menu .btn {
     background-color: #0099e6; /* azul principal */
+=======
+/* Menú */
+.nav-menu {
+    margin-right: 40px;
+}
+
+/* Botones del menú */
+.nav-menu .btn {
+    background-color: #0099e6; /* celeste accesible */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
     border: 1px solid #0099e6;
     color: #ffffff;
     font-weight: 600;
     border-radius: 5px;
+<<<<<<< HEAD
     padding: 6px 14px;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+=======
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 }
 
 .nav-menu .btn:hover {
     transform: scale(1.05);
+<<<<<<< HEAD
     box-shadow: 0 0 10px rgba(0,153,230,0.6); /* glow azul */
     background-color: #007acc; /* azul más oscuro */
 }
@@ -96,18 +139,29 @@ body {
 /* ==========================
    Icono de hamburguesa responsive
 ========================== */
+=======
+    box-shadow: 0 0 10px rgba(0,153,230,0.6); /* glow celeste */
+}
+
+/* Hamburguesa */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 .navbar-toggler-icon {
     filter: invert(1); /* icono blanco */
 }
 
+<<<<<<< HEAD
 /* ==========================
    Responsive
 ========================== */
+=======
+/* Responsive */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 @media (max-width: 768px) {
     .site-title {
         font-size: 1.3rem;
     }
 
+<<<<<<< HEAD
     .nav-menu {
         flex-direction: column;
         align-items: stretch;
@@ -118,5 +172,10 @@ body {
         width: 100%;
         text-align: center;
         margin-bottom: 6px;
+=======
+    .nav-menu .btn {
+        width: 100%;
+        text-align: left;
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
     }
 }

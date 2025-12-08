@@ -1,0 +1,109 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;   /* Centra horizontalmente */
+  align-items: center;       /* Centra verticalmente */
+}
+
+/* Contenedor principal del login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Formulario */
+.login-container .login-form {
+  width: 260px !important;   /* 👈 Fuerza el ancho angosto */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Texto de bienvenida */
+.login-description {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+/* Labels */
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Inputs */
+.form-control {
+  width: 100% !important;    /* Se ajusta al ancho del formulario */
+  padding: 7px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+.form-text {
+  font-size: 11px;
+  color: #777;
+}
+
+/* Botones juntos */
+.login-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.login-buttons .btn {
+  flex: 1;
+  margin-right: 8px;
+}
+
+.login-buttons .btn:last-child {
+  margin-right: 0;
+}
+
+/* Extra info */
+.login-extra {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.registro-text {
+  font-size: 12px;
+  color: #444;
+}
+
+.highlight {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Botón volver */
+.volver-inicio {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.volver-inicio .btn {
+  padding: 6px 12px;
+}
+
+/* Evitar que Bootstrap expanda el contenedor */
+.container, .row {
+  max-width: unset !important;
+}

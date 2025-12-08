@@ -1,0 +1,133 @@
+
+/* espectaculo_sin_loguear.css */
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #e0f7fa);
+    color: #333;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.page-wrapper {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #00bcd4;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.titulo {
+    font-size: 2.5em;
+    margin: 0;
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.contenido section {
+    margin: 20px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.contenido section:hover {
+    transform: scale(1.02);
+}
+
+.descripcion h2,
+.detalles h2,
+.informacion h2 {
+    margin-top: 0;
+    color: #00796b;
+}
+
+.imagen {
+    text-align: center;
+}
+
+.imagen-espectaculo {
+    max-width: 300px;
+    max-height: 200px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    margin: 0 auto;
+}
+
+.imagen-espectaculo:hover {
+    transform: scale(1.03);
+}
+
+.detalles ul {
+    list-style: none;
+    padding: 0;
+}
+
+.detalles li {
+    padding: 5px 0;
+}
+
+.estado {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.estado.disponible {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.estado.agotado {
+    background-color: #ffcdd2;
+    color: #c62828;
+}
+
+.boton-login,
+.boton-inicio {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    background-color: #0288d1;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-login:hover,
+.boton-inicio:hover {
+    background-color: #01579b;
+}
+
+.boton-inicio-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.aviso-login {
+    font-style: italic;
+    color: #555;
+}

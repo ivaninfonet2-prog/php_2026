@@ -2,6 +2,7 @@
    Footer principal
    ================================ */
 .main-footer {
+<<<<<<< HEAD
     background: #0d0d0d;              /* negro elegante */
     color: #ffffff;                   /* texto blanco */
     font-size: 0.95rem;
@@ -18,11 +19,23 @@
 .main-footer p {
     margin: 0;
     font-weight: 400;
+=======
+    background: #0d0d0d;
+    color: #ffffff;
+    font-size: 0.95rem;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.4);
+    width: 100%;          /* ✅ ocupa todo el ancho de la página */
+    margin: 0;            /* ✅ elimina márgenes */
+    padding: 20px 0;      /* espacio interno arriba/abajo */
+    box-sizing: border-box;
+    display: block;
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 }
 
 /* Links del footer */
 .footer-links {
     display: flex;
+<<<<<<< HEAD
     justify-content: center;          /* centrados */
     flex-wrap: wrap;
     gap: 20px;
@@ -34,30 +47,59 @@
 
 .footer-links .footer-link {
     color: #00bfff;                   /* azul celeste claro */
+=======
+    justify-content: center; /* ✅ centrados en el ancho completo */
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;             /* ✅ ocupa todo el ancho */
+    margin: 0;
+    padding: 0 20px;         /* opcional: espacio lateral */
+    box-sizing: border-box;
+}
+
+.footer-links .footer-link {
+    color: #00bfff; /* azul celeste claro */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
     font-weight: 500;
 }
 
 .footer-links .footer-link:hover {
+<<<<<<< HEAD
     color: #ffffff;                   /* blanco al pasar el mouse */
     transform: translateY(-2px);
 }
 
 /* Botón volver (si lo usas en el footer) */
+=======
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Botón volver */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 .btn-warning {
     font-weight: 600;
     border-radius: 25px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-top: 15px;
+<<<<<<< HEAD
     background-color: #00bfff;        /* azul celeste claro */
+=======
+    background-color: #00bfff; /* azul celeste claro */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
     border: 1px solid #00bfff;
     color: #ffffff;
 }
 
 .btn-warning:hover {
     transform: scale(1.05);
+<<<<<<< HEAD
     box-shadow: 0 0 12px rgba(0,191,255,0.7); /* brillo celeste */
+=======
+    box-shadow: 0 0 12px rgba(0,191,255,0.7); /* brillo celeste claro */
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 }
 
 /* ================================

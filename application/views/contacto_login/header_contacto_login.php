@@ -27,13 +27,19 @@
                     <li class="nav-item">
                         <a class="btn btn-home" href="<?= base_url(); ?>">Volver al inicio</a>
                     </li>
+<<<<<<< HEAD
                     <li class="nav-item">
                         <a class="btn btn-home" href="<?= base_url('login'); ?>">Volver al Login</a>
                     </li>
+=======
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
                 </ul>
             </div>
         </div>
     </nav>
 </header>
+<<<<<<< HEAD
 </body>
 </html>
+=======
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f

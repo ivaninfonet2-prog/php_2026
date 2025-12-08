@@ -19,6 +19,7 @@ class Clientes extends CI_Controller
 
     public function mostrar_clientes()
     {
+<<<<<<< HEAD
         // Preparar datos generales para la vista
         $data = 
         [
@@ -44,5 +45,17 @@ class Clientes extends CI_Controller
         $this->load->view('clientes/header_clientes', $data);
         $this->load->view('clientes/body_clientes', $data);
         $this->load->view('clientes/footer_clientes', $data);
+=======
+        $this->load->view('vista_comienzo_2');
+
+        $clientes = $this->Cliente_modelo->obtener_clientes_por_usuario();
+        $data['clientes'] = !empty($clientes) ? $clientes : [];
+        if (empty($clientes)) {
+            $data['mensaje'] = "No hay clientes registrados con clave foránea usuario_id.";
+        }
+
+        $this->load->view('vista_clientes', $data);
+        $this->load->view('footer');
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
     }
 }

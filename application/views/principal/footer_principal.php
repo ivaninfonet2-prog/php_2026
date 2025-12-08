@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 <footer class="main-footer bg-dark text-white text-center py-4 mt-auto">
     <div class="container">
         <p class="mb-2">&copy; <?= date('Y'); ?> UNLa Tienda. Todos los derechos reservados.</p>
+=======
+
+<footer class="main-footer bg-dark text-white text-center py-4 mt-auto">
+    <div class="container">
+        <p class="mb-2">&copy; <?php echo date('Y'); ?> UNLa Tienda. Todos los derechos reservados.</p>
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 
         <ul class="footer-links list-inline mb-3">
             <li class="list-inline-item"><a href="<?= base_url('acerca'); ?>" class="footer-link">Acerca de</a></li>
@@ -11,5 +18,8 @@
     </div>
 </footer>
 
+<<<<<<< HEAD
 <!-- Enlace al CSS del footer -->
+=======
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
 <link rel="stylesheet" href="<?= base_url('activos/css/principal/footer_principal.css'); ?>">

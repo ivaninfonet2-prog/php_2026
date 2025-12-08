@@ -1,0 +1,91 @@
+/* Fondo general */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e, #16213e); /* 🔹 degradado elegante */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    font-family: Arial, sans-serif;
+}
+
+/* Main */
+.main-content {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Contenedor principal */
+.cuadro-acerca {
+    background-color: rgba(255, 255, 255, 0.05); /* 🔹 semi-transparente sobre fondo oscuro */
+    border-radius: 12px;
+    padding: 25px;
+    max-width: 500px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    animation: fadeInUp 1s ease-out;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover dinámico */
+.cuadro-acerca:hover {
+    transform: scale(1.02);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Título */
+.cuadro-acerca h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffd700; /* 🔹 dorado elegante */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    animation: slideIn 1s ease-out;
+}
+
+/* Texto */
+.cuadro-acerca p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: #e0e0e0; /* 🔹 gris claro para contraste */
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* Botón */
+.cuadro-acerca a.btn-warning {
+    font-weight: bold;
+    padding: 10px 22px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #ff9a00, #ff6a00); /* 🔹 degradado naranja */
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    text-decoration: none;
+}
+
+.cuadro-acerca a.btn-warning:hover {
+    background: linear-gradient(135deg, #ffb347, #ff7e5f); /* 🔹 tono más suave al hover */
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.7);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .cuadro-acerca {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .cuadro-acerca h2 {
+        font-size: 1.6rem;
+    }
+
+    .cuadro-acerca p {
+        font-size: 1rem;
+    }
+}

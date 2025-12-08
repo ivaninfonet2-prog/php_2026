@@ -8,6 +8,7 @@ class Contacto extends CI_Controller
     {
         // Ruta de la imagen de fondo
         $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
+<<<<<<< HEAD
         $data['titulo'] = 'Contacto de UNLa Tienda';
 
         // Cargar header común
@@ -21,11 +22,26 @@ class Contacto extends CI_Controller
     }
 
     public function contacto_login() 
+=======
+
+        // Cargar header común
+        $this->load->view('contacto_principal/header_contacto', $data);
+
+        // Vista principal de la sección "Contacto"
+        $this->load->view('contacto_principal/body_contacto', $data);
+
+        // Cargar footer común
+        $this->load->view('contacto_principal/footer_contacto');
+    }
+
+    public function contacto_2() 
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
     {
         // Ruta de la imagen de fondo
         $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
 
         // Cargar header común
+<<<<<<< HEAD
         $this->load->view('contacto_login/header_contacto_login', $data);
 
         // Vista principal de la sección "Contacto"
@@ -98,3 +114,14 @@ class Contacto extends CI_Controller
 
 }
 ?>
+=======
+        $this->load->view('contacto_2/header_contacto', $data);
+
+        // Vista principal de la sección "Contacto"
+        $this->load->view('contacto_2/header_contacto', $data);
+
+        // Cargar footer común
+        $this->load->view('contacto_2/footer_contacto');
+    }
+}
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f

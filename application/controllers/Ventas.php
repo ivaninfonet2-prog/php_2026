@@ -52,6 +52,7 @@ class Ventas extends CI_Controller
         }
     }
 
+<<<<<<< HEAD
     public function mostrar_ventas() 
     {
         // Preparar datos para la vista
@@ -66,6 +67,16 @@ class Ventas extends CI_Controller
         $this->load->view('ventas/header_ventas', $data);
         $this->load->view('ventas/body_ventas', $data);
         $this->load->view('ventas/footer_ventas', $data); // si tienes un footer, recomendable
+=======
+    public function listar_ventas() 
+    {
+        $this->load->view('vista_comienzo_2');
+
+        $data['ventas'] = $this->Venta_modelo->obtener_ventas();
+        
+        $this->load->view('vista_ventas', $data);
+        $this->load->view('footer');
+>>>>>>> da0aeb1fb2f7b6372806ff3804e884ba9fe2557f
     }
 }
 
