@@ -157,7 +157,7 @@ class Usuario extends CI_Controller
         }
     }
 
-    public function editar($id_usuario)
+    public function editar_usuario($id_usuario)
     {
         $usuario = $this->Usuario_modelo->obtener_por_id($id_usuario);
        
@@ -194,7 +194,7 @@ class Usuario extends CI_Controller
         }
     }
 
-    public function eliminar($id_usuario)
+    public function eliminar_usuario($id_usuario)
     {
         $usuario = $this->Usuario_modelo->obtener_por_id($id_usuario);
         

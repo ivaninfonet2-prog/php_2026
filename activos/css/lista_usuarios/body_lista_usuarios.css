@@ -1,0 +1,119 @@
+/* ===== Estilos generales ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #111;
+    color: #fff;
+}
+
+.inicio-container {
+    min-height: 100vh;
+    padding: 2rem;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Título */
+.titulo-tabla {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #4dd0e1;
+    margin-bottom: 2rem;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Contenedor de tabla con efecto vidrio */
+.tabla-container {
+    overflow-x: auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+/* Tabla de usuarios */
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-usuarios th, .tabla-usuarios td {
+    padding: 0.8rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.tabla-usuarios th {
+    background: rgba(77, 208, 225, 0.3);
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.tabla-usuarios tr:hover {
+    background: rgba(77, 208, 225, 0.1);
+    transition: background 0.3s ease;
+}
+
+/* Botones de acción */
+.boton-accion {
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin: 0 2px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.boton-accion.editar {
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.boton-accion.eliminar {
+    background: linear-gradient(135deg, #f44336, #e57373);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.boton-accion:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* Botón agregar usuario */
+.boton-agregar {
+    display: inline-block;
+    background: linear-gradient(135deg, #4dd0e1, #26c6da);
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.boton-agregar:hover {
+    background: linear-gradient(135deg, #26c6da, #4dd0e1);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .tabla-usuarios th, .tabla-usuarios td {
+        padding: 0.5rem 0.7rem;
+    }
+
+    .titulo-tabla {
+        font-size: 1.8rem;
+    }
+
+    .boton-accion {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.9rem;
+    }
+}

@@ -24,7 +24,7 @@
             <a href="<?= base_url('ventas/mostrar_ventas'); ?>" class="boton"> Ventas</a>
             <a href="<?= base_url('clientes/mostrar_clientes'); ?>" class="boton"> Clientes</a>
             <a href="<?= base_url('administrador/crear_espectaculo'); ?>" class="boton"> Agregar Espectáculo</a>
-            <a href="<?= base_url('administrador/administrador_usuarios'); ?>" class="boton"> Usuarios</a>
+            <a href="<?= base_url('administrador/lista_usuarios'); ?>" class="boton"> Usuarios</a>
             <a href="<?= base_url('administrador/crear_usuario'); ?>" class="boton"> Agregar Usuario</a>
         </div>
     </main>
