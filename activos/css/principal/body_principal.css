@@ -1,60 +1,38 @@
 /* Contenedor principal de la cartelera */
 .inicio-container {
-    padding-top: 8rem; /* antes 3.5rem — ahora queda bien separado del header */
+    padding-top: 5rem;  
     padding-bottom: 3.5rem;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(2px);
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    filter: brightness(1.05);     
 }
 
-/* Cartelera */
-.cartelera {
-    color: #ffffff; /* blanco puro */
-    margin-top: 1.5rem;
-    text-shadow: none; /* sin sombras oscuras */
-}
-
+/* Bloque bienvenida */
 .bienvenida {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    margin-top: 1rem;   /* sube un poco hacia arriba */
+    margin-top: 1rem;   
     margin-bottom: 2rem;
 }
 
-
 .mensaje-bienvenida {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 700;
-    color: #ffffff;     
-    text-shadow: 0 0 8px rgba(0,0,0,0.5); /* opcional, para contraste */
+    color: #ffffff; /* letras claras */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* mejor contraste */
 }
 
 .mensaje-sub {
-    font-size: 1.15rem;
-    color: #f5f5f5;
+    font-size: 1.2rem;
+    color: #f0f0f0; /* letras claras */
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
 }
-
-
-
-/* ✅ Fondo más definido y visible */
-.inicio-container {
-    padding-top: 5rem;  /* ✅ acompaña la distancia del bloque */
-    padding-bottom: 3.5rem;
-
-    background-size: cover;       /* ✅ ocupa toda la pantalla */
-    background-position: center;  /* ✅ centrada */
-    background-repeat: no-repeat; /* ✅ sin repetición */
-    background-attachment: fixed; /* ✅ efecto parallax suave */
-    filter: brightness(1.05);     /* ✅ mejora la definición */
-}
-
 
 /* Contenedor de tarjetas */
 .tarjetas-container {
@@ -67,7 +45,7 @@
 }
 
 .tarjeta {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.25); /* fondo semitransparente oscuro */
     border: 2px solid rgba(3, 155, 229, 0.25);
     border-radius: 12px;
     overflow: hidden;
@@ -81,10 +59,10 @@
 
 .tarjeta:hover {
     transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(3,155,229,0.25);
+    box-shadow: 0 8px 20px rgba(3,155,229,0.35);
 }
 
-/* Imagen estilo carnet centrada */
+/* Imagen centrada estilo carnet */
 .imagen {
     width: 180px;
     height: 180px;
@@ -104,31 +82,31 @@
 
 .contenido h3 {
     margin: 10px 0 5px;
-    color: #0277bd;
-    font-size: 1.4em;
+    color: #ffffff; /* letras claras */
+    font-size: 1.6em;
     font-weight: bold;
 }
 
-.contenido h2 {
+.contenido h4.descripcion {
     font-size: 1em;
-    color: #333;
+    color: #f0f0f0; /* letras claras */
     margin-bottom: 10px;
     line-height: 1.4;
 }
 
 .precio {
     font-weight: bold;
-    color: #d32f2f;
+    color: #ffd700; /* amarillo claro */
     margin-bottom: 15px;
-    font-size: 1.1em;
+    font-size: 1.15em;
 }
 
 /* Botón */
 .boton-ver {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #039be5;
-    color: #fff;
+    background-color: #03a9f4; /* celeste vibrante */
+    color: #ffffff; /* letras claras */
     text-decoration: none;
     border-radius: 6px;
     transition: all 0.3s ease;
@@ -136,7 +114,7 @@
 }
 
 .boton-ver:hover {
-    background-color: #0277bd;
+    background-color: #0288d1;
     transform: translateY(-2px);
 }
 
@@ -156,6 +134,17 @@
     to { opacity: 1; transform: scale(1); }
 }
 
+/* Texto general debajo de la cartelera */
+.texto-general {
+    margin-top: 30px;
+    text-align: center; /* centrado */
+    width: 100%; 
+    color: #ffffff; /* letras claras */
+    font-size: 1.3rem; 
+    line-height: 1.7;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
 /* Responsividad */
 @media (max-width: 768px) {
     .tarjetas-container {
@@ -164,5 +153,8 @@
     .imagen {
         height: 160px;
         width: 160px;
+    }
+    .texto-general {
+        font-size: 1.2rem;
     }
 }

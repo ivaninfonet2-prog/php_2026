@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +10,7 @@
 <body>
 
 <main class="inicio-container" style="background-image: url('<?= $fondo ?>');">
-    
+
     <!-- Bloque superior con título y descripción -->
     <section class="bienvenida row mt-5">
         <div class="col-12 text-center animate__animated animate__zoomIn">
@@ -31,17 +30,17 @@
                 <?php if (!empty($espectaculos)): ?>
                     <?php foreach ($espectaculos as $espectaculo): ?>
                         <div class="tarjeta">
+                            <!-- Imagen del espectáculo -->
                             <img src="<?= base_url('activos/imagenes/' . $espectaculo['imagen']); ?>" 
                                  alt="<?= $espectaculo['nombre']; ?>" 
                                  class="imagen">
 
+                            <!-- Contenido de la tarjeta -->
                             <div class="contenido">
                                 <h3><?= $espectaculo['nombre']; ?></h3>
-                                <h2><?= $espectaculo['descripcion']; ?></h2>
-                                <p class="precio">
-                                    $<?= number_format($espectaculo['precio'], 2, ',', '.'); ?>
-                                </p>
-                                <a href="<?= site_url('espectaculos/ver_espectaculo_sin_loguear/' . $espectaculo['id_espectaculo']); ?>" 
+                                <h4 class="descripcion"><?= $espectaculo['descripcion']; ?></h4>
+                                <p class="precio">$<?= number_format($espectaculo['precio'], 2, ',', '.'); ?></p>
+                                <a href="<?= site_url('espectaculos/espectaculo_sin_loguear/' . $espectaculo['id_espectaculo']); ?>" 
                                    class="boton-ver">Ver espectáculo</a>
                             </div>
                         </div>
@@ -51,8 +50,16 @@
                 <?php endif; ?>
             </div>
 
+            <!-- Texto adicional general debajo de la cartelera -->
+            <div class="texto-general">
+                <p>
+                    ¡No te pierdas ninguno de nuestros eventos destacados! Explora la cartelera y asegura tu lugar en los mejores espectáculos de la ciudad.
+                </p>
+            </div>
+
         </div>
     </section>
+
 </main>
 
 </body>

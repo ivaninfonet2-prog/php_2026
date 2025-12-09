@@ -75,7 +75,7 @@ class Espectaculos extends CI_Controller
 
     //  LISTA USUARIO (COMPLETAMENTE INDEPENDIENTE)
 
-    public function espectaculos_usuario()
+    public function usuario_espectaculos()
     {
         // Copia completa del procesamiento
         $espectaculos = $this->Espectaculo_modelo->obtener_espectaculos();
@@ -102,14 +102,14 @@ class Espectaculos extends CI_Controller
         ];
 
         // Sus vistas propias
-        $this->load->view('usuario_espectaculos/usuario_espectaculos_header', $data);
-        $this->load->view('usuario_espectaculos/usuario_espectaculos_body', $data);
-        $this->load->view('usuario_espectaculos/usuario_espectaculos_footer', $data);
+        $this->load->view('usuario_espectaculos/header_usuario_espectaculos', $data);
+        $this->load->view('usuario_espectaculos/body_usuario_espectaculos', $data);
+        $this->load->view('usuario_espectaculos/footer_usuario_espectaculos', $data);
     }
 
     //  LISTA ADMINISTRADOR (COMPLETAMENTE INDEPENDIENTE)
 
-    public function espectaculos_admin()
+    public function admin_espectaculos()
     {
         // Copia completa del procesamiento
         $espectaculos = $this->Espectaculo_modelo->obtener_espectaculos();
@@ -136,9 +136,9 @@ class Espectaculos extends CI_Controller
         ];
 
         // Sus vistas propias
-        $this->load->view('administrador_espectaculos/header_administrador_espectaculos', $data);
-        $this->load->view('administrador_espectaculos/body_administrador_espectaculos', $data);
-        $this->load->view('administrador_espectaculos/footer_administrador_espectaculos', $data);
+        $this->load->view('admini_espectaculos/header_admin_espectaculos', $data);
+        $this->load->view('admin_espectaculos/body_admin_espectaculos', $data);
+        $this->load->view('admin_espectaculos/footer_admin_espectaculos', $data);
     }
 
     //  VER ESPECTÁCULO SIN LOGUEAR (TOTALMENTE INDEPENDIENTE)
@@ -188,9 +188,9 @@ class Espectaculos extends CI_Controller
         ];
 
         // Sus vistas específicas
-        $this->load->view('ver_espectaculo_logueado/header_ver_espectaculo_logueado', $data);
-        $this->load->view('ver_espectaculo_logueado/body_ver_espectaculo_logueado', $data);
-        $this->load->view('ver_espectaculo_logueado/footer_ver_espectaculo_logueado', $data);
+        $this->load->view('espectaculo_logueado/header_ver_espectaculo_logueado', $data);
+        $this->load->view('espectaculo_logueado/body_ver_espectaculo_logueado', $data);
+        $this->load->view('espectaculo_logueado/footer_ver_espectaculo_logueado', $data);
     }
 
     // REGLAS DE VALIDACIÓN
