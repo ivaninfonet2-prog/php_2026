@@ -18,11 +18,32 @@
 .registro-container {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 100px 15px 60px 15px;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    padding: 0 15px;
     position: relative;
     z-index: 1;
+    flex-direction: column; /* Para colocar el texto encima de la tarjeta */
+}
+
+/* =============================== TEXTO FUERA DE LA TARJETA =============================== */
+.registro-texto-encima {
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    margin-bottom: 30px; /* Separación entre el texto y la tarjeta */
+}
+
+.titulo-encima {
+    font-size: 2.2rem; /* Tamaño de letra ajustado */
+    font-weight: 700;
+    text-shadow: 0px 0px 12px rgba(0,0,0,0.7);
+}
+
+.subtitulo-encima {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    text-shadow: 0px 0px 8px rgba(0,0,0,0.5);
 }
 
 /* =============================== TARJETA DEL FORMULARIO =============================== */
@@ -133,5 +154,14 @@
 
     .btn {
         width: 100% !important; /* en móvil que sean anchos */
+    }
+
+    /* Ajuste del tamaño del texto en pantallas pequeñas */
+    .titulo-encima {
+        font-size: 1.8rem;
+    }
+
+    .subtitulo-encima {
+        font-size: 1rem;
     }
 }

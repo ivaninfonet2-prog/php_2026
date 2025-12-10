@@ -69,13 +69,13 @@ class Acerca extends CI_Controller
         $data['titulo'] = 'Acerca de UNLa Tienda';
 
         // Header común
-        $this->load->view('header/registrar', $data);
+        $this->load->view('header/header_registrar', $data);
 
        // Vista principal
-        $this->load->view('principal/body_principal', $data);
+        $this->load->view('acerca_principal/body_acerca_principal', $data);
 
         // Footer común
-        $this->load->view('principal/footer_principal');
+        $this->load->view('footer/footer_registrar');
     }
 
 

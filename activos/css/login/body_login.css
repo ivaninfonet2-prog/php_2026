@@ -1,145 +1,178 @@
 /* ==========================
-   CONTENEDOR PRINCIPAL LOGIN
+   FONDO Y CONTENEDOR GENERAL
 ========================== */
 .body-login {
   min-height: 100vh;
   display: flex;
+  justify-content: center;  /* Centrar horizontal */
+  align-items: center;      /* Centrar vertical */
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-
-  filter: none !important;
 }
 
-.body-login::before {
-  display: none !important;
-}
-
-/* ==========================
-   CONTENEDOR DEL FORMULARIO
-========================== */
 .login-container {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  padding: 20px;
 }
 
+
 /* ==========================
-   TEXTOS
+   TITULOS
 ========================== */
 .titulo-login {
-  color: #ffffff;
-  font-size: 2.4rem;
+  color: #ffffff; /* blanco nítido */
+  font-size: 2.8rem; /* un poco más grande */
   font-weight: 700;
-  margin-top: -40px;
-  margin-bottom: 6px;
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-shadow: 0px 0px 14px rgba(0,0,0,0.7);
+  margin-bottom: 10px;
 }
 
 .subtitulo-login {
-  color: #eaeaea;
-  font-size: 1.1rem;
-  margin-bottom: 25px;
-  text-shadow: 0 0 6px rgba(0,0,0,0.4);
+  color: #d9eaff; /* azul muy claro elegante */
+  font-size: 1.25rem;
+  margin-bottom: 28px;
+  text-shadow: 0px 0px 8px rgba(0,0,0,0.4);
 }
 
 .login-description {
-  font-size: 14px;
-  color: #f7f7f7;
-  margin-bottom: 20px;
+  color: #f0f6ff; /* blanco azulado */
+  font-size: 16px;
+  margin-bottom: 18px;
 }
 
-.login-extra {
-  text-align: center;
-  margin-top: 15px;
-  font-size: 14px;
-  color: #ffffff;
-}
-
-.highlight {
-  color: #007bff; /* unificado */
-  font-weight: bold;
-}
 
 /* ==========================
    TARJETA / FORMULARIO
 ========================== */
 .login-form {
   width: 100%;
-  max-width: 360px;
-  min-width: 280px;
-  padding: 30px;
+  max-width: 430px;  /* Más ancho */
+  padding: 35px;     /* Más aire interno */
 
-  background: rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(10px);
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
 
-  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.40);
+  box-shadow: 0 12px 34px rgba(0,0,0,0.32);
 }
 
+
 /* ==========================
-   CAMPOS DEL FORMULARIO
+   CAMPOS
 ========================== */
-.form-control {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  margin-bottom: 5px;
+.form-label {
+  color: #e1edff; /* celeste-claro muy visible */
+  font-size: 16px;   /* más grande */
+  font-weight: 600;
 }
 
+.form-control {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 16px;   /* más legible */
+  margin-top: 6px;
+  color: #1d1d1d; /* texto oscuro nítido */
+  transition: 0.2s ease-in-out;
+}
+
+.form-control::placeholder {
+  color: #4d4d4d; /* gris oscuro para más visibilidad */
+}
+
+.form-control:focus {
+  background: #ffffff;
+  border: 2px solid #0077ff;
+  box-shadow: 0 0 10px rgba(0,123,255,0.45);
+}
+
+
 /* ==========================
-   BOTONES
+   BOTONES CENTRADOS
 ========================== */
 .login-buttons {
   display: flex;
-  gap: 12px;
-  margin-top: 15px;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 22px;
 }
 
-.login-buttons .btn:last-child {
-  margin-right: 0;
+.login-buttons .btn {
+  padding: 12px 26px;
+  font-size: 16px;   /* más grande */
+  font-weight: 600;
+  border-radius: 10px;
+  transition: 0.2s;
+  color: white;
 }
+
+/* Hover */
+.login-buttons .btn-primary:hover {
+  background-color: #004ba7; /* azul UNLa más fuerte */
+}
+
+.login-buttons .btn-success:hover {
+  background-color: #0a7c32;
+}
+
+
+/* ==========================
+   MENSAJE EXTRA
+========================== */
+.login-extra {
+  color: #e4f2ff; /* celeste blanco */
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.highlight {
+  color: #00c3ff; /* azul destacable pero suave */
+  font-weight: bold;
+}
+
 
 /* ==========================
    ALERTA DE ERROR
 ========================== */
 .alert {
-  margin-bottom: 12px;
-  font-size: 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  color: white;
 }
 
-/* ==========================
-   VOLVER
-========================== */
-.volver-inicio,
-.volver-login {
-  text-align: center;
-  margin-top: 40px;
-}
 
 /* ==========================
    RESPONSIVE
 ========================== */
 @media (max-width: 480px) {
-  .login-form {
-    padding: 22px;
-  }
-
   .titulo-login {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .subtitulo-login {
-    font-size: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .login-form {
+    padding: 26px;
+    max-width: 90%;
+  }
+
+  .form-label,
+  .form-control,
+  .login-description {
+    font-size: 15px;
   }
 }

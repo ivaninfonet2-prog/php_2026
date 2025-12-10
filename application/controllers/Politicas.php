@@ -34,6 +34,21 @@ class Politicas extends CI_Controller
         $this->load->view('footer/footer_login');
     }
 
+    public function politicas_registrar() 
+    {
+        $data['fondo']  = base_url('activos/imagenes/mi_fondo.jpg');
+        $data['titulo'] = 'Acerca de UNLa Tienda';
+
+        // Header común
+        $this->load->view('header/header_registrar', $data);
+
+       // Vista principal
+        $this->load->view('politicas_principal/body_politicas_principal', $data);
+
+        // Footer común
+        $this->load->view('footer/footer_registrar');
+    }
+
     public function politicas_usuario() 
     {
         // Ruta de la imagen de fondo
