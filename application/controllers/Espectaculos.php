@@ -148,12 +148,12 @@ class Espectaculos extends CI_Controller
         // Obtener espectáculo
         $espectaculo = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
 
-        if ( ! $espectaculo)
+        if (!$espectaculo) 
         {
             show_404();
         }
 
-        // Datos propios de esta vista
+        // Datos de la vista
         $data = 
         [
             'titulo'      => 'Ver espectáculo',
@@ -161,10 +161,10 @@ class Espectaculos extends CI_Controller
             'espectaculo' => $espectaculo
         ];
 
-        // Sus vistas específicas
-        $this->load->view('ver_espectaculo_sin_loguear/header_ver_espectaculo_sin_loguear', $data);
-        $this->load->view('ver_espectaculo_sin_loguear/body_ver_espectaculo_sin_loguear', $data);
-        $this->load->view('ver_espectaculo_sin_loguear/footer_ver_espectaculo_sin_loguear', $data);
+        // Cargar vistas
+        $this->load->view('espectaculo_sin_loguear/header_espectaculo_sin_loguear', $data);
+        $this->load->view('espectaculo_sin_loguear/body_espectaculo_sin_loguear', $data);
+        $this->load->view('espectaculo_sin_loguear/footer_espectaculo_sin_loguear', $data);
     }
 
     //  VER ESPECTÁCULO LOGUEADO (TOTALMENTE INDEPENDIENTE)

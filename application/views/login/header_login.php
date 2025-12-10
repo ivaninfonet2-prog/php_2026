@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="menuPrincipal">
                 <ul class="navbar-nav ms-auto nav-menu d-flex align-items-center gap-2">
                     <li class="nav-item">
-                        <a class="btn btn-home" href="<?= base_url(); ?>">Volver al inicio</a>
+                        <a class="btn btn-home" href="<?= base_url(); ?>">Volver al Inicio</a>
                     </li>
                 </ul>
             </div>

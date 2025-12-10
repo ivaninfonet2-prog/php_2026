@@ -6,7 +6,7 @@
     <title><?= $titulo; ?></title>
 
     <!-- CSS principal -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/ver_espectaculo_sin_loguear/body_ver_espectaculo_sin_loguear.css?v=' . time()) ?>">
+    <link rel="stylesheet" href="<?= base_url('activos/css/espectaculo_sin_loguear/body_espectaculo_sin_loguear.css?v=' . time()) ?>">
 </head>
 <body>
 

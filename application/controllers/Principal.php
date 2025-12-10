@@ -15,6 +15,19 @@ class Principal extends CI_Controller
     {
         redirect('espectaculos');
     }
+
+    public function espectaculo_principal($id = null)
+    {
+        // Evita llamadas sin ID
+        if ($id === null)
+        {
+            show_404();
+        }
+
+        // Redirige al controlador de espectáculos (responsabilidad correcta)
+        redirect('espectaculos/espectaculo_sin_loguear/' . $id);
+    }
+
 }
 ?>
 
