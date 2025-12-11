@@ -13,7 +13,7 @@ body {
    ================================ */
 .main-header {
     width: 100%;
-    height: 100px; /* Aumenté la altura del header */
+    height: 100px;
     background-color: #000; /* Fondo negro sólido */
     display: flex;
     align-items: center;
@@ -27,10 +27,10 @@ body {
     width: 100%;
     max-width: 1400px;
     margin: auto;
-    padding: 0 25px;
+    padding: 0 30px; /* más espacio interno */
     display: flex;
     align-items: center;
-    justify-content: space-between; /* separa izquierda y derecha */
+    justify-content: space-between; /* logo a la izquierda, menú a la derecha */
 }
 
 /* ================================
@@ -46,9 +46,8 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid #ffffff; /* Mantén el borde blanco */
+    border: 2px solid #ffffff; /* borde blanco sobrio */
     margin-right: 12px;
-    transition: none; /* Elimina la animación */
 }
 
 .site-title {
@@ -56,7 +55,6 @@ body {
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 0.5px;
-    text-shadow: none; /* Elimina el brillo */
 }
 
 /* ================================
@@ -65,7 +63,8 @@ body {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 15px; /* separación entre botones */
+    gap: 20px;          /* separación entre botones */
+    margin-right: 40px; /* margen para que no se peguen al borde derecho */
 }
 
 /* ================================
@@ -76,27 +75,27 @@ body {
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
-    transition: none; /* Elimina las animaciones */
+    border: none;
 }
 
-/* Botón Login (más azul) */
+/* Botón Login */
 .btn-login {
-    background-color: #0066ff; /* Azul sólido */
+    background-color: #0066ff;
     color: #ffffff;
 }
 
 .btn-login:hover {
-    background-color: #004bb3; /* Azul más oscuro */
+    background-color: #004bb3;
 }
 
-/* Botón Registrar (verde oscuro) */
+/* Botón Registrar */
 .btn-register {
-    background-color: #009944; /* Verde sólido */
+    background-color: #009944;
     color: #ffffff;
 }
 
 .btn-register:hover {
-    background-color: #006633; /* Verde más oscuro */
+    background-color: #006633;
 }
 
 /* ================================
@@ -104,7 +103,7 @@ body {
    ================================ */
 @media (max-width: 768px) {
     .main-header {
-        height: 90px; /* Ajusté la altura en pantallas pequeñas */
+        height: 90px;
     }
 
     .site-title {
@@ -113,14 +112,15 @@ body {
 
     .header-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
         padding: 10px;
     }
 
     .nav-menu {
-        gap: 10px;
+        gap: 15px;
         width: 100%;
         justify-content: center;
+        margin-right: 0; /* centrado en móviles */
     }
 
     .btn {

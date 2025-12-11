@@ -1,6 +1,4 @@
-/* ================================
-   General
-   ================================ */
+/* ================================ General =============================== */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -8,19 +6,18 @@ body {
     color: #f8f9fa;
 }
 
-/* ================================
-   Header principal
-   ================================ */
+/* ================================ Header principal =============================== */
 .main-header {
     width: 100%;
     height: 85px;
-    background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+    background-color: #000000; /* fondo negro sólido */
     box-shadow: 0 4px 18px rgba(0,0,0,0.6);
     display: flex;
     align-items: center;
     position: fixed;
     top: 0;
     z-index: 1000;
+    padding: 0 30px; /* más espacio interno */
 }
 
 /* Contenedor interno */
@@ -28,15 +25,12 @@ body {
     width: 100%;
     max-width: 1400px;
     margin: auto;
-    padding: 0 25px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; /* separa izquierda y derecha */
 }
 
-/* ================================
-   Logo + título
-   ================================ */
+/* ================================ Logo + título =============================== */
 .brand {
     display: flex;
     align-items: center;
@@ -47,14 +41,8 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid #ffffff;
     margin-right: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.logo-img:hover {
-    transform: scale(1.12) rotate(4deg);
-    box-shadow: 0 0 16px rgba(255,255,255,0.7);
+    /* quitamos borde blanco y efectos */
 }
 
 .site-title {
@@ -62,57 +50,49 @@ body {
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 0.5px;
-    text-shadow: 0 0 6px rgba(255,255,255,0.3);
+    /* quitamos sombra blanca */
 }
 
-/* ================================
-   Menú a la derecha
-   ================================ */
+/* ================================ Menú a la derecha =============================== */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 15px; /* separación entre botones */
+    gap: 25px; /* separación equilibrada */
+    margin-right: 40px; /* evita que se peguen al borde */
 }
 
-/* ================================
-   Botones personalizados
-   ================================ */
+/* ================================ Botones personalizados =============================== */
 .btn {
-    padding: 10px 22px;
+    padding: 10px 25px;
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    border: none;
+    box-shadow: none; /* sin sombra */
+    transition: none; /* sin animación */
 }
 
-/* Botón Login (más azul) */
+/* Botón Login */
 .btn-login {
-    background-color: #0066ff; /* azul intenso */
+    background-color: #0066ff;
     color: #ffffff;
 }
 
 .btn-login:hover {
-    background-color: #004bb3; /* azul más oscuro */
-    transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(0,102,255,0.6);
+    background-color: #004bb3;
 }
 
-/* Botón Registrar (verde oscuro) */
+/* Botón Registrar */
 .btn-register {
-    background-color: #009944; /* verde oscuro atractivo */
+    background-color: #009944;
     color: #ffffff;
 }
 
 .btn-register:hover {
-    background-color: #006633; /* verde más oscuro */
-    transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(0,153,68,0.6);
+    background-color: #006633;
 }
 
-/* ================================
-   Responsive
-   ================================ */
+/* ================================ Responsive =============================== */
 @media (max-width: 768px) {
 
     .main-header {
@@ -125,14 +105,15 @@ body {
 
     .header-container {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
         padding: 10px;
     }
 
     .nav-menu {
-        gap: 10px;
+        gap: 15px;
         width: 100%;
         justify-content: center;
+        margin-right: 0; /* centrado en móviles */
     }
 
     .btn {
