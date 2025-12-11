@@ -1,12 +1,14 @@
-/* Header principal */
+/* ================================
+   Header principal
+   ================================ */
 .main-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
-    background-color: #000000; /* fondo negro sólido */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5); /* sombra más suave y elegante */
+    height: 80px; /* Altura del header */
+    background-color: #000000; /* Fondo negro sólido */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra más suave y elegante */
     z-index: 1000;
 }
 
@@ -14,23 +16,23 @@
 .container-fluid {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 20px; /* separación lateral */
+    justify-content: space-between; /* Distribuye los elementos */
+    padding: 0 20px; /* Separación lateral */
     height: 100%;
 }
 
 /* Logo */
 .logo-img {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px; /* Tamaño del logo */
     border-radius: 50%;
-    border: 2px solid #ffffff;
+    border: 2px solid #ffffff; /* Borde blanco */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 14px rgba(255,255,255,0.7);
+    transform: scale(1.1) rotate(5deg); /* Efecto de hover en el logo */
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.7); /* Sombra suave en el hover */
 }
 
 /* Título */
@@ -39,41 +41,74 @@
     font-weight: 700;
     color: #ffffff;
     margin-left: 10px;
+    white-space: nowrap; /* Asegura que el título no se divida en varias líneas */
 }
 
 /* Botón Volver al Inicio */
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos a la derecha */
+    width: 100%; /* Hace que ocupe todo el ancho disponible */
+    margin-left: auto; /* Empuja el botón a la derecha */
+}
+
 .navbar-nav .btn {
     background-color: #007bbf;
     color: #ffffff;
     border: none;
     font-weight: 500;
     border-radius: 6px;
-    padding: 8px 20px;
+    padding: 12px 25px; /* Tamaño del botón */
+    font-size: 16px; /* Tamaño de la fuente */
     transition: all 0.3s ease;
 }
 
+/* Hover en el botón */
 .navbar-nav .btn:hover {
     background-color: #005f8f;
     transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(0,123,191,0.6);
+    box-shadow: 0 0 10px rgba(0, 123, 191, 0.6); /* Efecto de hover */
 }
 
 /* Separación del botón respecto al borde derecho */
 .navbar-nav .btn.me-3 {
-    margin-right: 25px; /* un poco más de espacio desde el borde */
+    margin-right: 30px; /* Ajuste del margen derecho para no pegarlo a la esquina */
 }
 
 /* Botón hamburguesa */
 .navbar-toggler-icon {
-    filter: invert(1); /* icono claro sobre fondo negro */
+    filter: invert(1); /* Icono claro sobre fondo oscuro */
 }
 
-/* Responsive */
+/* ================================
+   Responsive
+   ================================ */
 @media (max-width: 768px) {
-    .site-title { font-size: 1.3rem; }
+    .site-title {
+        font-size: 1.3rem; /* Ajuste para pantallas más pequeñas */
+    }
+
     .navbar-nav .btn {
-        width: 100%;
+        width: 100%; /* El botón ocupa el 100% en pantallas pequeñas */
         text-align: center;
+        padding: 10px;
         margin-bottom: 8px;
+    }
+
+    .logo-img {
+        width: 45px;
+        height: 45px; /* Logo más pequeño para pantallas pequeñas */
+    }
+}
+
+/* Extra pequeño (móviles muy pequeños) */
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 1.1rem; /* Ajuste del tamaño del título para pantallas muy pequeñas */
+    }
+
+    .logo-img {
+        width: 40px;
+        height: 40px; /* Logo aún más pequeño en dispositivos ultra pequeños */
     }
 }
