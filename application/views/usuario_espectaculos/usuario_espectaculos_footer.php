@@ -3,10 +3,10 @@
         <p class="mb-2">&copy; <?php echo date('Y'); ?> UNLa Tienda. Todos los derechos reservados.</p>
 
         <ul class="footer-links list-inline mb-3">
-            <li class="list-inline-item"><a href="<?= base_url('acerca/acerca_usuario_espectaculos'); ?>" class="footer-link">Acerca de</a></li>
-            <li class="list-inline-item"><a href="<?= base_url('contacto/contacto_usuario_espectaculos'); ?>" class="footer-link">Contacto</a></li>
-            <li class="list-inline-item"><a href="<?= base_url('politicas/politicas_usuario_espectaculos'); ?>" class="footer-link">Políticas</a></li>
-            <li class="list-inline-item"><a href="<?= base_url('ayuda/ayuda_usuario_espectaculos'); ?>" class="footer-link">Ayuda</a></li>
+            <li class="list-inline-item"><a href="<?= base_url('acerca/acerca_usuario'); ?>" class="footer-link">Acerca de</a></li>
+            <li class="list-inline-item"><a href="<?= base_url('contacto/contacto_usuario'); ?>" class="footer-link">Contacto</a></li>
+            <li class="list-inline-item"><a href="<?= base_url('politicas/politicas_usuario'); ?>" class="footer-link">Políticas</a></li>
+            <li class="list-inline-item"><a href="<?= base_url('ayuda/ayuda_usuario'); ?>" class="footer-link">Ayuda</a></li>
         </ul>
     </div>
 </footer>
