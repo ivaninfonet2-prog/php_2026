@@ -6,7 +6,7 @@
     <title><?= $titulo ?? 'UNLa Tienda'; ?></title>
 
     <!-- CSS personalizado -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/header/header_login.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('activos/css/login/header_login.css'); ?>">
 </head>
 
 <body>

@@ -1,82 +1,147 @@
-
-/* General */
+/* =========================
+   GENERAL
+========================= */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212; /* fondo oscuro general */
-    color: #f8f9fa;            /* texto claro por defecto */
+    background-color: #121212;
+    color: #f8f9fa;
+    padding-top: 80px; /* espacio para el header fijo */
 }
 
-/* Header principal */
+/* =========================
+   HEADER
+========================= */
 .main-header {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;          /* ocupa todo el ancho */
+    width: 100%;
     height: 80px;
-    background-color: #1a1a1a; /* fondo oscuro */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background-color: #1a1a1a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
     z-index: 1000;
 }
 
-/* Contenedor */
-.container-fluid {
-    padding-left: 20px;   /* margen interno para logo */
-    padding-right: 0;
+.navbar {
+    width: 100%;
+    height: 100%;
 }
 
-/* Logo */
+.header-container {
+    height: 100%;
+    padding: 0 40px; /* evita que los botones queden pegados */
+}
+
+/* =========================
+   LOGO
+========================= */
 .logo-img {
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    border: 2px solid #ffffff; /* contorno blanco */
+    border: 2px solid #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .logo-img:hover {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 12px rgba(255,255,255,0.6);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
 }
 
-/* Título */
 .site-title {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #ffffff; /* texto blanco */
-    margin: 0;
+    color: #ffffff;
 }
 
-/* Menú */
+/* =========================
+   MENÚ DERECHA
+========================= */
+.navbar-collapse {
+    display: flex;
+    justify-content: flex-end; /* empuja el menú a la derecha */
+}
+
 .nav-menu {
-    margin-right: 40px;
+    display: flex;
+    align-items: center;
     gap: 15px;
+    margin-right: 30px; /* separación del borde derecho */
 }
 
-/* Botones Login y Registrar */
-.nav-menu .btn {
-    background-color: #007bbf; /* fondo azul */
-    color: #ffffff;            /* texto blanco */
+/* =========================
+   BOTONES
+========================= */
+
+/* Botón Login - Azul */
+.btn-login {
+    background-color: #0d6efd;
+    color: #ffffff;
     border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
     font-weight: 500;
-    border-radius: 5px;
-    padding: 8px 16px;
     transition: all 0.3s ease;
-    cursor: pointer;
 }
-.nav-menu .btn:hover {
-    background-color: #005f8f; /* azul más oscuro al pasar el mouse */
+
+.btn-login:hover {
+    background-color: #0b5ed7;
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0,123,191,0.6);
+    box-shadow: 0 0 10px rgba(13, 110, 253, 0.6);
 }
 
-/* Hamburguesa */
+/* Botón Inicio - Verde */
+.btn-home {
+    background-color: #198754;
+    color: #ffffff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-home:hover {
+    background-color: #157347;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(25, 135, 84, 0.6);
+}
+
+/* =========================
+   HAMBURGUESA
+========================= */
+.navbar-toggler {
+    border: none;
+}
+
 .navbar-toggler-icon {
-    filter: invert(1); /* icono claro para que se vea sobre fondo oscuro */
+    filter: invert(1);
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 768px) {
-    .site-title { font-size: 1.3rem; }
-    .nav-menu { margin-right: 20px; }
-    .nav-menu .btn { width: 100%; text-align: left; }
+
+    .site-title {
+        font-size: 1.3rem;
+    }
+
+    .navbar-collapse {
+        justify-content: flex-start;
+    }
+
+   .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-right: 10px; /* más a la derecha */
+}
+
+
+    .nav-menu .btn {
+        width: 100%;
+        text-align: center;
+    }
 }

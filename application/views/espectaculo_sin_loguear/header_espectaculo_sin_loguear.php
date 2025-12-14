@@ -6,13 +6,12 @@
     <title><?= $titulo ?? 'UNLa Tienda'; ?></title>
 
     <!-- CSS personalizado -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/header/header_principal.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('activos/css/espectaculo_sin_loguear/header_espectaculo_sin_loguear.css'); ?>">
 </head>
 
 <body>
 
 <header class="main-header">
-
     <div class="header-container">
 
         <!-- Logo + título -->
@@ -21,13 +20,14 @@
             <span class="site-title">UNLa Tienda</span>
         </a>
 
-        <!-- Botones a la derecha -->
+        <!-- Botón -->
         <nav class="nav-menu">
-            <a href="<?= base_url(''); ?>" class="btn btn-login">Volver al Inicio</a>
+            <a href="<?= base_url(); ?>" class="btn-login">Volver al Inicio</a>
         </nav>
 
     </div>
-
 </header>
+
+
 </body>
 </html>

@@ -11,33 +11,43 @@
     <!-- CSS personalizado -->
     <link rel="stylesheet" href="<?= base_url('activos/css/registro_exitoso/header_registro_exitoso.css'); ?>">
 </head>
+
 <body class="d-flex flex-column min-vh-100">
 
 <header class="main-header">
-    <nav class="navbar navbar-expand-lg shadow-sm">
-        <div class="container-fluid">
-            <!-- Logo a la izquierda -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid header-container">
+
+            <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center" href="<?= base_url(); ?>">
                 <img src="<?= base_url('activos/imagenes/logo.jpg'); ?>" alt="Logo UNLa" class="logo-img me-2">
                 <span class="site-title">UNLa Tienda</span>
             </a>
 
-            <!-- Botón hamburguesa -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Hamburguesa -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Menú a la derecha -->
+            <!-- Menú -->
             <div class="collapse navbar-collapse" id="menuPrincipal">
-                <ul class="navbar-nav ms-auto nav-menu">
+                <ul class="navbar-nav nav-menu ms-auto">
                     <li class="nav-item">
-                        <a class="btn btn-outline-dark me-2" href="<?= base_url('login'); ?>">Login</a>
+                        <a class="btn btn-login" href="<?= base_url('login'); ?>">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-dark" href="<?= base_url(''); ?>">Volver al Inicio</a>
+                        <a class="btn btn-home" href="<?= base_url(); ?>">Volver al Inicio</a>
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 </header>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

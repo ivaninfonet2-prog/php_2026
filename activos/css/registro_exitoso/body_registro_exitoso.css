@@ -1,96 +1,151 @@
+/* =========================
+   GENERAL
+========================= */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    color: #fff;
+    color: #ffffff;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Eliminamos el fondo animado para no alterar la imagen */
-.fondo-animado {
-    display: none;
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+.inicio-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 95px; /* MÁS CERCA DEL HEADER */
+    padding-bottom: 40px;
+    gap: 20px;
 }
 
-/* Contenedor principal */
-main {
-    flex: 1;
-    display: grid;
-    place-items: center;
-    padding: 20px;
-    z-index: 1;
+/* =========================
+   TEXTO SUPERIOR
+========================= */
+.mensaje-superior {
+    text-align: center;
+    max-width: 650px;
+    padding: 0 20px;
 }
 
-/* Tarjeta transparente con efecto vidrio */
+.mensaje-superior h2 {
+    font-size: 2.3rem; /* MÁS GRANDE */
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.mensaje-superior p {
+    font-size: 1.15rem;
+    color: #e6e6e6;
+}
+
+/* =========================
+   TARJETA (GLASS OSCURA)
+========================= */
 .contenido {
-    background-color: rgba(255, 255, 255, 0.2); /* leve transparencia */
-    backdrop-filter: blur(8px); /* efecto vidrio */
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    max-width: 450px; /* más chica */
+    background-color: rgba(0, 0, 0, 0.45); /* MÁS OSCURA */
+    backdrop-filter: blur(10px);
+    padding: 32px 28px;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+    max-width: 440px;
     width: 100%;
     text-align: center;
-    margin: auto;
 }
 
-/* Títulos y textos */
+/* =========================
+   TEXTOS TARJETA
+========================= */
 .titulo {
-    font-size: 2rem;
-    color: #007BFF;
+    font-size: 2.4rem; /* MÁS GRANDE */
+    color: #0d6efd;
+    margin-top: 0;
+    margin-bottom: 8px; /* SUBE EL TÍTULO */
+}
+
+.mensaje {
+    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 
-.mensaje, .submensaje {
+.submensaje {
     font-size: 1.1rem;
-    color: #fff;
-    margin-bottom: 20px;
+    color: #f0f0f0;
+    margin-bottom: 26px;
 }
 
-/* Botones */
+/* =========================
+   BOTONES
+========================= */
 .botones {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 18px;
     flex-wrap: wrap;
 }
 
 .boton {
     text-decoration: none;
-    padding: 12px 20px;
-    font-size: 0.95rem;
-    font-weight: bold;
-    border-radius: 8px;
-    background-color: rgba(0, 123, 255, 0.85);
-    color: white;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    padding: 14px 26px;
+    font-size: 1.05rem; /* MÁS GRANDE */
+    font-weight: 600;
+    border-radius: 10px;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 
-.boton:hover {
-    background-color: rgba(0, 86, 179, 0.9);
-    transform: scale(1.05);
+/* Botón verde - Página Principal */
+.boton-verde {
+    background-color: rgba(25, 135, 84, 0.95);
 }
 
-
-/* Mensajes fuera de la tarjeta */
-.mensaje-superior, .mensaje-inferior {
-    text-align: center;
-    margin: 15px;
+.boton-verde:hover {
+    background-color: rgba(21, 115, 71, 1);
+    transform: scale(1.06);
 }
 
-.mensaje-superior h2 {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: #fff;
+/* Botón azul - Login */
+.boton-azul {
+    background-color: rgba(13, 110, 253, 0.95);
 }
 
-.mensaje-superior p,
-.mensaje-inferior p {
-    font-size: 0.95rem;
-    color: #f0f0f0;
+.boton-azul:hover {
+    background-color: rgba(11, 94, 215, 1);
+    transform: scale(1.06);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 576px) {
+
+    .mensaje-superior h2 {
+        font-size: 1.9rem;
+    }
+
+    .mensaje-superior p {
+        font-size: 1.05rem;
+    }
+
+    .contenido {
+        padding: 26px 22px;
+    }
+
+    .botones {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .boton {
+        width: 100%;
+        text-align: center;
+        font-size: 1.05rem;
+    }
 }

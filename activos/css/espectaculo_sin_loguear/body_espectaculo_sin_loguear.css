@@ -1,17 +1,17 @@
 /* ================================
-   Fondo general
-   ================================ */
+   FONDO GENERAL
+================================ */
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    color: #fff;
+    color: #ffffff;
     position: relative;
-    background-color: #f0f0f0; /* Fondo claro de respaldo */
+    background-color: #f0f0f0;
 }
 
-/* Fondo visible detrás de todo */
+/* Fondo detrás de todo */
 .fondo-body {
     position: fixed;
     top: 0;
@@ -23,33 +23,36 @@ body {
     background-attachment: fixed;
     background-size: cover;
     z-index: -1;
-    filter: brightness(1.05); /* Aclara un poco la imagen */
+    filter: brightness(1.05);
 }
 
-/* Texto fuera de la tarjeta */
+/* ================================
+   TEXTO SUPERIOR
+================================ */
 .intro-text {
     text-align: center;
-    margin-top: 140px; /* Más separación del header */
-    margin-bottom: 20px;
+    margin-top: 140px;
+    margin-bottom: 22px;
     padding: 0 15px;
 }
 
 .intro-text h1 {
-    font-size: 2.2rem; /* Aumento de tamaño */
+    font-size: 2.2rem;
     font-weight: 700;
-    color: #ffffff; /* Color blanco para mejorar contraste */
+    color: #ffffff;
     margin-bottom: 8px;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.5); /* Sombra más pronunciada */
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
 .intro-text p {
-    font-size: 1.1rem; /* Aumento de tamaño */
-    opacity: 0.9;
-    margin-bottom: 0;
-    color: #eaeaea; /* Color más suave para mejorar contraste */
+    font-size: 1.1rem;
+    color: #e6e6e6;
+    opacity: 0.95;
 }
 
-/* Contenedor principal */
+/* ================================
+   CONTENEDOR PRINCIPAL
+================================ */
 .registro-container {
     display: flex;
     justify-content: center;
@@ -58,118 +61,149 @@ body {
     margin-bottom: 50px;
 }
 
-/* Tarjeta con fondo oscuro, translúcido y efecto esmerilado */
+/* ================================
+   TARJETA GLASS
+================================ */
 .tarjeta-espectaculo {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    background: rgba(0, 0, 0, 0.3); /* Fondo negro translúcido */
-    backdrop-filter: blur(12px); /* Efecto esmerilado */
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.2); /* Borde más sutil */
-    padding: 20px 25px;
+    background: rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 22px 26px;
     max-width: 700px;
     width: 85%;
-    box-shadow: 0 6px 22px rgba(0,0,0,0.32);
-    gap: 20px;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.35);
+    gap: 22px;
 }
 
-/* Secciones dentro de la tarjeta */
+/* Secciones internas */
 .tarjeta-espectaculo section {
     flex: 1 1 45%;
     min-width: 220px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Evita espacios vacíos */
 }
 
-/* Imagen */
+/* ================================
+   IMAGEN
+================================ */
 .tarjeta-espectaculo .imagen {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px; /* Mayor separación */
+    margin-bottom: 15px;
 }
 
 .imagen-espectaculo {
-    max-width: 70%; /* Imagen más pequeña */
-    height: 200px; /* Altura ajustada */
-    object-fit: cover; /* Mantiene la imagen proporcional */
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.35);
+    max-width: 70%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
 }
 
-/* Títulos y texto dentro de la tarjeta */
-.tarjeta-espectaculo h2,
-.tarjeta-espectaculo h3 {
-    color: #f1f1f1; /* Texto claro para contraste */
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.25); /* Sombra suave para el texto */
+/* ================================
+   TEXTO INTERNO
+================================ */
+
+/* Título principal */
+.tarjeta-espectaculo h2 {
+    color: #eaf2ff;
+    font-size: 1.65rem;
     margin-bottom: 10px;
-    font-size: 1.6rem; /* Mayor tamaño */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
 }
 
-.tarjeta-espectaculo p,
+/* Subtítulos */
+.tarjeta-espectaculo h3 {
+    color: #d9f2e6;
+    font-size: 1.45rem;
+    margin-bottom: 8px;
+}
+
+/* Texto general */
+.tarjeta-espectaculo p {
+    color: #e3e7ee;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+/* Listas */
+.tarjeta-espectaculo ul {
+    padding-left: 18px;
+}
+
 .tarjeta-espectaculo li {
-    color: #f1f1f1; /* Texto claro para buen contraste */
-    line-height: 1.8; /* Espaciado entre líneas para mayor legibilidad */
-    margin-bottom: 8px; /* Más espacio entre párrafos */
-    font-size: 1.1rem; /* Aumento de tamaño */
+    color: #f0e9ff;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
 }
 
-/* Estados de entradas */
+/* ================================
+   ESTADOS
+================================ */
 .estado.disponible {
-    color: #8cff7a;
+    color: #9cff9c;
     font-weight: bold;
 }
 
 .estado.agotado {
-    color: #ff6b6b;
+    color: #ff9a9a;
     font-weight: bold;
 }
 
-/* Contenedor centrado del botón */
+/* ================================
+   LOGIN / BOTÓN
+================================ */
 .reserva-login {
-    text-align: center;   /* Centra todo el contenido del contenedor */
     width: 100%;
-    margin-top: 15px; /* Mayor separación superior */
+    margin-top: 18px;
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Centra horizontalmente */
+    align-items: center;
+    gap: 10px;
 }
 
-/* Botón iniciar sesión más compacto y centrado */
+.texto-login {
+    color: #dfe6f2;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Botón angosto */
 .boton-login {
-    display: inline-block;
-    padding: 10px 25px;       /* Tamaño contenido más cómodo */
-    min-width: auto;          /* No forzar ancho completo */
-    max-width: 250px;         /* Ancho máximo razonable */
-    border-radius: 6px;
+    display: inline-flex;
+    width: auto;
+    min-width: unset;
+    padding: 8px 16px;
+    border-radius: 7px;
     background: linear-gradient(135deg, #00cfff, #0099ff);
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem; /* Aumento del tamaño del texto */
-    box-shadow: 0 3px 10px rgba(0,0,0,0.35);
-    transition: background 0.3s ease, transform 0.3s ease;
-    text-align: center;       /* Asegura que el texto dentro esté centrado */
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
 }
 
 .boton-login:hover {
     background: linear-gradient(135deg, #66d9ff, #33adff);
-    box-shadow: 0 5px 14px rgba(0,0,0,0.4);
     transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
 }
 
-/* Responsive */
+/* ================================
+   RESPONSIVE
+================================ */
 @media (max-width: 768px) {
+
     .tarjeta-espectaculo {
         flex-direction: column;
-        padding: 15px 20px;
-    }
-
-    .tarjeta-espectaculo section {
-        flex: 1 1 100%;
+        padding: 18px 20px;
     }
 
     .intro-text h1 {
@@ -177,11 +211,6 @@ body {
     }
 
     .intro-text p {
-        font-size: 1rem;
-    }
-
-    .boton-login {
-        padding: 10px 25px;
         font-size: 1rem;
     }
 

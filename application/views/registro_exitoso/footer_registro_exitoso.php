@@ -12,4 +12,4 @@
 </footer>
 
 <!-- Enlace al CSS del footer -->
-<link rel="stylesheet" href="<?= base_url('activos/css/registro_exitoso/footer_registro_exitoso.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('activos/css/principal/footer_principal.css'); ?>">

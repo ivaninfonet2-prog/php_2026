@@ -13,25 +13,28 @@ body {
    ================================ */
 .main-header {
     width: 100%;
-    height: 100px; /* Aumenté la altura del header */
-    background-color: #000; /* Fondo negro sólido */
-    display: flex;
-    align-items: center;
+    height: 100px;
+    background-color: #000;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave para darle más profundidad */
+
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 /* Contenedor interno */
 .header-container {
     width: 100%;
     max-width: 1400px;
-    margin: auto;
+    margin: 0 auto;
     padding: 0 25px;
+
     display: flex;
     align-items: center;
-    justify-content: space-between; /* separa izquierda y derecha */
+    justify-content: space-between;
 }
 
 /* ================================
@@ -47,9 +50,8 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid #ffffff; /* Mantén el borde blanco */
+    border: 2px solid #ffffff;
     margin-right: 12px;
-    transition: none; /* Elimina la animación */
 }
 
 .site-title {
@@ -57,66 +59,45 @@ body {
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 0.5px;
-    text-shadow: none; /* Elimina el brillo */
+    white-space: nowrap;
 }
 
 /* ================================
-   Menú a la derecha
+   Menú derecho
    ================================ */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 15px; /* separación entre botones */
-    justify-content: flex-end; /* Mantén los elementos al final, pero permite ajustes */
-}
-
-/* Ajustar el botón "Volver al Inicio" para que no quede pegado a la derecha */
-.nav-menu .btn-login {
-    margin-right: 30px; /* Espaciado a la derecha */
+    justify-content: flex-end;
 }
 
 /* ================================
-   Botones personalizados
+   Botón Volver al Inicio
    ================================ */
 .btn {
-    padding: 10px 22px;
+    padding: 12px 26px;
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
-    transition: none; /* Elimina las animaciones */
+    color: #ffffff;
 }
 
-/* Botón Login (más azul) */
+/* Botón Login */
 .btn-login {
-    background-color: #0066ff; /* Azul sólido */
-    color: #ffffff;
+    background-color: #0066ff;
+    margin-right: 30px; /* ⬅️ corrido a la izquierda */
 }
 
 .btn-login:hover {
-    background-color: #004bb3; /* Azul más oscuro */
-}
-
-/* Botón Registrar (verde oscuro) */
-.btn-register {
-    background-color: #009944; /* Verde sólido */
-    color: #ffffff;
-}
-
-.btn-register:hover {
-    background-color: #006633; /* Verde más oscuro */
+    background-color: #004bb3;
 }
 
 /* ================================
    Responsive
    ================================ */
 @media (max-width: 768px) {
-    /* Ajustes para pantallas pequeñas */
     .main-header {
-        height: 90px; /* Ajusté la altura en pantallas pequeñas */
-    }
-
-    .site-title {
-        font-size: 1.4rem;
+        height: 90px;
     }
 
     .header-container {
@@ -125,8 +106,11 @@ body {
         padding: 10px;
     }
 
+    .site-title {
+        font-size: 1.4rem;
+    }
+
     .nav-menu {
-        gap: 10px;
         width: 100%;
         justify-content: center;
     }
@@ -134,20 +118,19 @@ body {
     .btn {
         width: 100%;
         text-align: center;
-        padding: 12px; /* Añadí un poco más de padding para que los botones sean más fáciles de tocar */
+        margin-right: 0; /* en mobile vuelve al centro */
     }
 
     .logo-img {
         width: 50px;
-        height: 50px; /* Logo más pequeño para pantallas pequeñas */
+        height: 50px;
     }
 }
 
 /* ================================
-   Extra pequeño (para móviles muy pequeños)
+   Móviles muy pequeños
    ================================ */
 @media (max-width: 480px) {
-    /* Ajuste para pantallas muy pequeñas */
     .main-header {
         height: 80px;
     }

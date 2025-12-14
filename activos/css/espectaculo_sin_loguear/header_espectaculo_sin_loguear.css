@@ -6,78 +6,80 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px; /* Altura del header */
-    background-color: #000000; /* Fondo negro sólido */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Sombra más suave y elegante */
+    height: 80px;
+    background-color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     z-index: 1000;
 }
 
-/* Contenedor interno del header */
-.container-fluid {
+/* Contenedor interno */
+.header-container {
+    max-width: 1200px;              /* Limita el ancho */
+    margin: 0 auto;                 /* Centra el contenido */
+    padding: 0 30px;                /* Separación lateral */
+    height: 100%;
+
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribuye los elementos */
-    padding: 0 20px; /* Separación lateral */
-    height: 100%;
+    justify-content: space-between; /* Logo a la izquierda, botón a la derecha */
+}
+
+/* Logo + título */
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 /* Logo */
 .logo-img {
     width: 50px;
-    height: 50px; /* Tamaño del logo */
+    height: 50px;
     border-radius: 50%;
-    border: 2px solid #ffffff; /* Borde blanco */
+    border: 2px solid #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.1) rotate(5deg); /* Efecto de hover en el logo */
-    box-shadow: 0 0 14px rgba(255, 255, 255, 0.7); /* Sombra suave en el hover */
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.7);
 }
 
 /* Título */
 .site-title {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #ffffff;
-    margin-left: 10px;
-    white-space: nowrap; /* Asegura que el título no se divida en varias líneas */
+    color: #fff;
+    margin-left: 12px;
+    white-space: nowrap;
 }
 
-/* Botón Volver al Inicio */
-.navbar-nav {
+/* ================================
+   Botón Volver al Inicio
+   ================================ */
+.nav-menu {
     display: flex;
-    justify-content: flex-end; /* Alinea los elementos a la derecha */
-    width: 100%; /* Hace que ocupe todo el ancho disponible */
-    margin-left: auto; /* Empuja el botón a la derecha */
+    align-items: center;
 }
 
-.navbar-nav .btn {
+/* Botón */
+.btn-login {
     background-color: #007bbf;
-    color: #ffffff;
-    border: none;
+    color: #fff;
+    text-decoration: none;
     font-weight: 500;
     border-radius: 6px;
-    padding: 12px 25px; /* Tamaño del botón */
-    font-size: 16px; /* Tamaño de la fuente */
+    padding: 12px 26px;
+    font-size: 16px;
+
+    margin-right: 30px; /* 🔥 separación del borde derecho */
     transition: all 0.3s ease;
 }
 
-/* Hover en el botón */
-.navbar-nav .btn:hover {
+.btn-login:hover {
     background-color: #005f8f;
     transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 123, 191, 0.6); /* Efecto de hover */
-}
-
-/* Separación del botón respecto al borde derecho */
-.navbar-nav .btn.me-3 {
-    margin-right: 30px; /* Ajuste del margen derecho para no pegarlo a la esquina */
-}
-
-/* Botón hamburguesa */
-.navbar-toggler-icon {
-    filter: invert(1); /* Icono claro sobre fondo oscuro */
+    box-shadow: 0 0 10px rgba(0, 123, 191, 0.6);
 }
 
 /* ================================
@@ -85,30 +87,27 @@
    ================================ */
 @media (max-width: 768px) {
     .site-title {
-        font-size: 1.3rem; /* Ajuste para pantallas más pequeñas */
+        font-size: 1.3rem;
     }
 
-    .navbar-nav .btn {
-        width: 100%; /* El botón ocupa el 100% en pantallas pequeñas */
-        text-align: center;
-        padding: 10px;
-        margin-bottom: 8px;
+    .btn-login {
+        padding: 10px 18px;
+        font-size: 15px;
     }
 
     .logo-img {
         width: 45px;
-        height: 45px; /* Logo más pequeño para pantallas pequeñas */
+        height: 45px;
     }
 }
 
-/* Extra pequeño (móviles muy pequeños) */
 @media (max-width: 480px) {
     .site-title {
-        font-size: 1.1rem; /* Ajuste del tamaño del título para pantallas muy pequeñas */
+        font-size: 1.1rem;
     }
 
     .logo-img {
         width: 40px;
-        height: 40px; /* Logo aún más pequeño en dispositivos ultra pequeños */
+        height: 40px;
     }
 }
