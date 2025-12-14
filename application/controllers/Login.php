@@ -81,9 +81,7 @@ class Login extends CI_Controller
         ];
 
         // Cargar vistas de cierre de sesión
-        $this->load->view('cerrar_sesion/header_cerrar_sesion', $data);
-        $this->load->view('cerrar_sesion/body_cerrar_sesion', $data);
-        $this->load->view('cerrar_sesion/footer_cerrar_sesion', $data);
+        redirect('principal');
     }
 }
 ?>

@@ -1,20 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cierre de sesión</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $titulo ?? 'UNLa Tienda'; ?></title>
     <link rel="stylesheet" href="<?= base_url('activos/css/cerrar_sesion/body_cerrar_sesion.css'); ?>">
 </head>
-<body style="background-image: url('<?= $fondo; ?>');">
+<body class="page-layout">
 
-    <main class="cuerpo">
-        <div class="contenedor">
-            <h1>Sesión cerrada exitosamente</h1>
-            <p>Gracias por tu visita. ¡Esperamos verte pronto!</p>
-            <a href="<?= site_url('principal'); ?>" class="boton">Volver al inicio</a>
-        </div>
-    </main>
+<header class="main-header">
+    <div class="header-container">
+        <a href="<?= base_url(); ?>" class="brand">
+            <img src="<?= base_url('activos/imagenes/logo.jpg'); ?>" alt="Logo UNLa" class="logo-img">
+            <span class="site-title">UNLa Tienda</span>
+        </a>
+        <a href="<?= base_url(); ?>" class="btn-volver">Volver al inicio</a>
+    </div>
+</header>
+
+<main class="main-content">
+    <!-- Contenido de la página -->
+</main>
 
 </body>
 </html>

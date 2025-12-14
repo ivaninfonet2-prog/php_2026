@@ -1,61 +1,86 @@
-/* Estilos generales del body */
-body {
+/* Reset básico */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+}
+
+/* Layout general */
+.page-layout {
     min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* alinea arriba */
+    flex-direction: column;
 }
 
-/* Contenedor principal */
-.cuerpo {
+/* Header fijo */
+.main-header {
+    position: fixed;
+    top: 0;
     width: 100%;
+    height: 80px;
+    background-color: #1a1a1a;
+    z-index: 1000;
+}
+
+/* Contenedor interno del header */
+.header-container {
+    height: 100%;
+    width: 100%;
+    padding: 0 24px;
     display: flex;
-    justify-content: center;
-    margin-top: 150px; /* 🔽 más espacio debajo del header */
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Caja de contenido */
-.contenedor {
-    background-color: rgba(0, 0, 0, 0.3); /* transparente: 0.0 = invisible, 0.3 = leve sombra */
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 400px;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-/* Título */
-.contenedor h1 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-}
-
-/* Párrafo */
-.contenedor p {
-    font-size: 1em;
-    margin-bottom: 20px;
-}
-
-/* Botón */
-.boton {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #1e90ff;
-    color: #fff !important;
+/* Logo y título */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     text-decoration: none;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
+}
+.logo-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+.site-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
 }
 
-/* Hover del botón */
-.boton:hover {
-    background-color: #0066cc;
+/* Botón volver */
+.btn-volver {
+    background-color: #007bbf;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.btn-volver:hover {
+    background-color: #005f8f;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,123,191,0.6);
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    margin-top: 80px; /* Altura del header */
+    padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 1.3rem;
+    }
+    .btn-volver {
+        padding: 6px 14px;
+        font-size: 0.9rem;
+    }
 }
