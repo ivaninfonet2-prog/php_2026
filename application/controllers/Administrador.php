@@ -85,7 +85,7 @@ class Administrador extends CI_Controller
      */
     public function crear_usuario()
     {
-        redirect('usuario/agregar_usuario');
+        redirect('usuario/crear_usuario');
     }
 
     /**
@@ -93,7 +93,7 @@ class Administrador extends CI_Controller
      */
     public function administrador_espectaculos()
     {
-        redirect('espectaculos/mostrar_lista_espectaculos_administrador');
+        redirect('espectaculos/administrador_espectaculos');
     }
 
     /**

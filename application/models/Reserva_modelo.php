@@ -88,6 +88,18 @@ public function obtener_reserva_por_id($id_reserva)
                     ->row_array(); // devuelve un array asociativo
 }
 
+public function obtener_reserva_detalle($id_reserva, $id_usuario)
+{
+    $this->db->select('reservas.id_reserva, reservas.cantidad, reservas.fecha_reserva, reservas.monto_total,
+                       espectaculos.nombre as nombre_espectaculo, espectaculos.fecha as fecha_espectaculo,
+                       espectaculos.precio, espectaculos.disponibles');
+    $this->db->from('reservas');
+    $this->db->join('espectaculos', 'reservas.espectaculo_id = espectaculos.id_espectaculo');
+    $this->db->where('reservas.id_reserva', $id_reserva);
+    $this->db->where('reservas.usuario_id', $id_usuario);
+
+    return $this->db->get()->row_array();
+}
 
 
 }

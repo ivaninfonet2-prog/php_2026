@@ -109,7 +109,7 @@ class Espectaculos extends CI_Controller
 
     //  LISTA ADMINISTRADOR (COMPLETAMENTE INDEPENDIENTE)
 
-    public function admin_espectaculos()
+    public function administrador_espectaculos()
     {
         // Copia completa del procesamiento
         $espectaculos = $this->Espectaculo_modelo->obtener_espectaculos();
@@ -136,9 +136,9 @@ class Espectaculos extends CI_Controller
         ];
 
         // Sus vistas propias
-        $this->load->view('admini_espectaculos/header_admin_espectaculos', $data);
-        $this->load->view('admin_espectaculos/body_admin_espectaculos', $data);
-        $this->load->view('admin_espectaculos/footer_admin_espectaculos', $data);
+        $this->load->view('administrador_espectaculos/header_administrador_espectaculos', $data);
+        $this->load->view('administrador_espectaculos/body_administrador_espectaculos', $data);
+        $this->load->view('administrador_espectaculos/footer_administrador_espectaculos', $data);
     }
 
     //  VER ESPECTÁCULO SIN LOGUEAR (TOTALMENTE INDEPENDIENTE)
