@@ -45,4 +45,20 @@ class Usuario_modelo extends CI_Model
         $this->db->where('id_usuario', $id_usuario); 
         return $this->db->get('usuarios')->row(); 
     }
+
+    public function get_usuario_email($id_usuario)  
+    {
+        $this->db->select('nombre_usuario'); // nombre_usuario es el campo donde guardas el email
+        $this->db->from('usuarios');
+        $this->db->where('id_usuario', $id_usuario);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) 
+        {
+            return $query->row_array(); // devuelve un array con 'nombre_usuario'
+        }
+
+        return null; // si no encuentra nada
+    }
+
 }
