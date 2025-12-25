@@ -164,7 +164,6 @@ main.container {
     color: #ffffff;
 }
 
-/* 🔧 ARREGLO CLAVE */
 .formulario input[type="number"] {
     width: 60%;
     padding: 0.55rem;
@@ -172,13 +171,11 @@ main.container {
     border: 1px solid #cccccc;
     margin-bottom: 1.1rem;
     font-size: 1.05rem;
-
-    background-color: #ffffff;   /* ✅ fondo claro */
-    color: #000000;              /* ✅ número visible */
+    background-color: #ffffff;
+    color: #000000;
     text-align: center;
 }
 
-/* Flechas visibles */
 .formulario input[type="number"]::-webkit-inner-spin-button,
 .formulario input[type="number"]::-webkit-outer-spin-button {
     opacity: 1;
@@ -208,14 +205,18 @@ main.container {
     box-shadow: 0 5px 14px rgba(0,0,0,0.45);
 }
 
-/* Verde reservar */
+/* ===============================
+   BOTONES OSCUROS (AJUSTE PEDIDO)
+================================ */
+
+/* Verde oscuro – Reservar */
 .btn.reservar {
-    background: linear-gradient(135deg, #4caf50, #81c784);
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
 }
 
-/* Azul volver */
+/* Azul oscuro – Ir a espectáculos */
 .btn.volver {
-    background: linear-gradient(135deg, #1e88e5, #42a5f5);
+    background: linear-gradient(135deg, #0d47a1, #1565c0);
 }
 
 /* ===============================
