@@ -12,7 +12,7 @@
 
     <main class="contenido">
 
-        <!-- BLOQUE SUPERIOR -->
+        <!-- ENCABEZADO -->
         <section class="intro">
             <h1 class="titulo">Detalle de la Reserva</h1>
             <p class="subtitulo">
@@ -20,26 +20,48 @@
             </p>
         </section>
 
-        <!-- CONTENEDOR CENTRAL -->
+        <!-- CONTENEDOR -->
         <section class="detalle-wrapper">
 
-            <!-- TARJETA DETALLE -->
+            <!-- DETALLE -->
             <div class="detalle-card">
-                <p><span>Espectáculo:</span> <?= $reserva['nombre_espectaculo']; ?></p>
-                <p><span>Fecha del espectáculo:</span> <?= $reserva['fecha_espectaculo']; ?></p>
-                <p><span>Cantidad de entradas:</span> <?= $reserva['cantidad']; ?></p>
-                <p><span>Precio unitario:</span> $<?= number_format($reserva['precio'], 2, ',', '.'); ?></p>
+                <div class="fila">
+                    <span>Espectáculo</span>
+                    <strong><?= $reserva['nombre_espectaculo']; ?></strong>
+                </div>
 
-                <p class="total">
-                    <span>Total abonado:</span>
+                <div class="fila">
+                    <span>Fecha del espectáculo</span>
+                    <strong><?= $reserva['fecha_espectaculo']; ?></strong>
+                </div>
+
+                <div class="fila">
+                    <span>Cantidad de entradas</span>
+                    <strong><?= $reserva['cantidad']; ?></strong>
+                </div>
+
+                <div class="fila">
+                    <span>Precio unitario</span>
+                    <strong>$<?= number_format($reserva['precio'], 2, ',', '.'); ?></strong>
+                </div>
+
+                <div class="total">
+                    Total abonado:
                     $<?= number_format($reserva['monto_total'], 2, ',', '.'); ?>
-                </p>
+                </div>
 
-                <p><span>Fecha de reserva:</span> <?= $reserva['fecha_reserva']; ?></p>
-                <p><span>Entradas disponibles:</span> <?= $reserva['disponibles']; ?></p>
+                <div class="fila">
+                    <span>Fecha de reserva</span>
+                    <strong><?= $reserva['fecha_reserva']; ?></strong>
+                </div>
+
+                <div class="fila">
+                    <span>Entradas disponibles</span>
+                    <strong><?= $reserva['disponibles']; ?></strong>
+                </div>
             </div>
 
-            <!-- ACCIONES -->
+            <!-- MENSAJE / ACCIONES -->
             <?php if ($this->session->flashdata('mensaje_cancelacion')): ?>
                 <div class="detalle-card aviso-cancelacion">
                     <?= $this->session->flashdata('mensaje_cancelacion'); ?>

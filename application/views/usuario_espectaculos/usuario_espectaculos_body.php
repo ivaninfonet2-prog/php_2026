@@ -10,10 +10,15 @@
 </head>
 <body>
 
-<main class="inicio-container"
-      <?= isset($fondo) && !empty($fondo)
-          ? 'style="background-image: url(' . $fondo . ');"'
-          : ''; ?>>
+<?php
+$estilo_fondo = '';
+
+if (isset($fondo) && !empty($fondo)) {
+    $estilo_fondo = 'style="background-image: url(' . $fondo . ');"';
+}
+?>
+
+<main class="inicio-container" <?= $estilo_fondo; ?>>
 
     <!-- Bienvenida -->
     <section class="bienvenida">

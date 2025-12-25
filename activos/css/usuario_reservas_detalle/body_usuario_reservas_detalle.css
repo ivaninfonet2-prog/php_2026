@@ -8,7 +8,7 @@ body {
     color: #1f2933;
 }
 
-/* ===== CONTENEDOR GENERAL ===== */
+/* ===== CONTENEDOR ===== */
 .contenido {
     min-height: 100vh;
     padding: 140px 20px 80px;
@@ -35,7 +35,7 @@ body {
     color: #e5e7eb;
 }
 
-/* ===== BLOQUE CENTRAL ===== */
+/* ===== CONTENEDOR CENTRAL ===== */
 .detalle-wrapper {
     width: 100%;
     max-width: 720px;
@@ -45,37 +45,46 @@ body {
     align-items: center;
 }
 
-/* ===== TARJETA ===== */
+/* ===== TARJETA TRANSLÚCIDA ===== */
 .detalle-card {
     width: 100%;
     background: rgba(255,255,255,0.38);
     backdrop-filter: blur(7px);
-    border-radius: 16px;
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 18px;
     padding: 30px 34px;
     box-shadow: 0 10px 26px rgba(0,0,0,0.25);
     animation: fadeInUp 0.7s ease;
 }
 
-/* TEXTO TARJETA */
-.detalle-card p {
+/* FILAS */
+.fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 14px 0;
     font-size: 1.05rem;
 }
 
-.detalle-card span {
+.fila span {
     font-weight: 700;
     color: #0f172a;
 }
 
+.fila strong {
+    color: #020617;
+}
+
 /* TOTAL */
-.detalle-card .total {
-    margin: 20px 0;
-    padding: 10px 14px;
+.total {
+    margin: 22px 0;
+    padding: 12px 16px;
     font-size: 1.15rem;
     font-weight: bold;
     color: #14532d;
     background: rgba(187,247,208,0.45);
     border-radius: 10px;
+    text-align: center;
 }
 
 /* ===== ACCIONES ===== */
@@ -132,5 +141,14 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .fila {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
     }
 }

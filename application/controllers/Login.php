@@ -70,18 +70,17 @@ class Login extends CI_Controller
 
     public function logout()
     {
-        // Destruye la sesión
+        // Destruir sesión
         $this->session->sess_destroy();
 
-        // Datos básicos para las vistas
-        $data = 
-        [
-            'titulo' => 'Cerrar Sesión - UNLa Tienda',
-            'fondo'  => base_url('activos/imagenes/mi_fondo.jpg')
-        ];
+        // Evitar cache del navegador
+        $this->output
+             ->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0")
+            ->set_header("Cache-Control: post-check=0, pre-check=0", false)
+            ->set_header("Pragma: no-cache");
 
-        // Cargar vistas de cierre de sesión
-        redirect('principal');
+        // Redirigir a login o principal
+        redirect('login');
     }
 }
 ?>

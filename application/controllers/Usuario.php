@@ -15,52 +15,63 @@ class Usuario extends CI_Controller
         // Libraries & helpers
         $this->load->library(['session', 'form_validation']);
         $this->load->helper(['url', 'form']);
+
+        // Protección global: si no está logueado, afuera
+        if (!$this->session->userdata('logged_in'))
+        {
+            redirect('login');
+            exit;
+        }
+
+        // Evitar caché en todo el controlador
+        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
+        $this->output->set_header("Cache-Control: post-check=0, pre-check=0", false);
+        $this->output->set_header("Pragma: no-cache");
     }
 
-    // panel principal del usuario
-    public function index() 
+    
+    public function index()
     {
-        if ( ! $this->session->userdata('logged_in'))
+        if (!$this->session->userdata('logged_in'))
         {
             redirect('login');
             return;
         }
 
-        // Evitar caché
-        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
-        $this->output->set_header("Cache-Control: post-check=0, pre-check=0", false);
-        $this->output->set_header("Pragma: no-cache");
+        $this->output
+             ->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0")
+            ->set_header("Cache-Control: post-check=0, pre-check=0", false)
+            ->set_header("Pragma: no-cache");
 
         $id_usuario = $this->session->userdata('id_usuario');
-        $usuario = $this->Usuario_modelo->obtener_usuario_por_id($id_usuario);
+        $usuario    = $this->Usuario_modelo->obtener_usuario_por_id($id_usuario);
 
-        $data = 
+        $nombre   = '';
+        $apellido = '';
+
+        if ($usuario)
+        {
+            $nombre   = $usuario->nombre;
+            $apellido = $usuario->apellido;
+        }
+
+        $data =
         [
             'titulo'     => 'Bienvenido Usuario',
             'fondo'      => base_url('activos/imagenes/mi_fondo.jpg'),
             'id_usuario' => $id_usuario,
-            'logged_in'  => $this->session->userdata('logged_in'),
-            'nombre'     => '',
-            'apellido'   => ''
+            'logged_in'  => true,
+            'nombre'     => $nombre,
+            'apellido'   => $apellido
         ];
-
-        if ($usuario)
-        {
-            $data['nombre']   = $usuario->nombre;
-            $data['apellido'] = $usuario->apellido;
-        }
-        else
-        {
-            $data['nombre']   = '';
-            $data['apellido'] = '';
-        }
 
         $this->load->view('usuario/header_usuario', $data);
         $this->load->view('usuario/body_usuario', $data);
         $this->load->view('usuario/footer_usuario', $data);
     }
 
-    // usuario espectaculos
+    // Espectáculos
+   
     public function usuario_espectaculos()
     {
         $data = 
@@ -68,7 +79,7 @@ class Usuario extends CI_Controller
             'titulo'       => 'Cartelera de Espectáculos',
             'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
             'id_usuario'   => $this->session->userdata('id_usuario'),
-            'logged_in'    => $this->session->userdata('logged_in'),
+            'logged_in'    => true,
             'espectaculos' => $this->Espectaculo_modelo->obtener_espectaculos()
         ];
 
@@ -77,23 +88,18 @@ class Usuario extends CI_Controller
         $this->load->view('usuario_espectaculos/usuario_espectaculos_footer');
     }
 
-    // reservas del usuario
+    // Reservas del usuario
+   
     public function usuario_reservas()
     {
         $id_usuario = $this->session->userdata('id_usuario');
-
-        if (!$id_usuario)
-        {
-            redirect('login');
-            return;
-        }
 
         $data = 
         [
             'titulo'     => 'Mis Reservas',
             'fondo'      => base_url('activos/imagenes/mi_fondo.jpg'),
             'id_usuario' => $id_usuario,
-            'logged_in'  => $this->session->userdata('logged_in'),
+            'logged_in'  => true,
             'reservas'   => $this->Reserva_modelo->obtener_reservas($id_usuario)
         ];
 
@@ -102,20 +108,16 @@ class Usuario extends CI_Controller
         $this->load->view('usuario_reservas/usuario_reservas_footer');
     }
 
-    // usuario reservas detalle
+    // Detalle de reserva
+
     public function usuario_reservas_detalle($id_reserva)
     {
         $id_usuario = $this->session->userdata('id_usuario');
 
-        if ( ! $id_usuario)
-        {
-            redirect('login');
-            return;
-        }
+        $reserva = $this->Reserva_modelo
+            ->obtener_reserva_detalle($id_reserva, $id_usuario);
 
-        $reserva = $this->Reserva_modelo->obtener_reserva_detalle($id_reserva, $id_usuario);
-
-        if ( ! $reserva)
+        if (!$reserva)
         {
             show_error('Reserva no encontrada.', 404);
         }
@@ -125,7 +127,7 @@ class Usuario extends CI_Controller
             'titulo'     => 'Detalle de Reserva',
             'fondo'      => base_url('activos/imagenes/mi_fondo.jpg'),
             'id_usuario' => $id_usuario,
-            'logged_in'  => $this->session->userdata('logged_in'),
+            'logged_in'  => true,
             'reserva'    => $reserva
         ];
 
