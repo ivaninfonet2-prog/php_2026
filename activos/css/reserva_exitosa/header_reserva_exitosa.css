@@ -1,93 +1,123 @@
-/* General */
+/* ================================
+   General
+   ================================ */
 body {
     margin: 0;
-    padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212;
-    color: #ffffff;
-    padding-top: 80px; /* espacio igual a la altura del header */
+    color: #f8f9fa;
 }
 
-/* Header principal */
+/* ================================
+   Header principal
+   ================================ */
 .main-header {
+    width: 100%;
+    height: 100px;
+    background-color: #000; /* Fondo negro sólido */
+    display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%; /* mejor que 100vw */
-    background: linear-gradient(90deg, #000000, #1a1a1a);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     z-index: 1000;
 }
 
-/* Ajuste del contenedor del logo y título */
-.navbar .navbar-brand {
-    padding-left: 40px;
+/* Contenedor interno */
+.header-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 0 30px; /* Más espacio interno */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
 }
 
-.container-fluid {
-    padding-left: 40px;
-    padding-right: 40px;
+/* ================================
+   Logo + título
+   ================================ */
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
-/* Logo */
 .logo-img {
-    width: 55px;
-    height: 55px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    border: 2px solid #ffffff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #ffffff; /* Borde blanco sobrio */
+    margin-right: 12px;
 }
 
-.logo-img:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 0 12px rgba(255,255,255,0.7);
-}
-
-/* Título */
 .site-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: #ffffff;
-    margin: 0;
+    letter-spacing: 0.5px;
 }
 
-/* Menú */
+/* ================================
+   Menú a la derecha
+   ================================ */
 .nav-menu {
-    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Separación entre botones */
+    margin-right: 40px; /* Margen para que no se peguen al borde derecho */
 }
 
-/* Botones del menú */
-.nav-menu .btn {
-    background-color: #0099e6; /* celeste accesible */
-    border: 1px solid #0099e6;
-    color: #ffffff;
+/* ================================
+   Botones personalizados
+   ================================ */
+.btn {
+    padding: 10px 22px;
+    border-radius: 8px;
     font-weight: 600;
-    border-radius: 5px;
-    padding: 8px 16px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
 }
 
-/* Hover mejorado: mantiene celeste, sin oscurecer */
-.nav-menu .btn:hover {
-    background-color: #00b3ff; /* un celeste más brillante */
-    border-color: #00b3ff;
-    transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(0,179,255,0.7); /* glow celeste */
+/* Botón Cerrar Sesión - Aseguramos que el color de fondo sea rojo */
+.btn-cerrar {
+    background-color: #ff4d4d !important; /* Rojo brillante */
+    color: #ffffff !important; /* Texto blanco */
+    border: none !important; /* Elimina el borde predeterminado */
+    transition: background-color 0.3s ease; /* Efecto de transición para el hover */
 }
 
-/* Hamburguesa */
-.navbar-toggler-icon {
-    filter: invert(1); /* icono blanco */
+.btn-cerrar:hover {
+    background-color: #cc0000 !important; /* Rojo más oscuro al hacer hover */
 }
 
-/* Responsive */
+/* ================================
+   Responsive
+   ================================ */
 @media (max-width: 768px) {
-    .site-title {
-        font-size: 1.3rem;
+    .main-header {
+        height: 90px;
     }
 
-    .nav-menu .btn {
+    .site-title {
+        font-size: 1.4rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .nav-menu {
+        gap: 15px;
         width: 100%;
-        text-align: left;
+        justify-content: center; /* Centrando los elementos en móviles */
+        margin-right: 0;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
     }
 }
