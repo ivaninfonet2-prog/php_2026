@@ -40,12 +40,15 @@
 
 <!-- Protección contra volver con la flecha -->
 <script>
-    if (window.history.replaceState) {
+    if (window.history.replaceState) 
+    {
         window.history.replaceState(null, null, window.location.href);
     }
 
-    window.onpageshow = function (event) {
-        if (event.persisted) {
+    window.onpageshow = function (event) 
+    {
+        if (event.persisted) 
+        {
             window.location.reload();
         }
     };

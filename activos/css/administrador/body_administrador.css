@@ -1,4 +1,6 @@
-/* Reset básico */
+/* ===============================
+   RESET
+================================ */
 * {
     margin: 0;
     padding: 0;
@@ -7,91 +9,160 @@
 }
 
 body {
-    background-color: #f4f6f9;
-    color: #333;
+    color: #ffffff;
 }
 
-/* Header */
-.header {
-    background: linear-gradient(135deg, #4a90e2, #357abd);
-    color: white;
-    padding: 15px;
+/* ===============================
+   CONTENEDOR PRINCIPAL
+================================ */
+.inicio-container {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 120px 20px 60px;
+}
+
+/* ===============================
+   BIENVENIDA
+================================ */
+.bienvenida-admin {
+    max-width: 760px;
     text-align: center;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    margin-bottom: 50px;
 }
 
-.header-content {
+.bienvenida-admin h1 {
+    font-size: 2.3rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.45);
+}
+
+.bienvenida-admin p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+}
+
+/* ===============================
+   TARJETA PANEL
+================================ */
+.botones-container {
+    background: rgba(255, 255, 255, 0.40);
+    backdrop-filter: blur(10px);
+
+    padding: 32px 30px 36px;
+    border-radius: 18px;
+
+    box-shadow: 0 14px 36px rgba(0,0,0,0.30);
+
+    width: 100%;
+    max-width: 560px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 24px;
+}
+
+/* ===============================
+   TÍTULO Y TEXTO
+================================ */
+.panel-title {
+    grid-column: 1 / -1;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #1f3f66;
+    text-align: center;
+}
+
+.panel-descripcion {
+    grid-column: 1 / -1;
+    font-size: 0.95rem;
+    text-align: center;
+    color: #2f2f2f;
+    margin-bottom: 6px;
+}
+
+/* Mensajes ocupan todo el ancho */
+.mensaje-exito,
+.mensaje-error {
+    grid-column: 1 / -1;
+}
+
+/* ===============================
+   BOTONES
+================================ */
+.boton {
+    justify-self: center;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-}
 
-.logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-/* Contenedor principal */
-.inicio-container {
-    min-height: calc(100vh - 80px); /* ocupa el resto de la pantalla */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* alinea arriba pero no pegado */
-    padding: 100px 20px 60px; /* espacio extra arriba y abajo */
-}
-
-/* Caja central */
-.botones-container {
-    background: rgba(255, 255, 255, 0.4); /* mucho más transparente */
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    max-width: 400px; /* más compacto */
     width: 100%;
-    text-align: center;
-    backdrop-filter: blur(6px); /* efecto moderno de desenfoque */
-    margin-top: 40px; /* baja el panel respecto al header */
-    margin-bottom: 40px; /* deja aire antes del footer */
-}
+    max-width: 210px;
 
-/* Título */
-.panel-title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #357abd;
-    text-align: center;
-}
+    padding: 14px 12px;
+    border-radius: 10px;
 
-/* Botones */
-.boton {
-    display: block;
-    padding: 12px;
-    background: #4a90e2;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 1rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    text-align: center;
+
+    font-size: 0.95rem;
     font-weight: 500;
+
+    transition: all 0.3s ease;
 }
 
 .boton:hover {
-    background: #357abd;
-    transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.30);
 }
 
-.cerrar {
-    background: #e74c3c;
+/* ===============================
+   COLORES
+================================ */
+.botones-container .boton:nth-of-type(1) {
+    background: linear-gradient(135deg, #6a5acd, #483d8b);
+}
+.botones-container .boton:nth-of-type(2) {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+.botones-container .boton:nth-of-type(3) {
+    background: linear-gradient(135deg, #3498db, #2c81ba);
+}
+.botones-container .boton:nth-of-type(4) {
+    background: linear-gradient(135deg, #f39c12, #d68910);
+}
+.botones-container .boton:nth-of-type(5) {
+    background: linear-gradient(135deg, #9b59b6, #7d3c98);
+}
+.botones-container .boton:nth-of-type(6) {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
 }
 
-.cerrar:hover {
-    background: #c0392b;
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 600px) {
+
+    .botones-container {
+        grid-template-columns: 1fr;
+    }
+
+    .boton {
+        max-width: 100%;
+    }
+
+    .bienvenida-admin h1 {
+        font-size: 1.9rem;
+    }
 }

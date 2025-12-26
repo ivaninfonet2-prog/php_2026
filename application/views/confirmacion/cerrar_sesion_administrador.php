@@ -20,7 +20,7 @@
             <a href="<?= site_url('login/logout'); ?>" class="btn confirmar">
                 Sí, cerrar sesión
             </a>
-            <a href="<?= site_url('usuario'); ?>" class="btn cancelar">
+            <a href="<?= site_url('administrador'); ?>" class="btn cancelar">
                 Cancelar
             </a>
         </div>

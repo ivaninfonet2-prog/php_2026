@@ -27,7 +27,7 @@
 
         <!-- Menú de navegación -->
         <nav class="nav-menu">
-            <a href="<?= base_url('administrador'); ?>" class="btn btn-login">Volver al Administrador</a>
+            <a href="<?= base_url('administrador'); ?>" class="btn btn-login">Ir a Administrador</a>
             <!-- Botón que abrirá el modal -->
             <button type="button" class="btn btn-cerrar" data-bs-toggle="modal" data-bs-target="#confirmModal">
                 Cerrar Sesión

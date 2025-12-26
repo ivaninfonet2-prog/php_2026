@@ -14,4 +14,4 @@
 </footer>
 
 <!-- Enlace al CSS del footer -->
-<link rel="stylesheet" href="<?= base_url('activos/css/principal/footer_principal.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('activos/css/footer_footer/footer_footer_administrador.css'); ?>">

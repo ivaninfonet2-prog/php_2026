@@ -1,65 +1,187 @@
 /* ================================
-   Footer principal
-   ================================ */
-.main-footer {
-    background: #0d0d0d;
-    color: #ffffff;
-    font-size: 0.95rem;
-    box-shadow: 0 -4px 12px rgba(0,0,0,0.4);
-    width: 100%;          /* ✅ ocupa todo el ancho de la página */
-    margin: 0;            /* ✅ elimina márgenes */
-    padding: 20px 0;      /* espacio interno arriba/abajo */
-    box-sizing: border-box;
-    display: block;
+   General
+================================ */
+html, body {
+    height: 100%;
 }
 
-/* Links del footer */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #f8f9fa;
+
+    /* CLAVE PARA EL FOOTER */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================================
+   Header principal
+================================ */
+.main-header {
+    width: 100%;
+    height: 100px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    padding: 0 20px;
+}
+
+/* Contenedor interno */
+.header-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ================================
+   Logo + título
+================================ */
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    margin-right: 12px;
+}
+
+.site-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* ================================
+   Menú a la derecha
+================================ */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* ================================
+   Botones personalizados
+================================ */
+.btn {
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: none;
+}
+
+.btn-login {
+    background-color: #0066ff;
+    color: #ffffff;
+}
+
+.btn-login:hover {
+    background-color: #004bb3;
+}
+
+.btn-register {
+    background-color: #009944;
+    color: #ffffff;
+}
+
+.btn-register:hover {
+    background-color: #006633;
+}
+
+/* ================================
+   Contenido principal
+   (para compensar header fixed)
+================================ */
+main {
+    flex: 1;
+    padding-top: 120px; /* altura del header */
+}
+
+/* ================================
+   Footer
+================================ */
+.main-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+
+    /* CLAVE */
+    margin-top: auto;
+}
+
 .footer-links {
     display: flex;
-    justify-content: center; /* ✅ centrados en el ancho completo */
-    flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;             /* ✅ ocupa todo el ancho */
-    margin: 0;
-    padding: 0 20px;         /* opcional: espacio lateral */
-    box-sizing: border-box;
+    justify-content: center;
+    gap: 50px;
+    margin: 20px 0;
+    padding: 0 15px;
 }
 
-.footer-links .footer-link {
-    color: #00bfff; /* azul celeste claro */
+.footer-link {
+    color: #00bfff;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.3rem;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.footer-links .footer-link:hover {
+.footer-link:hover {
     color: #ffffff;
-    transform: translateY(-2px);
-}
-
-/* Botón volver */
-.btn-warning {
-    font-weight: 600;
-    border-radius: 25px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 15px;
-    background-color: #00bfff; /* azul celeste claro */
-    border: 1px solid #00bfff;
-    color: #ffffff;
-}
-
-.btn-warning:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(0,191,255,0.7); /* brillo celeste claro */
 }
 
 /* ================================
    Responsive
-   ================================ */
+================================ */
 @media (max-width: 768px) {
+    .main-header {
+        height: 90px;
+    }
+
+    .site-title {
+        font-size: 1.4rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .nav-menu {
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
     .footer-links {
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        gap: 25px;
+    }
+
+    .footer-link {
+        font-size: 1.2rem;
     }
 }

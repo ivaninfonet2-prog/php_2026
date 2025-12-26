@@ -48,19 +48,21 @@ class Confirmacion extends CI_Controller
         exit;
     }
 
-    /** Confirmar cerrar sesión */
+    /** Confirmar cerrar sesión (ADMIN) */
     public function cerrar_sesion_administrador()
     {
-        //  Si no está logueado, afuera
+        // Si no está logueado, afuera
         if (!$this->session->userdata('logged_in'))
         {
             redirect('login');
-            return;
+            exit;
         }
 
-        // Evitar cache
-        $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
-        $this->output->set_header("Pragma: no-cache");
+        // Evitar cache del navegador (CRÍTICO)
+        $this->output
+             ->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0")
+            ->set_header("Pragma: no-cache")
+            ->set_header("Expires: 0");
 
         $data =
         [
