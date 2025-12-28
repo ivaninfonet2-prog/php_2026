@@ -8,12 +8,13 @@ class Espectaculos extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library(['session', 'form_validation', 'upload']);
-        $this->load->helper(['url', 'form']);
-        $this->load->model('Espectaculo_modelo');
 
-        // Carpeta física donde se guardan las imágenes
-        $this->ruta_imagenes = FCPATH . 'activos/imagenes/espectaculos/';
+        $this->load->model('Espectaculo_modelo');
+        $this->load->library(['form_validation', 'upload']);
+        $this->load->helper(['url', 'form']);
+
+        // RUTA FÍSICA REAL
+        $this->ruta_imagenes = FCPATH . 'activos/imagenes/';
     }
 
     /* =====================================================
@@ -144,9 +145,7 @@ class Espectaculos extends CI_Controller
         $this->load->view('espectaculo_logueado/footer_espectaculo_logueado', $data);
     }
 
-    /* =====================================================
-       VALIDACIONES
-    ===================================================== */
+   
     private function reglas_formulario()
     {
         $this->form_validation->set_rules('nombre', 'Nombre', 'required|trim');
@@ -161,12 +160,14 @@ class Espectaculos extends CI_Controller
     /* =====================================================
        SUBIR IMAGEN (CENTRALIZADO)
     ===================================================== */
-    private function subir_imagen()
+   
+        private function subir_imagen()
     {
         if (empty($_FILES['imagen']['name'])) {
             return null;
         }
 
+        // Crear carpeta si no existe
         if (!is_dir($this->ruta_imagenes)) {
             mkdir($this->ruta_imagenes, 0777, true);
         }
@@ -174,14 +175,14 @@ class Espectaculos extends CI_Controller
         if (!is_writable($this->ruta_imagenes)) {
             $this->session->set_flashdata(
                 'error_imagen',
-                'La carpeta de imágenes no tiene permisos de escritura.'
+                'La carpeta activos/imagenes no tiene permisos de escritura.'
             );
             return null;
         }
 
         $config = [
             'upload_path'      => $this->ruta_imagenes,
-            'allowed_types'    => 'jpg|jpeg|png|webp|jfif',
+            'allowed_types'    => 'jpg|jpeg|png|gif|webp|jfif',
             'max_size'         => 5120,
             'encrypt_name'     => true,
             'file_ext_tolower' => true
@@ -192,13 +193,14 @@ class Espectaculos extends CI_Controller
         if (!$this->upload->do_upload('imagen')) {
             $this->session->set_flashdata(
                 'error_imagen',
-                $this->upload->display_errors('', '')
+                'ERROR UPLOAD: ' . strip_tags($this->upload->display_errors())
             );
             return null;
         }
 
         $data = $this->upload->data();
 
+        // Verificación REAL de imagen
         if (!@getimagesize($data['full_path'])) {
             unlink($data['full_path']);
             $this->session->set_flashdata(
@@ -208,18 +210,22 @@ class Espectaculos extends CI_Controller
             return null;
         }
 
+        // Convertir jfif → jpg
         if ($data['file_ext'] === '.jfif') {
             $nuevo = $data['raw_name'] . '.jpg';
             rename($data['full_path'], $this->ruta_imagenes . $nuevo);
-            return 'activos/imagenes/espectaculos/' . $nuevo;
+            return $nuevo;
         }
 
-        return 'activos/imagenes/espectaculos/' . $data['file_name'];
+        // ✔ DEVUELVE SOLO EL NOMBRE
+        return $data['file_name'];
     }
+
 
     /* =====================================================
        CREAR
     ===================================================== */
+    
     public function crear_espectaculo()
     {
         $data = [
@@ -228,12 +234,12 @@ class Espectaculos extends CI_Controller
         ];
 
         if ($this->input->method() === 'post') {
+
             $this->reglas_formulario();
 
             if ($this->form_validation->run()) {
 
-                $imagen = $this->subir_imagen()
-                    ?? 'activos/imagenes/espectaculos/default.jpg';
+                $imagen = $this->subir_imagen() ?? 'default.jpg';
 
                 $nuevo = [
                     'nombre'      => $this->input->post('nombre', true),
@@ -247,7 +253,8 @@ class Espectaculos extends CI_Controller
                 ];
 
                 $this->Espectaculo_modelo->agregar_espectaculo($nuevo);
-                $this->session->set_flashdata('success', 'Espectáculo creado.');
+
+                $this->session->set_flashdata('success', 'OK: espectáculo creado.');
                 redirect('administrador');
             }
         }
@@ -257,10 +264,8 @@ class Espectaculos extends CI_Controller
         $this->load->view('crear_espectaculo/footer_crear_espectaculo', $data);
     }
 
-    /* =====================================================
-       EDITAR
-    ===================================================== */
-    public function editar_espectaculo($id)
+
+       public function editar_espectaculo($id)
     {
         $e = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
         if (!$e) show_404();
@@ -272,6 +277,7 @@ class Espectaculos extends CI_Controller
         ];
 
         if ($this->input->method() === 'post') {
+
             $this->reglas_formulario();
 
             if ($this->form_validation->run()) {
@@ -287,10 +293,12 @@ class Espectaculos extends CI_Controller
                 ];
 
                 if (!empty($_FILES['imagen']['name'])) {
+
                     $img = $this->subir_imagen();
+
                     if ($img) {
-                        if ($e['imagen'] !== 'activos/imagenes/espectaculos/default.jpg') {
-                            $vieja = FCPATH . $e['imagen'];
+                        if ($e['imagen'] !== 'default.jpg') {
+                            $vieja = $this->ruta_imagenes . $e['imagen'];
                             if (file_exists($vieja)) unlink($vieja);
                         }
                         $actualizado['imagen'] = $img;
@@ -298,7 +306,8 @@ class Espectaculos extends CI_Controller
                 }
 
                 $this->Espectaculo_modelo->actualizar_espectaculo($id, $actualizado);
-                $this->session->set_flashdata('success', 'Espectáculo actualizado.');
+
+                $this->session->set_flashdata('success', 'OK: espectáculo actualizado.');
                 redirect('administrador/administrador_espectaculos');
             }
         }
@@ -308,24 +317,20 @@ class Espectaculos extends CI_Controller
         $this->load->view('editar_espectaculo/footer_editar', $data);
     }
 
-    /* =====================================================
-       ELIMINAR
-    ===================================================== */
-    public function eliminar_espectaculo($id)
+       public function eliminar_espectaculo($id)
     {
         $e = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
         if (!$e) show_404();
 
-        if (
-            !empty($e['imagen']) &&
-            $e['imagen'] !== 'activos/imagenes/espectaculos/default.jpg'
-        ) {
-            $ruta = FCPATH . $e['imagen'];
+        if (!empty($e['imagen']) && $e['imagen'] !== 'default.jpg') {
+            $ruta = $this->ruta_imagenes . $e['imagen'];
             if (file_exists($ruta)) unlink($ruta);
         }
 
         $this->Espectaculo_modelo->eliminar_espectaculo_completo($id);
-        $this->session->set_flashdata('success', 'Espectáculo eliminado.');
+
+        $this->session->set_flashdata('success', 'OK: espectáculo eliminado.');
         redirect('administrador/administrador_espectaculos');
     }
+
 }
