@@ -1,169 +1,76 @@
-/* ================================
-   General
-   ================================ */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: #f8f9fa;
-}
+/* ======================================================
+   FOOTER PRINCIPAL
+   Coherente con header y cartelera
+====================================================== */
 
-/* ================================
-   Header principal
-   ================================ */
-.main-header {
-    width: 100%;
-    height: 100px; /* Altura del header ajustada */
-    background-color: #000; /* Fondo negro sólido */
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    padding: 0 20px; /* Espaciado a los lados */
-}
-
-/* Contenedor interno */
-.header-container {
-    width: 100%;
-    max-width: 1400px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* separa izquierda y derecha */
-}
-
-/* ================================
-   Logo + título
-   ================================ */
-.brand {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.logo-img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 2px solid #ffffff; /* Mantén el borde blanco */
-    margin-right: 12px;
-}
-
-.site-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 0.5px;
-}
-
-/* ================================
-   Menú a la derecha
-   ================================ */
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 30px; /* Separación entre los enlaces */
-}
-
-/* ================================
-   Botones personalizados
-   ================================ */
-.btn {
-    padding: 10px 22px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: none; /* Elimina las animaciones */
-}
-
-/* Botón Login (más azul) */
-.btn-login {
-    background-color: #0066ff; /* Azul sólido */
-    color: #ffffff;
-}
-
-.btn-login:hover {
-    background-color: #004bb3; /* Azul más oscuro */
-}
-
-/* Botón Registrar (verde oscuro) */
-.btn-register {
-    background-color: #009944; /* Verde sólido */
-    color: #ffffff;
-}
-
-.btn-register:hover {
-    background-color: #006633; /* Verde más oscuro */
-}
-
-/* ================================
-   Footer
-   ================================ */
 .main-footer {
-    background-color: #000; /* Fondo negro sólido */
-    color: #fff;
-    padding: 20px 0; /* Reducí la altura del footer */
-    text-align: center;
+    background-color: #000;
+    color: #ffffff;
     width: 100%;
+    margin-top: 0; /* 👈 CLAVE: elimina el rectángulo negro */
 }
 
+/* ======================================================
+   CONTENEDOR
+====================================================== */
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 25px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* ======================================================
+   TEXTO LEGAL
+====================================================== */
+.footer-copy {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.85;
+    text-align: center;
+}
+
+/* ======================================================
+   ENLACES
+====================================================== */
 .footer-links {
     display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 50px; /* Aumenté la separación entre los enlaces */
-    margin: 20px 0;
-    padding: 0 15px; /* Añadí padding a los lados para que los enlaces no estén pegados al borde */
 }
 
-.footer-link {
-    color: #00bfff; /* Enlaces de color azul */
+.footer-links a {
+    color: #00bfff;
     text-decoration: none;
-    font-size: 1.3rem; /* Aumenté el tamaño de la fuente */
+    font-size: 1.1rem;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
 }
 
-.footer-link:hover {
-    color: #ffffff; /* Color de los enlaces al pasar el cursor */
+.footer-links a:hover {
+    color: #ffffff;
 }
 
-/* ================================
-   Responsive
-   ================================ */
+/* ======================================================
+   RESPONSIVE
+====================================================== */
 @media (max-width: 768px) {
-    .main-header {
-        height: 90px; /* Ajusté la altura en pantallas pequeñas */
+
+    .footer-container {
+        padding: 30px 15px;
     }
 
-    .site-title {
-        font-size: 1.4rem;
-    }
-
-    .header-container {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .nav-menu {
-        gap: 20px; /* Ajusté la separación de los enlaces en pantallas pequeñas */
-        width: 100%;
-        justify-content: center;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Ajustes en el footer para pantallas pequeñas */
     .footer-links {
         flex-direction: column;
-        gap: 25px; /* Mayor espacio entre los enlaces */
+        gap: 18px;
     }
 
-    .footer-link {
-        font-size: 1.2rem; /* Ajusté el tamaño de los enlaces en móviles */
+    .footer-links a {
+        font-size: 1.05rem;
     }
 }

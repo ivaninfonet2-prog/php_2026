@@ -1,71 +1,102 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title><?= $titulo ?></title>
+<!-- CSS base -->
+<link rel="stylesheet" href="<?= base_url('activos/css/principal/body_principal.css'); ?>">
 
-    <!-- CSS general -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/principal/body_principal.css'); ?>">
+<main
+    class="inicio-container"
+    style="background-image: url('<?= $fondo ?>');"
+>
 
-    <!-- CSS específico de esta vista -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/principal/cartelera.css'); ?>">
-</head>
-<body>
+    <!-- =======================
+         BIENVENIDA
+    ======================== -->
 
-<main class="inicio-container" style="background-image: url('<?= $fondo ?>');">
+    <section class="bienvenida">
+        <div class="texto-limitado animate__animated animate__zoomIn">
 
-    <!-- Bloque superior con título y descripción -->
-    <section class="bienvenida row mt-5">
-        <div class="col-12 text-center animate__animated animate__zoomIn texto-limitado">
-            <h3 class="mensaje-bienvenida"><?= $titulo ?></h3>
+            <h3 class="mensaje-bienvenida">
+                <?= $titulo ?>
+            </h3>
+
             <p class="mensaje-sub">
-                Descubrí nuestra selección de eventos destacados: conciertos, obras de teatro y experiencias culturales únicas.<br>
-                Aquí encontrarás toda la información necesaria para elegir y disfrutar tu próximo espectáculo.
+                Descubrí nuestra selección de eventos destacados: conciertos,
+                obras de teatro y experiencias culturales únicas.<br>
+                Elegí tu próximo espectáculo y disfrutá de una experiencia inolvidable.
             </p>
+
         </div>
     </section>
 
-    <!-- Cartelera de espectáculos -->
-    <section class="cartelera row mt-4 justify-content-center animate__animated animate__fadeInUp">
-        <div class="col-md-10">
+    <!-- =======================
+         CARTELERA
+    ======================== -->
 
-            <div class="tarjetas-container">
-                <?php if (!empty($espectaculos)): ?>
-                    <?php foreach ($espectaculos as $espectaculo): ?>
-                        <div class="tarjeta">
-                            
-                            <!-- Imagen del espectáculo -->
-                            <img src="<?= base_url('activos/imagenes/' . $espectaculo['imagen']); ?>" 
-                                 alt="<?= $espectaculo['nombre']; ?>" 
-                                 class="imagen">
+    <section class="cartelera animate__animated animate__fadeInUp">
 
-                            <!-- Contenido -->
-                            <div class="contenido">
-                                <h3><?= $espectaculo['nombre']; ?></h3>
-                                <h4 class="descripcion"><?= $espectaculo['descripcion']; ?></h4>
-                                <p class="precio">$<?= number_format($espectaculo['precio'], 2, ',', '.'); ?></p>
-                                <a href="<?= site_url('principal/espectaculo_principal/' . $espectaculo['id_espectaculo']); ?>" 
-                                   class="boton-ver">Ver espectáculo</a>
-                            </div>
+        <div class="tarjetas-container">
+
+            <?php if (!empty($espectaculos)): ?>
+                <?php foreach ($espectaculos as $espectaculo): ?>
+
+                    <article class="tarjeta">
+
+                        <img
+                            src="<?= base_url('activos/imagenes/' . $espectaculo['imagen']); ?>"
+                            alt="<?= $espectaculo['nombre']; ?>"
+                            class="imagen"
+                        >
+
+                        <div class="contenido">
+
+                            <h3>
+                                <?= $espectaculo['nombre']; ?>
+                            </h3>
+
+                            <p class="descripcion">
+                                <?= $espectaculo['descripcion']; ?>
+                            </p>
+
+                            <p class="precio">
+                                $<?= number_format(
+                                    $espectaculo['precio'],
+                                    2,
+                                    ',',
+                                    '.'
+                                ); ?>
+                            </p>
+
+                            <a
+                                href="<?= site_url(
+                                    'principal/espectaculo_principal/' .
+                                    $espectaculo['id_espectaculo']
+                                ); ?>"
+                                class="boton-ver"
+                            >
+                                Ver espectáculo
+                            </a>
 
                         </div>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <p class="texto-limitado">No hay espectáculos disponibles en este momento.</p>
-                <?php endif; ?>
-            </div>
 
-            <!-- Texto inferior -->
-            <div class="texto-general texto-limitado">
-                <p>
-                    ¡No te pierdas ninguno de nuestros eventos destacados! Explora la cartelera y asegura tu lugar en los mejores espectáculos de la ciudad.
+                    </article>
+
+                <?php endforeach; ?>
+            <?php else: ?>
+
+                <p class="texto-limitado">
+                    No hay espectáculos disponibles en este momento.
                 </p>
-            </div>
+
+            <?php endif; ?>
 
         </div>
+
+        <!-- Texto final -->
+        <div class="texto-general texto-limitado">
+            <p>
+                ¡No te pierdas ninguno de nuestros eventos destacados!
+                Explorá la cartelera y asegurá tu lugar en los mejores espectáculos.
+            </p>
+        </div>
+
     </section>
 
 </main>
-
-</body>
-</html>

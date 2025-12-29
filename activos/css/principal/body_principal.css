@@ -1,153 +1,198 @@
-/* Contenedor principal de la cartelera */
-.inicio-container {
-    padding-top: 5rem;  
-    padding-bottom: 3.5rem;
-    background-size: cover;       
-    background-position: center;  
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    filter: brightness(1.05);
+/* ======================================================
+   RESET BÁSICO
+====================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-/* Limitar textos fuera de las tarjetas */
-.texto-limitado {
-    max-width: 850px;
-    margin: 0 auto;
-    text-align: center;
+/* ======================================================
+   BASE + LAYOUT GLOBAL
+====================================================== */
+html,
+body {
+    height: 100%;
 }
 
-/* Bloque bienvenida */
-.bienvenida {
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;   
-    margin-bottom: 2rem;
+    flex-direction: column;
+}
+
+/* ======================================================
+   CONTENEDOR PRINCIPAL
+====================================================== */
+.inicio-container {
+    flex: 1;
+    padding-top: 120px;
+    padding-bottom: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ======================================================
+   TEXTO LIMITADO
+====================================================== */
+.texto-limitado {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ======================================================
+   BIENVENIDA
+====================================================== */
+.bienvenida {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .mensaje-bienvenida {
-    font-size: 2.4rem;
-    font-weight: 700;
+    font-size: 2.5rem; /* más grande */
+    font-weight: 800;
+    margin-bottom: 20px;
     color: #ffffff;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
 .mensaje-sub {
-    font-size: 1.2rem;
-    color: #f0f0f0;
-    line-height: 1.6;
+    font-size: 1.25rem; /* más grande */
+    line-height: 1.7;
+    color: #f2f2f2;
 }
 
-/* Contenedor de tarjetas */
+/* ======================================================
+   CARTELERA
+====================================================== */
+.cartelera {
+    width: 100%;
+}
+
+/* ======================================================
+   TARJETAS
+====================================================== */
 .tarjetas-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
 }
 
-/* Tarjetas */
 .tarjeta {
-    background: rgba(0, 0, 0, 0.25);
-    border: 2px solid rgba(3, 155, 229, 0.25);
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: zoomIn 0.8s ease;
+    background-color: rgba(0, 0, 0, 0.35); /* un poco más clara */
+    backdrop-filter: blur(6px);
+    border-radius: 18px;
+    padding-bottom: 28px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tarjeta:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(3,155,229,0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* Imagen */
-.imagen {
-    width: 180px;
-    height: 180px;
+/* ======================================================
+   IMAGEN ARTISTA (MÁS GRANDE)
+====================================================== */
+.tarjeta .imagen {
+    width: 200px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-radius: 16px;
+    margin: 30px auto 18px;
+    display: block;
 }
 
-/* Contenido dentro de la tarjeta */
-.contenido {
-    text-align: center;
-    flex-grow: 1;
+/* ======================================================
+   CONTENIDO TARJETA
+====================================================== */
+.tarjeta .contenido {
+    padding: 16px 26px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    text-align: center;
 }
 
-.contenido h3 {
-    margin: 10px 0 5px;
+.tarjeta h3 {
+    font-size: 1.45rem; /* más grande */
+    font-weight: 800;
+    margin-bottom: 12px;
     color: #ffffff;
-    font-size: 1.6em;
-    font-weight: bold;
 }
 
-.contenido h4.descripcion {
-    font-size: 1em;
-    color: #f0f0f0;
-    margin-bottom: 10px;
-    line-height: 1.4;
+.descripcion {
+    font-size: 1.1rem; /* más grande */
+    line-height: 1.6;
+    color: #e6e6e6;
+    margin-bottom: 16px;
 }
 
 .precio {
-    font-weight: bold;
-    color: #ffd700;
-    margin-bottom: 15px;
-    font-size: 1.15em;
+    font-size: 1.3rem; /* más grande */
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #4da3ff; /* azul claro legible */
 }
 
-/* Botón */
+/* ======================================================
+   BOTÓN
+====================================================== */
 .boton-ver {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #03a9f4;
-    color: white;
+    padding: 10px 26px;
+    font-size: 1rem;
+    background-color: #0d6efd;
+    color: #ffffff;
     text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    font-weight: bold;
+    font-weight: 700;
+    border-radius: 26px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .boton-ver:hover {
-    background-color: #0288d1;
+    background-color: #0b5ed7;
     transform: translateY(-2px);
 }
 
-/* Texto general inferior */
+/* ======================================================
+   TEXTO FINAL
+====================================================== */
 .texto-general {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #f0f0f0;
     margin-top: 30px;
-    color: #ffffff;
-    font-size: 1.3rem;
-    line-height: 1.7;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* Animaciones */
-@keyframes zoomIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Responsividad */
+/* ======================================================
+   RESPONSIVE
+====================================================== */
 @media (max-width: 768px) {
-    .tarjetas-container {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    .mensaje-bienvenida {
+        font-size: 2rem;
     }
-    .imagen {
-        height: 160px;
+
+    .mensaje-sub {
+        font-size: 1.1rem;
+    }
+
+    .tarjeta .imagen {
         width: 160px;
+        height: 160px;
     }
-    .texto-general {
-        font-size: 1.2rem;
+
+    .tarjeta h3 {
+        font-size: 1.3rem;
+    }
+
+    .descripcion {
+        font-size: 1.05rem;
     }
 }
