@@ -1,152 +1,154 @@
-/* Título fuera de la tarjeta (sobre el fondo) */
+/* ===============================
+   BASE Y FONDO BRILLANTE
+================================ */
+.usuario-body {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* FILTROS: mejora brillo y contraste */
+    filter: brightness(1.15) contrast(1.1);
+}
+
+/* ===============================
+   CONTENIDO PRINCIPAL
+================================ */
+.usuario-main {
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+}
+
+/* ===============================
+   TÍTULO Y SUBTÍTULO
+================================ */
 .titulo {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-    width: 100%;
-    margin-top: 140px; /* Más separación del header */
-    margin-bottom: 20px;
-    white-space: nowrap;
-    overflow: visible;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+    margin-top: 8rem;
+    margin-bottom: 1rem;
 }
 
-/* Subtítulo fuera de la tarjeta (sobre el fondo) */
 .subtitulo {
-    font-size: 1.2em;
-    color: #eee;
-    margin-bottom: 50px; /* Más separación de la tarjeta */
-    text-align: center;
-    width: 100%;
-    max-width: 90%;
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #f0f0f0;
+    margin-bottom: 3.5rem;
+    line-height: 1.4;
 }
 
-/* Caja de contenido (tarjeta) */
+/* ===============================
+   TARJETA
+================================ */
 .usuario-contenido {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    padding: 30px;
-    border-radius: 16px;
-    text-align: center;
-    max-width: 750px;
-    width: 100%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border: none;
-    margin-top: 70px; /* Más separación del subtítulo */
-    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.38);
+    margin-bottom: 3rem;
 }
 
-/* Imagen dentro de la tarjeta */
+/* Imagen */
 .welcome-img {
     max-width: 150px;
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
 }
 
-/* Texto dentro de la tarjeta */
+/* Texto interno */
 .body-text {
-    font-size: 1.1em;
-    color: #333;
-    margin-bottom: 20px;
-    line-height: 1.5;
-    text-align: center;
+    font-size: 1.2rem;
+    color: #2f2f2f;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
 }
 
-/* Botones alineados horizontalmente */
-.d-flex {
+/* ===============================
+   ACCIONES
+================================ */
+.usuario-acciones {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
+    gap: 1.8rem;
 }
 
-/* Botones */
-.btn-espectaculos, .btn-reservas {
-    padding: 12px 25px;
-    font-size: 1.1em;
+.btn-espectaculos,
+.btn-reservas {
+    padding: 0.85rem 2.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
     border-radius: 30px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .btn-espectaculos {
     background-color: #1e90ff;
-    color: #fff !important;
+    color: #fff;
     border: none;
 }
 
 .btn-espectaculos:hover {
     background-color: #0066cc;
+    transform: translateY(-2px);
 }
 
 .btn-reservas {
     background-color: #28a745;
-    color: #fff !important;
+    color: #fff;
     border: none;
 }
 
 .btn-reservas:hover {
-    background-color: #1c7c31;
+    background-color: #1f7a34;
+    transform: translateY(-2px);
 }
 
-/* Footer */
-.footer-text {
-    font-size: 0.9em;
-    color: #333;
-    margin-top: 20px;
-    font-style: italic;
+/* ===============================
+   TEXTO FUERA DE LA TARJETA
+================================ */
+.texto-extra {
+    font-size: 1rem;
+    color: #f0f0f0;
+    max-width: 85%;
+    margin: 0 auto;
+    line-height: 1.5;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
-/* Responsividad para pantallas grandes */
-@media (min-width: 1200px) {
-    .usuario-contenido {
-        max-width: 900px;
-    }
-
-    .titulo {
-        font-size: 2.5em;
-    }
-
-    .subtitulo {
-        font-size: 1.5em;
-    }
-}
-
-/* Responsividad para dispositivos móviles */
+/* ===============================
+   RESPONSIVE
+================================ */
 @media (max-width: 768px) {
-    .usuario-main {
-        padding: 15px;
-    }
 
     .titulo {
-        font-size: 2em;
-        margin-top: 100px; /* Ajuste proporcional en móviles */
+        font-size: 2.2rem;
+        margin-top: 5rem;
     }
 
     .subtitulo {
-        font-size: 1.2em;
-        margin-bottom: 40px;
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
     }
 
     .usuario-contenido {
-        width: 95%;
-        padding: 20px;
-        margin-top: 50px; /* Ajuste proporcional en móviles */
+        padding: 2.5rem 1.5rem;
     }
 
-    .d-flex {
+    .usuario-acciones {
         flex-direction: column;
-        gap: 20px;
     }
 
-    .btn-espectaculos, .btn-reservas {
+    .btn-espectaculos,
+    .btn-reservas {
         width: 100%;
-        padding: 15px;
-        font-size: 1.1em;
+    }
+
+    .texto-extra {
+        max-width: 95%;
+        font-size: 0.95rem;
     }
 }

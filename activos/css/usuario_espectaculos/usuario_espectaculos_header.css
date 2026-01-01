@@ -1,6 +1,6 @@
 /* ================================
-   General
-   ================================ */
+   BASE
+================================ */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -9,12 +9,12 @@ body {
 }
 
 /* ================================
-   Header principal
-   ================================ */
+   HEADER PRINCIPAL
+================================ */
 .main-header {
     width: 100%;
     height: 100px;
-    background-color: #000; /* Fondo negro sólido */
+    background-color: #000;
     display: flex;
     align-items: center;
     position: fixed;
@@ -22,20 +22,19 @@ body {
     z-index: 1000;
 }
 
-/* Contenedor interno */
 .header-container {
     width: 100%;
     max-width: 1400px;
-    margin: auto;
-    padding: 0 30px; /* Más espacio interno */
+    margin: 0 auto;
+    padding: 0 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
+    justify-content: space-between;
 }
 
 /* ================================
-   Logo + título
-   ================================ */
+   LOGO + TÍTULO
+================================ */
 .brand {
     display: flex;
     align-items: center;
@@ -46,78 +45,76 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    border: 2px solid #ffffff; /* Borde blanco sobrio */
+    border: 2px solid #fff;
     margin-right: 12px;
+    object-fit: cover;
 }
 
 .site-title {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #ffffff;
+    color: #fff;
     letter-spacing: 0.5px;
 }
 
 /* ================================
-   Menú a la derecha
-   ================================ */
+   MENÚ
+================================ */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 20px; /* Separación entre botones */
-    margin-right: 40px; /* Margen para que no se peguen al borde derecho */
+    gap: 20px;
 }
 
-/* ================================
-   Botones personalizados
-   ================================ */
-.btn {
-    padding: 10px 22px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    border: none;
-    display: inline-block;
+/* BOTONES PERSONALIZADOS */
+/* Botón Volver al Usuario - azul */
+.btn-volver {
+    background-color: #1e90ff !important;  /* Azul fuerte */
+    color: #fff !important;                 /* Texto blanco */
+    border: none !important;
 }
 
-/* Botón Cerrar Sesión - Aseguramos que el color de fondo sea rojo */
+.btn-volver:hover {
+    background-color: #0066cc !important;  /* Azul más oscuro al hover */
+}
+
+/* Botón Cerrar Sesión - rojo */
 .btn-cerrar {
-    background-color: #ff4d4d !important; /* Rojo brillante */
-    color: #ffffff !important; /* Texto blanco */
-    border: none !important; /* Elimina el borde predeterminado */
-    transition: background-color 0.3s ease; /* Efecto de transición para el hover */
+    background-color: #ff4d4d !important;  /* Rojo brillante */
+    color: #fff !important;                /* Texto blanco */
+    border: none !important;
 }
 
 .btn-cerrar:hover {
-    background-color: #cc0000 !important; /* Rojo más oscuro al hacer hover */
+    background-color: #cc0000 !important;  /* Rojo oscuro al hover */
 }
 
 /* ================================
-   Responsive
-   ================================ */
+   RESPONSIVE
+================================ */
 @media (max-width: 768px) {
+
     .main-header {
         height: 90px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
     }
 
     .site-title {
         font-size: 1.4rem;
     }
 
-    .header-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 10px;
-    }
-
     .nav-menu {
-        gap: 15px;
         width: 100%;
-        justify-content: center; /* Centrando los elementos en móviles */
-        margin-right: 0;
+        justify-content: center;
+        gap: 15px;
     }
 
     .btn {
         width: 100%;
-        text-align: center;
     }
 }

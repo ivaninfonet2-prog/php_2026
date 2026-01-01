@@ -9,52 +9,64 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 
     <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/usuario/body_usuario.css'); ?>?v=1.0">
+    <link rel="stylesheet" href="<?= base_url('activos/css/usuario/body_usuario.css'); ?>?v=6.0">
 </head>
 
-<body style="background-image: url('<?= $fondo; ?>'); background-size: cover; background-position: center center;">
+<body class="usuario-body" style="background-image: url('<?= $fondo; ?>');">
 
-    <!-- Contenido Principal -->
-    <main class="usuario-main container-fluid">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-md-6 text-center animate-in">
-                
-                <h3 class="titulo fade-in">
-                    Bienvenido <?= !empty($nombre) && !empty($apellido) ? $nombre . ' ' . $apellido : 'Usuario'; ?>
-                </h3>
+<main class="usuario-main container-fluid">
+    <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="col-12 col-md-8 col-lg-6 text-center animate-in">
 
-                <!-- Subtítulo -->
-                <h5 class= "subtitulo fade-in delay-1">
-                     Explorá tus opciones y disfrutá de la experiencia
-                </h5>
+            <!-- Título -->
+            <h1 class="titulo fade-in">
+                Bienvenido
+                <?= !empty($nombre) && !empty($apellido) ? $nombre . ' ' . $apellido : 'Usuario'; ?>
+            </h1>
 
-                <!-- Caja de contenido (más pequeña y con fondo esmerilado) -->
-                <div class="usuario-contenido">
-                    <img src="<?= base_url('activos/imagenes/usuario.png'); ?>" 
-                         alt="Bienvenido" 
-                         class="welcome-img img-fluid" 
-                         onerror="this.style.display='none'">
+            <!-- Subtítulo -->
+            <p class="subtitulo fade-in delay-1">
+                Explorá tus opciones y disfrutá de la experiencia
+            </p>
 
-                    <!-- Texto dentro de la tarjeta -->
-                    <p class="body-text fade-in delay-2">
-                        Aquí podrás ver tus espectáculos favoritos, realizar reservas y mucho más.
-                    </p>
+            <!-- Tarjeta -->
+            <section class="usuario-contenido fade-in delay-2">
 
-                    <!-- Botones alineados horizontalmente -->
-                    <div class="d-flex justify-content-center gap-4 fade-in delay-3">
-                        <a href="<?= site_url('usuario/usuario_espectaculos'); ?>" class="btn btn-espectaculos btn-lg">Ver espectáculos</a>
-                        <a href="<?= base_url('usuario/usuario_reservas'); ?>" class="btn btn-reservas btn-lg">Mis Reservas</a>
-                    </div>
+                <img src="<?= base_url('activos/imagenes/usuario.png'); ?>"
+                     alt="Bienvenido"
+                     class="welcome-img img-fluid"
+                     onerror="this.style.display='none'">
 
-                    <p class="footer-text fade-in delay-4">
-                        <small>Si necesitas ayuda, no dudes en contactarnos.</small>
-                    </p>
+                <p class="body-text">
+                    Accedé rápidamente a tus espectáculos favoritos
+                    y gestioná tus reservas desde un solo lugar.
+                </p>
+
+                <!-- Acciones -->
+                <div class="usuario-acciones fade-in delay-3">
+                    <a href="<?= site_url('usuario/usuario_espectaculos'); ?>"
+                       class="btn btn-espectaculos btn-lg">
+                        Ver espectáculos
+                    </a>
+
+                    <a href="<?= base_url('usuario/usuario_reservas'); ?>"
+                       class="btn btn-reservas btn-lg">
+                        Mis reservas
+                    </a>
                 </div>
-            </div>
-        </div>
-    </main>
 
-    <!-- Scripts Bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+            </section>
+
+            <!-- Texto adicional fuera de la tarjeta -->
+            <p class="texto-extra fade-in delay-4">
+                Recordá que podés consultar disponibilidad, fechas y ubicaciones
+                en cualquier momento desde tu panel de usuario.
+            </p>
+
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

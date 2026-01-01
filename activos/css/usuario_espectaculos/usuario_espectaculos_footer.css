@@ -1,65 +1,76 @@
-/* ================================
-   Footer principal
-   ================================ */
+/* ======================================================
+   FOOTER PRINCIPAL
+   Coherente con header y cartelera
+====================================================== */
+
 .main-footer {
-    background: #0d0d0d;
+    background-color: #000;
     color: #ffffff;
-    font-size: 0.95rem;
-    box-shadow: 0 -4px 12px rgba(0,0,0,0.4);
-    width: 100%;          /* ✅ ocupa todo el ancho de la página */
-    margin: 0;            /* ✅ elimina márgenes */
-    padding: 20px 0;      /* espacio interno arriba/abajo */
-    box-sizing: border-box;
-    display: block;
+    width: 100%;
+    margin-top: 0; /* 👈 CLAVE: elimina el rectángulo negro */
 }
 
-/* Links del footer */
+/* ======================================================
+   CONTENEDOR
+====================================================== */
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 25px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* ======================================================
+   TEXTO LEGAL
+====================================================== */
+.footer-copy {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.85;
+    text-align: center;
+}
+
+/* ======================================================
+   ENLACES
+====================================================== */
 .footer-links {
     display: flex;
-    justify-content: center; /* ✅ centrados en el ancho completo */
+    gap: 40px;
     flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;             /* ✅ ocupa todo el ancho */
-    margin: 0;
-    padding: 0 20px;         /* opcional: espacio lateral */
-    box-sizing: border-box;
+    justify-content: center;
 }
 
-.footer-links .footer-link {
-    color: #00bfff; /* azul celeste claro */
+.footer-links a {
+    color: #00bfff;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.1rem;
     font-weight: 500;
+    transition: color 0.25s ease;
 }
 
-.footer-links .footer-link:hover {
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-/* Botón volver */
-.btn-warning {
-    font-weight: 600;
-    border-radius: 25px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 15px;
-    background-color: #00bfff; /* azul celeste claro */
-    border: 1px solid #00bfff;
+.footer-links a:hover {
     color: #ffffff;
 }
 
-.btn-warning:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(0,191,255,0.7); /* brillo celeste claro */
-}
-
-/* ================================
-   Responsive
-   ================================ */
+/* ======================================================
+   RESPONSIVE
+====================================================== */
 @media (max-width: 768px) {
+
+    .footer-container {
+        padding: 30px 15px;
+    }
+
     .footer-links {
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        gap: 18px;
+    }
+
+    .footer-links a {
+        font-size: 1.05rem;
     }
 }

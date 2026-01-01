@@ -17,7 +17,7 @@
 <header class="main-header">
     <div class="header-container">
 
-        <!-- Logo + título (LOGOUT FORZADO) -->
+        <!-- Logo + título -->
         <a href="<?= site_url('login/logout'); ?>" class="brand" title="Cerrar sesión">
             <img src="<?= base_url('activos/imagenes/logo.jpg'); ?>" class="logo-img" alt="Logo UNLa">
             <span class="site-title">UNLa Tienda</span>
@@ -25,23 +25,14 @@
 
         <!-- Menú de navegación -->
         <nav class="nav-menu">
-
-            <!-- Volver al panel del usuario -->
-            <a href="<?= site_url('usuario'); ?>" class="btn btn-login">
-                Volver al Usuario
-            </a>
-
-            <!-- Cerrar sesión con confirmación -->
-            <a href="<?= site_url('confirmacion/cerrar_sesion_usuario'); ?>" class="btn btn-cerrar">
-                Cerrar Sesión
-            </a>
-
+            <a href="<?= site_url('usuario'); ?>" class="btn btn-volver">Ir al Usuario</a>
+            <a href="<?= site_url('confirmacion/cerrar_sesion_usuario'); ?>" class="btn btn-cerrar">Cerrar Sesión</a>
         </nav>
 
     </div>
 </header>
 
-<!-- Bootstrap -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Protección contra volver con la flecha -->
