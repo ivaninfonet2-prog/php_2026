@@ -67,6 +67,11 @@
         </div>
     </main>
 
+    <!-- Mapa fuera de la tarjeta -->
+    <section class="mapa-externa">
+        <img src="<?= base_url('activos/imagenes/mapa.jfif') ?>" alt="Mapa del lugar del espectáculo">
+    </section>
+
     <!-- Texto final fuera de la tarjeta con espaciado armonioso -->
     <section class="texto-final">
         Recordá revisar toda la información antes de iniciar sesión para reservar tus entradas.<br>

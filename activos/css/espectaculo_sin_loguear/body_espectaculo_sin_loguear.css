@@ -41,7 +41,7 @@ body {
 ====================================================== */
 .intro-text {
     text-align: center;
-    margin: 100px 15px 60px;
+    margin: 40px 15px 40px; /* MÁS ARRIBA y compacto */
     max-width: 900px;
 }
 
@@ -75,14 +75,14 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 /* ======================================================
    TARJETA ESPECTÁCULO
 ====================================================== */
 .tarjeta-espectaculo {
-    background: rgba(0,0,0,0.12); /* mucho más transparente */
+    background: rgba(0,0,0,0.12); /* más transparente */
     backdrop-filter: blur(14px);
     border-radius: 16px;
     padding: 22px 20px;
@@ -125,6 +125,24 @@ body {
     font-size: 1.15rem;
     color: #f0f0f0;
     margin-bottom: 6px;
+}
+
+/* ======================================================
+   MAPA FUERA DE LA TARJETA
+====================================================== */
+.mapa-externa {
+    margin: 25px auto 60px;
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.mapa-externa img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
 /* ======================================================
@@ -182,8 +200,8 @@ body {
     text-align: center;
     font-size: 1.35rem;
     color: #e6e6e6;
-    margin-top: 25px; /* más cerca de la tarjeta */
-    margin-bottom: 60px; /* más alejado del footer */
+    margin-top: 25px;
+    margin-bottom: 60px;
     max-width: 850px;
     line-height: 1.7;
     padding: 0 20px;
@@ -226,5 +244,9 @@ body {
         font-size: 1.15rem;
         margin-top: 20px;
         margin-bottom: 50px;
+    }
+
+    .mapa-externa {
+        width: 90%;
     }
 }
