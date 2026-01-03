@@ -39,15 +39,15 @@ body {
 ====================================================== */
 .intro-text {
     text-align: center;
-    margin: 100px 20px 40px; /* más espacio en la parte superior */
+    margin: 140px 20px 40px; /* Aumenté el margen superior */
     max-width: 900px;
 }
 
 .intro-text h1 {
-    font-size: 3.4rem; /* tamaño ajustado */
+    font-size: 3.4rem;
     font-weight: 800;
     color: #ffffff;
-    margin-bottom: 12px;
+    margin-bottom: 20px; /* Aumenté el margen inferior para separar más del párrafo */
     text-shadow: 2px 2px 12px rgba(0,0,0,0.8);
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 .intro-text p {
-    font-size: 1.4rem; /* tamaño ajustado */
+    font-size: 1.4rem;
     color: #ffffff;
     font-weight: 500;
     margin-bottom: 20px;
@@ -74,22 +74,23 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 40px;
+    margin-top: -50px; /* Acercamos la tarjeta a la descripción */
 }
 
 /* ======================================================
    TARJETA ESPECTÁCULO
 ====================================================== */
 .tarjeta-espectaculo {
-    background: rgba(25,25,25,0.2); /* fondo más transparente */
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    padding: 30px 25px;
-    max-width: 700px;
-    width: 85%;
+    background: rgba(25, 25, 25, 0.08); /* mucho más transparente */
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 18px;
+    padding: 22px 20px; /* más compacta */
+    max-width: 560px;   /* más chica que antes */
+    width: 82%;
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 22px; /* menos espacio entre elementos */
     align-items: center;
     box-shadow: 0 8px 30px rgba(0,0,0,0.35);
     transition: transform 0.3s ease;
@@ -103,10 +104,10 @@ body {
    IMAGEN ESPECTÁCULO
 ====================================================== */
 .imagen-espectaculo {
-    width: 220px;
-    height: 220px;
+    width: 190px;
+    height: 190px;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 18px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.7);
     transition: transform 0.3s ease;
 }
@@ -125,11 +126,11 @@ body {
 }
 
 .detalles li {
-    font-size: 1.4rem; /* tamaño ajustado */
+    font-size: 1.35rem; /* tamaño ajustado */
     color: #ffffff;
     font-weight: 600;
-    margin-bottom: 12px;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.75);
 }
 
 /* ======================================================
@@ -201,10 +202,10 @@ body {
 
 .texto-login {
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 500;
     text-align: center;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.75);
 }
 
 .boton-login {
@@ -230,8 +231,9 @@ body {
 ====================================================== */
 @media (max-width: 768px) {
     .tarjeta-espectaculo {
-        width: 92%;
-        padding: 24px;
+        width: 90%;
+        padding: 20px 18px;
+        gap: 18px;
     }
 
     .imagen-espectaculo {

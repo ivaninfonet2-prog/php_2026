@@ -12,9 +12,7 @@
 <body>
 
 <header class="main-header">
-
     <div class="header-container">
-
         <!-- Logo + título -->
         <a href="<?= base_url(); ?>" class="brand">
             <img
@@ -31,9 +29,7 @@
                 Ir al Inicio
             </a>
         </nav>
-
     </div>
-
 </header>
 
 </body>

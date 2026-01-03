@@ -18,8 +18,6 @@
     <header class="intro-text">
         <h1><?= htmlspecialchars($espectaculo['nombre']) ?></h1>
         <p><?= htmlspecialchars($espectaculo['descripcion']) ?></p>
-        <h2>Información completa del espectáculo</h2>
-        <p>Revisá todos los detalles y asegurate de reservar tu lugar a tiempo.</p>
     </header>
 
     <!-- Tarjeta espectáculo -->

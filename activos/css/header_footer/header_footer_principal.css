@@ -3,7 +3,6 @@
 ================================ */
 body {
     margin: 0;
-    padding-top: 94px; /* ajustado a la nueva altura del header */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212;
     color: #f8f9fa;
@@ -17,24 +16,24 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 94px; /* altura aumentada */
+    height: 94px; /* Altura fija para el header */
     background-color: #000000;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
     z-index: 1000;
-
     display: flex;
     align-items: center;
+    justify-content: center;
+    transition: none; /* Elimina cualquier transición para la altura */
 }
 
 /* ================================
-   CONTENEDOR
+   CONTENEDOR DEL HEADER
 ================================ */
 .header-container {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 28px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,16 +49,16 @@ body {
 }
 
 .logo-img {
-    width: 60px;  /* tamaño del logo incrementado */
-    height: 60px;  /* tamaño del logo incrementado */
+    width: 60px;  /* tamaño del logo */
+    height: 60px;  /* tamaño del logo */
     border-radius: 50%;
     border: 2px solid #ffffff;
-    margin-right: 16px;  /* un poco más de espacio entre el logo y el texto */
+    margin-right: 16px;  /* espacio entre logo y texto */
     object-fit: cover;
 }
 
 .site-title {
-    font-size: 1.8rem;  /* tamaño de la letra incrementado */
+    font-size: 1.8rem;
     font-weight: 700;
     color: #ffffff;
     white-space: nowrap;
@@ -71,49 +70,195 @@ body {
 .nav-menu {
     display: flex;
     align-items: center;
-    margin-right: 20px;  /* espacio adicional para que el botón no esté pegado a la derecha */
+    margin-right: 20px;
 }
 
 /* ================================
    BOTONES
 ================================ */
 .btn {
-    padding: 12px 25px;  /* Aumenté el padding del botón */
+    padding: 8px 20px;  /* tamaño del botón */
     border-radius: 7px;
-    font-weight: 700;  /* Hice el texto más grueso */
-    font-size: 1.1rem;  /* Aumenté el tamaño de la fuente */
+    font-weight: 700;
+    font-size: 1rem;
     text-decoration: none;
-    color: #ffffff !important;  /* Fuerza el color blanco en el texto del botón */
+    color: #ffffff !important;
     transition: background-color 0.2s ease, transform 0.15s ease;
-    outline: none;  /* Eliminar borde de enfoque (focus) */
+    outline: none;
 }
 
-/* Botón azul con !important para evitar que se sobreescriba */
 .btn-login {
-    background-color: #0066ff !important; /* Color azul con !important */
+    background-color: #0066ff !important;
 }
 
 .btn-login:hover {
-    background-color: #004bb3 !important; /* Azul oscuro al pasar el ratón */
+    background-color: #004bb3 !important;
     transform: translateY(-1px);
     box-shadow: 0 0 8px rgba(0, 102, 255, 0.6);
+}
+
+/* ================================
+   CONTENEDOR PRINCIPAL (Registro)
+================================ */
+.registro-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin-top: 90px; /* Ajuste para no pegar el contenido al header */
+}
+
+/* ================================
+   TEXTO ENCIMA DE LA TARJETA
+================================ */
+.registro-texto-encima {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 0; /* Se eliminó el margen superior */
+    margin-bottom: 20px; /* Se redujo el margen inferior */
+}
+
+.titulo-encima {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 0 14px rgba(0,0,0,0.7);
+    margin-top: -20px; /* Se ajustó el margen superior para mover el título hacia arriba */
+}
+
+.subtitulo-encima {
+    font-size: 1.3rem;
+    margin-top: 8px; /* Se redujo el margen superior para acercar la descripción al título */
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* ================================
+   TARJETA DE FORMULARIO
+================================ */
+.registro-form {
+    background: rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(14px);
+    border-radius: 16px;
+    padding: 35px;
+    max-width: 540px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    color: #f1f1f1;
+}
+
+/* ================================
+   INPUTS
+================================ */
+.form-group-row {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.form-group-row .w-50 {
+    width: 50%;
+}
+
+.form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.3);
+    background: rgba(255,255,255,0.95);
+    color: #222;
+    padding: 11px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0,123,255,0.4);
+}
+
+.form-control::placeholder {
+    color: #555;
+}
+
+/* ================================
+   BOTONES
+================================ */
+.botones {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+    gap: 28px;
+}
+
+.btn {
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 14px 32px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #23963c;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+}
+
+/* ================================
+   TEXTO DEBAJO DE LA TARJETA
+================================ */
+.registro-texto-debajo {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+/* ================================
+   ALERTA
+================================ */
+.alert-danger {
+    background: rgba(220,53,69,0.95);
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* ================================
    RESPONSIVE
 ================================ */
 @media (max-width: 768px) {
-
-    body {
-        padding-top: 88px; /* ajustado por la nueva altura del header */
-    }
-
     .main-header {
-        height: 88px; /* ajustado */
+        height: 80px; /* Reducción de altura para pantallas pequeñas */
     }
 
     .site-title {
-        font-size: 1.4rem;
+        font-size: 1.4rem; /* Reducción de tamaño de texto para el título */
     }
 
     .header-container {
@@ -133,7 +278,7 @@ body {
     }
 
     .logo-img {
-        width: 50px;  /* logo un poco más pequeño en pantallas pequeñas */
-        height: 50px;  /* logo un poco más pequeño en pantallas pequeñas */
+        width: 50px;  /* logo más pequeño en pantallas pequeñas */
+        height: 50px;  /* logo más pequeño en pantallas pequeñas */
     }
 }
