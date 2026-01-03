@@ -16,12 +16,11 @@
 .footer-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 25px 20px;
-
+    padding: 35px 20px; /* Ajustamos un poco el padding para más espacio */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
+    gap: 25px; /* Aumentamos un poco el espacio entre los elementos */
 }
 
 /* ======================================================
@@ -29,9 +28,10 @@
 ====================================================== */
 .footer-copy {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.2rem; /* Aumentamos el tamaño del texto legal */
     opacity: 0.85;
     text-align: center;
+    line-height: 1.4; /* Un pequeño aumento del espacio entre líneas */
 }
 
 /* ======================================================
@@ -39,7 +39,7 @@
 ====================================================== */
 .footer-links {
     display: flex;
-    gap: 40px;
+    gap: 45px; /* Aumentamos ligeramente el espacio entre los enlaces */
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -47,7 +47,7 @@
 .footer-links a {
     color: #00bfff;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Aumentamos el tamaño de la fuente de los enlaces */
     font-weight: 500;
     transition: color 0.25s ease;
 }
@@ -62,15 +62,15 @@
 @media (max-width: 768px) {
 
     .footer-container {
-        padding: 30px 15px;
+        padding: 35px 15px; /* Ajustamos padding en pantallas pequeñas */
     }
 
     .footer-links {
         flex-direction: column;
-        gap: 18px;
+        gap: 20px; /* Aumentamos un poco más el espacio entre enlaces en móvil */
     }
 
     .footer-links a {
-        font-size: 1.05rem;
+        font-size: 1.1rem; /* Font-size más grande en móviles */
     }
 }
