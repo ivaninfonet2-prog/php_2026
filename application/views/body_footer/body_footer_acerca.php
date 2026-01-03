@@ -11,8 +11,8 @@
     
     <!-- Sección de introducción -->
     <section class="intro-text">
-        <h1>Bienvenido a nuestra plataforma universitaria</h1>
-        <p>Un espacio pensado para estudiantes, docentes y toda la comunidad académica.</p>
+        <h1>Bienvenido a nuestra plataforma</h1>
+        <p>Un espacio pensado para estudiantes</p>
     </section>
 
     <!-- Sección principal de contenido -->

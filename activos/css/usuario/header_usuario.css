@@ -1,6 +1,6 @@
 /* ================================
    General
-   ================================ */
+================================ */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -10,7 +10,7 @@ body {
 
 /* ================================
    Header principal
-   ================================ */
+================================ */
 .main-header {
     width: 100%;
     height: 100px;
@@ -35,7 +35,7 @@ body {
 
 /* ================================
    Logo + título
-   ================================ */
+================================ */
 .brand {
     display: flex;
     align-items: center;
@@ -59,7 +59,7 @@ body {
 
 /* ================================
    Menú a la derecha
-   ================================ */
+================================ */
 .nav-menu {
     display: flex;
     align-items: center;
@@ -69,15 +69,17 @@ body {
 
 /* ================================
    Botones personalizados
-   ================================ */
+================================ */
 .btn {
-    padding: 10px 22px;
+    padding: 12px 30px; /* Aumento de tamaño */
     border-radius: 8px;
     font-weight: 600;
     text-decoration: none;
     border: none;
     color: #ffffff; /* Texto blanco */
     display: inline-block;
+    font-size: 1.1rem; /* Aumento de tamaño de fuente */
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 /* Botón Cerrar Sesión (Rojo) */
@@ -94,7 +96,7 @@ body {
 
 /* ================================
    Responsive
-   ================================ */
+================================ */
 @media (max-width: 768px) {
     .main-header {
         height: 90px;
@@ -120,5 +122,7 @@ body {
     .btn {
         width: 100%;
         text-align: center;
+        padding: 12px 0; /* Ajuste para que el botón sea más grande en móviles */
+        font-size: 1.2rem; /* Aumento de tamaño en móviles */
     }
 }

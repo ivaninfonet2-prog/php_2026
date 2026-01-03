@@ -24,11 +24,11 @@
         </a>
 
         <!-- Menú de navegación -->
-        <nav class="nav-menu d-flex gap-2">
-            <a href="<?= base_url('usuario'); ?>" class="btn btn-primary">
+        <nav class="nav-menu d-flex gap-3">
+            <a href="<?= base_url('usuario'); ?>" class="btn btn-volver">
                 Volver al Usuario
             </a>
-            <a href="<?= site_url('confirmacion/cerrar_sesion_usuario'); ?>" class="btn btn-danger">
+            <a href="<?= site_url('confirmacion/cerrar_sesion_usuario'); ?>" class="btn btn-cerrar">
                 Cerrar Sesión
             </a>
         </nav>
@@ -48,7 +48,8 @@
 
     window.onpageshow = function(event) 
     {
-        if (event.persisted || !<?= json_encode($this->session->userdata('logged_in')); ?>) {
+        if (event.persisted || !<?= json_encode($this->session->userdata('logged_in')); ?>) 
+        {
             // Si no hay sesión activa, redirige al login
             window.location.replace('<?= site_url("login"); ?>');
         }

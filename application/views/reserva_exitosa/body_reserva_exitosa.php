@@ -8,6 +8,7 @@
 
 <body style="background-image: url('<?= $fondo; ?>');">
 
+    <!-- Capa de fondo animado que no afecta al header ni footer -->
     <div class="fondo-animado"></div>
 
     <main class="contenido">
@@ -39,6 +40,7 @@
                 </p>
             </div>
 
+            <!-- ACCIONES (botones de acción) -->
             <div class="acciones">
                 <a href="<?= site_url('usuario/usuario_espectaculos') ?>" class="boton boton-espectaculos">
                     Ver Espectáculos

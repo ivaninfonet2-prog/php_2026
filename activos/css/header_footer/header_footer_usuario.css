@@ -20,6 +20,7 @@ body {
     position: fixed;
     top: 0;
     z-index: 1000;
+    padding: 0 20px;
 }
 
 /* Contenedor interno */
@@ -27,7 +28,6 @@ body {
     width: 100%;
     max-width: 1400px;
     margin: auto;
-    padding: 0 30px; /* Más espacio interno */
     display: flex;
     align-items: center;
     justify-content: space-between; /* Logo a la izquierda, menú a la derecha */
@@ -51,7 +51,7 @@ body {
 }
 
 .site-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: 0.5px;
@@ -63,7 +63,7 @@ body {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 20px; /* Separación entre botones */
+    gap: 30px; /* Separación entre botones */
     margin-right: 40px; /* Margen para que no se peguen al borde derecho */
 }
 
@@ -77,13 +77,15 @@ body {
     text-decoration: none;
     border: none;
     display: inline-block;
+    min-width: 150px; /* Asegurando un ancho mínimo para los botones */
+    box-sizing: border-box; /* Garantiza que el padding no afecte el tamaño */
 }
 
 /* Botón Cerrar Sesión - Rojo */
 .btn-cerrar {
     background-color: #ff4d4d !important; /* Rojo brillante */
     color: #ffffff !important; /* Texto blanco */
-    border: none !important; 
+    border: none !important;
     transition: background-color 0.3s ease;
 }
 
@@ -94,7 +96,7 @@ body {
 /* Botón Volver al Usuario - Azul */
 .btn-volver {
     background-color: #007bff !important; /* Azul brillante */
-    color: #ffffff !important; 
+    color: #ffffff !important;
     border: none !important;
     transition: background-color 0.3s ease;
 }
@@ -112,12 +114,12 @@ body {
     }
 
     .site-title {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     .header-container {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
         padding: 10px;
     }
 
@@ -131,5 +133,17 @@ body {
     .btn {
         width: 100%;
         text-align: center;
+        min-width: unset; /* Eliminar el mínimo ancho en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 1.4rem; /* Aumento de tamaño de fuente para pantallas más pequeñas */
+    }
+
+    .logo-img {
+        width: 50px;
+        height: 50px;
     }
 }

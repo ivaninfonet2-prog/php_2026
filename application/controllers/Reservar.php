@@ -285,8 +285,8 @@ class Reservar extends CI_Controller
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg')
         ];
 
-        $this->load->view('reserva_exitosa/header_reserva_exitosa', $data);
+        $this->load->view('header_footer/header_footer_usuario', $data);
         $this->load->view('reserva_exitosa/body_reserva_exitosa', $data);
-        $this->load->view('reserva_exitosa/footer_reserva_exitosa');
+        $this->load->view('footer_footer/footer_footer_usuario');
     }
 }

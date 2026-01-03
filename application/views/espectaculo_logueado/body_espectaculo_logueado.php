@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= htmlspecialchars($espectaculo['nombre']); ?></title>
 
-    <link rel="stylesheet"
-          href="<?= base_url('activos/css/espectaculo_logueado/body_espectaculo_logueado.css?v=' . time()); ?>">
+    <link rel="stylesheet" href="<?= base_url('activos/css/espectaculo_logueado/body_espectaculo_logueado.css?v=' . time()); ?>">
 </head>
 
 <body>
@@ -32,9 +31,7 @@
 
         <!-- Imagen -->
         <div class="imagen-wrapper">
-            <img src="<?= base_url('activos/imagenes/' . $espectaculo['imagen']) ?>"
-                 alt="<?= htmlspecialchars($espectaculo['nombre']); ?>"
-                 class="imagen">
+            <img src="<?= base_url('activos/imagenes/' . $espectaculo['imagen']) ?>" alt="<?= htmlspecialchars($espectaculo['nombre']); ?>" class="imagen">
         </div>
 
         <!-- Descripción -->
@@ -63,17 +60,9 @@
 
         <!-- Reserva -->
         <?php if ($espectaculo['disponibles'] > 0): ?>
-            <form method="post"
-                  action="<?= site_url('reservar/procesar/' . $espectaculo['id_espectaculo']); ?>"
-                  class="formulario">
-
+            <form method="post" action="<?= site_url('reservar/procesar/' . $espectaculo['id_espectaculo']); ?>" class="formulario">
                 <label for="cantidad_entradas">Cantidad de entradas</label>
-                <input type="number"
-                       name="cantidad_entradas"
-                       id="cantidad_entradas"
-                       min="1"
-                       max="<?= htmlspecialchars($espectaculo['disponibles']); ?>"
-                       required>
+                <input type="number" name="cantidad_entradas" id="cantidad_entradas" min="1" max="<?= htmlspecialchars($espectaculo['disponibles']); ?>" required>
 
                 <div class="botones">
                     <button type="submit" class="btn reservar">Reservar</button>
@@ -98,7 +87,6 @@
         <div class="mapa-externa" aria-label="Mapa del lugar del espectáculo">
             <img src="<?= base_url('activos/imagenes/mapa.jfif') ?>" alt="Mapa del lugar del espectáculo">
         </div>
-        <!-- Texto debajo del mapa -->
         <p class="mapa-texto">
             El evento se realizará en un espacio accesible y cómodo, con transporte público cercano y estacionamiento disponible. Te recomendamos llegar con anticipación para disfrutar la experiencia completa.
         </p>
