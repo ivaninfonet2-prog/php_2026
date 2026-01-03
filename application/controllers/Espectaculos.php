@@ -119,9 +119,9 @@ class Espectaculos extends CI_Controller
         ];
 
         // 4) Cargar vistas del usuario
-        $this->load->view('usuario_espectaculos/header_usuario_espectaculos', $data);
+        $this->load->view('header_footer/header_footer_usuario', $data);
         $this->load->view('usuario_espectaculos/body_usuario_espectaculos', $data);
-        $this->load->view('usuario_espectaculos/footer_usuario_espectaculos', $data);
+        $this->load->view('footer_footer/footer_footer_usuario', $data);
     }
 
     // LISTADO ADMINISTRADOR
@@ -142,12 +142,11 @@ class Espectaculos extends CI_Controller
             'espectaculos' => $espectaculos
         ];
 
-        $this->load->view('administrador_espectaculos/header_administrador_espectaculos', $data);
+        $this->load->view('header_footer/header_footer_administrador', $data);
         $this->load->view('administrador_espectaculos/body_administrador_espectaculos', $data);
-        $this->load->view('administrador_espectaculos/footer_administrador_espectaculos', $data);
+        $this->load->view('footer_footer/footer_footer_administrador', $data);
     }
 
-    
     //   Espectaculo SIN LOGUEAR
     
     public function espectaculo_sin_loguear($id)
@@ -328,9 +327,9 @@ class Espectaculos extends CI_Controller
             }
         }
 
-        $this->load->view('crear_espectaculo/header_crear_espectaculo', $data);
+        $this->load->view('header_footer/header_footer_administrador', $data);
         $this->load->view('crear_espectaculo/body_crear_espectaculo', $data);
-        $this->load->view('crear_espectaculo/footer_crear_espectaculo', $data);
+        $this->load->view('footer_footer/footer_footer_administrador', $data);
     }
 
     // editar espectaculo
@@ -387,9 +386,9 @@ class Espectaculos extends CI_Controller
             }
         }
 
-        $this->load->view('editar_espectaculo/header_editar', $data);
+        $this->load->view('header_footer/header_footer_administrador', $data);
         $this->load->view('editar_espectaculo/body_editar', $data);
-        $this->load->view('editar_espectaculo/footer_editar', $data);
+        $this->load->view('footer_footer/footer_footer_administrador', $data);
     }
 
     public function eliminar_espectaculo($id)
@@ -417,7 +416,6 @@ class Espectaculos extends CI_Controller
         
         redirect('administrador/administrador_espectaculos');
     }
-
 }
 
 ?>
