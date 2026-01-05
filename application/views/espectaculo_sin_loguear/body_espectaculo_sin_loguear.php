@@ -16,8 +16,8 @@
 
     <!-- Título y descripción principales fuera de la tarjeta -->
     <header class="intro-text">
-        <h1><?= htmlspecialchars($espectaculo['nombre']) ?></h1>
-        <p><?= htmlspecialchars($espectaculo['descripcion']) ?></p>
+        <h1>La Mejor Función</h1>
+        <p>Lo mejor para vos</p>
     </header>
 
     <!-- Tarjeta espectáculo -->
@@ -40,13 +40,20 @@
 
             <!-- Detalles -->
             <section class="detalles" aria-label="Detalles del espectáculo">
-                <ul>
+                <!-- Fila 1: Fecha y Hora -->
+                <ul class="detalles-fila">
                     <li class="fecha"><strong>Fecha:</strong> <?= htmlspecialchars($espectaculo['fecha']) ?></li>
                     <li class="hora"><strong>Hora:</strong> <?= htmlspecialchars($espectaculo['hora']) ?></li>
+                </ul>
+
+                <!-- Fila 2: Dirección y Precio -->
+                <ul class="detalles-fila">
                     <li class="direccion"><strong>Dirección:</strong> <?= htmlspecialchars($espectaculo['direccion']) ?></li>
                     <li class="precio"><strong>Precio:</strong> $<?= number_format($espectaculo['precio'], 2, ',', '.') ?></li>
-                    <li class="disponibles"><strong>Entradas disponibles:</strong> <?= htmlspecialchars($espectaculo['disponibles']) ?></li>
                 </ul>
+
+                <!-- Entradas disponibles centradas -->
+                <li class="disponibles"><strong>Entradas disponibles:</strong> <?= htmlspecialchars($espectaculo['disponibles']) ?></li>
             </section>
 
             <!-- Estado -->
