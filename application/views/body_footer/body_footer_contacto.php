@@ -32,5 +32,10 @@
             © 2026 Plataforma Universitaria. Todos los derechos reservados.
         </p>
     </div>
+
+    <!-- Texto adicional fuera de la tarjeta -->
+    <div class="texto-adicional">
+        <p>Si tienes alguna consulta o inquietud adicional, no dudes en ponerte en contacto con nosotros. ¡Estamos aquí para ayudarte!</p>
+    </div>
 </body>
 </html>

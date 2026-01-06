@@ -74,14 +74,15 @@ body {
     background: rgba(25, 25, 25, 0.5);  /* Menos opacidad */
     backdrop-filter: blur(8px);
     border-radius: 18px;
-    padding: 25px;
-    width: 85%;
-    max-width: 750px;
+    padding: 30px; /* Aumenté el padding para más espacio */
+    width: 100%; /* Aseguramos que ocupe el 100% del contenedor */
+    max-width: 750px; /* Limitar el tamaño máximo */
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px; /* Aumenté el gap entre los elementos */
     align-items: center;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+    margin: 0 auto; /* Centramos la tarjeta */
 }
 
 /* ======================================================
@@ -96,13 +97,14 @@ body {
     font-size: 2.4rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 6px;
+    margin-bottom: 10px; /* Espaciado ajustado */
 }
 
 .espectaculo-descripcion {
     font-size: 1.3rem;
     color: #ff0;
     font-weight: 500;
+    margin-bottom: 15px; /* Agregué margen para mayor separación */
 }
 
 /* ======================================================
@@ -115,8 +117,8 @@ body {
 }
 
 .imagen-espectaculo {
-    width: 200px;
-    height: 200px;
+    width: 220px;  /* Ajusté el tamaño de la imagen */
+    height: 220px;
     object-fit: cover;
     border-radius: 18px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
@@ -128,29 +130,28 @@ body {
 }
 
 /* ======================================================
-   DETALLES (Entradas disponibles ajustadas)
+   DETALLES GENERALES
 ====================================================== */
-.detalles li {
+.detalles-fila {
     display: flex;
-    align-items: center;  /* Alineamos el texto con el punto */
-    gap: 10px; /* Espacio entre el punto y el texto */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    margin-bottom: 12px;  /* Más espacio entre filas */
 }
 
-.detalles .disponibles {
-    width: 100%;
+.detalles-fila li {
+    flex-basis: 45%;
+    margin-bottom: 12px; /* Más margen para mayor separación */
+}
+
+.detalles li {
+    font-weight: 500;
+}
+
+.detalles li strong {
     font-weight: 700;
-    margin-top: 10px;
-    text-align: center; /* Alineamos al centro */
-    padding-left: 20px; /* Ajustamos el espacio a la izquierda */
 }
-
-/* Aseguramos que el punto no quede alejado */
-.detalles li .disponibles::before {
-    content: "•";  /* Utilizamos el punto estándar */
-    font-size: 1.5rem;  /* Ajustamos el tamaño del punto */
-    margin-right: 10px; /* Ajustamos el espacio entre el punto y el texto */
-}
-
 
 /* ======================================================
    ESTADO
@@ -174,7 +175,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
 }
 
 .texto-login {
@@ -206,25 +207,27 @@ body {
     text-align: center;
     margin: 40px auto 40px;
     width: 90%;
-    max-width: 850px;
+    max-width: 650px; /* Limitar el tamaño de la sección del mapa */
 }
 
 .mapa-titulo {
     font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 20px; /* Aumento del margen inferior */
+    margin-bottom: 20px;
     color: #ffffff;
 }
 
 .mapa-descripcion {
     font-size: 1.2rem;
-    margin-bottom: 30px; /* Aumentamos el margen inferior para separarlo más de la imagen */
+    margin-bottom: 30px;
     color: #ffffff;
 }
 
 .mapa-externa img {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px; /* Limitar el tamaño de la imagen */
+    height: auto;
+    object-fit: contain; /* Mantener la proporción y evitar distorsión */
     border-radius: 18px;
 }
 
@@ -232,6 +235,6 @@ body {
     font-size: 1.3rem;
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 30px; /* Más espacio con el footer */
+    margin-bottom: 30px;
     color: #ffffff;
 }

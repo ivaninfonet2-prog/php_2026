@@ -53,9 +53,9 @@ class Registrar extends CI_Controller
                 $data['titulo'] = 'Registro de Usuario';
 
                 // Cargar directamente la vista de registro con el error
-                $this->load->view('registrar_usuario/header_registrar_usuario', $data);
+                $this->load->view('header_footer/header_footer_principal', $data);
                 $this->load->view('registrar_usuario/body_registrar_usuario', $data);
-                $this->load->view('registrar_usuario/footer_registrar_usuario');
+                $this->load->view('footer_footer/footer_footer_principal');
             }
             else
             {
@@ -84,9 +84,9 @@ class Registrar extends CI_Controller
             $data['titulo'] = 'Registro de Usuario';
 
             // Cargar directamente la vista de registro con el error
-            $this->load->view('registrar_usuario/header_registrar_usuario', $data);
+            $this->load->view('header_footer/header_footer_principal', $data);
             $this->load->view('registrar_usuario/body_registrar_usuario', $data);
-            $this->load->view('registrar_usuario/footer_registrar_usuario');
+            $this->load->view('footer_footer/footer_footer_principal');
         }
     }
     

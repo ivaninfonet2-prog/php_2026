@@ -40,39 +40,26 @@
 
             <!-- Detalles -->
             <section class="detalles" aria-label="Detalles del espectáculo">
-                <!-- Fila 1: Fecha y Hora -->
                 <ul class="detalles-fila">
-                    <li class="fecha"><strong>Fecha:</strong> <?= htmlspecialchars($espectaculo['fecha']) ?></li>
-                    <li class="hora"><strong>Hora:</strong> <?= htmlspecialchars($espectaculo['hora']) ?></li>
+                    <li><strong>Fecha:</strong> <?= htmlspecialchars($espectaculo['fecha']) ?></li>
+                    <li><strong>Hora:</strong> <?= htmlspecialchars($espectaculo['hora']) ?></li>
+                    <li><strong>Dirección:</strong> <?= htmlspecialchars($espectaculo['direccion']) ?></li>
+                    <li><strong>Precio:</strong> $<?= number_format($espectaculo['precio'], 2, ',', '.') ?></li>
+                    <li><strong>Entradas disponibles:</strong> <?= htmlspecialchars($espectaculo['disponibles']) ?></li>
                 </ul>
-
-                <!-- Fila 2: Dirección y Precio -->
-                <ul class="detalles-fila">
-                    <li class="direccion"><strong>Dirección:</strong> <?= htmlspecialchars($espectaculo['direccion']) ?></li>
-                    <li class="precio"><strong>Precio:</strong> $<?= number_format($espectaculo['precio'], 2, ',', '.') ?></li>
-                </ul>
-
-                <!-- Entradas disponibles centradas -->
-                <li class="disponibles"><strong>Entradas disponibles:</strong> <?= htmlspecialchars($espectaculo['disponibles']) ?></li>
             </section>
 
             <!-- Estado -->
             <section class="informacion" aria-live="polite">
-                <?php if ($espectaculo['disponibles'] > 0): ?>
-                    <p class="estado disponible">¡Todavía hay lugares disponibles!</p>
-                <?php else: ?>
-                    <p class="estado agotado">Entradas agotadas.</p>
-                <?php endif; ?>
+                <p class="estado <?= $espectaculo['disponibles'] > 0 ? 'disponible' : 'agotado' ?>">
+                    <?= $espectaculo['disponibles'] > 0 ? '¡Todavía hay lugares disponibles!' : 'Entradas agotadas.' ?>
+                </p>
             </section>
 
             <!-- Login / Reservas -->
             <section class="reserva-login">
-                <p class="texto-login">
-                    Para reservar entradas, primero debés iniciar sesión.
-                </p>
-                <a href="<?= site_url('login') ?>" class="boton-login">
-                    Iniciar sesión
-                </a>
+                <p class="texto-login">Para reservar entradas, primero debés iniciar sesión.</p>
+                <a href="<?= site_url('login') ?>" class="boton-login">Iniciar sesión</a>
             </section>
 
         </article>
@@ -83,7 +70,7 @@
         <h2 class="mapa-titulo">Ubicación del espectáculo</h2>
         <p class="mapa-descripcion">Encontrá fácilmente el lugar del evento en el mapa para organizar tu llegada.</p>
         <div class="mapa-externa">
-            <img src="<?= base_url('activos/imagenes/mapa.jfif') ?>" alt="Mapa del lugar del espectáculo">
+            <img src="<?= base_url('activos/imagenes/mapa.jfif') ?>" alt="Mapa del lugar del espectáculo" class="imagen-mapa">
         </div>
     </section>
 
