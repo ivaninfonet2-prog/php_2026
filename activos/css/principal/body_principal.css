@@ -33,6 +33,8 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    /* Añadido: evitar que Bootstrap afecte el layout */
+    width: 100%;
 }
 
 /* ======================================================
@@ -90,7 +92,7 @@ body {
 }
 
 .tarjeta {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);  /* Menos negro, más transparencia */
     backdrop-filter: blur(6px);
     border-radius: 10px;
     padding-bottom: 16px;
@@ -106,8 +108,8 @@ body {
    IMAGEN ARTISTA
 ====================================================== */
 .tarjeta .imagen {
-    width: 160px; /* Imagen más pequeña */
-    height: 160px;
+    width: 180px;  /* Imagen más grande */
+    height: 180px;
     object-fit: cover;
     border-radius: 10px;
     margin: 18px auto;
@@ -126,7 +128,7 @@ body {
 }
 
 .tarjeta h3 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;  /* Nombre de la artista más grande */
     font-weight: 900;
     margin-bottom: 12px;
     color: #ffffff;
@@ -151,8 +153,8 @@ body {
    BOTÓN
 ====================================================== */
 .boton-ver {
-    padding: 8px 18px;
-    font-size: 1rem;
+    padding: 10px 22px;  /* Botón más grande */
+    font-size: 1.2rem;  /* Texto más grande */
     background-color: #0d6efd;
     color: #ffffff;
     text-decoration: none;
