@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($titulo, ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="stylesheet" href="<?= base_url('activos/css/administrador_espectaculos/body_administrador_espectaculos.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('activos/css/confirmacion/modificar_espectaculo.css'); ?>"> <!-- Enlace al nuevo archivo CSS -->
+    <link rel="stylesheet" href="<?= base_url('activos/css/confirmacion/modificar_espectaculo.css'); ?>">
 </head>
 <body>
 
@@ -32,37 +32,58 @@
     <?php endif; ?>
 
     <!-- Listado de espectáculos -->
-    <?php if (!empty($espectaculos)): ?>
+    <?php if ( !empty($espectaculos)): ?>
         <div class="contenedor-tarjetas">
             <?php foreach ($espectaculos as $espectaculo): ?>
                 <div class="tarjeta">
 
+                    <div class="contenido-info">
+                        <h3 class="nombre-artista"><?= htmlspecialchars($espectaculo['nombre'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                        <p class="descripcion-artista">
+                            <?php 
+                                if (isset($espectaculo['descripcion'])) 
+                                {
+                                    echo htmlspecialchars($espectaculo['descripcion'], ENT_QUOTES, 'UTF-8');
+                                } 
+                                else 
+                                {
+                                    echo 'Sin descripción disponible';
+                                }
+                            ?>
+                        </p>
+                    </div>
+
                     <img
-                        src="<?= !empty($espectaculo['imagen'])
-                            ? base_url('activos/imagenes/' . htmlspecialchars($espectaculo['imagen'], ENT_QUOTES, 'UTF-8'))
-                            : base_url('activos/imagenes/default.jpg'); ?> "
+                        src="<?php
+                            if (!empty($espectaculo['imagen'])) 
+                            {
+                                echo base_url('activos/imagenes/' . htmlspecialchars($espectaculo['imagen'], ENT_QUOTES, 'UTF-8'));
+                            } 
+                            else 
+                            {
+                                echo base_url('activos/imagenes/default.jpg');
+                            }
+                        ?>"
                         alt="<?= htmlspecialchars($espectaculo['nombre'], ENT_QUOTES, 'UTF-8'); ?>"
                         class="imagen"
                         loading="lazy"
                     >
 
                     <div class="contenido">
-                        <h3><?= htmlspecialchars($espectaculo['nombre'], ENT_QUOTES, 'UTF-8'); ?></h3>
-
                         <p><strong>Fecha:</strong> <?= date('d/m/Y', strtotime($espectaculo['fecha'])); ?></p>
                         <p><strong>Hora:</strong> <?= date('H:i', strtotime($espectaculo['hora'])); ?></p>
                         <p><strong>Entradas:</strong> <?= htmlspecialchars($espectaculo['disponibles'], ENT_QUOTES, 'UTF-8'); ?></p>
                         <p><strong>Precio:</strong>
-                            <?= isset($espectaculo['precio'])
-                                ? '$' . htmlspecialchars($espectaculo['precio'], ENT_QUOTES, 'UTF-8')
-                                : 'No definido'; ?>
-                        </p>
-
-                        <!-- Agregamos la descripción -->
-                        <p><strong>Descripción:</strong>
-                            <?= isset($espectaculo['descripcion'])
-                                ? htmlspecialchars($espectaculo['descripcion'], ENT_QUOTES, 'UTF-8')
-                                : 'Sin descripción disponible'; ?>
+                            <?php 
+                                if (isset($espectaculo['precio'])) 
+                                {
+                                    echo '$' . htmlspecialchars($espectaculo['precio'], ENT_QUOTES, 'UTF-8');
+                                } 
+                                else 
+                                {
+                                    echo 'No definido';
+                                }
+                            ?>
                         </p>
 
                         <div class="acciones-tarjeta">
@@ -77,6 +98,11 @@
     <?php else: ?>
         <p class="mensaje-vacio">No hay espectáculos disponibles en este momento.</p>
     <?php endif; ?>
+
+    <!-- Texto adicional fuera de la tarjeta -->
+    <p class="texto-adicional">
+        ¡Aprovechá para ver los espectáculos más recientes y gestionarlos con facilidad desde este panel!
+    </p>
 
     <!-- Modal de Confirmación -->
     <div id="modal" class="confirmacion-container" style="display: none;">
@@ -101,7 +127,7 @@
         action = type;
         itemId = id;
 
-        if (action === 'eliminar') 
+        if (action === 'eliminar')
         {
             document.getElementById('modal-titulo').textContent = 'Eliminar Espectáculo';
             document.getElementById('modal-descripcion').textContent = '¿Estás seguro de que deseas eliminar este espectáculo y todos sus datos asociados?';
@@ -119,7 +145,6 @@
 
     function closeModal() 
     {
-
         document.getElementById('modal').style.display = 'none';
     }
 

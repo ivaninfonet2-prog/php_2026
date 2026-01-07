@@ -25,19 +25,19 @@ body {
 .encabezado-seccion {
     text-align: center;
     max-width: 900px;
-    margin: 0 auto 80px; /* Aumenté la separación para que baje más */
+    margin: 0 auto 80px; /* Aumenté la separación para que baje aún más */
 }
 
 .titulo-principal {
-    font-size: 3.2rem; /* Título más grande */
-    font-weight: 700;
+    font-size: 3rem; /* Título un poco más pequeño */
+    font-weight: 600; /* Reduje el grosor del título */
     margin: 0 0 30px; /* Más separación abajo */
     color: #ffffff; /* Blanco más fuerte */
     text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
 }
 
 .descripcion-principal {
-    font-size: 1.6rem; /* Descripción más grande */
+    font-size: 1.7rem; /* Descripción más grande */
     color: #f2f2f2; /* Color más claro y legible */
     line-height: 1.6;
     margin: 0;
@@ -77,101 +77,91 @@ body {
 }
 
 .tarjeta {
-    width: 350px; /* Aumenté el ancho de las tarjetas */
-    background: rgba(0, 0, 0, 0.6); /* Fondo negro con mayor transparencia */
-    backdrop-filter: blur(10px); /* Suavizado del fondo con más desenfoque */
+    width: 480px; /* Tarjeta más ancha */
+    background: rgba(0, 0, 0, 0.7); /* Fondo más oscuro para contraste */
+    backdrop-filter: blur(10px); /* Desenfoque en el fondo */
     border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.45); /* Sombra más pronunciada */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.45);
     overflow: hidden;
     transition: transform 0.25s ease;
+    text-align: center; /* Centra todos los elementos dentro de la tarjeta */
+    padding: 20px;
 }
 
 .tarjeta:hover {
     transform: translateY(-6px);
 }
 
-/* Imagen */
+/* Imagen (más grande y cuadrada con bordes redondeados) */
 .imagen {
-    width: 170px; /* Aumenté el tamaño de la imagen */
-    height: 170px;
+    width: 160px; /* Imagen más grande */
+    height: 160px; /* Mismo alto que el ancho */
     object-fit: cover;
-    margin: 18px auto 10px;
-    display: block;
-    border-radius: 10px;
-    border: 2px solid rgba(255,255,255,0.6);
+    border-radius: 15px; /* Bordes redondeados */
+    margin: 20px auto; /* Centrada con margen */
+    border: 4px solid #fff; /* Borde blanco alrededor de la imagen */
 }
 
 /* ================================
-   Contenido tarjeta
+   Información de la tarjeta
 ================================ */
-.contenido {
-    padding: 15px 20px 20px;
-    text-align: center;
+.contenido-info {
+    padding: 20px;
 }
 
-.contenido h3 {
-    margin: 8px 0 12px;
-    font-size: 1.8rem; /* Títulos dentro de las tarjetas más grandes */
-    color: #ffffff; /* Blanco más fuerte */
+.nombre-artista {
+    font-size: 2.2rem; /* Título más grande */
+    font-weight: 600;
+    margin: 0 0 10px;
 }
 
-.contenido p {
-    margin: 6px 0;
-    font-size: 1.1rem; /* Tamaño de fuente mayor */
-    color: #f0f0f0;
-}
-
-.contenido p strong {
-    color: #ffc107;
+.descripcion-artista {
+    font-size: 1.3rem; /* Descripción un poco más grande */
+    color: #ccc;
 }
 
 /* ================================
-   Descripción (nuevo estilo)
-================================ */
-.contenido p strong + p {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    color: #d3d3d3; /* Color suave para la descripción */
-}
-
-/* ================================
-   Acciones
+   Botones
 ================================ */
 .acciones-tarjeta {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 15px;
+    justify-content: space-between; /* Alinea los botones uno al lado del otro */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 20px;
+    width: 100%; /* Los botones ocuparán todo el ancho disponible */
 }
 
-/* Botones */
 .boton {
     flex: 1;
     padding: 10px 0;
     border-radius: 6px;
-    font-size: 1.1rem; /* Botones más grandes */
+    font-size: 1.1rem; /* Botones más pequeños */
     font-weight: 600;
     text-decoration: none;
     color: #fff;
     text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* Hace que los botones se alineen en fila */
 }
 
 .boton-editar {
-    background-color: #28a745;
+    background-color: #28a745; /* Verde */
+    border: 2px solid #218838; /* Borde verde más oscuro */
+}
+
+.boton-editar:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* Efecto de hover */
 }
 
 .boton-eliminar {
-    background-color: #dc3545;
+    background-color: #dc3545; /* Rojo */
+    border: 2px solid #c82333; /* Borde rojo más oscuro */
 }
 
-/* ================================
-   Mensaje vacío
-================================ */
-.mensaje-vacio {
-    text-align: center;
-    font-size: 1.5rem; /* Texto vacío más grande */
-    color: #ffffff;
-    margin-top: 50px;
+.boton-eliminar:hover {
+    background-color: #c82333;
+    transform: scale(1.05); /* Efecto de hover */
 }
 
 /* ================================
@@ -179,8 +169,8 @@ body {
 ================================ */
 .texto-adicional {
     text-align: center;
-    font-size: 1.3rem; /* Aumenté el tamaño del texto adicional */
-    color: #ffffff; /* Blanco fuerte */
+    font-size: 1.4rem;
+    color: #ffffff;
     margin-top: 60px;
     line-height: 1.8;
 }
@@ -189,13 +179,12 @@ body {
    Responsive
 ================================ */
 @media (max-width: 768px) {
-
     .main-content {
         padding-top: 90px;
     }
 
     .titulo-principal {
-        font-size: 2.7rem; /* Ajusté el tamaño en dispositivos móviles */
+        font-size: 2.4rem; /* Ajusté el tamaño en dispositivos móviles */
     }
 
     .descripcion-principal {
@@ -203,7 +192,7 @@ body {
     }
 
     .tarjeta {
-        width: 90%;
+        width: 90%; /* Hacer que las tarjetas ocupen más espacio en móviles */
     }
 
     .texto-adicional {
