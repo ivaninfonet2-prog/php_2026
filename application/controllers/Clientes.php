@@ -1,4 +1,3 @@
-
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -14,7 +13,15 @@ class Clientes extends CI_Controller
     public function crear_cliente($usuario_id)
     {
         $resultado = $this->Cliente_modelo->crear_cliente($usuario_id);
-        echo $resultado ? "Cliente creado con éxito." : "Error al crear el cliente.";
+
+        if ($resultado) 
+        {
+            echo "Cliente creado con éxito.";
+        } 
+        else 
+        {
+            echo "Error al crear el cliente.";
+        }
     }
 
     public function mostrar_clientes()
@@ -30,10 +37,10 @@ class Clientes extends CI_Controller
         $clientes = $this->Cliente_modelo->obtener_clientes_por_usuario();
 
         // Asignar clientes si existen, de lo contrario mensaje
-        if ( ! empty($clientes)) 
+        if ( !empty($clientes)) 
         {
             $data['clientes'] = $clientes;
-        }
+        } 
         else 
         {
             $data['clientes'] = [];
@@ -47,4 +54,4 @@ class Clientes extends CI_Controller
     }
 }
 
-?>;
+?>

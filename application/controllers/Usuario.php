@@ -7,23 +7,24 @@ class Usuario extends CI_Controller
     {
         parent::__construct();
 
-        // Models
         $this->load->model('Usuario_modelo');
         $this->load->model('Espectaculo_modelo');
         $this->load->model('Reserva_modelo');
 
-        // Libraries & helpers
         $this->load->library(['session', 'form_validation']);
         $this->load->helper(['url', 'form']);
 
         // Protección global: si no está logueado, afuera
+
         if ( !$this->session->userdata('logged_in'))
         {
             redirect('login');
+
             exit;
         }
 
-        // Evitar caché en todo el controlador
+        // Evitar cache en todo el controlador
+
         $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate");
         $this->output->set_header("Cache-Control: post-check=0, pre-check=0", false);
         $this->output->set_header("Pragma: no-cache");
@@ -31,9 +32,10 @@ class Usuario extends CI_Controller
 
     public function index()
     {
-        if (!$this->session->userdata('logged_in'))
+        if ( !$this->session->userdata('logged_in'))
         {
             redirect('login');
+
             return;
         }
 
@@ -43,7 +45,8 @@ class Usuario extends CI_Controller
             ->set_header("Pragma: no-cache");
 
         $id_usuario = $this->session->userdata('id_usuario');
-        $usuario    = $this->Usuario_modelo->obtener_usuario_por_id($id_usuario);
+      
+        $usuario = $this->Usuario_modelo->obtener_usuario_por_id($id_usuario);
 
         $nombre   = '';
         $apellido = '';
@@ -113,10 +116,9 @@ class Usuario extends CI_Controller
     {
         $id_usuario = $this->session->userdata('id_usuario');
 
-        $reserva = $this->Reserva_modelo
-            ->obtener_reserva_detalle($id_reserva, $id_usuario);
+        $reserva = $this->Reserva_modelo->obtener_reserva_detalle($id_reserva, $id_usuario);
 
-        if (!$reserva)
+        if ( !$reserva)
         {
             show_error('Reserva no encontrada.', 404);
         }
@@ -140,28 +142,22 @@ class Usuario extends CI_Controller
     private function validar_usuario($es_nuevo = true)
     {
         $this->form_validation->set_rules('nombre', 'Nombre', 'required|trim');
+      
         $this->form_validation->set_rules('apellido', 'Apellido', 'required|trim');
 
         if ($es_nuevo)
         {
-            // Si es un usuario nuevo, el email debe ser único
-            $this->form_validation->set_rules(
-                'email',
-                'Email',
-                'required|valid_email|is_unique[usuarios.nombre_usuario]'
-            );
+            // Si es un usuario nuevo, el email debe ser unico
 
-            $this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[6]');
+            $this->form_validation->set_rules('email','Email','required|valid_email|is_unique[usuarios.nombre_usuario]');
+            $this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[4]');
             $this->form_validation->set_rules('password_confirm', 'Confirmar Contraseña', 'required|matches[password]');
         }
         else
         {
-            // Si es edición, no se valida la unicidad del email
-            $this->form_validation->set_rules(
-                'email',
-                'Email',
-                'required|valid_email'
-            );
+            // Si es edicion, no se valida la unicidad del email
+
+            $this->form_validation->set_rules('email','Email','required|valid_email');
         }
     }
     
@@ -250,13 +246,11 @@ class Usuario extends CI_Controller
                 'nombre_usuario' => $this->input->post('email')
             ];
 
-            // Solo actualiza password si se ingresó uno nuevo
+            // Solo actualiza password si se ingreso uno nuevo
+
             if ($this->input->post('password'))
             {
-                $usuario_data['palabra_clave'] = password_hash(
-                $this->input->post('password'),
-                PASSWORD_DEFAULT
-                );
+                $usuario_data['palabra_clave'] = password_hash($this->input->post('password'),PASSWORD_DEFAULT);
             }
 
             $this->Usuario_modelo->actualizar_usuario($id_usuario, $usuario_data);

@@ -23,7 +23,7 @@ class Administrador extends CI_Controller
 
     public function index()
     {
-        if (!$this->session->userdata('logged_in')) 
+        if ( !$this->session->userdata('logged_in')) 
         {
             redirect('login');
             return;
@@ -54,7 +54,7 @@ class Administrador extends CI_Controller
     {
         // Verifica que el admin esté logueado
 
-        if (!$this->session->userdata('logged_in') || $this->session->userdata('rol_id') != 2) 
+        if ( !$this->session->userdata('logged_in') || $this->session->userdata('rol_id') != 2) 
         {
             redirect('login');
             return;
@@ -71,6 +71,7 @@ class Administrador extends CI_Controller
         // Traer solo los usuarios estándar (rol_id = 1)
 
         $this->load->model('Usuario_modelo'); // asegurarse de cargar el modelo
+
         $data['usuarios'] = $this->Usuario_modelo->obtener_usuarios_estandar();
 
         // Cargar vistas
@@ -88,6 +89,7 @@ class Administrador extends CI_Controller
     }
     
     // Lista de espectaculos del administrador
+    
     public function administrador_espectaculos()
     {
         redirect('espectaculos/administrador_espectaculos');

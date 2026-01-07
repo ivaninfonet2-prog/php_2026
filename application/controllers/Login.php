@@ -10,19 +10,15 @@ class Login extends CI_Controller
         $this->load->library('session');
         $this->load->helper(['url','form']);
     }
-    
-    private function datos_base()
+
+    public function index()
     {
-        return
+        // Datos de vista directamente aquí
+        $data = 
         [
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
             'titulo' => 'Inicio - UNLa Tienda'
         ];
-    }
-
-    public function index()
-    {
-        $data = $this->datos_base();
 
         $this->load->view('header_footer/header_footer_principal', $data);
         $this->load->view('login/body_login', $data); // aquí ya va el formulario dentro
@@ -37,8 +33,9 @@ class Login extends CI_Controller
         if (empty($nombre_usuario) || empty($palabra_clave)) 
         {
             $this->session->set_flashdata('error', 'Debe ingresar usuario y contraseña');
-            
+
             redirect('login');
+
             return;
         }
 
@@ -53,6 +50,7 @@ class Login extends CI_Controller
             ]);
 
             // Redirigir según rol
+
             if ($usuario->rol_id === '2')
             {
                 redirect('administrador'); // controlador para admin
@@ -72,15 +70,18 @@ class Login extends CI_Controller
     public function logout()
     {
         // Destruir sesión
+
         $this->session->sess_destroy();
 
         // Evitar cache del navegador
+
         $this->output
              ->set_header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0")
-            ->set_header("Cache-Control: post-check=0, pre-check=0", false)
-            ->set_header("Pragma: no-cache");
+             ->set_header("Cache-Control: post-check=0, pre-check=0", false)
+             ->set_header("Pragma: no-cache");
 
-        // Redirigir a login o principal
+        // Redirigir a principal
+     
         redirect('principal');
     }
 }

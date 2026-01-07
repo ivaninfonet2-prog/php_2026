@@ -308,6 +308,7 @@ class Espectaculos extends CI_Controller
                 $nuevo = $this->datos_formulario();
 
                 // Subir imagen o usar default
+                
                 $imagen = $this->subir_imagen();
 
                 if ($imagen !== null)
@@ -387,7 +388,7 @@ class Espectaculos extends CI_Controller
         }
 
         $this->load->view('header_footer/header_footer_administrador', $data);
-        $this->load->view('editar_espectaculo/body_editar', $data);
+        $this->load->view('editar_espectaculo/body_editar_eespectaculo', $data);
         $this->load->view('footer_footer/footer_footer_administrador', $data);
     }
 

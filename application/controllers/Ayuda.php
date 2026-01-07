@@ -3,14 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ayuda extends CI_Controller
 {
-
     public function index() 
     {
         // Ruta de la imagen de fondo
+
         $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
         $data['titulo'] = 'Ayuda de UNLa Tienda';
 
         // Cargar header común
+        
         $this->load->view('header_footer/header_footer_principal', $data);
 
         // Vista principal de la sección "Ayuda"
@@ -49,7 +50,6 @@ class Ayuda extends CI_Controller
         // Cargar footer común
         $this->load->view('footer_footer/footer_footer_administrador');
     }
-
 }
 
 ?>

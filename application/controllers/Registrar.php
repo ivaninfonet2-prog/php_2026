@@ -14,6 +14,7 @@ class Registrar extends CI_Controller
     public function index()
     {
         // Datos que necesitan las vistas
+
         $data = 
         [
             'titulo' => "Registrarme como Usuario",
@@ -28,7 +29,9 @@ class Registrar extends CI_Controller
     public function registro_exitoso()
     {
         // Datos que necesitan las vistas
-        $data = [
+
+        $data = 
+        [
             'titulo' => "Cartelera de Espectáculos",
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
         ];
@@ -48,11 +51,13 @@ class Registrar extends CI_Controller
             if ($this->Usuario_modelo->verificar_usuario_existente($email, $dni))
             {
                 // Usuario ya existe
+
                 $data['error']  = 'El usuario con este email o DNI ya está registrado.';
                 $data['fondo']  = base_url('activos/imagenes/mi_fondo.jpg');
                 $data['titulo'] = 'Registro de Usuario';
 
                 // Cargar directamente la vista de registro con el error
+
                 $this->load->view('header_footer/header_footer_principal', $data);
                 $this->load->view('registrar_usuario/body_registrar_usuario', $data);
                 $this->load->view('footer_footer/footer_footer_principal');
@@ -60,7 +65,8 @@ class Registrar extends CI_Controller
             else
             {
                 // Registrar nuevo usuario
-                $data = [
+                $data = 
+                [
                     'nombre'         => $this->input->post('nombre'),
                     'apellido'       => $this->input->post('apellido'),
                     'dni'            => $dni,
@@ -73,17 +79,20 @@ class Registrar extends CI_Controller
                 $this->Usuario_modelo->registrar_usuario($data);
 
                 // Redirigir a vista de registro exitoso
+
                 redirect('registrar/registro_exitoso');
             } 
         }
         else
         {
             // Validación fallida
+            
             $data['error']  = 'Por favor completa todos los campos correctamente.';
             $data['fondo']  = base_url('activos/imagenes/mi_fondo.jpg');
             $data['titulo'] = 'Registro de Usuario';
 
             // Cargar directamente la vista de registro con el error
+
             $this->load->view('header_footer/header_footer_principal', $data);
             $this->load->view('registrar_usuario/body_registrar_usuario', $data);
             $this->load->view('footer_footer/footer_footer_principal');

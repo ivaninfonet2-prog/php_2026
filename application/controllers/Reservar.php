@@ -47,20 +47,20 @@ class Reservar extends CI_Controller
 
     // ---------------------- PASO 1: PROCESAR RESERVA ----------------------
 
-    public function procesar($id_espectaculo)
+    public function procesar_reserva($id_espectaculo)
     {
         $usuario = $this->session->userdata('id_usuario');
 
-        if (!$usuario)
+        if ( !$usuario)
         {
-            return $this->error("Debes iniciar sesión.");
+            return $this->error("Debes iniciar sesion.");
         }
 
         $cantidad = $this->input->post('cantidad_entradas');
 
-        if (!$cantidad || $cantidad < 1)
+        if ( !$cantidad || $cantidad < 1)
         {
-            return $this->error("Cantidad de entradas inválida.");
+            return $this->error("Cantidad de entradas invalida.");
         }
 
         $this->set_datos_reserva([
@@ -70,12 +70,12 @@ class Reservar extends CI_Controller
             'usuario'           => $usuario
         ]);
 
-        redirect("reservar/confirmar/{$id_espectaculo}");
+        redirect("reservar/confirmar_reserva/{$id_espectaculo}");
     }
 
     // ---------------------- PASO 2: CONFIRMAR RESERVA ----------------------
 
-    public function confirmar($id_espectaculo)
+    public function confirmar_reserva($id_espectaculo)
     {
         $datos = $this->get_datos_reserva();
 
@@ -86,7 +86,7 @@ class Reservar extends CI_Controller
 
         $precio = $this->espectaculo->obtener_precio($id_espectaculo);
 
-        if (!$precio)
+        if ( !$precio)
         {
             return $this->error("No se pudo obtener el precio del espectáculo.");
         }
@@ -101,7 +101,7 @@ class Reservar extends CI_Controller
             $monto_total
         );
 
-        if (!$ok)
+        if ( !$ok)
         {
             $this->session->set_flashdata(
                 'mensaje',
@@ -114,13 +114,12 @@ class Reservar extends CI_Controller
 
         $this->cliente->crear_cliente($datos['usuario']);
 
-        redirect("ventas/crear_venta/{$id_espectaculo}/{$datos['cantidad_entradas']}"
-        );
+        redirect("ventas/crear_venta/{$id_espectaculo}/{$datos['cantidad_entradas']}");
     }
 
     // ---------------------- LISTAR RESERVAS ----------------------
 
-    public function listar()
+    public function listar_reservas()
     {
         $usuario = $this->session->userdata('id_usuario');
 
@@ -181,7 +180,7 @@ class Reservar extends CI_Controller
         }
 
         // vuelve a la lista de reservas
-        redirect('reservar/listar');
+        redirect('reservar/listar_reservas');
     }
 
     // ---------------------- GENERAR PDF ----------------------
@@ -228,16 +227,16 @@ class Reservar extends CI_Controller
         
         $datos    = $this->get_datos_reserva();
 
-        if (!$filename || !$datos)
+        if ( !$filename || !$datos)
         {
-            return $this->error("No hay información para enviar.");
+            return $this->error("No hay informacion para enviar.");
         }
 
         $usuario_data = $this->usuario->get_usuario_email($datos['usuario']);
 
         if ( !$usuario_data)
         {
-            return $this->error("No se encontró email del usuario.");
+            return $this->error("No se encontro email del usuario.");
         }
 
         $email = $usuario_data['nombre_usuario'];
@@ -258,7 +257,7 @@ class Reservar extends CI_Controller
             $mail->addAddress($email);
 
             $mail->isHTML(true);
-            $mail->Subject = 'Confirmación de reserva';
+            $mail->Subject = 'Confirmacion de reserva';
             $mail->Body    = '<h1>Reserva confirmada</h1><p>Adjunto comprobante en PDF.</p>';
 
             $mail->addAttachment(FCPATH . 'uploads/' . $filename);
@@ -274,11 +273,11 @@ class Reservar extends CI_Controller
         }
         catch (Exception $e)
         {
-            echo "Excepción: " . $e->getMessage();
+            echo "Excepcion: " . $e->getMessage();
         }
     }
 
-    // ---------------------- PÁGINA DE ÉXITO ----------------------
+    // ---------------------- PÁGINA DE EXITO ----------------------
 
     public function reserva_exitosa()
     {
