@@ -1,54 +1,77 @@
-/* ================================
-   Footer
-================================ */
+/* ======================================================
+   FOOTER PRINCIPAL
+   Coherente con header y cartelera
+====================================================== */
 .main-footer {
     background-color: #000;
-    color: #fff;
-    padding: 15px 0; /* Se redujo el padding para disminuir la altura */
-    text-align: center;
+    color: #ffffff;
     width: 100%;
-    margin-top: auto;
+    margin-top: 0; /* Elimina el rectángulo negro */
 }
 
+/* ======================================================
+   CONTENEDOR
+====================================================== */
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 35px 20px; /* Ajustamos un poco el padding para más espacio */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Aumentamos un poco el espacio entre los elementos */
+}
+
+/* ======================================================
+   TEXTO LEGAL
+====================================================== */
 .footer-copy {
-    font-size: 1rem; /* Se redujo el tamaño del texto */
-    letter-spacing: 0.5px;
+    margin: 0;
+    font-size: 1.2rem; /* Aumentamos el tamaño del texto legal */
+    opacity: 0.85;
+    text-align: center;
+    line-height: 1.4; /* Un pequeño aumento del espacio entre líneas */
 }
 
+/* ======================================================
+   ENLACES
+====================================================== */
 .footer-links {
     display: flex;
-    justify-content: center;
-    gap: 40px; /* Se redujo el espacio entre los enlaces */
-    margin: 10px 0; /* Se redujo el margen */
-    padding: 0 15px;
+    gap: 35px; /* Aumento el espacio entre los enlaces */
+    justify-content: center; /* Mantenerlos distribuidos a lo largo del ancho */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    max-width: 1100px; /* Limita el tamaño máximo para que no se estiren demasiado en pantallas grandes */
 }
 
-.footer-link {
+.footer-links a {
     color: #00bfff;
     text-decoration: none;
-    font-size: 1.1rem; /* Tamaño de texto más pequeño */
+    font-size: 1.4rem; /* Agrandamos el tamaño de la fuente de los enlaces */
     font-weight: 500;
-    transition: color 0.3s ease;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px; /* Aumento moderado del espaciado entre letras */
+    transition: color 0.25s ease;
 }
 
-.footer-link:hover {
+.footer-links a:hover {
     color: #ffffff;
 }
 
-/* ================================
-   Responsive
-================================ */
+/* ======================================================
+   RESPONSIVE
+====================================================== */
 @media (max-width: 768px) {
+    .footer-container {
+        padding: 35px 15px; /* Ajustamos padding en pantallas pequeñas */
+    }
+
     .footer-links {
-        gap: 25px; /* Se redujo el espacio entre los enlaces en dispositivos móviles */
+        flex-direction: column;
+        gap: 20px; /* Ajustamos el espacio entre enlaces en móvil */
+        align-items: center; /* Centramos los enlaces en pantallas pequeñas */
     }
 
-    .footer-copy {
-        font-size: 0.9rem; /* Se ajustó el tamaño de la fuente en móviles */
-    }
-
-    .footer-link {
-        font-size: 1rem; /* Se ajustó el tamaño de la fuente en móviles */
+    .footer-links a {
+        font-size: 1.2rem; /* Aumento de font-size en móviles */
     }
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +14,6 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
 
 <!-- Header con Logo y Botones -->
@@ -51,14 +49,8 @@
                 ¿Estás seguro de que deseas cerrar tu sesión actual?
             </div>
             <div class="modal-footer">
-                <!-- El enlace que ejecuta el logout -->
-                <a href="<?= site_url('login/logout'); ?>" class="btn btn-danger">
-                    Sí, cerrar sesión
-                </a>
-                <!-- Botón de cancelar -->
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    Cancelar
-                </button>
+                <a href="<?= site_url('login/logout'); ?>" class="btn btn-danger">Sí, cerrar sesión</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
             </div>
         </div>
     </div>
@@ -69,15 +61,11 @@
 
 <!-- Protección contra volver con la flecha -->
 <script>
-    if (window.history.replaceState) 
-    {
+    if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
-
-    window.onpageshow = function (event) 
-    {
-        if (event.persisted)
-        {
+    window.onpageshow = function (event) {
+        if (event.persisted) {
             window.location.reload();
         }
     };

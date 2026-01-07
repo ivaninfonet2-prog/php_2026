@@ -7,8 +7,6 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-    /* FILTROS: mejora brillo y contraste */
     filter: brightness(1.15) contrast(1.1);
 }
 
@@ -45,7 +43,7 @@
    TARJETA
 ================================ */
 .usuario-contenido {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.4); /* Un poquito más negra */
     backdrop-filter: blur(14px);
     border-radius: 20px;
     padding: 3rem 2.5rem;
@@ -61,9 +59,9 @@
 
 /* Texto interno */
 .body-text {
-    font-size: 1.2rem;
-    color: #2f2f2f;
-    line-height: 1.7;
+    font-size: 1.4rem; /* Texto más grande dentro de la tarjeta */
+    color: #ffffff;
+    line-height: 1.8;
     margin-bottom: 2.5rem;
 }
 
@@ -90,7 +88,6 @@
     color: #fff;
     border: none;
 }
-
 .btn-espectaculos:hover {
     background-color: #0066cc;
     transform: translateY(-2px);
@@ -101,7 +98,6 @@
     color: #fff;
     border: none;
 }
-
 .btn-reservas:hover {
     background-color: #1f7a34;
     transform: translateY(-2px);
@@ -111,7 +107,7 @@
    TEXTO FUERA DE LA TARJETA
 ================================ */
 .texto-extra {
-    font-size: 1rem;
+    font-size: 1.2rem; /* Texto más chico debajo de la tarjeta */
     color: #f0f0f0;
     max-width: 85%;
     margin: 0 auto;
@@ -123,32 +119,26 @@
    RESPONSIVE
 ================================ */
 @media (max-width: 768px) {
-
     .titulo {
         font-size: 2.2rem;
         margin-top: 5rem;
     }
-
     .subtitulo {
         font-size: 1.4rem;
         margin-bottom: 2.5rem;
     }
-
     .usuario-contenido {
         padding: 2.5rem 1.5rem;
     }
-
     .usuario-acciones {
         flex-direction: column;
     }
-
     .btn-espectaculos,
     .btn-reservas {
         width: 100%;
     }
-
     .texto-extra {
         max-width: 95%;
-        font-size: 0.95rem;
+        font-size: 1.05rem; /* Más chico también en móviles */
     }
 }

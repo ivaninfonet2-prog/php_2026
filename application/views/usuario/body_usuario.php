@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 
     <!-- CSS Personalizado -->
-    <link rel="stylesheet" href="<?= base_url('activos/css/usuario/body_usuario.css'); ?>?v=6.0">
+    <link rel="stylesheet" href="<?= base_url('activos/css/usuario/body_usuario.css'); ?>?v=6.2">
 </head>
 
 <body class="usuario-body" style="background-image: url('<?= $fondo; ?>');">
