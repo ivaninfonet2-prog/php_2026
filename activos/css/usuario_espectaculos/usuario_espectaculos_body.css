@@ -7,6 +7,7 @@ body {
     background-color: #111;
     color: #ffffff;
     line-height: 1.6;
+    font-size: 18px; /* letras generales un poco más grandes */
 }
 
 /* ===============================
@@ -17,20 +18,17 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    image-rendering: auto;
     padding: 3.5rem 2rem 2.5rem;
     position: relative;
 }
 
-/* Overlay ULTRA SUAVE
-   (la imagen se ve clara y definida) */
 .inicio-container::before {
     content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
-        rgba(0, 0, 0, 0.04),
-        rgba(0, 0, 0, 0.12)
+        rgba(0, 0, 0, 0.05),
+        rgba(0, 0, 0, 0.15)
     );
     z-index: 0;
 }
@@ -50,7 +48,7 @@ body {
 }
 
 .mensaje-bienvenida {
-    font-size: 2.4rem;
+    font-size: 2.6rem; /* un poco más grande */
     font-weight: 700;
     margin-bottom: 0.8rem;
     color: #ffffff;
@@ -58,7 +56,7 @@ body {
 }
 
 .mensaje-sub {
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* más grande */
     color: #f5f5f5;
     max-width: 720px;
     margin: 0 auto;
@@ -79,32 +77,27 @@ body {
 }
 
 /* ===============================
-   TARJETA (GLASS CLARO)
+   TARJETA TRANSPARENTE
 ================================ */
 .tarjeta {
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(0, 0, 0, 0.25); /* Transparente con leve negro */
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 18px;
     padding: 1.7rem 1.4rem;
     text-align: center;
 
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 
-    box-shadow:
-        0 10px 22px rgba(0,0,0,0.35);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.35);
 
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        background 0.35s ease;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
 }
 
 .tarjeta:hover {
     transform: translateY(-6px);
-    background: rgba(255, 255, 255, 0.24);
-    box-shadow:
-        0 16px 34px rgba(0,0,0,0.45);
+    background: rgba(0, 0, 0, 0.35);
+    box-shadow: 0 16px 34px rgba(0,0,0,0.45);
 }
 
 /* ===============================
@@ -116,8 +109,7 @@ body {
     object-fit: cover;
     border-radius: 14px;
     margin-bottom: 1.1rem;
-    box-shadow:
-        0 8px 16px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 }
 
 /* ===============================
@@ -130,19 +122,18 @@ body {
 }
 
 .titulo {
-    font-size: 1.55rem;
+    font-size: 1.7rem; /* más grande */
     font-weight: 700;
     color: #ffffff;
 }
 
 .descripcion {
-    font-size: 1rem;
+    font-size: 1.15rem; /* más grande */
     color: #ededed;
 }
 
-/* Precio */
 .precio {
-    font-size: 1.35rem;
+    font-size: 1.45rem; /* más grande */
     font-weight: 700;
     color: #7CFF8A;
     margin-top: 0.6rem;
@@ -153,7 +144,7 @@ body {
 ================================ */
 .boton-ver {
     margin: 1rem auto 0;
-    padding: 0.6rem 1.4rem;
+    padding: 0.7rem 1.6rem;
     width: fit-content;
 
     background: linear-gradient(135deg, #1b5e20, #2e7d32);
@@ -161,14 +152,11 @@ body {
     border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem; /* más grande */
 
     box-shadow: 0 5px 14px rgba(0,0,0,0.45);
 
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .boton-ver:hover {
@@ -178,11 +166,22 @@ body {
 }
 
 /* ===============================
+   TEXTO EXTRA FUERA DE TARJETA
+================================ */
+.texto-extra {
+    margin-top: 0.8rem;
+    text-align: center;
+    font-size: 1.05rem; /* más grande */
+    color: #f0f0f0;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* ===============================
    MENSAJE SIN ESPECTÁCULOS
 ================================ */
 .sin-espectaculos {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* más grande */
     color: #ffffff;
     margin-top: 2.5rem;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
@@ -197,16 +196,28 @@ body {
     }
 
     .mensaje-bienvenida {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .mensaje-sub {
-        font-size: 1rem;
+        font-size: 1.05rem;
     }
 
     .tarjeta .imagen {
         width: 140px;
         height: 140px;
+    }
+
+    .titulo {
+        font-size: 1.5rem;
+    }
+
+    .descripcion {
+        font-size: 1.05rem;
+    }
+
+    .precio {
+        font-size: 1.3rem;
     }
 }
 
@@ -222,5 +233,17 @@ body {
     .tarjeta .imagen {
         width: 120px;
         height: 120px;
+    }
+
+    .titulo {
+        font-size: 1.35rem;
+    }
+
+    .descripcion {
+        font-size: 1rem;
+    }
+
+    .precio {
+        font-size: 1.2rem;
     }
 }

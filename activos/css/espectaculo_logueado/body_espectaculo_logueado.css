@@ -7,6 +7,7 @@ body {
     color: #ffffff;
     background: transparent;
     line-height: 1.7;
+    font-size: 18px;
 }
 
 /* ===============================
@@ -26,9 +27,9 @@ body {
 /* ===============================
    CONTENEDOR PRINCIPAL
 ================================ */
-main.container {
+.container {
     min-height: 100vh;
-    padding: 8rem 1rem 4rem;
+    padding: 6rem 1rem 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,20 +41,18 @@ main.container {
 .intro {
     max-width: 700px;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .intro h2 {
-    font-size: 2.3rem;
-    margin-bottom: 0.8rem;
-    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 0.6rem;
     font-weight: 700;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
 .intro p {
-    font-size: 1.3rem;
-    color: #f9f9f9;
+    font-size: 1.2rem;
     font-weight: 500;
     text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
@@ -62,123 +61,134 @@ main.container {
    TARJETA
 ================================ */
 .card {
-    max-width: 560px;
+    max-width: 650px; /* más compacta */
     width: 100%;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 16px;
-    padding: 2.4rem 2rem;
+    border-radius: 14px;
+    padding: 1.5rem;
     text-align: center;
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    color: #f5f5f5;
 }
 
-.titulo {
-    font-size: 2.2rem;
-    margin-bottom: 1.2rem;
-    color: #111827;
+.card h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
     font-weight: 700;
+    color: #ffffff;
 }
 
-.descripcion {
-    font-size: 1.25rem;
-    color: #333333;
-    margin-bottom: 1.4rem;
-    line-height: 1.7;
+.card .descripcion {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
     font-weight: 500;
+    color: #e0e0e0;
 }
 
 /* ===============================
    IMAGEN
 ================================ */
 .imagen-wrapper {
-    margin-bottom: 1.4rem;
+    margin-bottom: 1rem;
 }
 
-.imagen {
+.imagen-wrapper img {
     width: 100%;
     max-width: 200px;
     height: 200px;
     object-fit: cover;
-    border-radius: 14px;
-    border: 2px solid rgba(0,0,0,0.2);
-    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
 }
 
 /* ===============================
    DETALLES
 ================================ */
-.detalles h3 {
-    font-size: 1.5rem;
-    color: #065f46;
-    margin-bottom: 0.8rem;
-    font-weight: 700;
+.detalles {
+    margin: 1rem 0;
+    text-align: left;
 }
 
-.detalles ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0;
+.detalles h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 .detalles li {
-    font-size: 1.2rem;
-    margin-bottom: 0.6rem;
-    color: #1f2933;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
     font-weight: 500;
+    color: #f0f0f0;
 }
 
 /* ===============================
-   ENTRADAS
+   BLOQUE INFERIOR
 ================================ */
+.card-bottom {
+    margin-top: 1.2rem;
+    text-align: center;
+}
+
 .entradas {
-    font-size: 1.3rem;
-    margin-bottom: 1.3rem;
-    color: #1e40af;
-    font-weight: 600;
-}
-
-/* ===============================
-   MENSAJES
-================================ */
-.mensaje, .error {
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1.2rem;
     font-size: 1.1rem;
     font-weight: 600;
+    color: #d1ffd1;
+    margin-bottom: 0.8rem;
 }
 
-.mensaje {
+/* ===============================
+   ALERTAS
+================================ */
+.alert {
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 auto 0.8rem;
+    max-width: 80%;
+    text-align: center;
+}
+
+.alert.success {
     background: rgba(76,175,80,0.25);
     border: 1px solid rgba(76,175,80,0.8);
-    color: #14532d;
+    color: #c8facc;
 }
 
-.error {
+.alert.error {
     background: rgba(220,53,69,0.25);
     border: 1px solid rgba(220,53,69,0.8);
-    color: #7f1d1d;
+    color: #ffd1d1;
 }
 
 /* ===============================
    FORMULARIO
 ================================ */
+.formulario {
+    text-align: center;
+}
+
 .formulario label {
     display: block;
     margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    color: #111827;
+    font-size: 1.1rem;
     font-weight: 600;
+    color: #ffffff;
 }
 
 .formulario input[type="number"] {
-    width: 65%;
-    padding: 0.7rem;
+    width: 70%;
+    padding: 0.6rem;
     border-radius: 8px;
     border: 1px solid #9ca3af;
-    margin-bottom: 1.2rem;
-    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
     background-color: #ffffff;
     color: #000000;
     text-align: center;
@@ -190,18 +200,19 @@ main.container {
 .botones {
     display: flex;
     justify-content: center;
-    gap: 1.2rem;
-    margin-top: 1rem;
+    gap: 1rem;
+    margin-top: 0.8rem;
 }
 
 .btn {
-    padding: 0.7rem 1.3rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 8px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     color: #ffffff;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .btn:hover {
@@ -222,23 +233,21 @@ main.container {
 ================================ */
 .mapa-section {
     text-align: center;
-    margin: 40px auto 60px;
+    margin: 30px auto 20px;
     max-width: 850px;
     width: 90%;
 }
 
-.mapa-titulo {
-    font-size: 2.2rem;
+.mapa-section h2 {
+    font-size: 2rem;
     font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
 
-.mapa-descripcion {
-    font-size: 1.25rem;
-    color: #f9f9f9;
-    margin-bottom: 24px;
+.mapa-section p {
+    font-size: 1.15rem;
+    margin-bottom: 18px;
     font-weight: 500;
     text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
 }
@@ -246,21 +255,19 @@ main.container {
 .mapa-externa {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .mapa-externa img {
     width: 100%;
-    max-width: 480px;
-    border-radius: 18px;
+    max-width: 420px;
+    border-radius: 16px;
     box-shadow: 0 6px 22px rgba(0,0,0,0.65);
     filter: contrast(1.15) brightness(1.1);
 }
 
-/* Texto debajo del mapa */
 .mapa-texto {
-    font-size: 1.2rem;
-    color: #e0e0e0;
+    font-size: 1.1rem;
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
@@ -270,30 +277,36 @@ main.container {
 /* ===============================
    RESPONSIVE
 ================================ */
+@media (max-width: 768px) {
+    .card {
+        max-width: 90%;
+    }
+}
+
 @media (max-width: 480px) {
     .intro h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     .intro p, .mapa-texto {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
-    .titulo {
-        font-size: 1.8rem;
+    .card h1 {
+        font-size: 1.6rem;
     }
 
-    .descripcion {
-        font-size: 1.05rem;
+    .card .descripcion {
+        font-size: 1rem;
     }
 
-    .imagen {
-        width: 150px;
-        height: 150px;
+    .imagen-wrapper img {
+        width: 140px;
+        height: 140px;
     }
 
     .formulario input[type="number"] {
-        width: 80%;
+        width: 85%;
     }
 
     .mapa-section {
@@ -301,6 +314,6 @@ main.container {
     }
 
     .mapa-externa img {
-        max-width: 360px;
+        max-width: 320px;
     }
 }
