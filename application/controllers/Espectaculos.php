@@ -52,7 +52,7 @@ class Espectaculos extends CI_Controller
 
     // LISTADO PRINCIPAL, espectaculos sin loguear
   
-    public function index()
+   public function index()
     {
         // 1) Obtener todos los espectáculos
         $espectaculos = $this->Espectaculo_modelo->obtener_espectaculos();
@@ -61,28 +61,20 @@ class Espectaculos extends CI_Controller
         foreach ($espectaculos as &$e)
         {
             // Habilitar botón "ver detalles"
-            if ($e['fecha'] >= date('Y-m-d') && $e['disponibles'] > 0)
-            {
-                $e['detalles_habilitados'] = true;
-            }
-            else
-            {
-                $e['detalles_habilitados'] = false;
-            }
+            $e['detalles_habilitados'] = ($e['fecha'] >= date('Y-m-d') && $e['disponibles'] > 0);
 
             // Generar aviso de estado
             $e['aviso'] = $this->generar_aviso($e);
         }
 
         // 3) Datos para la vista
-        $data = 
-        [
+        $data = [
             'titulo'       => 'Cartelera de Espectáculos',
             'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
             'espectaculos' => $espectaculos
         ];
 
-        // 4) Cargar vistas
+        // 4) Cargar vistas SIN espacios ni líneas extra
         $this->load->view('principal/header_principal', $data);
         $this->load->view('principal/body_principal', $data);
         $this->load->view('footer_footer/footer_footer_principal', $data);
@@ -137,7 +129,7 @@ class Espectaculos extends CI_Controller
 
         $data = 
         [
-            'titulo'       => 'Cartelera de Espectáculos',
+            'titulo'       => 'Cartelera de Espectaculos',
             'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
             'espectaculos' => $espectaculos
         ];
@@ -419,4 +411,4 @@ class Espectaculos extends CI_Controller
     }
 }
 
-?>
+

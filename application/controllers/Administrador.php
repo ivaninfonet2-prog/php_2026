@@ -124,4 +124,4 @@ class Administrador extends CI_Controller
     }
 }
 
-?>
+
