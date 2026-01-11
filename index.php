@@ -1,7 +1,4 @@
-
 <?php
-
-
 // ================================================================
 // INDEX.PHP LIMPIO PARA CODEIGNITER
 // ================================================================
@@ -13,24 +10,29 @@ define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'developm
 switch (ENVIRONMENT)
 {
     case 'development':
-        error_reporting(-1);
-        ini_set('display_errors', 1);
+        // Muestra todos los errores (ideal para desarrollo)
+        error_reporting(E_ALL);  // Muestra todos los errores
+        ini_set('display_errors', 1);  // Activa la visualización de errores
         break;
 
     case 'testing':
     case 'production':
-        ini_set('display_errors', 0);
+        // No muestra errores (ideal para producción)
+        ini_set('display_errors', 0);  // Desactiva la visualización de errores
         if (version_compare(PHP_VERSION, '5.3', '>='))
         {
-            error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+            // Solo muestra errores importantes en producción/testing
+            error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
         }
         else
         {
-            error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+            // Para PHP 5.2 o inferior, solo se muestran errores importantes
+            error_reporting(E_ALL & ~E_NOTICE);
         }
         break;
 
     default:
+        // Si el entorno no es válido, muestra un error 503
         header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
         echo 'The application environment is not set correctly.';
         exit(1); // EXIT_ERROR
