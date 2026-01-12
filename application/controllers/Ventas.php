@@ -64,7 +64,7 @@ class Ventas extends CI_Controller
         $data = 
         [
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
-            'titulo' => 'Administrador de UNLa Tienda',
+            'titulo' => 'Ventas de UNLa Tienda',
             'ventas' => $this->Venta_modelo->obtener_ventas()
         ];
 

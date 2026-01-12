@@ -17,7 +17,7 @@ class Login extends CI_Controller
         $data = 
         [
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
-            'titulo' => 'Inicio - UNLa Tienda'
+            'titulo' => 'Loguearme'
         ];
 
         $this->load->view('header_footer/header_footer_principal', $data);

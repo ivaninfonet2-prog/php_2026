@@ -24,6 +24,7 @@ class Espectaculos extends CI_Controller
     private function generar_aviso($e)
     {
         $ahora  = new DateTime();
+        
         $evento = new DateTime($e['fecha'] . ' ' . $e['hora']);
 
         if ($evento < $ahora)
@@ -31,8 +32,7 @@ class Espectaculos extends CI_Controller
             return 'Este espectáculo ya ha pasado.';
         }
 
-        $horas_restantes = 
-            ($evento->getTimestamp() - $ahora->getTimestamp()) / 3600;
+        $horas_restantes = ($evento->getTimestamp() - $ahora->getTimestamp()) / 3600;
 
         if ($horas_restantes <= 48 && $e['disponibles'] > 0)
         {
@@ -53,16 +53,17 @@ class Espectaculos extends CI_Controller
         foreach ($espectaculos as &$e)
         {
             $evento = new DateTime($e['fecha'].' '.$e['hora']);
+
             $ahora  = new DateTime();
 
-            $e['detalles_habilitados'] = 
-                ($evento > $ahora && $e['disponibles'] > 0);
+            $e['detalles_habilitados'] = ($evento > $ahora && $e['disponibles'] > 0);
 
             $e['aviso'] = $this->generar_aviso($e);
         }
 
-        $data = [
-            'titulo'       => 'Cartelera de Espectáculos',
+        $data = 
+        [
+            'titulo'       => 'Cartelera de Espectaculos',
             'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
             'espectaculos' => $espectaculos
         ];
@@ -83,16 +84,17 @@ class Espectaculos extends CI_Controller
         foreach ($espectaculos as &$e)
         {
             $evento = new DateTime($e['fecha'].' '.$e['hora']);
+
             $ahora  = new DateTime();
 
-            $e['detalles_habilitados'] = 
-                ($evento > $ahora && $e['disponibles'] > 0);
+            $e['detalles_habilitados'] = ($evento > $ahora && $e['disponibles'] > 0);
 
             $e['aviso'] = $this->generar_aviso($e);
         }
 
-        $data = [
-            'titulo'       => 'Cartelera de Espectáculos',
+        $data = 
+        [
+            'titulo'       => 'Cartelera de Espectaculos',
             'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
             'espectaculos' => $espectaculos
         ];
@@ -115,8 +117,9 @@ class Espectaculos extends CI_Controller
             $e['aviso'] = $this->generar_aviso($e);
         }
 
-        $data = [
-            'titulo'       => 'Cartelera de Espectáculos',
+        $data = 
+        [
+            'titulo'       => 'Cartelera de Espectaculos',
             'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
             'espectaculos' => $espectaculos
         ];
@@ -134,10 +137,11 @@ class Espectaculos extends CI_Controller
     {
         $espectaculo = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
 
-        if (!$espectaculo) show_404();
+        if ( !$espectaculo) show_404();
 
-        $data = [
-            'titulo'      => 'Ver espectáculo',
+        $data = 
+        [
+            'titulo'      => 'Espectáculo',
             'fondo'       => base_url('activos/imagenes/mi_fondo.jpg'),
             'espectaculo' => $espectaculo
         ];
@@ -151,10 +155,11 @@ class Espectaculos extends CI_Controller
     {
         $espectaculo = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
 
-        if (!$espectaculo) show_404();
+        if ( !$espectaculo) show_404();
 
-        $data = [
-            'titulo'      => 'Ver espectáculo',
+        $data = 
+        [
+            'titulo'      => 'Espectáculo',
             'fondo'       => base_url('activos/imagenes/mi_fondo.jpg'),
             'espectaculo' => $espectaculo
         ];
@@ -181,7 +186,8 @@ class Espectaculos extends CI_Controller
 
     private function datos_formulario()
     {
-        return [
+        return 
+        [
             'nombre'      => $this->input->post('nombre', true),
             'descripcion' => $this->input->post('descripcion', true),
             'fecha'       => $this->input->post('fecha', true),
@@ -198,14 +204,18 @@ class Espectaculos extends CI_Controller
 
     private function subir_imagen()
     {
-        if (empty($_FILES['imagen']['name'])) return null;
-
-        if (!is_dir($this->ruta_imagenes))
+        if (empty($_FILES['imagen']['name']))
+        {
+            return null;
+        }    
+            
+        if ( !is_dir($this->ruta_imagenes))
         {
             mkdir($this->ruta_imagenes, 0755, true);
         }
 
-        $config = [
+        $config = 
+        [
             'upload_path'      => $this->ruta_imagenes,
             'allowed_types'    => 'jpg|jpeg|png|gif|webp|jfif',
             'max_size'         => 5120,
@@ -215,12 +225,13 @@ class Espectaculos extends CI_Controller
 
         $this->upload->initialize($config);
 
-        if (!$this->upload->do_upload('imagen'))
+        if ( !$this->upload->do_upload('imagen'))
         {
             $this->session->set_flashdata(
                 'error_imagen',
                 strip_tags($this->upload->display_errors())
             );
+
             return null;
         }
 
@@ -229,13 +240,16 @@ class Espectaculos extends CI_Controller
         if (!@getimagesize($data['full_path']))
         {
             unlink($data['full_path']);
+
             return null;
         }
 
         if ($data['file_ext'] === '.jfif')
         {
             $nuevo = $data['raw_name'] . '.jpg';
+
             rename($data['full_path'], $this->ruta_imagenes . $nuevo);
+
             return $nuevo;
         }
 
@@ -248,7 +262,8 @@ class Espectaculos extends CI_Controller
 
     public function crear_espectaculo()
     {
-        $data = [
+        $data = 
+        [
             'titulo' => 'Crear espectáculo',
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg')
         ];
@@ -260,7 +275,9 @@ class Espectaculos extends CI_Controller
             if ($this->form_validation->run())
             {
                 $nuevo = $this->datos_formulario();
+
                 $imagen = $this->subir_imagen();
+               
                 $nuevo['imagen'] = $imagen ?: 'default.jpg';
 
                 $this->Espectaculo_modelo->agregar_espectaculo($nuevo);
@@ -279,9 +296,14 @@ class Espectaculos extends CI_Controller
     public function editar_espectaculo($id)
     {
         $e = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
-        if (!$e) show_404();
 
-        $data = [
+        if ( !$e) 
+        {
+            show_404();
+        }    
+            
+        $data = 
+        [
             'titulo'      => 'Editar espectáculo',
             'fondo'       => base_url('activos/imagenes/mi_fondo.jpg'),
             'espectaculo' => $e
@@ -295,7 +317,7 @@ class Espectaculos extends CI_Controller
             {
                 $actualizado = $this->datos_formulario();
 
-                if (!empty($_FILES['imagen']['name']))
+                if ( !empty($_FILES['imagen']['name']))
                 {
                     $img = $this->subir_imagen();
 
@@ -325,7 +347,12 @@ class Espectaculos extends CI_Controller
     public function eliminar_espectaculo($id)
     {
         $e = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
-        if (!$e) show_404();
+
+        if ( !$e)
+        {
+             show_404();
+        }    
+           
 
         if ($e['imagen'] !== 'default.jpg')
         {

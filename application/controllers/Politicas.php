@@ -7,7 +7,7 @@ class Politicas extends CI_Controller
     public function index() 
     {
         $data['fondo']  = base_url('activos/imagenes/mi_fondo.jpg');
-        $data['titulo'] = 'Politica de UNLa Tienda';
+        $data['titulo'] = 'Politicas de UNLa Tienda';
 
         // Header común
         $this->load->view('header_footer/header_footer_principal', $data);
@@ -23,7 +23,7 @@ class Politicas extends CI_Controller
     {
         // Ruta de la imagen de fondo
         $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
-        $data['titulo'] = 'Politica de UNLa Tienda';
+        $data['titulo'] = 'Politicas de UNLa Tienda';
 
         // Cargar header común
         $this->load->view('header_footer/header_footer_usuario', $data);
@@ -39,7 +39,7 @@ class Politicas extends CI_Controller
     {
         // Ruta de la imagen de fondo
         $data['fondo'] = base_url('activos/imagenes/mi_fondo.jpg');
-        $data['titulo'] = 'Politica de UNLa Tienda';
+        $data['titulo'] = 'Politicas de UNLa Tienda';
 
         // Cargar header común
         $this->load->view('header_footer/header_footer_administrador', $data);

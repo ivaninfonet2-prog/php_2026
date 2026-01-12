@@ -8,17 +8,22 @@
 }
 
 /* ======================================================
-   BASE
+   BASE Y FONDO FLEXIBLE
 ====================================================== */
-html, body {
-    height: 100%;
+html {
+    min-height: 100%;
 }
 
 body {
+    min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #121212;
     color: #ffffff;
-    margin: 0; /* elimina espacios extra */
+
+    background-color: #121212;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* ======================================================
@@ -26,10 +31,7 @@ body {
 ====================================================== */
 .inicio-container {
     min-height: 100vh;
-    padding: 80px 0 40px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    padding: 60px 0 40px;   /* ⬅ sube todo el contenido */
 }
 
 /* ======================================================
@@ -46,13 +48,13 @@ body {
 ====================================================== */
 .bienvenida {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;   /* ⬅ menos espacio abajo */
 }
 
 .mensaje-bienvenida {
-    font-size: 2.5rem;
+    font-size: 2.9rem;
     font-weight: 900;
-    margin-bottom: 20px;
+    margin-bottom: 16px;   /* ⬅ ajustado */
 }
 
 .mensaje-sub {
@@ -80,15 +82,14 @@ body {
    TARJETA
 ====================================================== */
 .tarjeta {
-    background: rgba(0, 0, 0, 0.35);  /* Fondo más oscuro con transparencia */
-    backdrop-filter: blur(8px);  /* Fondo borroso para un efecto más suave */
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
     border-radius: 10px;
     padding: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%; /* Para que la tarjeta ocupe todo el alto disponible */
+    gap: 12px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -97,51 +98,44 @@ body {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
-.tarjeta .contenido {
-    position: relative;
-    padding-top: 10px;
-}
-
-.tarjeta .nombre-artista {
-    font-size: 1.8rem;  /* Tamaño grande */
+.nombre-artista {
+    font-size: 1.8rem;
     font-weight: 900;
-    color: #ffffff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);  /* Sombra sutil para mejorar la visibilidad */
-    margin-bottom: 10px; /* Espaciado entre el nombre y la imagen */
 }
 
-.tarjeta .imagen {
-    width: 160px;  /* Tamaño original */
-    height: 160px; /* Tamaño original */
+.imagen {
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     border-radius: 10px;
-    margin: 0 auto; /* Centrado de la imagen */
+    margin: 0 auto;
 }
 
 .descripcion {
     font-size: 1.1rem;
-    margin-bottom: 12px;
 }
 
 .precio {
     font-size: 1.3rem;
     font-weight: 900;
     color: #4da3ff;
-    margin-bottom: 15px;
 }
 
 /* ======================================================
    BOTÓN
 ====================================================== */
 .boton-ver {
-    display: inline-block;
-    padding: 10px 22px;
-    font-size: 1.1rem;
+    margin: 15px auto 0;
+    padding: 10px 20px;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #fff;
     background-color: #0d6efd;
     text-decoration: none;
     border-radius: 6px;
+    width: fit-content;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
 }
 
 .boton-ver:hover {
@@ -153,24 +147,34 @@ body {
 ====================================================== */
 .texto-general {
     text-align: center;
-    font-size: 1.2rem;
-    margin: 40px auto 0;
+    font-size: 1.45rem;
+    line-height: 1.6;
+    margin: 50px auto 0;
+    max-width: 900px;
 }
 
 /* ======================================================
    RESPONSIVE
 ====================================================== */
 @media (max-width: 768px) {
-    .mensaje-bienvenida {
-        font-size: 2rem;
+    .inicio-container {
+        padding-top: 45px;   /* ⬅ título más arriba en móvil */
     }
 
-    .tarjeta .imagen {
+    .mensaje-bienvenida {
+        font-size: 2.2rem;
+    }
+
+    .imagen {
         width: 130px;
         height: 130px;
     }
 
-    .tarjeta .nombre-artista {
-        font-size: 1.5rem;  /* Tamaño más pequeño para pantallas pequeñas */
+    .nombre-artista {
+        font-size: 1.5rem;
+    }
+
+    .texto-general {
+        font-size: 1.2rem;
     }
 }

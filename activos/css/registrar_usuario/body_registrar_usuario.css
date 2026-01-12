@@ -46,14 +46,17 @@ html, body {
   color: #e0f7fa;
 }
 
+/* 🔹 TEXTO DEBAJO DE LA TARJETA (AGRANDADO) */
 .registro-texto-debajo {
   margin-top: 40px;
 }
 
 .registro-texto-debajo p {
-  font-size: 1rem;
-  color: #f8f9fa;
-  margin-bottom: 20px;
+  font-size: 1.4rem;        /* AUMENTADO */
+  font-weight: 500;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 25px;
 }
 
 /* ==============================
@@ -157,6 +160,11 @@ html, body {
 @media (max-width: 768px) {
   .registro-texto-encima h2 { font-size: 2.2rem; }
   .registro-texto-encima p { font-size: 1.1rem; }
+
+  .registro-texto-debajo p {
+    font-size: 1.15rem;   /* ajuste móvil */
+  }
+
   .form-group-row { flex-direction: column; gap: 15px; }
   .form-group { width: 100%; }
   .registro-form { padding: 30px; max-width: 90%; }

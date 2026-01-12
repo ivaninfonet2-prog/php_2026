@@ -14,7 +14,8 @@ class Principal extends CI_Controller
 
     public function index()
     {
-        $data = [
+        $data = 
+        [
             'titulo'       => 'Cartelera de Espectáculos',
             'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
             'espectaculos' => $this->Espectaculo_modelo->obtener_espectaculos()
