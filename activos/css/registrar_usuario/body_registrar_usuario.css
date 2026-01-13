@@ -1,172 +1,164 @@
-/* ==============================
-   BASE GENERAL
-================================ */
-html, body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #121212 !important;
-  color: #f8f9fa;
-}
-
-/* ==============================
-   CONTENEDOR PRINCIPAL
-================================ */
-.registro-container {
+/* =====================================================
+   FONDO GENERAL
+===================================================== */
+.registro-bg {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: calc(100vh - 120px);
+  justify-content: center;
+  align-items: flex-start;          /* contenedor arriba */
+  padding: 100px 20px 40px;         /* más padding top para bajar el título */
   background-size: cover;
   background-position: center;
-  padding: 40px 20px;
-  margin-top: 100px;
+  background-attachment: fixed;
 }
 
-/* ==============================
-   TEXTOS
-================================ */
-.registro-texto-encima,
-.registro-texto-debajo {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.registro-texto-encima h2 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.registro-texto-encima p {
-  font-size: 1.3rem;
-  margin-bottom: 30px;
-  color: #e0f7fa;
-}
-
-/* 🔹 TEXTO DEBAJO DE LA TARJETA (AGRANDADO) */
-.registro-texto-debajo {
-  margin-top: 40px;
-}
-
-.registro-texto-debajo p {
-  font-size: 1.4rem;        /* AUMENTADO */
-  font-weight: 500;
-  line-height: 1.6;
-  color: #ffffff;
-  margin-bottom: 25px;
-}
-
-/* ==============================
-   TARJETA DE REGISTRO
-================================ */
-.registro-form {
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 15px;
-  padding: 35px 25px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+===================================================== */
+.registro-wrapper {
   width: 100%;
   max-width: 560px;
   text-align: center;
+  margin: 0 auto;
 }
 
-/* ==============================
-   FORMULARIO
-================================ */
-.form-group-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+.registro-header {
+  margin-bottom: 18px;              /* margen inferior del header */
 }
 
-.form-group {
-  width: 48%;
+.registro-header h2 {
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(0, 0, 0, 0.85);
+  margin-bottom: 12px;
+  margin-top: 20px;                 /* bajar el título */
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: #fff;
+.registro-header p {
+  font-size: 1.35rem;               
+  color: #ffffff;
+  font-weight: 500;
+  line-height: 1.6;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.form-control {
-  width: 100%;
-  padding: 12px 15px;
-  margin-top: 5px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: #555;
-  color: #f8f9fa;
-  font-size: 1rem;
+/* =====================================================
+   TARJETA REGISTRO
+===================================================== */
+.registro-card {
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
   text-align: center;
-  box-sizing: border-box;
 }
 
-/* ==============================
-   ALERTAS
-================================ */
-.alert-danger {
-  background-color: #f44336;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+/* ALERTA */
+.registro-card .alert-danger {
+  border-radius: 8px;
+  font-size: 1.05rem;
+  margin-bottom: 18px;
 }
 
-/* ==============================
-   BOTONES
-================================ */
-.botones {
+/* FORMULARIO */
+.registro-card label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+.registro-card .form-control {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.05rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 16px;
+  color: #212529; /* 🔹 Letras negras al escribir */
+}
+
+.registro-card .form-control:focus {
+  border-color: #66b0ff;
+  box-shadow: 0 0 10px rgba(102, 176, 255, 0.4);
+}
+
+/* BOTONES */
+.registro-actions {
   display: flex;
-  justify-content: space-between;
-  gap: 15px;
+  justify-content: center;
+  gap: 14px;
   margin-top: 20px;
 }
 
-.btn {
-  padding: 12px 20px;
-  border-radius: 7px;
+.registro-actions .btn {
+  padding: 12px 26px;
+  font-size: 1.05rem;
   font-weight: 700;
-  font-size: 1rem;
-  text-decoration: none;
-  color: #fff;
-  transition: background-color 0.2s ease, transform 0.15s ease;
-  outline: none;
-  width: 45%;
-  text-align: center;
-  box-sizing: border-box;
+  border-radius: 10px;
 }
 
-.btn-success {
-  background-color: #28a745;
-}
-.btn-success:hover {
-  background-color: #218838;
-}
-
-.btn-primary {
+.registro-actions .btn-primary {
   background-color: #007bff;
+  border: none;
 }
-.btn-primary:hover {
+
+.registro-actions .btn-primary:hover {
   background-color: #0056b3;
 }
 
-/* ==============================
-   RESPONSIVE
-================================ */
-@media (max-width: 768px) {
-  .registro-texto-encima h2 { font-size: 2.2rem; }
-  .registro-texto-encima p { font-size: 1.1rem; }
+.registro-actions .btn-success {
+  background-color: #28a745;
+  border: none;
+}
 
-  .registro-texto-debajo p {
-    font-size: 1.15rem;   /* ajuste móvil */
+.registro-actions .btn-success:hover {
+  background-color: #218838;
+}
+
+/* TEXTO DEBAJO DE LA TARJETA */
+.registro-extra {
+  margin-top: 26px;                 
+  font-size: 1.25rem;               
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.registro-extra span {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #a8d8ff;                   
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .registro-bg {
+    padding-top: 60px;
   }
 
-  .form-group-row { flex-direction: column; gap: 15px; }
-  .form-group { width: 100%; }
-  .registro-form { padding: 30px; max-width: 90%; }
-  .btn { width: 100%; }
+  .registro-header h2 {
+    font-size: 2.3rem;
+  }
+
+  .registro-header p {
+    font-size: 1.15rem;
+  }
+
+  .registro-extra {
+    font-size: 1.1rem;
+  }
+
+  .registro-extra span {
+    font-size: 1.1rem;
+  }
 }

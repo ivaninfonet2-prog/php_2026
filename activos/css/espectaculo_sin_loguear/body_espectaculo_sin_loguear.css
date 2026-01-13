@@ -16,7 +16,7 @@ html, body {
 ====================================================== */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #0f0f0f;
+    background-color: #121212;
     color: #f5f5f5;
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     z-index: -1;
-    filter: brightness(0.9) contrast(1.05);
+    filter: brightness(1.1) contrast(1.05); /* Fondo más claro */
 }
 
 /* ======================================================
@@ -40,7 +40,7 @@ body {
 ====================================================== */
 .intro-text {
     text-align: center;
-    margin: 120px 20px 40px;
+    margin: 100px 20px 30px; /* Título más arriba */
     max-width: 900px;
     z-index: 1;
 }
@@ -50,14 +50,14 @@ body {
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.7);
 }
 
 .intro-text p {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     color: #ff0;
     font-weight: 500;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 /* ======================================================
@@ -71,18 +71,18 @@ body {
 }
 
 .tarjeta-espectaculo {
-    background: rgba(25, 25, 25, 0.5);  /* Menos opacidad */
-    backdrop-filter: blur(8px);
-    border-radius: 18px;
-    padding: 30px; /* Aumenté el padding para más espacio */
-    width: 100%; /* Aseguramos que ocupe el 100% del contenedor */
-    max-width: 750px; /* Limitar el tamaño máximo */
+    background: rgba(30, 30, 30, 0.35);  /* Más transparente */
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: 25px;
+    width: 90%;
+    max-width: 680px; /* Más chica que antes */
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Aumenté el gap entre los elementos */
+    gap: 18px;
     align-items: center;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
-    margin: 0 auto; /* Centramos la tarjeta */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
 }
 
 /* ======================================================
@@ -94,17 +94,17 @@ body {
 }
 
 .espectaculo-nombre {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px; /* Espaciado ajustado */
+    color: #ffffff;
+    margin-bottom: 8px;
 }
 
 .espectaculo-descripcion {
-    font-size: 1.3rem;
-    color: #ff0;
+    font-size: 1.2rem;
+    color: #ffeb3b;
     font-weight: 500;
-    margin-bottom: 15px; /* Agregué margen para mayor separación */
+    margin-bottom: 12px;
 }
 
 /* ======================================================
@@ -117,11 +117,11 @@ body {
 }
 
 .imagen-espectaculo {
-    width: 220px;  /* Ajusté el tamaño de la imagen */
-    height: 220px;
+    width: 180px;  /* Más flexible y más chica */
+    height: 180px;
     object-fit: cover;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
     transition: transform 0.3s ease;
 }
 
@@ -136,17 +136,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-size: 1.1rem;
-    margin-bottom: 12px;  /* Más espacio entre filas */
+    font-size: 1.05rem;
+    margin-bottom: 10px;
 }
 
 .detalles-fila li {
-    flex-basis: 45%;
-    margin-bottom: 12px; /* Más margen para mayor separación */
-}
-
-.detalles li {
-    font-weight: 500;
+    flex-basis: 48%;
+    margin-bottom: 10px;
 }
 
 .detalles li strong {
@@ -159,13 +155,13 @@ body {
 .estado.disponible {
     color: #4caf50;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
 }
 
 .estado.agotado {
     color: #ff5252;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
 }
 
 /* ======================================================
@@ -175,23 +171,24 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
+    gap: 15px;
 }
 
 .texto-login {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: #ffffff;
+    text-align: center;
 }
 
 .boton-login {
-    padding: 12px 30px;
-    font-size: 1.1rem;
+    padding: 10px 28px;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #fff;
-    border-radius: 30px;
+    border-radius: 28px;
     text-decoration: none;
     background: linear-gradient(135deg, #00cfff, #0077ff);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
 }
 
@@ -205,36 +202,75 @@ body {
 ====================================================== */
 .mapa-section {
     text-align: center;
-    margin: 40px auto 40px;
+    margin: 35px auto;
     width: 90%;
-    max-width: 650px; /* Limitar el tamaño de la sección del mapa */
+    max-width: 600px;
 }
 
 .mapa-titulo {
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     color: #ffffff;
 }
 
 .mapa-descripcion {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.15rem;
+    margin-bottom: 25px;
     color: #ffffff;
 }
 
 .mapa-externa img {
     width: 100%;
-    max-width: 400px; /* Limitar el tamaño de la imagen */
+    max-width: 350px; /* Imagen más flexible */
     height: auto;
-    object-fit: contain; /* Mantener la proporción y evitar distorsión */
-    border-radius: 18px;
+    object-fit: contain;
+    border-radius: 16px;
 }
 
 .texto-debajo-mapa {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-top: 18px;
+    margin-bottom: 25px;
     color: #ffffff;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 768px) {
+    .intro-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .intro-text p {
+        font-size: 1.25rem;
+    }
+
+    .tarjeta-espectaculo {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    .imagen-espectaculo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .detalles-fila li {
+        flex-basis: 100%;
+    }
+
+    .mapa-titulo {
+        font-size: 1.7rem;
+    }
+
+    .mapa-descripcion {
+        font-size: 1.05rem;
+    }
+
+    .texto-debajo-mapa {
+        font-size: 1.15rem;
+    }
 }
