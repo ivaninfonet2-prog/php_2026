@@ -4,7 +4,7 @@
 
     <section class="encabezado-editar">
         <h1>Editar espectáculo</h1>
-        <p>Podés modificar los datos y cambiar la imagen si lo deseás.</p>
+        <p>Podés modificar los datos, cambiar la imagen y actualizar la información de manera rápida y sencilla.</p>
     </section>
 
     <!-- MENSAJES -->
@@ -52,11 +52,11 @@
             <input type="text" name="direccion"
                    value="<?= set_value('direccion', $espectaculo['direccion']) ?>" required>
 
-            <!-- IMAGEN ACTUAL -->
+            <!-- IMAGEN -->
             <?php if (!empty($espectaculo['imagen'])): ?>
-                <div class="imagen-actual">
+                <div class="imagen-contenedor">
                     <p>Imagen actual:</p>
-                    <img src="<?= base_url($espectaculo['imagen']) ?>" alt="Imagen actual">
+                    <img src="<?= base_url($espectaculo['imagen']) ?>" alt="Imagen del espectáculo">
                 </div>
             <?php endif; ?>
 
@@ -65,15 +65,19 @@
             <input type="file" name="imagen" id="imagenNueva" accept="image/*">
 
             <div id="previewNueva" class="preview oculto">
-                <p>Nueva imagen:</p>
+                <p>Vista previa:</p>
                 <img id="imgNueva">
             </div>
 
         </div>
 
+        <!-- BOTONES EN FILA -->
         <div class="acciones-form">
-            <button type="submit">Guardar cambios</button>
-            <a href="<?= base_url('administrador') ?>">Cancelar</a>
+            <div class="botones-fila">
+                <button type="submit">Guardar cambios</button>
+                <a href="<?= base_url('administrador') ?>">Cancelar</a>
+            </div>
+            <p class="texto-explicativo">Guardá los cambios o cancelá para volver al panel sin modificar nada.</p>
         </div>
 
     </form>
@@ -86,14 +90,12 @@ document.getElementById('imagenNueva').addEventListener('change', function(e)
     const preview = document.getElementById('previewNueva');
     const img = document.getElementById('imgNueva');
 
-    if (!file) 
-    {
+    if (!file) {
         preview.classList.add('oculto');
         return;
     }
 
-    if (!file.type.startsWith('image/')) 
-    {
+    if (!file.type.startsWith('image/')) {
         alert('El archivo NO es una imagen válida');
         e.target.value = '';
         preview.classList.add('oculto');

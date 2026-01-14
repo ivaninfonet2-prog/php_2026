@@ -1,54 +1,60 @@
-/* =======================
-   CONTENEDOR GENERAL
-======================= */
-.main-content {
-    min-height: 100vh;
-    padding: 60px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-
+/* ================================
+   BODY Y CONTENEDOR PRINCIPAL
+================================ */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* =======================
+.main-content {
+    min-height: 100vh;
+    padding: 80px 20px 60px; /* Más espacio arriba para bajar título */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+/* ================================
    ENCABEZADO
-======================= */
+================================ */
 .encabezado-editar {
     text-align: center;
-    margin-bottom: 30px;
-    margin-top: 50px; /* Ajustado para bajar más el encabezado */
+    margin-bottom: 40px;
     color: #fff;
     text-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .encabezado-editar h1 {
-    font-size: 2.3rem;
-    margin-bottom: 8px;
+    font-size: 2.8rem; /* Título más grande */
+    margin-bottom: 14px; /* Separa más de la descripción */
 }
 
 .encabezado-editar p {
-    max-width: 650px;
+    max-width: 700px;
     margin: 0 auto;
-    font-size: 1.05rem;
+    font-size: 1.3rem; /* Descripción más grande */
+    line-height: 1.5;
 }
 
-/* =======================
+/* ================================
    TARJETA
-======================= */
+================================ */
 .card {
     width: 100%;
-    max-width: 520px;
-    background: rgba(255,255,255,0.3);
-    backdrop-filter: blur(14px);
+    max-width: 540px;
+    background: rgba(0,0,0,0.5); /* Semi-transparente con toque oscuro */
+    backdrop-filter: blur(12px);
     border-radius: 18px;
-    padding: 28px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    padding: 30px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
     animation: fadeIn 0.4s ease;
+    color: #f0f0f0;
 }
 
 @keyframes fadeIn {
@@ -56,29 +62,29 @@
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* =======================
+/* ================================
    FORMULARIO
-======================= */
+================================ */
 .card label {
     display: block;
     margin-top: 14px;
     font-weight: 600;
-    color: #222;
+    color: #e0e0e0;
 }
 
-.form-control,
 .card input,
 .card textarea {
     width: 100%;
     margin-top: 6px;
-    padding: 9px 12px;
-    border-radius: 7px;
-    border: 1px solid rgba(0,0,0,0.25);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.25);
     background: rgba(255,255,255,0.95);
+    color: #222;
 }
 
 .card textarea {
-    min-height: 90px;
+    min-height: 100px;
     resize: vertical;
 }
 
@@ -90,63 +96,76 @@
     margin-top: 10px;
 }
 
-/* =======================
-   IMAGEN ACTUAL / PREVIEW
-======================= */
-.imagen-actual,
+/* ================================
+   IMAGEN
+================================ */
+.imagen-contenedor,
 .preview {
     text-align: center;
-    margin: 18px 0;
+    margin: 20px 0;
 }
 
-.imagen-actual img,
+.imagen-contenedor img,
 .preview img {
     max-width: 200px;
     border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
-/* =======================
+/* ================================
    MENSAJES
-======================= */
+================================ */
 .alert {
-    background: rgba(13,110,253,0.2);
-    color: #084298;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
     text-align: center;
     margin-bottom: 16px;
+    font-weight: 500;
 }
 
-/* =======================
-   ACCIONES
-======================= */
+.alert.error {
+    background: rgba(220,53,69,0.15);
+    color: #a71d2a;
+}
+
+.alert.success {
+    background: rgba(40,167,69,0.15);
+    color: #1c7430;
+}
+
+/* ================================
+   BOTONES Y ACCIONES
+================================ */
 .acciones-form {
     display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin-top: 22px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-.acciones-form a,
-.acciones-form button {
-    padding: 10px 26px;
+.botones-fila {
+    display: flex;
+    gap: 14px;
+}
+
+.acciones-form button,
+.acciones-form a {
+    padding: 12px 28px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
+    font-weight: 600;
     text-decoration: none;
-    font-weight: 500;
+    color: #fff;
 }
 
 .acciones-form button {
     background: #0d6efd;
-    color: #fff;
 }
 
 .acciones-form a {
     background: #dc3545;
-    color: #fff;
 }
 
 .acciones-form button:hover,
@@ -154,22 +173,42 @@
     filter: brightness(1.1);
 }
 
-/* =======================
+/* Texto explicativo debajo de los botones */
+.texto-explicativo {
+    font-size: 1.2rem; /* Más grande que antes */
+    color: #e0e0e0;
+    text-align: center;
+    margin-top: 6px;
+}
+
+/* ================================
    RESPONSIVE
-======================= */
+================================ */
 @media (max-width: 560px) {
     .fila {
         grid-template-columns: 1fr;
     }
 
-    .acciones-form {
+    .botones-fila {
         flex-direction: column;
         width: 100%;
     }
 
-    .acciones-form a,
-    .acciones-form button {
+    .acciones-form button,
+    .acciones-form a {
         width: 100%;
         text-align: center;
+    }
+
+    .encabezado-editar h1 {
+        font-size: 2.2rem;
+    }
+
+    .encabezado-editar p {
+        font-size: 1.1rem;
+    }
+
+    .texto-explicativo {
+        font-size: 1rem;
     }
 }

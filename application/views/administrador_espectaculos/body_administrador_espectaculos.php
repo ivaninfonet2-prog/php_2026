@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="<?= base_url('activos/css/confirmacion/modificar_espectaculo.css'); ?>">
 </head>
 <body>
-
 <main class="main-content" style="background-image: url('<?= $fondo ?>');">
 
     <!-- ENCABEZADO -->
@@ -32,7 +31,7 @@
     <?php endif; ?>
 
     <!-- Listado de espectáculos -->
-    <?php if ( !empty($espectaculos)): ?>
+    <?php if (!empty($espectaculos)): ?>
         <div class="contenedor-tarjetas">
             <?php foreach ($espectaculos as $espectaculo): ?>
                 <div class="tarjeta">
@@ -40,13 +39,10 @@
                     <div class="contenido-info">
                         <h3 class="nombre-artista"><?= htmlspecialchars($espectaculo['nombre'], ENT_QUOTES, 'UTF-8'); ?></h3>
                         <p class="descripcion-artista">
-                            <?php 
-                                if (isset($espectaculo['descripcion'])) 
-                                {
+                            <?php
+                                if (isset($espectaculo['descripcion']) && !empty($espectaculo['descripcion'])) {
                                     echo htmlspecialchars($espectaculo['descripcion'], ENT_QUOTES, 'UTF-8');
-                                } 
-                                else 
-                                {
+                                } else {
                                     echo 'Sin descripción disponible';
                                 }
                             ?>
@@ -54,16 +50,14 @@
                     </div>
 
                     <img
-                        src="<?php
-                            if (!empty($espectaculo['imagen'])) 
-                            {
-                                echo base_url('activos/imagenes/' . htmlspecialchars($espectaculo['imagen'], ENT_QUOTES, 'UTF-8'));
-                            } 
-                            else 
-                            {
-                                echo base_url('activos/imagenes/default.jpg');
-                            }
-                        ?>"
+                        <?php
+                        if (!empty($espectaculo['imagen'])) {
+                            $img_url = base_url('activos/imagenes/' . htmlspecialchars($espectaculo['imagen'], ENT_QUOTES, 'UTF-8'));
+                        } else {
+                            $img_url = base_url('activos/imagenes/default.jpg');
+                        }
+                        ?>
+                        src="<?= $img_url ?>"
                         alt="<?= htmlspecialchars($espectaculo['nombre'], ENT_QUOTES, 'UTF-8'); ?>"
                         class="imagen"
                         loading="lazy"
@@ -74,13 +68,10 @@
                         <p><strong>Hora:</strong> <?= date('H:i', strtotime($espectaculo['hora'])); ?></p>
                         <p><strong>Entradas:</strong> <?= htmlspecialchars($espectaculo['disponibles'], ENT_QUOTES, 'UTF-8'); ?></p>
                         <p><strong>Precio:</strong>
-                            <?php 
-                                if (isset($espectaculo['precio'])) 
-                                {
+                            <?php
+                                if (isset($espectaculo['precio']) && !empty($espectaculo['precio'])) {
                                     echo '$' . htmlspecialchars($espectaculo['precio'], ENT_QUOTES, 'UTF-8');
-                                } 
-                                else 
-                                {
+                                } else {
                                     echo 'No definido';
                                 }
                             ?>
@@ -91,7 +82,6 @@
                             <button class="boton boton-eliminar" onclick="openModal('eliminar', <?= $espectaculo['id_espectaculo']; ?>)">Eliminar</button>
                         </div>
                     </div>
-
                 </div>
             <?php endforeach; ?>
         </div>
@@ -122,19 +112,15 @@
     let action = '';
     let itemId = null;
 
-    function openModal(type, id) 
-    {
+    function openModal(type, id) {
         action = type;
         itemId = id;
 
-        if (action === 'eliminar')
-        {
+        if (action === 'eliminar') {
             document.getElementById('modal-titulo').textContent = 'Eliminar Espectáculo';
             document.getElementById('modal-descripcion').textContent = '¿Estás seguro de que deseas eliminar este espectáculo y todos sus datos asociados?';
             document.getElementById('modal-confirmar').href = '<?= site_url('espectaculos/eliminar_espectaculo/'); ?>' + itemId;
-        } 
-        else if (action === 'editar') 
-        {
+        } else if (action === 'editar') {
             document.getElementById('modal-titulo').textContent = 'Editar Espectáculo';
             document.getElementById('modal-descripcion').textContent = '¿Quieres editar los detalles de este espectáculo?';
             document.getElementById('modal-confirmar').href = '<?= site_url('espectaculos/editar_espectaculo/'); ?>' + itemId;
@@ -143,13 +129,11 @@
         document.getElementById('modal').style.display = 'flex';
     }
 
-    function closeModal() 
-    {
+    function closeModal() {
         document.getElementById('modal').style.display = 'none';
     }
 
-    setTimeout(function () 
-    {
+    setTimeout(function () {
         const alerta = document.getElementById('mensaje-alerta');
         if (alerta) alerta.style.display = 'none';
     }, 5000);

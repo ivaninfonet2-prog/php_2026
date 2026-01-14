@@ -12,7 +12,7 @@ body {
 ================================ */
 .main-content {
     min-height: 100vh;
-    padding: 120px 30px 60px; /* Mayor espacio arriba para bajar aún más */
+    padding: 120px 30px 60px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,20 +25,20 @@ body {
 .encabezado-seccion {
     text-align: center;
     max-width: 900px;
-    margin: 0 auto 80px; /* Aumenté la separación para que baje aún más */
+    margin: 0 auto 60px;
 }
 
 .titulo-principal {
-    font-size: 3rem; /* Título un poco más pequeño */
-    font-weight: 600; /* Reduje el grosor del título */
-    margin: 0 0 30px; /* Más separación abajo */
-    color: #ffffff; /* Blanco más fuerte */
-    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
+    font-size: 3rem;
+    font-weight: 400; /* Menor grosor */
+    margin: 0 0 25px;
+    color: #ffffff;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
 }
 
 .descripcion-principal {
-    font-size: 1.7rem; /* Descripción más grande */
-    color: #f2f2f2; /* Color más claro y legible */
+    font-size: 1.8rem;
+    color: #f2f2f2;
     line-height: 1.6;
     margin: 0;
 }
@@ -77,14 +77,14 @@ body {
 }
 
 .tarjeta {
-    width: 480px; /* Tarjeta más ancha */
-    background: rgba(0, 0, 0, 0.7); /* Fondo más oscuro para contraste */
-    backdrop-filter: blur(10px); /* Desenfoque en el fondo */
+    width: 480px;
+    background: rgba(0, 0, 0, 0.55); /* Menos negra, más clara */
+    backdrop-filter: blur(10px);
     border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
     overflow: hidden;
     transition: transform 0.25s ease;
-    text-align: center; /* Centra todos los elementos dentro de la tarjeta */
+    text-align: center;
     padding: 20px;
 }
 
@@ -92,99 +92,91 @@ body {
     transform: translateY(-6px);
 }
 
-/* Imagen (más grande y cuadrada con bordes redondeados) */
+/* Imagen */
 .imagen {
-    width: 160px; /* Imagen más grande */
-    height: 160px; /* Mismo alto que el ancho */
+    width: 160px;
+    height: 160px;
     object-fit: cover;
-    border-radius: 15px; /* Bordes redondeados */
-    margin: 20px auto; /* Centrada con margen */
-    border: 4px solid #fff; /* Borde blanco alrededor de la imagen */
+    border-radius: 15px;
+    margin: 20px auto;
+    border: 4px solid #fff;
 }
 
-/* ================================
-   Información de la tarjeta
-================================ */
+/* Información de la tarjeta */
 .contenido-info {
     padding: 20px;
 }
 
 .nombre-artista {
-    font-size: 2.2rem; /* Título más grande */
+    font-size: 2.2rem;
     font-weight: 600;
     margin: 0 0 10px;
 }
 
 .descripcion-artista {
-    font-size: 1.3rem; /* Descripción un poco más grande */
+    font-size: 1.3rem;
     color: #ccc;
 }
 
-/* ================================
-   Botones
-================================ */
+/* Botones */
 .acciones-tarjeta {
     display: flex;
-    justify-content: space-between; /* Alinea los botones uno al lado del otro */
-    gap: 15px; /* Espacio entre los botones */
+    justify-content: space-between;
+    gap: 15px;
     margin-top: 20px;
-    width: 100%; /* Los botones ocuparán todo el ancho disponible */
+    width: 100%;
 }
 
 .boton {
     flex: 1;
     padding: 10px 0;
     border-radius: 6px;
-    font-size: 1.1rem; /* Botones más pequeños */
+    font-size: 1.1rem;
     font-weight: 600;
     text-decoration: none;
     color: #fff;
     text-align: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block; /* Hace que los botones se alineen en fila */
+    display: inline-block;
 }
 
 .boton-editar {
-    background-color: #28a745; /* Verde */
-    border: 2px solid #218838; /* Borde verde más oscuro */
+    background-color: #28a745;
+    border: 2px solid #218838;
 }
 
 .boton-editar:hover {
     background-color: #218838;
-    transform: scale(1.05); /* Efecto de hover */
+    transform: scale(1.05);
 }
 
 .boton-eliminar {
-    background-color: #dc3545; /* Rojo */
-    border: 2px solid #c82333; /* Borde rojo más oscuro */
+    background-color: #dc3545;
+    border: 2px solid #c82333;
 }
 
 .boton-eliminar:hover {
     background-color: #c82333;
-    transform: scale(1.05); /* Efecto de hover */
+    transform: scale(1.05);
 }
 
-/* ================================
-   Texto adicional fuera de tarjetas
-================================ */
+/* Texto adicional fuera de tarjetas */
 .texto-adicional {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.6rem; /* Más grande */
     color: #ffffff;
     margin-top: 60px;
     line-height: 1.8;
 }
 
-/* ================================
-   Responsive
-================================ */
+/* Responsive */
 @media (max-width: 768px) {
     .main-content {
         padding-top: 90px;
     }
 
     .titulo-principal {
-        font-size: 2.4rem; /* Ajusté el tamaño en dispositivos móviles */
+        font-size: 2.4rem;
     }
 
     .descripcion-principal {
@@ -192,10 +184,10 @@ body {
     }
 
     .tarjeta {
-        width: 90%; /* Hacer que las tarjetas ocupen más espacio en móviles */
+        width: 90%;
     }
 
     .texto-adicional {
-        font-size: 1.2rem; /* Texto adicional más pequeño en móviles */
+        font-size: 1.4rem;
     }
 }
