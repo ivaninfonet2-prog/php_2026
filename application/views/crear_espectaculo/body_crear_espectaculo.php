@@ -5,12 +5,10 @@
     <title><?= $titulo ?></title>
     <link rel="stylesheet" href="<?= base_url('activos/css/crear_espectaculo/body_crear_espectaculo.css') ?>">
 </head>
-
 <body>
-
 <main class="main-content" style="background-image: url('<?= $fondo ?>');">
 
-    <!-- ENCABEZADO (solo el título y la descripción) -->
+    <!-- ENCABEZADO -->
     <div class="page-header">
         <h1><?= $titulo ?></h1>
         <p>Complete los datos del espectáculo. La imagen es opcional.</p>
@@ -21,55 +19,43 @@
 
         <!-- MENSAJES -->
         <?php if ($this->session->flashdata('error_imagen')): ?>
-            <div class="alert error">
-                 <?= $this->session->flashdata('error_imagen') ?>
-            </div>
+            <div class="alert error"><?= $this->session->flashdata('error_imagen') ?></div>
         <?php endif; ?>
 
         <?php if ($this->session->flashdata('success')): ?>
-            <div class="alert success">
-                 <?= $this->session->flashdata('success') ?>
-            </div>
+            <div class="alert success"><?= $this->session->flashdata('success') ?></div>
         <?php endif; ?>
 
         <!-- FORMULARIO -->
         <?= form_open_multipart(); ?>
 
-            <!-- Nombre -->
             <label>Nombre</label>
             <input type="text" name="nombre" value="<?= set_value('nombre') ?>" required>
 
-            <!-- Descripción -->
             <label>Descripción</label>
             <textarea name="descripcion" required><?= set_value('descripcion') ?></textarea>
 
-            <!-- Fecha y Hora -->
             <div class="fila">
                 <input type="date" name="fecha" value="<?= set_value('fecha') ?>" required>
                 <input type="time" name="hora" value="<?= set_value('hora') ?>" required>
             </div>
 
-            <!-- Precio y Disponibles -->
             <div class="fila">
                 <input type="number" step="0.01" name="precio" placeholder="Precio" value="<?= set_value('precio') ?>" required>
                 <input type="number" name="disponibles" placeholder="Disponibles" value="<?= set_value('disponibles') ?>" required>
             </div>
 
-            <!-- Dirección -->
             <label>Dirección</label>
             <input type="text" name="direccion" value="<?= set_value('direccion') ?>" required>
 
-            <!-- Imagen -->
             <label>Imagen</label>
             <input type="file" name="imagen" id="imagenInput" accept="image/*">
 
-            <!-- Vista previa de la imagen -->
             <div id="preview" class="preview oculto">
                 <p>Vista previa:</p>
                 <img id="previewImg">
             </div>
 
-            <!-- Acciones (Botones) -->
             <div class="acciones">
                 <button type="submit">Crear espectáculo</button>
                 <a href="<?= base_url('administrador') ?>">Cancelar</a>
@@ -86,17 +72,20 @@
 </main>
 
 <script>
-document.getElementById('imagenInput').addEventListener('change', function(e) {
+document.getElementById('imagenInput').addEventListener('change', function(e) 
+{
     const file = e.target.files[0];
     const preview = document.getElementById('preview');
     const img = document.getElementById('previewImg');
 
-    if (!file) {
+    if ( !file) 
+    {
         preview.classList.add('oculto');
         return;
     }
 
-    if (!file.type.startsWith('image/')) {
+    if ( !file.type.startsWith('image/')) 
+    {
         alert('El archivo seleccionado NO es una imagen');
         e.target.value = '';
         preview.classList.add('oculto');

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title><?= isset($titulo) ? $titulo : 'Lista de Usuarios' ?></title>
 
-    <!-- Enlace al archivo CSS específico -->
+    <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="<?= base_url('activos/css/lista_usuarios/body_lista_usuarios.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('activos/css/confirmacion/modificar_usuario.css'); ?>"> <!-- Enlace al nuevo archivo CSS -->
+       <link rel="stylesheet" href="<?= base_url('activos/css/confirmacion/modificar_usuario.css'); ?>">
 </head>
 <body>
 
@@ -16,8 +16,7 @@
     <section class="encabezado">
         <h2 class="titulo"><?= isset($titulo) ? $titulo : 'Lista de Usuarios' ?></h2>
         <p class="descripcion">
-            Administración de usuarios registrados en el sistema.
-            Desde aquí podés editar o eliminar usuarios existentes.
+            Administración de usuarios registrados en el sistema. Desde aquí podés editar o eliminar usuarios existentes.
         </p>
     </section>
 
@@ -62,7 +61,7 @@
 
     <!-- Texto adicional fuera de la tarjeta -->
     <section class="informacion-adicional">
-        <p>Aquí puedes gestionar todos los usuarios. Si deseas más detalles o funciones adicionales, por favor, consulta la sección correspondiente en el menú.</p>
+        <p>Aquí puedes gestionar todos los usuarios. Si deseas más detalles o funciones adicionales, consulta la sección correspondiente en el menú.</p>
     </section>
 
 </main>
@@ -90,7 +89,6 @@
 
         if (action === 'eliminar') 
         {
-
             document.getElementById('modal-titulo').textContent = 'Eliminar Usuario';
             document.getElementById('modal-descripcion').textContent = '¿Estás seguro de que deseas eliminar este usuario?';
             document.getElementById('modal-confirmar').href = '<?= base_url('usuario/eliminar_usuario/'); ?>' + itemId;

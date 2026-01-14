@@ -5,12 +5,12 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     background-color: #0f0f0f;
-    color: #ffffff;
+    color: #ffffff; /* Blanco fuerte */
 }
 
 .inicio-container {
     min-height: 100vh;
-    padding: 110px 20px 40px; /* 🔼 aumento más el padding superior para bajar el contenido */
+    padding: 110px 20px 40px;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -21,36 +21,36 @@ body {
    ============================== */
 .encabezado {
     max-width: 900px;
-    margin: 0 auto 40px; /* 🔼 bajamos más el encabezado */
+    margin: 0 auto 40px;
     text-align: center;
 }
 
 .titulo {
-    font-size: 3rem; /* 🔼 agrandamos el título */
-    font-weight: 700;
+    font-size: 2.8rem; /* Menos grosor */
+    font-weight: 500; /* Quita grosor exagerado */
     color: #ffffff;
-    margin-bottom: 40px; /* 🔼 aumentamos la separación entre el título y la descripción */
-    text-shadow: 0 3px 8px rgba(0,0,0,0.85);
+    margin-bottom: 20px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 .descripcion {
-    font-size: 1.3rem; /* 🔼 agrandamos la descripción */
-    color: #f1f1f1;
+    font-size: 1.5rem; /* Agrandamos un poco la descripción */
+    color: #ffffff;
     line-height: 1.6;
     max-width: 700px;
     margin: 0 auto;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 
 /* ==============================
-   INFORMACIÓN ADICIONAL (FUERA DE LA TARJETA)
+   INFORMACIÓN ADICIONAL
    ============================== */
 .informacion-adicional {
     text-align: center;
-    font-size: 1.4rem; /* 🔼 agrandamos el texto */
-    color: #e0ff00; /* 🔼 cambiamos el color a un verde fosforescente */
-    font-weight: 700; /* 🔼 hacemos el texto más fuerte */
-    margin-top: 40px; /* 🔼 lo separamos un poco más del contenido de la tabla */
+    font-size: 1.5rem; /* Agrandamos un poco */
+    color: #ffffff; /* Blanco fuerte */
+    font-weight: 500;
+    margin-top: 40px;
 }
 
 /* ==============================
@@ -64,13 +64,12 @@ body {
 .tabla-container {
     width: 100%;
     max-width: 900px;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 0.3); /* Transparencia mínima de negro */
     backdrop-filter: blur(10px);
     border-radius: 14px;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     overflow-x: auto;
-    margin-top: 20px; /* 🔼 acercamos la tarjeta a la descripción */
 }
 
 /* ==============================
@@ -79,19 +78,20 @@ body {
 .tabla-usuarios {
     width: 100%;
     border-collapse: collapse;
+    color: #ffffff;
 }
 
 .tabla-usuarios th,
 .tabla-usuarios td {
-    padding: 14px 16px; /* 🔼 agrandamos el padding */
+    padding: 14px 16px;
     text-align: center;
-    font-size: 1rem; /* 🔼 agrandamos la fuente */
-    border-bottom: 1px solid rgba(255,255,255,0.15);
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .tabla-usuarios th {
-    background: rgba(255, 255, 255, 0.15);
-    color: #ffeb3b; /* 🔼 color fuerte para los encabezados */
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
     text-transform: uppercase;
     font-size: 1rem;
     letter-spacing: 0.6px;
@@ -110,23 +110,24 @@ body {
 
 .boton {
     display: inline-block;
-    padding: 8px 14px; /* 🔼 agrandamos un poco el padding */
+    padding: 8px 14px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem; /* 🔼 aumentamos la fuente */
+    font-size: 1rem;
     margin: 4px;
     transition: all 0.25s ease;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
 }
 
 .boton.editar {
-    background: linear-gradient(135deg, #43a047, #66bb6a);
-    color: #ffffff;
+    background: linear-gradient(135deg, #28a745, #3ecf64); /* Verde más moderno */
 }
 
 .boton.eliminar {
-    background: linear-gradient(135deg, #e53935, #ef5350);
-    color: #ffffff;
+    background: linear-gradient(135deg, #dc3545, #e4606d); /* Rojo más moderno */
 }
 
 .boton:hover {
@@ -141,7 +142,7 @@ body {
     text-align: center;
     padding: 20px;
     font-style: italic;
-    color: #e0e0e0;
+    color: #ffffff;
 }
 
 /* ==============================
@@ -149,19 +150,19 @@ body {
    ============================== */
 @media (max-width: 768px) {
     .inicio-container {
-        padding-top: 90px; /* 🔼 también sube en mobile */
+        padding-top: 90px;
     }
 
     .titulo {
-        font-size: 2.7rem; /* 🔼 ajustamos un poco en móviles */
+        font-size: 2.4rem;
     }
 
     .descripcion {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
     }
 
     .informacion-adicional {
-        font-size: 1.3rem; /* 🔼 ajustamos el tamaño en mobile */
+        font-size: 1.3rem;
         margin-top: 30px;
     }
 
