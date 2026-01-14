@@ -7,26 +7,46 @@ body {
     margin: 0;
     padding: 0;
     color: #f1f1f1;
+    background: #000; /* fondo por defecto mientras carga la imagen */
 }
 
 .inicio-container {
+    position: relative;
     min-height: 100vh;
 
     /* Fondo nítido y definido */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 120px 20px 60px;
+
+    /* Suavizar escalado de la imagen */
+    image-rendering: auto;
+}
+
+/* Overlay ligero para mejorar contraste del texto */
+.inicio-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.15);
+    z-index: 0;
 }
 
 /* ================================
    TEXTO SUPERIOR
 =============================== */
 .bienvenida-admin {
+    position: relative;
+    z-index: 1;
     max-width: 760px;
     text-align: center;
     margin-bottom: 40px;
@@ -59,6 +79,8 @@ body {
     text-align: center;
     max-width: 720px;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
 .mensaje-exito { background: rgba(46, 204, 113, 0.90); color: #fff; }
@@ -68,6 +90,8 @@ body {
    TARJETA PANEL
 =============================== */
 .botones-container {
+    position: relative;
+    z-index: 1;
     background: rgba(0, 0, 0, 0.55); /* Semi-transparente negro */
     padding: 40px 30px;
     border-radius: 18px;
@@ -94,7 +118,7 @@ body {
 
 .panel-descripcion {
     grid-column: 1 / -1;
-    font-size: 1.45rem; /* Texto más grande */
+    font-size: 1.45rem;
     text-align: center;
     color: rgba(255,255,255,0.95);
     margin-bottom: 24px;
@@ -124,17 +148,19 @@ body {
 }
 
 /* Colores de los botones */
-.botones-container .boton:nth-of-type(1) { background: linear-gradient(135deg, #6a5acd, #483d8b); }
-.botones-container .boton:nth-of-type(2) { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-.botones-container .boton:nth-of-type(3) { background: linear-gradient(135deg, #3498db, #2c81ba); }
-.botones-container .boton:nth-of-type(4) { background: linear-gradient(135deg, #f39c12, #d68910); }
-.botones-container .boton:nth-of-type(5) { background: linear-gradient(135deg, #9b59b6, #7d3c98); }
-.botones-container .boton:nth-of-type(6) { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+.botones-container .boton-1 { background: linear-gradient(135deg, #6a5acd, #483d8b); }
+.botones-container .boton-2 { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.botones-container .boton-3 { background: linear-gradient(135deg, #3498db, #2c81ba); }
+.botones-container .boton-4 { background: linear-gradient(135deg, #f39c12, #d68910); }
+.botones-container .boton-5 { background: linear-gradient(135deg, #9b59b6, #7d3c98); }
+.botones-container .boton-6 { background: linear-gradient(135deg, #e74c3c, #c0392b); }
 
 /* ================================
    TEXTO INFERIOR
 =============================== */
 .texto-inferior {
+    position: relative;
+    z-index: 1;
     max-width: 1000px;
     text-align: center;
     margin-top: 60px;
