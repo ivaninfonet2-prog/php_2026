@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 31, 2025 at 12:08 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 14-01-2026 a las 23:49:25
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,22 +18,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mi_base`
+-- Base de datos: `mi_base`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clientes`
+-- Estructura de tabla para la tabla `clientes`
 --
 
 CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `clientes`
+-- Volcado de datos para la tabla `clientes`
 --
 
 INSERT INTO `clientes` (`id_cliente`, `usuario_id`) VALUES
@@ -43,6 +43,44 @@ INSERT INTO `clientes` (`id_cliente`, `usuario_id`) VALUES
 (4, 1),
 (5, 1),
 (6, 1),
+(29, 1),
+(30, 1),
+(31, 1),
+(32, 1),
+(33, 1),
+(34, 1),
+(35, 1),
+(36, 1),
+(37, 1),
+(38, 1),
+(39, 1),
+(40, 1),
+(41, 1),
+(42, 1),
+(43, 1),
+(44, 1),
+(45, 1),
+(46, 1),
+(47, 1),
+(48, 1),
+(49, 1),
+(50, 1),
+(51, 1),
+(52, 1),
+(53, 1),
+(54, 1),
+(55, 1),
+(56, 1),
+(57, 1),
+(58, 1),
+(59, 1),
+(60, 1),
+(61, 1),
+(62, 1),
+(63, 1),
+(64, 1),
+(65, 1),
+(66, 1),
 (27, 2),
 (21, 11),
 (22, 11),
@@ -55,7 +93,7 @@ INSERT INTO `clientes` (`id_cliente`, `usuario_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `espectaculos`
+-- Estructura de tabla para la tabla `espectaculos`
 --
 
 CREATE TABLE `espectaculos` (
@@ -68,25 +106,22 @@ CREATE TABLE `espectaculos` (
   `fecha` date NOT NULL,
   `hora` time NOT NULL,
   `imagen` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `espectaculos`
+-- Volcado de datos para la tabla `espectaculos`
 --
 
 INSERT INTO `espectaculos` (`id_espectaculo`, `nombre`, `descripcion`, `disponibles`, `precio`, `direccion`, `fecha`, `hora`, `imagen`) VALUES
-(1, 'paula gomez castilla', 'la mas loca', 2289, 0.00, '29 de septiembre 895', '2025-09-27', '18:30:00', '5bd55adf385e96fd58c069f5b90ed566.png'),
-(2, 'la penelopr', 'La Reina del Sur', 449, 0.00, 'Bolonia 5480', '2025-08-02', '02:00:00', 'bb.jpg'),
-(3, 'Nicki Nicole', 'La Nena de Argentina', 44, 7778.00, 'Napoles 897', '2025-08-20', '13:00:00', 'cc.jpg'),
-(4, 'Duki', 'El Maravilloso', 664, 258.00, 'Francia 875', '2025-09-27', '13:00:00', 'dd.jpg'),
-(5, 'ee', 'rr', 55553, 0.04, '', '2025-08-30', '00:16:00', ''),
-(7, 'ee', '55', 55555, 0.04, 'oo', '2025-08-30', '00:26:00', 'c4b110eac4a7fc70b368475753b21d7d.png'),
-(8, 'ee', 'ttt', 55555, 0.04, '', '2025-08-30', '00:29:00', '78eaf1d6d39e58cf7e7b24bd9dea8a0c.png');
+(20, 'maria becerra', 'la nena de argentina', 867, '77777.00', 'belgrano 4444', '2025-12-31', '22:11:00', '62df21eab7af8c186e82fddda3749853.jpg'),
+(25, 'duki', 'el mejor del mundo', 8777, '55444.00', 'eva peron 333', '2026-01-22', '22:11:00', 'd94ab42aba3969511412a6dc0af180ea.jpg'),
+(26, 'emilia mernes', 'la princesa del mundo', 2222, '33333.00', 'camin negro 3333', '2026-01-27', '21:12:00', '7da1571f450cb4591ca34fecefba8b5f.jpg'),
+(27, 'nicky nicole', 'la rapera del mundo', 88888, '77777.00', 'lanus 22111', '2026-01-06', '22:13:00', '91d393c44ddc56c1d9fc4f5a4eb2e5c5.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reservas`
+-- Estructura de tabla para la tabla `reservas`
 --
 
 CREATE TABLE `reservas` (
@@ -96,53 +131,31 @@ CREATE TABLE `reservas` (
   `cantidad` int(11) NOT NULL,
   `fecha_reserva` date NOT NULL,
   `monto_total` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `reservas`
+-- Volcado de datos para la tabla `reservas`
 --
 
 INSERT INTO `reservas` (`id_reserva`, `usuario_id`, `espectaculo_id`, `cantidad`, `fecha_reserva`, `monto_total`) VALUES
-(4, 1, 1, 3, '2025-07-31', 265364),
-(5, 1, 1, 5, '2025-08-01', 442273),
-(6, 1, 2, 4, '2025-08-01', 49822),
-(7, 1, 1, 2, '2025-08-01', 176909),
-(8, 1, 1, 3, '2025-08-01', 265364),
-(9, 1, 1, 1, '2025-08-08', 88455),
-(10, 1, 1, 2, '2025-08-12', 176909),
-(11, 1, 4, 1, '2025-08-16', 258),
-(12, 1, 1, 2, '2025-08-19', 176909),
-(13, 1, 1, 2, '2025-08-19', 176909),
-(14, 1, 1, 2, '2025-08-19', 176909),
-(15, 1, 1, 2, '2025-08-19', 176909),
-(16, 1, 3, 3, '2025-08-19', 23334),
-(17, 1, 3, 1, '2025-08-19', 7778),
-(18, 1, 1, 4, '2025-08-19', 353818),
-(19, 4, 3, 3, '2025-08-19', 23334),
-(20, 11, 1, 3, '2025-08-20', 265364),
-(21, 11, 3, 2, '2025-08-20', 15556),
-(22, 11, 1, 3, '2025-08-20', 265364),
-(23, 11, 3, 1, '2025-08-20', 7778),
-(24, 11, 3, 1, '2025-08-20', 7778),
-(25, 11, 1, 4, '2025-08-20', 353818),
-(26, 11, 1, 3, '2025-08-21', 265364),
-(27, 11, 4, 2, '2025-08-21', 516),
-(28, 2, 1, 1, '2025-08-28', 88455),
-(29, 11, 5, 2, '2025-08-30', 0);
+(64, 1, 20, 3, '2026-01-12', 233331),
+(65, 1, 20, 3, '2026-01-12', 233331),
+(66, 1, 20, 4, '2026-01-12', 311108),
+(67, 1, 20, 2, '2026-01-13', 155554);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- Estructura de tabla para la tabla `roles`
 --
 
 CREATE TABLE `roles` (
   `id_rol` int(11) NOT NULL,
   `nombre` varchar(51) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `roles`
+-- Volcado de datos para la tabla `roles`
 --
 
 INSERT INTO `roles` (`id_rol`, `nombre`) VALUES
@@ -152,7 +165,7 @@ INSERT INTO `roles` (`id_rol`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -164,25 +177,28 @@ CREATE TABLE `usuarios` (
   `apellido` varchar(51) NOT NULL,
   `dni` int(11) NOT NULL,
   `telefono` varchar(21) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `rol_id`, `nombre_usuario`, `palabra_clave`, `nombre`, `apellido`, `dni`, `telefono`) VALUES
 (1, 1, 'ivaninfonet@gmail.com', '1234', 'ivan', 'tolaba', 34571058, '11-2310-6932'),
 (2, 2, 'ivaninfosur@gmail.com', '1234', 'pablo', 'flores', 12618422, '11-4156-3813'),
 (3, 2, 'ivaninfoeste@gmail.com', '1234', 'estiven', 'flores', 42589521, '11-4082-6777'),
-(4, 1, 'ivaninfoeste2@gmail.com', '1234', 'luciana', 'perez', 38978563, '11-4082-6777'),
 (11, 1, 'ivaninfonorte@gmail.com', '1234', 'jorge', 'cirio', 11122224, '11-4448-6474'),
 (12, 1, 'aaggttt@gmail.com', '1234', 'jorge', 'cirio', 584444, '11-4448-6474'),
-(13, 1, 'alguien@hotmail.com', '1234', 'luciana', 'perez', 12348, '01140826777');
+(13, 1, 'alguien@hotmail.com', '1234', 'luciana', 'perez', 12348, '01140826777'),
+(14, 1, 'ivaninfonet2@gmail.com', '1234', 'luci', 'lorent', 2451, '5421'),
+(15, 1, 'alguien@gmail.com', '1234', 'de', 'ed', 33, '543'),
+(21, 1, 'ffff@gmail.com', '$2y$10$Eqxpz3J8nvzUihrDsq3XBOiDT4Lo8GCB9EJk3ooRSHhx', 'hermosa', 'gauna', 0, ''),
+(22, 1, 'nicolasvelez@gmail.com', '$2y$10$LI7fUuBHLAN6lDyqYgpuNewK09HN2b1JmPP6G1msJxCW', 'nicolas', 'perez', 333, '222');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ventas`
+-- Estructura de tabla para la tabla `ventas`
 --
 
 CREATE TABLE `ventas` (
@@ -191,47 +207,41 @@ CREATE TABLE `ventas` (
   `espectaculo_id` int(11) NOT NULL,
   `fecha_venta` date NOT NULL,
   `monto_total` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ventas`
+-- Volcado de datos para la tabla `ventas`
 --
 
 INSERT INTO `ventas` (`id_venta`, `usuario_id`, `espectaculo_id`, `fecha_venta`, `monto_total`) VALUES
-(1, 1, 2, '2025-07-31', 12455.41),
-(2, 1, 1, '2025-07-31', 176909.12),
-(3, 1, 1, '2025-07-31', 265363.68),
-(4, 1, 1, '2025-08-01', 442272.80),
-(5, 1, 2, '2025-08-01', 49821.64),
-(6, 1, 1, '2025-08-01', 176909.12),
-(21, 11, 1, '2025-08-20', 265363.68),
-(22, 11, 3, '2025-08-20', 7778.00),
-(23, 11, 3, '2025-08-20', 7778.00),
-(24, 11, 1, '2025-08-20', 353818.24),
-(25, 11, 1, '2025-08-21', 265363.68),
-(26, 11, 4, '2025-08-21', 516.00),
-(27, 2, 1, '2025-08-28', 88454.56),
-(28, 11, 5, '2025-08-30', 0.08);
+(58, 1, 20, '2026-01-03', '0.08'),
+(60, 1, 20, '2026-01-05', '155554.00'),
+(61, 1, 20, '2026-01-05', '311108.00'),
+(62, 1, 20, '2026-01-07', '233331.00'),
+(63, 1, 20, '2026-01-12', '233331.00'),
+(64, 1, 20, '2026-01-12', '233331.00'),
+(65, 1, 20, '2026-01-12', '311108.00'),
+(66, 1, 20, '2026-01-13', '155554.00');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `clientes`
+-- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`),
   ADD KEY `usuario` (`usuario_id`);
 
 --
--- Indexes for table `espectaculos`
+-- Indices de la tabla `espectaculos`
 --
 ALTER TABLE `espectaculos`
   ADD PRIMARY KEY (`id_espectaculo`);
 
 --
--- Indexes for table `reservas`
+-- Indices de la tabla `reservas`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id_reserva`),
@@ -239,20 +249,20 @@ ALTER TABLE `reservas`
   ADD KEY `usuarios` (`usuario_id`);
 
 --
--- Indexes for table `roles`
+-- Indices de la tabla `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_rol`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
   ADD KEY `rol` (`rol_id`);
 
 --
--- Indexes for table `ventas`
+-- Indices de la tabla `ventas`
 --
 ALTER TABLE `ventas`
   ADD PRIMARY KEY (`id_venta`),
@@ -260,70 +270,70 @@ ALTER TABLE `ventas`
   ADD KEY `reserva` (`usuario_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `clientes`
+-- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- AUTO_INCREMENT for table `espectaculos`
+-- AUTO_INCREMENT de la tabla `espectaculos`
 --
 ALTER TABLE `espectaculos`
-  MODIFY `id_espectaculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_espectaculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `reservas`
+-- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
--- AUTO_INCREMENT for table `roles`
+-- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `ventas`
+-- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `clientes`
+-- Filtros para la tabla `clientes`
 --
 ALTER TABLE `clientes`
   ADD CONSTRAINT `usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id_usuario`);
 
 --
--- Constraints for table `reservas`
+-- Filtros para la tabla `reservas`
 --
 ALTER TABLE `reservas`
   ADD CONSTRAINT `espectaculos` FOREIGN KEY (`espectaculo_id`) REFERENCES `espectaculos` (`id_espectaculo`),
   ADD CONSTRAINT `usuarios` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id_usuario`);
 
 --
--- Constraints for table `usuarios`
+-- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `rol` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id_rol`);
 
 --
--- Constraints for table `ventas`
+-- Filtros para la tabla `ventas`
 --
 ALTER TABLE `ventas`
   ADD CONSTRAINT `espectaculo` FOREIGN KEY (`espectaculo_id`) REFERENCES `espectaculos` (`id_espectaculo`);
