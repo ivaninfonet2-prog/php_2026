@@ -2,18 +2,18 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($titulo, ENT_QUOTES, 'UTF-8'); ?></title>
     <link rel="stylesheet" href="<?= base_url('activos/css/administrador_espectaculos/body_administrador_espectaculos.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('activos/css/confirmacion/modificar_espectaculo.css'); ?>">
 </head>
 <body>
-<main class="main-content" style="background-image: url('<?= $fondo ?>');">
+
+<main class="main-content" style="background-image: url('<?= htmlspecialchars($fondo, ENT_QUOTES); ?>');">
 
     <!-- ENCABEZADO -->
     <section class="encabezado-seccion">
-        <h1 class="titulo-principal">
-            <?= htmlspecialchars($titulo, ENT_QUOTES, 'UTF-8'); ?>
-        </h1>
+        <h1 class="titulo-principal"><?= htmlspecialchars($titulo, ENT_QUOTES, 'UTF-8'); ?></h1>
         <p class="descripcion-principal">
             Administración de espectáculos disponibles. Desde aquí podés editar, eliminar o revisar la información de cada evento.
         </p>
@@ -23,10 +23,7 @@
     <?php if ($this->session->flashdata('mensaje')): ?>
         <div class="alerta" id="mensaje-alerta">
             <?= htmlspecialchars($this->session->flashdata('mensaje'), ENT_QUOTES, 'UTF-8'); ?>
-            <span class="cerrar-alerta"
-                  onclick="document.getElementById('mensaje-alerta').style.display='none';">
-                &times;
-            </span>
+            <span class="cerrar-alerta" onclick="document.getElementById('mensaje-alerta').style.display='none';">&times;</span>
         </div>
     <?php endif; ?>
 
@@ -36,52 +33,37 @@
             <?php foreach ($espectaculos as $espectaculo): ?>
                 <div class="tarjeta">
 
+                    <!-- Imagen del espectáculo -->
+                    <?php
+                        $img_url = !empty($espectaculo['imagen']) 
+                            ? base_url('activos/imagenes/' . htmlspecialchars($espectaculo['imagen'], ENT_QUOTES)) 
+                            : base_url('activos/imagenes/default.jpg');
+                    ?>
+                    <img src="<?= $img_url ?>" alt="<?= htmlspecialchars($espectaculo['nombre'], ENT_QUOTES); ?>" class="imagen" loading="lazy">
+
+                    <!-- Información principal -->
                     <div class="contenido-info">
-                        <h3 class="nombre-artista"><?= htmlspecialchars($espectaculo['nombre'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                        <h3 class="nombre-artista"><?= htmlspecialchars($espectaculo['nombre'], ENT_QUOTES); ?></h3>
                         <p class="descripcion-artista">
-                            <?php
-                                if (isset($espectaculo['descripcion']) && !empty($espectaculo['descripcion'])) {
-                                    echo htmlspecialchars($espectaculo['descripcion'], ENT_QUOTES, 'UTF-8');
-                                } else {
-                                    echo 'Sin descripción disponible';
-                                }
-                            ?>
+                            <?= !empty($espectaculo['descripcion']) ? htmlspecialchars($espectaculo['descripcion'], ENT_QUOTES) : 'Sin descripción disponible'; ?>
                         </p>
                     </div>
 
-                    <img
-                        <?php
-                        if (!empty($espectaculo['imagen'])) {
-                            $img_url = base_url('activos/imagenes/' . htmlspecialchars($espectaculo['imagen'], ENT_QUOTES, 'UTF-8'));
-                        } else {
-                            $img_url = base_url('activos/imagenes/default.jpg');
-                        }
-                        ?>
-                        src="<?= $img_url ?>"
-                        alt="<?= htmlspecialchars($espectaculo['nombre'], ENT_QUOTES, 'UTF-8'); ?>"
-                        class="imagen"
-                        loading="lazy"
-                    >
-
+                    <!-- Detalles adicionales -->
                     <div class="contenido">
                         <p><strong>Fecha:</strong> <?= date('d/m/Y', strtotime($espectaculo['fecha'])); ?></p>
                         <p><strong>Hora:</strong> <?= date('H:i', strtotime($espectaculo['hora'])); ?></p>
-                        <p><strong>Entradas:</strong> <?= htmlspecialchars($espectaculo['disponibles'], ENT_QUOTES, 'UTF-8'); ?></p>
-                        <p><strong>Precio:</strong>
-                            <?php
-                                if (isset($espectaculo['precio']) && !empty($espectaculo['precio'])) {
-                                    echo '$' . htmlspecialchars($espectaculo['precio'], ENT_QUOTES, 'UTF-8');
-                                } else {
-                                    echo 'No definido';
-                                }
-                            ?>
-                        </p>
+                        <p><strong>Dirección:</strong> <?= htmlspecialchars($espectaculo['direccion'], ENT_QUOTES); ?></p>
+                        <p><strong>Entradas disponibles:</strong> <?= htmlspecialchars($espectaculo['disponibles'], ENT_QUOTES); ?></p>
+                        <p><strong>Precio:</strong> <?= isset($espectaculo['precio']) && !empty($espectaculo['precio']) ? '$' . htmlspecialchars($espectaculo['precio'], ENT_QUOTES) : 'No definido'; ?></p>
 
+                        <!-- Acciones -->
                         <div class="acciones-tarjeta">
                             <button class="boton boton-editar" onclick="openModal('editar', <?= $espectaculo['id_espectaculo']; ?>)">Editar</button>
                             <button class="boton boton-eliminar" onclick="openModal('eliminar', <?= $espectaculo['id_espectaculo']; ?>)">Eliminar</button>
                         </div>
                     </div>
+
                 </div>
             <?php endforeach; ?>
         </div>
@@ -89,7 +71,7 @@
         <p class="mensaje-vacio">No hay espectáculos disponibles en este momento.</p>
     <?php endif; ?>
 
-    <!-- Texto adicional fuera de la tarjeta -->
+    <!-- Texto adicional -->
     <p class="texto-adicional">
         ¡Aprovechá para ver los espectáculos más recientes y gestionarlos con facilidad desde este panel!
     </p>
@@ -133,7 +115,7 @@
         document.getElementById('modal').style.display = 'none';
     }
 
-    setTimeout(function () {
+    setTimeout(() => {
         const alerta = document.getElementById('mensaje-alerta');
         if (alerta) alerta.style.display = 'none';
     }, 5000);
