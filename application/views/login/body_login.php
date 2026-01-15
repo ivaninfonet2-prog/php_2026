@@ -8,10 +8,7 @@
         <!-- ENCABEZADO -->
         <div class="login-header">
             <h1><?= $titulo ?></h1>
-            <p>
-                Ingresá con tu usuario para acceder a todos los eventos
-                
-            </p>
+            <p>Ingresá con tu usuario para acceder a todos los eventos</p>
         </div>
 
         <!-- TARJETA LOGIN -->
@@ -23,24 +20,24 @@
                 </div>
             <?php endif; ?>
 
-            <p class="login-text">
-                Completá tus datos para iniciar sesión
-            </p>
+            <p class="login-text">Completá tus datos para iniciar sesión</p>
 
             <?= form_open('login/autenticar'); ?>
 
-                <label for="nombre_usuario">Usuario</label>
+                <label for="nombre_usuario_input">Usuario</label>
                 <input
                     type="text"
+                    id="nombre_usuario_input"
                     name="nombre_usuario"
                     class="form-control"
                     placeholder="Ingresá tu usuario"
                     required
                 >
 
-                <label for="palabra_clave">Contraseña</label>
+                <label for="palabra_clave_input">Contraseña</label>
                 <input
                     type="password"
+                    id="palabra_clave_input"
                     name="palabra_clave"
                     class="form-control"
                     placeholder="Ingresá tu contraseña"
@@ -48,13 +45,8 @@
                 >
 
                 <div class="login-actions">
-                    <button type="submit" class="btn btn-primary">
-                        Ingresar
-                    </button>
-
-                    <a href="<?= site_url('registrar'); ?>" class="btn btn-success">
-                        Registrarme
-                    </a>
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                    <a href="<?= site_url('registrar'); ?>" class="btn btn-success">Registrarme</a>
                 </div>
 
             <?= form_close(); ?>

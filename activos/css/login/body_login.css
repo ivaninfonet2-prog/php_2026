@@ -5,8 +5,8 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;          /* contenedor arriba */
-  padding: 100px 20px 40px;         /* ↑ más padding top para bajar el título */
+  align-items: flex-start;
+  padding: 80px 15px 30px;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -26,43 +26,42 @@
    ENCABEZADO
 ===================================================== */
 .login-header {
-  margin-bottom: 18px;              /* margen inferior del header */
+  margin-bottom: 16px;
 }
 
 .login-header h1 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 600;
-  color: #ffffff;
-  text-shadow: 0 0 16px rgba(0, 0, 0, 0.85);
-  margin-bottom: 12px;
-  margin-top: 20px;                 /* ⬅ nuevo: baja el título */
+  color: #fff;
+  text-shadow: 0 0 16px rgba(0,0,0,0.85);
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .login-header p {
-  font-size: 1.35rem;               
-  color: #ffffff;
+  font-size: 1.25rem;
+  color: #fff;
   font-weight: 500;
-  line-height: 1.6;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 /* =====================================================
    TARJETA LOGIN
 ===================================================== */
 .login-card {
-  padding: 30px;
-  background: rgba(0, 0, 0, 0.65);
+  padding: 24px;
+  background: rgba(0,0,0,0.65);
   backdrop-filter: blur(12px);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  color: #fff;
 }
 
 .login-text {
-  font-size: 1.25rem;
-  margin-bottom: 22px;
-  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 18px;
   font-weight: 600;
 }
 
@@ -71,24 +70,24 @@
 ===================================================== */
 .login-card label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 700;
-  color: #ffffff;
-  font-size: 1.05rem;
+  font-size: 1rem;
+  color: #fff;
 }
 
 .login-card .form-control {
   width: 100%;
-  padding: 14px;
-  font-size: 1.05rem;
+  padding: 12px;
+  font-size: 1rem;
   border-radius: 6px;
   border: 1px solid #ccc;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .login-card .form-control:focus {
   border-color: #66b0ff;
-  box-shadow: 0 0 10px rgba(102, 176, 255, 0.4);
+  box-shadow: 0 0 8px rgba(102,176,255,0.4);
 }
 
 /* =====================================================
@@ -97,13 +96,13 @@
 .login-actions {
   display: flex;
   justify-content: center;
-  gap: 14px;
-  margin-top: 20px;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 .login-actions .btn {
-  padding: 12px 26px;
-  font-size: 1.05rem;
+  padding: 10px 22px;
+  font-size: 1rem;
   font-weight: 700;
   border-radius: 10px;
 }
@@ -130,18 +129,18 @@
    TEXTO DEBAJO DE LA TARJETA
 ===================================================== */
 .login-extra {
-  margin-top: 26px;                 
-  font-size: 1.25rem;               
+  margin-top: 22px;
+  font-size: 1.15rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #fff;
 }
 
 .login-extra span {
   display: block;
-  margin-top: 6px;
-  font-size: 1.2rem;
+  margin-top: 5px;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #a8d8ff;                   
+  color: #a8d8ff;
 }
 
 /* =====================================================
@@ -149,8 +148,8 @@
 ===================================================== */
 .login-card .alert {
   border-radius: 8px;
-  font-size: 1.05rem;
-  margin-bottom: 18px;
+  font-size: 1rem;
+  margin-bottom: 16px;
 }
 
 /* =====================================================
@@ -162,18 +161,18 @@
   }
 
   .login-header h1 {
-    font-size: 2.3rem;
+    font-size: 2rem;
   }
 
   .login-header p {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
 
   .login-extra {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .login-extra span {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
