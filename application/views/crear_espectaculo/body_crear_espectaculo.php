@@ -17,15 +17,6 @@
     <!-- TARJETA DE FORMULARIO -->
     <div class="card">
 
-        <!-- MENSAJES -->
-        <?php if ($this->session->flashdata('error_imagen')): ?>
-            <div class="alert error"><?= $this->session->flashdata('error_imagen') ?></div>
-        <?php endif; ?>
-
-        <?php if ($this->session->flashdata('success')): ?>
-            <div class="alert success"><?= $this->session->flashdata('success') ?></div>
-        <?php endif; ?>
-
         <!-- FORMULARIO -->
         <?= form_open_multipart(); ?>
 

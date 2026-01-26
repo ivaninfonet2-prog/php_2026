@@ -23,19 +23,6 @@
         </p>
     </section>
 
-    <!-- MENSAJES FLASH -->
-    <?php if ($this->session->flashdata('success_editar')): ?>
-        <div class="alerta alerta-success">
-            <?= htmlspecialchars($this->session->flashdata('success_editar')); ?>
-            <span class="cerrar-alerta" onclick="this.parentElement.style.display='none';">&times;</span>
-        </div>
-    <?php elseif ($this->session->flashdata('success_eliminar')): ?>
-        <div class="alerta alerta-success">
-            <?= htmlspecialchars($this->session->flashdata('success_eliminar')); ?>
-            <span class="cerrar-alerta" onclick="this.parentElement.style.display='none';">&times;</span>
-        </div>
-    <?php endif; ?>
-
     <!-- TARJETAS DE ESPECTÁCULOS -->
     <?php if (!empty($espectaculos)): ?>
         <div class="contenedor-tarjetas">

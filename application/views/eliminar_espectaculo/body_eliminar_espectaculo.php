@@ -11,14 +11,6 @@
         </p>
     </section>
 
-    <!-- MENSAJES FLASH -->
-    <?php if ($this->session->flashdata('mensaje')): ?>
-        <div class="alerta <?= $this->session->flashdata('tipo_mensaje') ?? 'alerta-success'; ?>">
-            <?= htmlspecialchars($this->session->flashdata('mensaje'), ENT_QUOTES); ?>
-            <span class="cerrar-alerta" onclick="this.parentElement.style.display='none';">&times;</span>
-        </div>
-    <?php endif; ?>
-
     <!-- FORMULARIO DE CONFIRMACIÓN -->
     <form action="<?= base_url('espectaculos/eliminar_espectaculo/' . ($espectaculo['id_espectaculo'] ?? '')); ?>" method="post">
 

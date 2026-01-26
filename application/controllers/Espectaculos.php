@@ -101,28 +101,29 @@ class Espectaculos extends CI_Controller
      //  LISTADO ADMINISTRADOR
 
     public function administrador_espectaculos()
-{
-    $espectaculos = $this->Espectaculo_modelo->obtener_espectaculos();
-
-    foreach ($espectaculos as &$e)
     {
-        $e['aviso'] = $this->generar_aviso($e);
+        $espectaculos = $this->Espectaculo_modelo->obtener_espectaculos();
+
+        foreach ($espectaculos as &$e)
+        {
+            $e['aviso'] = $this->generar_aviso($e);
+        }
+
+        $data = 
+        [
+            'titulo'       => 'Cartelera de Espectaculos',
+            'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
+            'espectaculos' => $espectaculos
+        ];
+
+        // Cargar vista del panel de administración
+        $this->load->view('header_footer/header_footer_administrador', $data);
+        $this->load->view('administrador_espectaculos/body_administrador_espectaculos', $data);
+        $this->load->view('footer_footer/footer_footer_administrador', $data);
     }
 
-    $data = [
-        'titulo'       => 'Cartelera de Espectaculos',
-        'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
-        'espectaculos' => $espectaculos
-    ];
 
-    // Cargar vista del panel de administración
-    $this->load->view('header_footer/header_footer_administrador', $data);
-    $this->load->view('administrador_espectaculos/body_administrador_espectaculos', $data);
-    $this->load->view('footer_footer/footer_footer_administrador', $data);
-}
-
-
-    //   VER ESPECTÁCULO
+    // VER ESPECTÁCULO
    
     public function espectaculo_sin_loguear($id)
     {
@@ -193,7 +194,7 @@ class Espectaculos extends CI_Controller
         ];
     }
 
-    //   SUBIR IMAGEN
+    // SUBIR IMAGEN
 
     private function subir_imagen()
     {
@@ -220,17 +221,14 @@ class Espectaculos extends CI_Controller
 
         if ( !$this->upload->do_upload('imagen'))
         {
-            $this->session->set_flashdata(
-                'error_imagen',
-                strip_tags($this->upload->display_errors())
-            );
+            $this->session->set_flashdata('error_imagen',strip_tags($this->upload->display_errors()));
 
             return null;
         }
 
         $data = $this->upload->data();
 
-        if (!@getimagesize($data['full_path']))
+        if ( !@getimagesize($data['full_path']))
         {
             unlink($data['full_path']);
 
@@ -249,11 +247,11 @@ class Espectaculos extends CI_Controller
         return $data['file_name'];
     }
 
-     //  CRUD
+     //  ABM ADMINISTRADOR
 
     public function crear_espectaculo()
     {
-        $data = 
+        $data =
         [
             'titulo' => 'Crear espectáculo',
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg')
@@ -268,14 +266,20 @@ class Espectaculos extends CI_Controller
                 $nuevo = $this->datos_formulario();
 
                 $imagen = $this->subir_imagen();
-               
                 $nuevo['imagen'] = $imagen ?: 'default.jpg';
 
-                $this->Espectaculo_modelo->agregar_espectaculo($nuevo);
+                $creado = $this->Espectaculo_modelo->agregar_espectaculo($nuevo);
 
-                $this->session->set_flashdata('success', 'Espectáculo creado.');
+                if ($creado)
+                { 
+                    $this->session->set_flashdata('success','Espectáculo creado correctamente.');
+                }
+                else
+                {
+                    $this->session->set_flashdata('error','No se pudo crear el espectáculo.');
+                }
 
-                redirect('espectaculos/administrador_espectaculos');
+                redirect('administrador');
             }
         }
 
@@ -288,12 +292,12 @@ class Espectaculos extends CI_Controller
     {
         $e = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
 
-        if ( !$e) 
+        if (!$e)
         {
             show_404();
-        }    
-            
-        $data = 
+        }
+
+        $data =
         [
             'titulo'      => 'Editar espectáculo',
             'fondo'       => base_url('activos/imagenes/mi_fondo.jpg'),
@@ -308,7 +312,8 @@ class Espectaculos extends CI_Controller
             {
                 $actualizado = $this->datos_formulario();
 
-                if ( !empty($_FILES['imagen']['name']))
+                // Manejo de imagen
+                if (!empty($_FILES['imagen']['name']))
                 {
                     $img = $this->subir_imagen();
 
@@ -318,15 +323,24 @@ class Espectaculos extends CI_Controller
                         {
                             @unlink($this->ruta_imagenes . $e['imagen']);
                         }
+
                         $actualizado['imagen'] = $img;
                     }
                 }
 
-                $this->Espectaculo_modelo->actualizar_espectaculo($id, $actualizado);
+                // Actualizar espectáculo
+                $ok = $this->Espectaculo_modelo->actualizar_espectaculo($id, $actualizado);
 
-                $this->session->set_flashdata('success', 'Espectáculo actualizado.');
+                if ($ok)
+                {
+                    $this->session->set_flashdata('success','Espectáculo actualizado correctamente.');
+                }
+                else
+                {
+                    $this->session->set_flashdata('error','No se pudo actualizar el espectáculo.');
+                }
 
-                redirect('espectaculos/administrador_espectaculos');
+                redirect('administrador');
             }
         }
 
@@ -339,21 +353,30 @@ class Espectaculos extends CI_Controller
     {
         $e = $this->Espectaculo_modelo->obtener_espectaculo_por_id($id);
 
-        if ( !$e)
+        if (!$e)
         {
-             show_404();
-        }    
-           
+            show_404();
+        }
 
+        // Eliminar imagen si no es la por defecto
         if ($e['imagen'] !== 'default.jpg')
         {
             @unlink($this->ruta_imagenes . $e['imagen']);
         }
 
-        $this->Espectaculo_modelo->eliminar_espectaculo_completo($id);
+        // Eliminar espectáculo
+        $eliminado = $this->Espectaculo_modelo->eliminar_espectaculo_completo($id);
 
-        $this->session->set_flashdata('success', 'Espectáculo eliminado.');
+        if ($eliminado)
+        {
+            $this->session->set_flashdata('success','Espectáculo eliminado correctamente.');
+        }
+        else
+        {
+            $this->session->set_flashdata('error','No se pudo eliminar el espectáculo.');
+        }
 
-        redirect('espectaculos/administrador_espectaculos');
+        // REDIRECCIÓN AL PANEL ADMIN
+        redirect('administrador');
     }
 }

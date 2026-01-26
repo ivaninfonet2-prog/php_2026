@@ -11,19 +11,6 @@
         <p>Podés modificar los datos, cambiar la imagen y actualizar la información de manera rápida y sencilla.</p>
     </section>
 
-    <!-- MENSAJES -->
-    <?php if ($this->session->flashdata('error_imagen')): ?>
-        <div class="alert error">
-             <?= $this->session->flashdata('error_imagen') ?>
-        </div>
-    <?php endif; ?>
-
-    <?php if ($this->session->flashdata('success')): ?>
-        <div class="alert success">
-             <?= $this->session->flashdata('success') ?>
-        </div>
-    <?php endif; ?>
-
     <form method="post" enctype="multipart/form-data">
 
         <div class="card">
@@ -91,12 +78,14 @@ document.getElementById('imagenNueva').addEventListener('change', function(e)
     const preview = document.getElementById('previewNueva');
     const img = document.getElementById('imgNueva');
 
-    if (!file) {
+    if ( !file)
+    {
         preview.classList.add('oculto');
         return;
     }
 
-    if (!file.type.startsWith('image/')) {
+    if ( !file.type.startsWith('image/')) 
+    {
         alert('El archivo NO es una imagen válida');
         e.target.value = '';
         preview.classList.add('oculto');
