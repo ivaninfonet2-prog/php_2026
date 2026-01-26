@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Incluir la clase Seguridad antes de usarla
+require_once(APPPATH . 'controllers/Seguridad.php');
+
 class Usuario extends Seguridad
 {
     public function __construct()
@@ -8,12 +11,10 @@ class Usuario extends Seguridad
         parent::__construct();
 
         $this->load->model(['Usuario_modelo','Espectaculo_modelo','Reserva_modelo']);
-
         $this->load->library(['session', 'form_validation']);
         $this->load->helper(['url', 'form']);
 
         // PROTECCION GLOBAL
-
         if (!$this->session->userdata('logged_in'))
         {
             redirect('login');
@@ -27,8 +28,7 @@ class Usuario extends Seguridad
         $id_usuario = $this->session->userdata('id_usuario');
         $usuario    = $this->Usuario_modelo->obtener_usuario_por_id($id_usuario);
 
-        $data = 
-        [
+        $data = [
             'titulo'     => 'Bienvenido Usuario',
             'fondo'      => base_url('activos/imagenes/mi_fondo.jpg'),
             'id_usuario' => $id_usuario,
@@ -42,11 +42,78 @@ class Usuario extends Seguridad
         $this->load->view('footer_footer/footer_footer_usuario');
     }
 
+    // CREAR NUEVO USUARIO
+    public function crear_usuario()
+    {
+        $this->validar_usuario(true); // true = es nuevo usuario
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('error', validation_errors());
+            redirect('usuario/nuevo'); // ruta a formulario de nuevo usuario
+            return;
+        }
+
+        $data = [
+            'nombre'          => $this->input->post('nombre', true),
+            'apellido'        => $this->input->post('apellido', true),
+            'nombre_usuario'  => $this->input->post('email', true),
+            'palabra_clave'   => password_hash($this->input->post('password', true), PASSWORD_DEFAULT)
+        ];
+
+        if ($this->Usuario_modelo->crear_usuario($data))
+        {
+            $this->session->set_flashdata('success', 'Usuario creado correctamente.');
+        }
+        else
+        {
+            $this->session->set_flashdata('error', 'Ocurrió un error al crear el usuario.');
+        }
+
+        redirect('administrador');
+    }
+
+    // EDITAR USUARIO
+    public function editar_usuario($id_usuario)
+    {
+        $this->validar_usuario(false); // false = edición
+
+        if ($this->form_validation->run() == FALSE)
+        {
+            $this->session->set_flashdata('error', validation_errors());
+            redirect('usuario/editar/'.$id_usuario); // ruta a formulario de edición
+            return;
+        }
+
+        $data = [
+            'nombre'         => $this->input->post('nombre', true),
+            'apellido'       => $this->input->post('apellido', true),
+            'nombre_usuario' => $this->input->post('email', true)
+        ];
+
+        // Si se envió una contraseña nueva
+        $password = $this->input->post('password', true);
+        if (!empty($password))
+        {
+            $data['palabra_clave'] = password_hash($password, PASSWORD_DEFAULT);
+        }
+
+        if ($this->Usuario_modelo->actualizar_usuario($id_usuario, $data))
+        {
+            $this->session->set_flashdata('success', 'Usuario actualizado correctamente.');
+        }
+        else
+        {
+            $this->session->set_flashdata('error', 'Ocurrió un error al actualizar el usuario.');
+        }
+
+        redirect('administrador');
+    }
+
     // ESPECTÁCULOS
     public function usuario_espectaculos()
     {
-        $data = 
-        [
+        $data = [
             'titulo'       => 'Cartelera de Espectáculos',
             'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
             'id_usuario'   => $this->session->userdata('id_usuario'),
@@ -60,13 +127,11 @@ class Usuario extends Seguridad
     }
 
     // MIS RESERVAS
-
     public function usuario_reservas()
     {
         $id_usuario = $this->session->userdata('id_usuario');
 
-        $data = 
-        [
+        $data = [
             'titulo'     => 'Mis Reservas',
             'fondo'      => base_url('activos/imagenes/mi_fondo.jpg'),
             'id_usuario' => $id_usuario,
@@ -83,7 +148,6 @@ class Usuario extends Seguridad
     public function usuario_reservas_detalle($id_reserva)
     {
         $id_usuario = $this->session->userdata('id_usuario');
-        
         $reserva    = $this->Reserva_modelo->obtener_reserva_detalle($id_reserva, $id_usuario);
 
         if (!$reserva)
@@ -91,8 +155,7 @@ class Usuario extends Seguridad
             show_error('Reserva no encontrada.', 404);
         }
 
-        $data = 
-        [
+        $data = [
             'titulo'     => 'Detalle de Reserva',
             'fondo'      => base_url('activos/imagenes/mi_fondo.jpg'),
             'id_usuario' => $id_usuario,
@@ -106,7 +169,6 @@ class Usuario extends Seguridad
     }
 
     // VALIDACIONES
-    
     private function validar_usuario($es_nuevo = true)
     {
         $this->form_validation->set_rules('nombre', 'Nombre', 'required|trim');
@@ -119,9 +181,8 @@ class Usuario extends Seguridad
                 'Email',
                 'required|valid_email|is_unique[usuarios.nombre_usuario]'
             );
-            
+
             $this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[4]');
-            
             $this->form_validation->set_rules(
                 'password_confirm',
                 'Confirmar Contraseña',
@@ -135,24 +196,20 @@ class Usuario extends Seguridad
     }
 
     // ELIMINAR USUARIO
-
     public function eliminar_usuario($id_usuario)
     {
         $usuario = $this->Usuario_modelo->obtener_usuario_por_id($id_usuario);
 
-        if ( !$usuario)
+        if (!$usuario)
         {
             show_error('Usuario no encontrado.', 404);
-            
             return;
         }
 
         if ($this->Usuario_modelo->usuario_tiene_clientes($id_usuario))
         {
             $this->session->set_flashdata('error','No se puede eliminar el usuario: tiene clientes asociados.');
-            
             redirect('administrador');
-          
             return;
         }
 
@@ -168,3 +225,4 @@ class Usuario extends Seguridad
         redirect('administrador');
     }
 }
+?>
