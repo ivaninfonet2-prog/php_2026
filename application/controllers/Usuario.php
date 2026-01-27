@@ -81,7 +81,9 @@ class Usuario extends Seguridad
         if ($this->form_validation->run() == FALSE)
         {
             $this->session->set_flashdata('error', validation_errors());
+           
             redirect('usuario/editar/'.$id_usuario); // ruta a formulario de edición
+           
             return;
         }
 

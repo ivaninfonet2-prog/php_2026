@@ -9,14 +9,18 @@ class Usuario_modelo extends CI_Model
         $this->load->database();
     }
 
+    // =========================
+    // REGISTRAR USUARIO
+    // =========================
     public function registrar_usuario($data)
     {
-        $data['rol_id'] = 1;
-        
+        $data['rol_id'] = 1; // usuario por defecto
         return $this->db->insert('usuarios', $data);
     }
 
-    // VERIFICAR SI EXISTE USUARIO (email o dni)
+    // =========================
+    // VERIFICAR USUARIO EXISTENTE
+    // =========================
     public function verificar_usuario_existente($email, $dni)
     {
         return $this->db
@@ -28,7 +32,9 @@ class Usuario_modelo extends CI_Model
             ->num_rows() > 0;
     }
 
-    // OBTENER USUARIO POR EMAIL (LOGIN)
+    // =========================
+    // OBTENER USUARIOS
+    // =========================
     public function obtener_usuario_por_email($email)
     {
         return $this->db
@@ -37,7 +43,6 @@ class Usuario_modelo extends CI_Model
             ->row();
     }
 
-    // OBTENER USUARIO POR ID
     public function obtener_usuario_por_id($id_usuario)
     {
         return $this->db
@@ -46,13 +51,11 @@ class Usuario_modelo extends CI_Model
             ->row();
     }
 
-    // LISTAR TODOS LOS USUARIOS
     public function obtener_usuarios()
     {
         return $this->db->get('usuarios')->result();
     }
 
-    // LISTAR SOLO USUARIOS ESTÁNDAR
     public function obtener_usuarios_estandar()
     {
         return $this->db
@@ -61,15 +64,16 @@ class Usuario_modelo extends CI_Model
             ->result();
     }
 
+    // =========================
     // ACTUALIZAR USUARIO
+    // =========================
     public function actualizar_usuario($id_usuario, $data)
     {
-        // No permitir cambiar rol
+        // No permitir cambiar el rol
         unset($data['rol_id']);
 
         // Si no envían contraseña, no se actualiza
-        if (empty($data['palabra_clave'])) 
-        {
+        if (empty($data['palabra_clave'])) {
             unset($data['palabra_clave']);
         }
 
@@ -78,9 +82,33 @@ class Usuario_modelo extends CI_Model
             ->update('usuarios', $data);
     }
 
+    // =========================
+    // VALIDACIONES
+    // =========================
+    public function usuario_tiene_clientes($id_usuario)
+    {
+        return $this->db
+            ->where('usuario_id', $id_usuario) // ✔ correcto según tu BD
+            ->get('clientes')
+            ->num_rows() > 0;
+    }
+
+    // (opcional, por si luego lo necesitas)
+    public function usuario_tiene_reservas($id_usuario)
+    {
+        return $this->db
+            ->where('usuario_id', $id_usuario)
+            ->get('reservas')
+            ->num_rows() > 0;
+    }
+
+    // =========================
     // ELIMINAR USUARIO
+    // =========================
     public function eliminar_usuario($id_usuario)
     {
-        return $this->db->delete('usuarios', ['id_usuario' => $id_usuario]);
+        return $this->db
+            ->where('id_usuario', $id_usuario) // ✔ PK correcta
+            ->delete('usuarios');
     }
 }

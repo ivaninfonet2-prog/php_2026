@@ -17,7 +17,7 @@ class Login extends Seguridad
     {
          $data = 
         [
-            'titulo' => "Registrarme como Usuario",
+            'titulo' => "Loguearme para entrar",
             'fondo'  => base_url('activos/imagenes/mi_fondo.jpg'),
         ];
     
@@ -69,6 +69,6 @@ class Login extends Seguridad
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('login');
+        redirect('principal');
     }
 }
