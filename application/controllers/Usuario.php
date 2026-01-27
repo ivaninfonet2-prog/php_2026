@@ -94,16 +94,24 @@ class Usuario extends Seguridad
     {
         $this->validar_usuario(false); // false = edición
 
-        if ($this->form_validation->run() == FALSE)
+        if ($this->form_validation->run() === FALSE)
         {
-            $this->session->set_flashdata('error', validation_errors());
-           
-            redirect('usuario/editar/'.$id_usuario); // ruta a formulario de edición
-           
+            $data =
+            [
+                'titulo'     => 'Editar Usuario',
+                'fondo'      => base_url('activos/imagenes/mi_fondo.jpg'),
+                'id_usuario' => $this->session->userdata('id_usuario'),
+                'usuario'    => $this->Usuario_modelo->obtener_usuario_por_id($id_usuario),
+                'logged_in'  => true
+            ];
+
+            $this->load->view('header_footer/header_footer_administrador', $data);
+            $this->load->view('editar_usuario/body_editar_usuario', $data);
+            $this->load->view('footer_footer/footer_footer_administrador', $data);
             return;
         }
 
-        $data = 
+        $data =
         [
             'nombre'         => $this->input->post('nombre', true),
             'apellido'       => $this->input->post('apellido', true),
@@ -111,10 +119,11 @@ class Usuario extends Seguridad
         ];
 
         // Si se envió una contraseña nueva
+        
         $password = $this->input->post('password', true);
-        if (!empty($password))
+        if ( !empty($password))
         {
-            $data['palabra_clave'] = password_hash($password, PASSWORD_DEFAULT);
+            $data['palabra_clave'] = password_hash($password,PASSWORD_DEFAULT) ;
         }
 
         if ($this->Usuario_modelo->actualizar_usuario($id_usuario, $data))
@@ -129,10 +138,12 @@ class Usuario extends Seguridad
         redirect('administrador');
     }
 
+
     // ESPECTÁCULOS
     public function usuario_espectaculos()
     {
-        $data = [
+        $data = 
+        [
             'titulo'       => 'Cartelera de Espectáculos',
             'fondo'        => base_url('activos/imagenes/mi_fondo.jpg'),
             'id_usuario'   => $this->session->userdata('id_usuario'),
@@ -196,13 +207,11 @@ class Usuario extends Seguridad
         if ($es_nuevo)
         {
             $this->form_validation->set_rules('email','Email',
-                'required|valid_email|is_unique[usuarios.nombre_usuario]'
-            );
+                'required|valid_email|is_unique[usuarios.nombre_usuario]');
 
             $this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[4]');
             $this->form_validation->set_rules('password_confirm','Confirmar Contraseña',
-                'required|matches[password]'
-            );
+                'required|matches[password]');
         }
         else
         {
